@@ -34,6 +34,7 @@ Dr_3 = 100.0                                                                    
 Dr_4 = 15.0                                                                        # Radar measured Distance (Initial Seperation) (Scenario 4 : cut-in scenario)
 
 total_experiment_time = 150.0                                                      # Total experiment time in [s]
+H_total_experiment_time = 75.0                                                     # Total experiment time in [s] for Hardware
 
 Vp_1 = 18.0 * (5 / 18)                                                             # Preceeding Car Velocity in [km/hr * (5/18) = m/s]
 Vp_2 = 12.0 * (5 / 18)                                                             # Preceeding Car Velocity in [km/hr * (5/18) = m/s]
@@ -95,3 +96,8 @@ with open(stopping_velocities_distances_file_path, 'rb') as f:
     stopping_velocities_distances_rbf = pickle.load(f)
     
 threshold_throttle_cmd = 5.0                                                       # Below this throttle command, set throttle command as 0
+
+rbf_model_tcmd_to_requested_pot_file_path = os.path.join(main_internal_data_analysis_dir, 'rbf_model_tcmd_to_requested_pot.pkl')
+rbf_model_tcmd_to_requested_pot = None
+with open(rbf_model_tcmd_to_requested_pot_file_path, 'rb') as f:
+    rbf_model_tcmd_to_requested_pot = pickle.load(f)                               # This stores the rbf weights to convert tcmd to requested throttle pot
