@@ -2,7 +2,7 @@ import numpy as np
 import cvxpy as cp 
 import sys
 import os
-internal_WSM_dir = os.path.dirname(os.path.abspath('Controller.py'))
+internal_WSM_dir = os.path.dirname(os.path.abspath(__file__))
 internal_MPC_dir = os.path.abspath(os.path.join(internal_WSM_dir, '..'))
 root_dir = os.path.abspath(os.path.join(internal_MPC_dir, '..'))
 internal_CP_dir = os.path.abspath(os.path.join(root_dir, '6_Common_Paramaters'))

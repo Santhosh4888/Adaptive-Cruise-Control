@@ -2,6 +2,11 @@ import os
 import pickle
 import numpy as np
 
+main_internal_CP_dir = os.path.dirname(os.path.abspath(__file__))
+main_root_dir = os.path.abspath(os.path.join(main_internal_CP_dir, '..'))
+main_internal_data_analysis_dir = os.path.abspath(os.path.join(main_root_dir, '2_Data_Analysis'))
+main_internal_sys_identification_dir = os.path.abspath(os.path.join(main_root_dir, '3_System_Identification'))
+
 # The parameters for the PD Controller
 
 Dd = 1.0                                                                           # Desired Seperation in [m]
@@ -21,6 +26,8 @@ te = 0.9                                                                        
 
 sample_time = 0.1                                                                  # Sample time of the Radar sensor
 periodic_step = 0.1                                                                # Periodic step in seconds same as sample time
+H_periodic_step = 0.5                                                              # Periodic step for hardware
+
 Dr_1 = 10.0                                                                        # Radar measured Distance (Initial Seperation) (Scenario 1 : cut-in scenario)
 Dr_2 = 100.0                                                                       # Radar measured Distance (Initial Seperation) (Scenario 2 : Vehicle in front moving at a low speed)
 Dr_3 = 100.0                                                                       # Radar measured Distance (Initial Seperation) (Scenario 3 : coming to a complete stop)
@@ -48,32 +55,29 @@ tyre_radius = 0.265                                                             
 
 max_rpm = ego_max_v * 60 * gear_ratio / (2 * np.pi * tyre_radius)                  # Maximum rpm of ego vehicle in RPM
 
-linear_params_folder_path = r'D:\lord_of_darkness\IITM\5th_year\DDP_Final\3_System_Identification\Linear_System_Model'
-linear_params_file_path = os.path.join(linear_params_folder_path, 'linear_params.pkl')
+internal_lsm_dir = os.path.abspath(os.path.join(main_internal_sys_identification_dir, 'Linear_System_Model'))
+linear_params_file_path = os.path.join(internal_lsm_dir, 'linear_params.pkl')
 A = None
 with open(linear_params_file_path, 'rb') as f:
     A = pickle.load(f)[0]                                                          # Constant for the Linear model
 
-non_linear_params_folder_path = r'D:\lord_of_darkness\IITM\5th_year\DDP_Final\3_System_Identification\Non_Linear_System_Model'
-non_linear_params_file_path = os.path.join(non_linear_params_folder_path, 'non_linear_params.pkl')
+internal_nlsm_dir = os.path.abspath(os.path.join(main_internal_sys_identification_dir, 'Non_Linear_System_Model'))
+non_linear_params_file_path = os.path.join(internal_nlsm_dir, 'non_linear_params.pkl')
 non_linear_weights = None
 with open(non_linear_params_file_path, 'rb') as f:
     non_linear_weights = pickle.load(f)                                            # Non linear model weights
 
-slope_rpm_tcmd_folder_path = r'D:\lord_of_darkness\IITM\5th_year\DDP_Final\2_Data_Analysis'
-slope_rpm_tcmd_file_path = os.path.join(slope_rpm_tcmd_folder_path, 'slope_rpm_tcmd.pkl')
+slope_rpm_tcmd_file_path = os.path.join(main_internal_data_analysis_dir, 'slope_rpm_tcmd.pkl')
 slope_rpm_tcmd = None
 with open(slope_rpm_tcmd_file_path, 'rb') as f:
     slope_rpm_tcmd = pickle.load(f)[0]                                             # The slope of the line relating Motor rpm to throttle command
-    
-scaler_folder_path = r'D:\lord_of_darkness\IITM\5th_year\DDP_Final\3_System_Identification\Non_Linear_System_Model'
-scaler_file_path = os.path.join(scaler_folder_path, 'scaler.pkl')
+
+scaler_file_path = os.path.join(internal_nlsm_dir, 'scaler.pkl')
 scaler = None
 with open(scaler_file_path, 'rb') as f:
     scaler = pickle.load(f)                                                        # Scaler for storing MINMAXSCALER values 
-    
-neural_network_params_folder_path = r'D:\lord_of_darkness\IITM\5th_year\DDP_Final\3_System_Identification\Non_Linear_System_Model'
-neural_network_params_file_path = os.path.join(neural_network_params_folder_path, 'Neural_network_params.pkl')
+
+neural_network_params_file_path = os.path.join(internal_nlsm_dir, 'Neural_network_params.pkl')
 neural_network_params = None
 with open(neural_network_params_file_path, 'rb') as f:
     neural_network_params = pickle.load(f)                                         # Params of neural network
@@ -85,8 +89,7 @@ velocity_to_rpm_ratio = 60 * gear_ratio / (2 * np.pi * tyre_radius)             
 safety_factor = 0.9
 i_safety_factor = 1.1
 
-stopping_velocities_distances_folder_path = r'D:\lord_of_darkness\IITM\5th_year\DDP_Final\2_Data_Analysis'
-stopping_velocities_distances_file_path = os.path.join(stopping_velocities_distances_folder_path, 'stopping_velocities_distances.pkl')
+stopping_velocities_distances_file_path = os.path.join(main_internal_data_analysis_dir, 'stopping_velocities_distances.pkl')
 stopping_velocities_distances_rbf = None
 with open(stopping_velocities_distances_file_path, 'rb') as f:
     stopping_velocities_distances_rbf = pickle.load(f)
