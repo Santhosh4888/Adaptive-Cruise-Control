@@ -1,0 +1,230 @@
+
+% Simulation a scenario where the controller sees the obstacle at a distance of 100m
+% sensor and systems reaction combined takes whole 3sec and
+% after that vehicle starts decelerating at set max value.
+% The simulation is done on data driven model. 
+%% Here PD CONTROLLER is used to test the algorithm on the LINEAR SYSTEM MODEL.
+clc;
+clear all;
+close all;
+
+% Parameters
+v_lead = 0;             % Obstacle velocity(m/s)
+dis_min = 1;            % Desired minimum safe distance at complete stop(m)
+Kp = 0.28;               % Proportional gain
+Kd = 2 * sqrt(Kp);      % Derivative gain
+
+% Initial conditions
+v_ego = 0;              % Initial speed of following vehicle (m/s)
+v_max_ego = 5.56;       % Maximum velocity of the ego vehicle
+x_lead = 300;           % position of the obstacle (m)
+x_ego = 0;              % Initial position of ego vehicle (m)
+dt = 0.1;                % Time step (s)
+t_end = 500;            % Simulation end time (s)
+a_max = 1.4;            % Maximum acceleration of the ego (m/s²)
+d_max = -3.5;           % Maximum deceleration of the ego (m/s²)
+jerk_limit = 3;         % Maximum jerk of the vehicle (m/s³)
+a_current = 0;          % Current acceleration of the vehicle
+d_detection = 100;      % distance at which the lead object/obstacle detected (m)
+
+% Time delay settings
+delay_counter = 0;      % Counter to track the time delay
+time_delay = 3;         % 3 seconds delay
+delay_steps = time_delay / dt; % Number of steps for delay
+d_safe = 0;
+
+%Parameters for linear model 
+R_Vel = 0;
+S_Vel = 0;
+M = 0.202;
+
+% Time array
+time = 0:dt:t_end;
+n = length(time);
+
+% Non-linear eqn constants
+A = 1.096;              % Parameter A
+B = 0.448;              % Parameter B
+C = -1.496*10^-5;       % Parameter C
+D = -1.044;             % Parameter D
+E = 0.972;              % Parameter E
+
+% Preallocate arrays for distance, speed, and position
+d_array_2 = zeros(1, n);
+v_ego_array_2 = zeros(1, n);
+x_ego_array_2 = zeros(1, n);
+v_lead_array_2 = zeros(1, n);
+x_lead_array_2 = zeros(1, n);
+a_ego_array_2 = zeros(1, n);
+error_array_2 = zeros(1,n);
+R_Vel_array = zeros(1,n);
+
+
+% Simulation loop
+for i = 1:n
+    % Calculate the current distance to the lead vehicle
+    d = x_lead - x_ego;
+
+    if d < d_detection %distance at which ego detects the lead vehicle/obstacle
+
+        % Time delay handling
+        if delay_counter < delay_steps
+            error = 0;  % Speed mode 
+            error_dot = v_max_ego - v_ego;  % Rate of change of error
+        else
+            % Safe distance mode
+            d_safe = dis_min + 2 * v_ego;
+            error = d - d_safe; % (current distance - desired safe distance )
+            error_dot = v_lead - v_ego;   % Rate of change of error
+        end
+        
+        % PD control: calculate the desired acceleration
+        a_ego = Kp * error + Kd * error_dot;
+
+        %Implementing the Physical Constraints
+        % Apply jerk limit to acceleration
+        if (a_ego - a_current) / dt > jerk_limit
+            a_ego = a_current + jerk_limit * dt;
+        elseif (a_ego - a_current) / dt < -jerk_limit
+            a_ego = a_current - jerk_limit * dt;
+        end
+        
+        % Limit acceleration and deceleration between lower and upper bound
+        if a_ego > a_max
+            a_ego = a_max;
+        elseif a_ego < d_max
+            a_ego = d_max;
+        end
+        
+        % Update the speed of the ego vehicle
+        R_Vel = v_ego + (a_ego/M); % linear system model
+
+        % Limit the speed of the ego vehicle to the maximum speed and minimum speed
+        if R_Vel > v_max_ego
+            R_Vel = v_max_ego;
+        elseif R_Vel < 0;
+            R_Vel = 0;
+        end
+
+        %t_cmd = (R_Vel * 100)/v_max_ego
+       
+        S_Vel = v_ego + M*(R_Vel - v_ego)*dt; % Actual velocity the vehicle achieved using linear system model
+        
+        %S_Vel = A * v_ego + B * t_cmd * (1 / (1 + exp(1000 * (-R_Vel + v_ego)))) + (C * v_ego^2 + D * v_ego + E) * dt;
+        
+        
+        % Update positions of the vehicles
+        x_lead = x_lead + v_lead * dt;
+        x_ego =  x_ego +  v_ego * dt + (0.5 * M * (R_Vel-v_ego)* dt^2);
+        
+        v_ego = S_Vel;
+        
+        % Store values
+        d_array_2(i) = d;
+        v_ego_array_2(i) = v_ego;
+        x_ego_array_2(i) = x_ego;
+        v_lead_array_2(i) = v_lead;
+        x_lead_array_2(i) = x_lead;
+        a_ego_array_2(i) = a_ego;
+        error_array_2(i) = error;
+        R_Vel_array(i) = R_Vel;
+            
+        % Update the current acceleration
+        a_current = a_ego;
+
+        % Increment delay counter
+        delay_counter = delay_counter + 1;
+    else
+        % Speed mode: the obstacle is far, so maintain max speed
+        error = 0;
+        error_dot = v_max_ego - v_ego;  % Rate of change of error
+        a_ego = Kp * error + Kd * error_dot;  % PD control for speed mode
+
+        % Apply jerk limit to acceleration
+        if (a_ego - a_current) / dt > jerk_limit
+            a_ego = a_current + jerk_limit * dt;
+        elseif (a_ego - a_current) / dt < -jerk_limit
+            a_ego = a_current - jerk_limit * dt;
+        end
+        
+        % Limit acceleration and deceleration
+        if a_ego > a_max
+            a_ego = a_max;
+        elseif a_ego < d_max
+            a_ego = d_max;
+        end
+
+        R_Vel = v_ego + (a_ego/M); % linear system model
+
+
+        % Limit the speed of the ego vehicle to the maximum speed
+        if R_Vel > v_max_ego
+            R_Vel = v_max_ego;
+        elseif R_Vel < 0;
+            R_Vel = 0;
+        end
+        %t_cmd = (R_Vel * 100)/v_max_ego
+
+
+        % Update ego vehicle speed
+        % v_ego = v_ego + a_ego * dt;
+        S_Vel = v_ego + M*(R_Vel - v_ego)*dt;  % actual  velocity the vehicle achieved using linear system model
+
+        %S_Vel = A * v_ego + B * t_cmd * (1 / (1 + exp(1000 * (R_Vel - v_ego)))) + (C * v_ego^2 + D * v_ego + E) * dt;
+
+        % Update positions
+        x_lead = x_lead + v_lead * dt;
+        x_ego =  x_ego + v_ego * dt + (0.5 * M * (R_Vel-v_ego)* dt^2);
+
+        v_ego = S_Vel;
+
+        % Store values
+        d_array_2(i) = d;
+        v_ego_array_2(i) = v_ego;
+        x_ego_array_2(i) = x_ego;
+        v_lead_array_2(i) = v_lead;
+        x_lead_array_2(i) = x_lead;
+        a_ego_array_2(i) = a_ego;
+        error_array_2(i) = error;
+        R_Vel_array(i) = R_Vel;
+
+        % Update current acceleration
+        a_current = a_ego;
+    end
+end
+
+% Plot results
+figure;
+plot(time, d_array_2);
+title('Distance to Obstacle');
+xlabel('Time (s)');
+ylabel('Distance (m)');
+grid on;
+
+figure;
+plot(time, v_ego_array_2, 'b', 'DisplayName', 'Ego Vehicle');
+hold on;
+plot(time, v_lead_array_2, 'r', 'DisplayName', 'Lead Vehicle');
+title('Vehicle Speeds');
+xlabel('Time (s)');
+ylabel('Speed (m/s)');
+legend;
+grid on;
+
+figure;
+plot(time, x_ego_array_2, 'b', 'DisplayName', 'Ego Vehicle');
+hold on;
+plot(time, x_lead_array_2, 'r', 'DisplayName', 'Lead Vehicle');
+title('Vehicle Positions');
+xlabel('Time (s)');
+ylabel('Position (m)');
+legend;
+grid on;
+
+figure;
+plot(time, a_ego_array_2, 'b', 'DisplayName', 'Ego Vehicle');
+title('Vehicle Accelerations');
+xlabel('Time (s)');
+ylabel('Acceleration (m/s²)');
+legend;
+grid on;
