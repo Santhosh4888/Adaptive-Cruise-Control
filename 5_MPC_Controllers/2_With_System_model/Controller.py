@@ -12,7 +12,7 @@ import Common_Params as CP
 
 class MPC:
     
-    def __init__(self, Np = 12, Nc = 10):
+    def __init__(self, Np = 6, Nc = 4):
         
         self.Np = Np                                         # Prediction horizon
         self.Nc = Nc                                         # Control horizon
