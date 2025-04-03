@@ -1,7 +1,6 @@
 import numpy as np
 import cvxpy as cp 
 import sys
-import System_Model as SM
 import os
 internal_HMPC_dir = os.path.dirname(os.path.abspath(__file__))
 internal_HT_dir = os.path.abspath(os.path.join(internal_HMPC_dir, '..'))
@@ -21,9 +20,6 @@ class MPC:
         self.control_dim = 1                                 # Control just has the acceleration of the ego vehicle
         self.desired_speed = CP.ego_max_v                    # Obstacle velocity of the vehicle
         self.a_curr = 0.0                                    # Current acceleration of the vehicle
-        self.sim_sys_model = SM.System()
-        self.sim_sys_model.load_state_dict(CP.non_linear_weights)
-        self.sim_sys_model.reset_seq()
             
     def get_acceleration(self, ego_values, preceeding_values = None):
         
