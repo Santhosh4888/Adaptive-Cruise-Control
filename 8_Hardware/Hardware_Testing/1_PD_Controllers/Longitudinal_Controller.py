@@ -8,7 +8,7 @@ internal_H_dir = os.path.abspath(os.path.join(internal_HT_dir, '..'))
 root_dir = os.path.abspath(os.path.join(internal_H_dir, '..'))
 internal_CP_dir = os.path.abspath(os.path.join(root_dir, '6_Common_Paramaters'))
 sys.path.append(internal_CP_dir)
-import Common_Params as CP
+import H_Common_Params as CP
 
 class VLC:                                                                             # Vehicle Longitudinal Controller
     
