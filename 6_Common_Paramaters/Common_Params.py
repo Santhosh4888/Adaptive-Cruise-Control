@@ -1,6 +1,7 @@
 import os
 import pickle
 import numpy as np
+from scipy.interpolate import Rbf
 
 main_internal_CP_dir = os.path.dirname(os.path.abspath(__file__))
 main_root_dir = os.path.abspath(os.path.join(main_internal_CP_dir, '..'))
@@ -91,13 +92,15 @@ safety_factor = 0.9
 i_safety_factor = 1.1
 
 stopping_velocities_distances_file_path = os.path.join(main_internal_data_analysis_dir, 'stopping_velocities_distances.pkl')
-stopping_velocities_distances_rbf = None
+stopping_velocities_distances_rbf, stopping_velocities_distances_rbf_data = None, None
 with open(stopping_velocities_distances_file_path, 'rb') as f:
-    stopping_velocities_distances_rbf = pickle.load(f)
+    stopping_velocities_distances_rbf_data = pickle.load(f)
+stopping_velocities_distances_rbf = Rbf(stopping_velocities_distances_rbf_data['x'], stopping_velocities_distances_rbf_data['y'], function = stopping_velocities_distances_rbf_data['function'])
     
 threshold_throttle_cmd = 5.0                                                       # Below this throttle command, set throttle command as 0
 
 rbf_model_tcmd_to_requested_pot_file_path = os.path.join(main_internal_data_analysis_dir, 'rbf_model_tcmd_to_requested_pot.pkl')
-rbf_model_tcmd_to_requested_pot = None
+rbf_model_tcmd_to_requested_pot, rbf_model_tcmd_to_requested_pot_data = None, None
 with open(rbf_model_tcmd_to_requested_pot_file_path, 'rb') as f:
-    rbf_model_tcmd_to_requested_pot = pickle.load(f)                               # This stores the rbf weights to convert tcmd to requested throttle pot
+    rbf_model_tcmd_to_requested_pot_data = pickle.load(f)                          # This stores the rbf weights to convert tcmd to requested throttle pot
+rbf_model_tcmd_to_requested_pot = Rbf(rbf_model_tcmd_to_requested_pot_data['x'], rbf_model_tcmd_to_requested_pot_data['y'], function = rbf_model_tcmd_to_requested_pot_data['function'])
