@@ -59,6 +59,7 @@ class Communication:
         
         with open(self.file_path, 'w', newline='') as file:
             writer = csv.writer(file)
+            writer.writerow(['Sensor Reading'])
             writer.writerows([[item] for item in self.store_position])  # Save as column
         rospy.loginfo('The test is over, vehicle is shutting down')
         rospy.signal_shutdown('Shutting down .....')           
