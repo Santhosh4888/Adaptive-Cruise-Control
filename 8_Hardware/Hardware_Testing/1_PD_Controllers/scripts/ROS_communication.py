@@ -3,6 +3,8 @@ import rospy
 from std_msgs.msg import Float32
 import H_Common_Params as CP
 import Longitudinal_Controller as LC
+import csv
+import os
 
 class Communication:
     
@@ -16,6 +18,9 @@ class Communication:
         self.cur_time = None
         self.VLC = LC.VLC()                                                                      # Getting the vehicle Longitudinal controller
         self.longitudinal_control_pub = None
+        self.store_position = [self.ego_pos]
+        self.save_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
+        self.file_path = os.path.join(self.save_dir, 'ego_pos.csv')
         
     def start_vehicle(self):
         
@@ -40,6 +45,7 @@ class Communication:
         self.ego_pos += self.ego_vel * (rospy.Time.now() - self.cur_time).to_sec()               # Estimating the separation travelled in the time at which the data is given
         self.ego_vel = msg.data * 5 / 18                                                         # For converting the data to m/s from km/hr
         self.cur_time = rospy.Time.now()
+        self.store_position.append(self.ego_pos)
         self.VLC.get_control_action([self.ego_pos, self.ego_vel], [self.obs_pos, self.obs_vel])
         rospy.loginfo(f'The control signal is : {self.VLC.throttle_pot} V')
         if self.obs_pos >= self.ego_pos + CP.Dd:
@@ -51,6 +57,10 @@ class Communication:
         
         rospy.loginfo('The test is over, vehicle is shutting down')
         rospy.signal_shutdown('Shutting down .....')           
+        with open(self.file_path, 'w', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerows([[item] for item in self.store_position])  # Save as column
+        
         
     def emergency_break(self):
         
