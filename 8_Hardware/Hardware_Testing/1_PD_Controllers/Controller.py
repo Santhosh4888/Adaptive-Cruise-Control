@@ -1,12 +1,4 @@
 import numpy as np
-import sys
-import os
-internal_HPDC_dir = os.path.dirname(os.path.abspath(__file__))
-internal_HT_dir = os.path.abspath(os.path.join(internal_HPDC_dir, '..'))
-internal_H_dir = os.path.abspath(os.path.join(internal_HT_dir, '..'))
-root_dir = os.path.abspath(os.path.join(internal_H_dir, '..'))
-internal_CP_dir = os.path.abspath(os.path.join(root_dir, '6_Common_Paramaters'))
-sys.path.append(internal_CP_dir)
 import H_Common_Params as CP
 
 class PID_Controller:                                                  

@@ -1,14 +1,6 @@
 import numpy as np
-import sys 
-import os
 import rospy
 from std_msgs.msg import Float32
-internal_HMPC_dir = os.path.dirname(os.path.abspath(__file__))
-internal_HT_dir = os.path.abspath(os.path.join(internal_HMPC_dir, '..'))
-internal_H_dir = os.path.abspath(os.path.join(internal_HT_dir, '..'))
-root_dir = os.path.abspath(os.path.join(internal_H_dir, '..'))
-internal_CP_dir = os.path.abspath(os.path.join(root_dir, '6_Common_Paramaters'))
-sys.path.append(internal_CP_dir)
 import H_Common_Params as CP
 import Longitudinal_Controller as LC
 
