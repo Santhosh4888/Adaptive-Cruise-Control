@@ -3,8 +3,8 @@ import pickle
 import numpy as np
 from scipy.interpolate import Rbf
 
-main_internal_PDC_dir = os.path.dirname(os.path.abspath(__file__))
-main_internal_data_dir = os.path.abspath(os.path.join(main_internal_PDC_dir, 'data'))
+main_internal_MPC_dir = os.path.dirname(os.path.abspath(__file__))
+main_internal_data_dir = os.path.abspath(os.path.join(main_internal_MPC_dir, 'data'))
 
 # The parameters for the PD Controller
 
