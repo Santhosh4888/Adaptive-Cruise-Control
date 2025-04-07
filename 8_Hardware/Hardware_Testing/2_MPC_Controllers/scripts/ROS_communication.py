@@ -57,12 +57,11 @@ class Communication:
         
     def vehicle_shutdown_callback(self, event):
         
-        rospy.loginfo('The test is over, vehicle is shutting down')
-        rospy.signal_shutdown('Shutting down .....')           
         with open(self.file_path, 'w', newline='') as file:
             writer = csv.writer(file)
             writer.writerows([[item] for item in self.store_position])  # Save as column
-        
+        rospy.loginfo('The test is over, vehicle is shutting down')
+        rospy.signal_shutdown('Shutting down .....')           
         
     def emergency_break(self):
         
