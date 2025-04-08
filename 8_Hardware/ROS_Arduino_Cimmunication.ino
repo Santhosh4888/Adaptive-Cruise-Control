@@ -67,14 +67,16 @@ ros::NodeHandle nh;
 std_msgs::Float32 vel_msg;
 
 // Publisher Node Initialization
-ros::Publisher velocity_pub("velocity_feedback", &vel_msg, 1);
+ros::Publisher velocity_pub("/velocity_feedback", &vel_msg, 1);
 
 void motorCommandCallback(const std_msgs::Float32 &msg) {
   desired_voltage = msg.data;
+  Serial.print("Received motor command from Python: ");
+  Serial.println(desired_voltage);
 }
 
 // Subsciber Node Initialization
-ros::Subscriber<std_msgs::Float32> motor_sub("motor_command", &motorCommandCallback, 1);
+ros::Subscriber<std_msgs::Float32> motor_sub("/motor_command", &motorCommandCallback, 1);
 
 void clear_receive_buffer() {
   while (CAN.available()) {
@@ -205,14 +207,29 @@ void read_params() {
 }
 
 void setup() { 
+  
+  pinMode(LED_BUILTIN, OUTPUT);
   pinMode(A0, OUTPUT);
+  Serial.begin(115200);
+  
   
   nh.getHardware()->setBaud(115200);
   nh.initNode();
+  delay(1000);
   nh.subscribe(motor_sub);
   nh.advertise(velocity_pub);
-  
-  jrkSerial.begin(9600);
+
+  delay(1000);
+  //jrkSerial.begin(9600);
+
+    // Wait for ROS connection
+  while (!nh.connected()) {
+    nh.spinOnce();
+    Serial.println("Waiting for ROS connection...");
+    delay(100);
+  }
+
+  Serial.println("ROS connected!");
 
   if (!CAN.begin(CAN_BITRATE)) {
     while (true) {
@@ -256,10 +273,17 @@ void loop() {
   
   receive_sdo_upload_monitor();
   
-  vel_msg.data = monitorindices_values[5];
-  velocity_pub.publish(&vel_msg);
+
   
   nh.spinOnce();
+  
+  if (!nh.connected()) {
+    // Optional: indicate disconnected state with an LED
+    return;  // Skip publishing until connection is ready
+  }
+  
+  vel_msg.data = monitorindices_values[5];
+  velocity_pub.publish(&vel_msg);
   
   if (millis() - start_time <= test_time) {
     desired_voltage = constrain(desired_voltage, 0.5, 4.5);
