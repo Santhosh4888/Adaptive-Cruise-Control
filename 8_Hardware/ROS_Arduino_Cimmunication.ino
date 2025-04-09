@@ -45,6 +45,21 @@ float const readindices_scaling[] = {1, 1, 30.0/3000, 30.0/30000, 30.0/30000, 10
 int const readindices_length = sizeof(read_indices)/sizeof(read_indices[0]);
 float readindices_values[readindices_length] = {};
 
+const char* read_indices_names[] = {
+  "OD_MaxSpeed",      // Index 0
+  "OD_MaxSpCont",     // Index 1
+  "OD_AccelRate",     // Index 2
+  "OD_DecelRate",     // Index 3
+  "OD_BrakeRate",     // Index 4
+  "OD_DriveCurrL",    // Index 5
+  "OD_RegenCurrL",    // Index 6
+  "OD_ForwardDB",     // Index 7
+  "OD_ForwardMap",    // Index 8
+  "OD_ForwardMax",    // Index 9
+  "OD_ForwardOff",    // Index 10
+  "OD_SpeedToRPM"     // Index 11
+};
+
 uint16_t const monitor_indices[] = {OD_MotorRPM, OD_ThrottlePot, OD_ThrottleCmd, OD_CurrentRMS, OD_RegenState, OD_VehSpeed, OD_VehDist, OD_VehAccel, OD_MasterTime};
 float const monitorindices_scaling[] = {1, 5.5/36044, 100.0/32767, 0.1, 1, 0.1, 0.1, 10.0/10000, 0.1};
 int const monitorindices_length = sizeof(monitor_indices)/sizeof(monitor_indices[0]);
@@ -63,8 +78,6 @@ unsigned long test_time = 30000;
 
 // -------------------- ROS Setup --------------------
 ros::NodeHandle nh;
-std_msgs::Float32 vel_msg;
-ros::Publisher velocity_pub("/velocity_feedback", &vel_msg, 1);
 
 void motorCommandCallback(const std_msgs::Float32 &msg) {
   desired_voltage = msg.data;
@@ -73,6 +86,14 @@ void motorCommandCallback(const std_msgs::Float32 &msg) {
 }
 
 ros::Subscriber<std_msgs::Float32> motor_sub("/motor_command", &motorCommandCallback, 1);
+
+
+std_msgs::Float32 vel_msg;
+ros::Publisher velocity_pub("/velocity_feedback", &vel_msg, 10);
+
+
+
+
 
 // -------------------- CAN Functions --------------------
 void clear_receive_buffer() {
@@ -134,11 +155,30 @@ void read_params() {
     receive_sdo_upload_array(read_indices, readindices_scaling, readindices_values, readindices_length);
   }
 
+
+  // Log all read parameters
+  nh.loginfo("-------------------");
+  nh.loginfo("Read Parameters:");
+  for (int i = 0; i < readindices_length; ++i) {
+    char log_msg[60]; // Buffer to hold the log message
+    snprintf(
+      log_msg, sizeof(log_msg),
+      "%s (0x%04X): %.2f",
+      read_indices_names[i],    // Parameter name (e.g., "OD_MaxSpeed")
+      read_indices[i],          // OD index in hex (e.g., 0x3840)
+      readindices_values[i]     // Scaled value (e.g., 5000.00 RPM)
+    );
+    nh.loginfo(log_msg);
+  }
+  nh.loginfo("-------------------");
+
   max_rpm = readindices_values[0];
   deadband_voltage = readindices_values[7];
   map_setting = readindices_values[8];
   voltage_max = readindices_values[9];
   offset = readindices_values[10];
+
+
 
   if (max_rpm <= 0 || voltage_max <= 0) {
     nh.loginfo("Invalid read parameters. Halting.");
@@ -151,7 +191,7 @@ void read_params() {
 
 // -------------------- Setup --------------------
 void setup() {
-  pinMode(LED_BUILTIN, OUTPUT);
+  //pinMode(LED_BUILTIN, OUTPUT);
   pinMode(A0, OUTPUT);
   //Serial.begin(115200);
   jrkSerial.begin(9600);
@@ -161,9 +201,10 @@ void setup() {
   nh.initNode();
   delay(1000);
   
-  nh.loginfo("Waiting for ROS...");
+  
   
   while (!nh.connected()) {
+    nh.loginfo("Waiting for ROS...");
     nh.spinOnce();
     delay(1000);
   }
@@ -171,12 +212,12 @@ void setup() {
 
   nh.subscribe(motor_sub);
   nh.advertise(velocity_pub);
-  for (int i = 0; i < 30 ; i++) {
+  for (int i = 0; i < 50 ; i++) {
     nh.spinOnce();
     delay(100);
   }
 
-  // CAN init
+  // CAN initialization
   if (!CAN.begin(CAN_BITRATE)) {
     nh.loginfo("CAN init failed!");
     while (true) {
@@ -211,33 +252,40 @@ void loop() {
   nh.spinOnce();
 
   if (!nh.connected()) {
-    nh.loginfo(" not entered loop");
+    nh.loginfo(" ROS conection lost");
   }
   else{
     static unsigned long last_pub_time = 0;
-    static bool entered = false;
-    static unsigned long topic_ready_time = 0;
-    if (!entered) {
-      nh.loginfo("Entered loop");
-      entered = true;
-      topic_ready_time = millis()+ 5000;
-      //last_pub_time = millis();
-    }
-    if (millis()  >= topic_ready_time) {
-      if (millis() - last_pub_time >= 2000) {
-        char speed_str[20];
-        dtostrf(monitorindices_values[5], 6, 2, speed_str); // converting float to string
-        nh.loginfo("Vehicle_speed : ");
-        nh.loginfo(speed_str);
-        
-        vel_msg.data = monitorindices_values[5]; // VehSpeed
-        velocity_pub.publish(&vel_msg);
-        last_pub_time = millis();
-        
+    static bool topic_configured = false;
+
+
+    // Check if the publisher is ready
+    if (!topic_configured) {
+      if (nh.connected()) { // True when topic is registered with ROS
+        topic_configured = true;
+        nh.loginfo("/velocity_feedback topic ready");
+      } else {
+        nh.loginfo("Waiting for topic configuration...");
+        delay(100);
+        return; // Skip publishing until ready
       }
+    }
+
+    // Publish every 2 seconds
+    if (millis() - last_pub_time >= 2000) {
+
+      char speed_str[20];
+      dtostrf(monitorindices_values[5], 6, 2, speed_str);
+
+      nh.loginfo("VehicleSpeed : ");
+      nh.loginfo(speed_str);
       
+      vel_msg.data = monitorindices_values[5]; // VehSpeed
+      velocity_pub.publish(&vel_msg);
+      last_pub_time = millis();
     }
   }
+ 
 
   if (millis() - start_time <= test_time) {
     desired_voltage = constrain(desired_voltage, 0.5, 4.5);
