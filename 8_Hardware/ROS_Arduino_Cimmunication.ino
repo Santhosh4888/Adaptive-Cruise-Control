@@ -251,15 +251,18 @@ void loop() {
 
   nh.spinOnce();
 
-  if (!nh.connected()) {
-    nh.loginfo(" ROS conection lost");
+  if (!nh.ok()) {
+    nh.loginfo(" Topics not configured yet !!!!! ");
   }
   else{
+    
     static unsigned long last_pub_time = 0;
+    /*
     static bool topic_configured = false;
 
 
     // Check if the publisher is ready
+    
     if (!topic_configured) {
       if (nh.connected()) { // True when topic is registered with ROS
         topic_configured = true;
@@ -269,7 +272,7 @@ void loop() {
         delay(100);
         return; // Skip publishing until ready
       }
-    }
+    }*/
 
     // Publish every 2 seconds
     if (millis() - last_pub_time >= 2000) {
