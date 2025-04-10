@@ -23,11 +23,12 @@ class Communication:
         self.store_position = [self.ego_pos]
         self.store_velocity = [self.ego_vel]
         self.save_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
-        self.file_path = os.path.join(self.save_dir, 'ego_pos.csv')
+        self.file_path = os.path.join(self.save_dir, 'ego_data.csv')
         
     def start_vehicle(self):
         
         rospy.init_node('control_node', anonymous = True)
+        print("Node Started")
         rospy.Timer(rospy.Duration(CP.H_total_experiment_time), self.vehicle_shutdown_callback, oneshot = True) # Sets the total experiment time
         self.start_time = rospy.Time.now()
         self.cur_time = rospy.Time.now()
@@ -61,10 +62,11 @@ class Communication:
         
         with open(self.file_path, 'w', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow(['Sensor_Reading', 'Velocity'])
+            writer.writerow(["Ego_Position(m)","Ego_Velocity(m/s)"])
             writer.writerows([[pos, vel] for pos, vel in zip(self.store_position, self.store_velocity)])  # Save as column
         rospy.loginfo('The test is over, vehicle is shutting down')
-        rospy.signal_shutdown('Shutting down .....')           
+        rospy.signal_shutdown('Shutting down .....')    
+        
         
     def emergency_break(self):
         

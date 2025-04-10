@@ -20,14 +20,10 @@ class Communication:
         self.cur_time = None
         self.VLC = LC.VLC()                                                                      # Getting the vehicle Longitudinal controller
         self.longitudinal_control_pub = None
-<<<<<<< HEAD
         self.store_position = [self.ego_pos]
         self.store_velocity = [self.ego_vel]
-=======
-        self.store_position = [[self.ego_pos, self.ego_vel]]                                     # Storing in the form of tuples
->>>>>>> a02f51dcc557cba84686f8476d1a37979cd9d70a
         self.save_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
-        self.file_path = os.path.join(self.save_dir, 'ego_pos.csv')
+        self.file_path = os.path.join(self.save_dir, 'ego_data.csv')
         
     def start_vehicle(self):
         
@@ -42,23 +38,19 @@ class Communication:
             
     def start_subscribers(self):     
         
-        rospy.Subscriber('velocity_feedback', Float32, self.velocity_callback, queue_size = 10)
+        rospy.Subscriber('/velocity_feedback', Float32, self.velocity_callback, queue_size = 10)
         
     def create_publishers(self):
         
-        self.longitudinal_control_pub = rospy.Publisher('motor_command', Float32, queue_size = 10)
-                
+        self.longitudinal_control_pub = rospy.Publisher('/motor_command', Float32, queue_size = 10)
+        
     def velocity_callback(self, msg):
         
         self.ego_pos += (msg.data * 5 / 18 + self.ego_vel) * (rospy.Time.now() - self.cur_time).to_sec() / 2.0              # Estimating the separation travelled in the time at which the data is given
         self.ego_vel = msg.data * 5 / 18                                                                                    # For converting the data to m/s from km/hr
         self.cur_time = rospy.Time.now()
-<<<<<<< HEAD
         self.store_position.append(self.ego_pos)
         self.store_velocity.append(self.ego_vel)
-=======
-        self.store_position.append([self.ego_pos, self.ego_vel])
->>>>>>> a02f51dcc557cba84686f8476d1a37979cd9d70a
         self.VLC.get_control_action([self.ego_pos, self.ego_vel], [self.obs_pos, self.obs_vel])
         rospy.loginfo(f'The control signal is : {self.VLC.throttle_pot} V')
         if self.obs_pos >= self.ego_pos + CP.Dd:
@@ -67,19 +59,13 @@ class Communication:
             self.emergency_break()
         
     def vehicle_shutdown_callback(self, event):
-        #rospy.loginfo(self.store_position)
+        
         with open(self.file_path, 'w', newline='') as file:
             writer = csv.writer(file)
-<<<<<<< HEAD
-            writer.writerow(['Sensor_Reading', 'Velocity'])
-            writer.writerows([[pos, vel] for pos, vel in zip(self.store_position, self.store_velocity)])  # Save as column
-=======
             writer.writerow(["Ego_Position(m)","Ego_Velocity(m/s)"])
-            writer.writerows(self.store_position) 
->>>>>>> a02f51dcc557cba84686f8476d1a37979cd9d70a
+            writer.writerows([[pos, vel] for pos, vel in zip(self.store_position, self.store_velocity)])  # Save as column
         rospy.loginfo('The test is over, vehicle is shutting down')
-        rospy.signal_shutdown('Shutting down .....')           
-         # Save as column
+        rospy.signal_shutdown('Shutting down .....')    
         
         
     def emergency_break(self):
