@@ -20,7 +20,7 @@ class Communication:
         self.cur_time = None
         self.VLC = LC.VLC()                                                                      # Getting the vehicle Longitudinal controller
         self.longitudinal_control_pub = None
-        self.store_position = [[self.ego_pos, self.ego_vel]]
+        self.store_position = [[self.ego_pos, self.ego_vel]]                                     # Storing in the form of tuples
         self.save_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
         self.file_path = os.path.join(self.save_dir, 'ego_pos.csv')
         
