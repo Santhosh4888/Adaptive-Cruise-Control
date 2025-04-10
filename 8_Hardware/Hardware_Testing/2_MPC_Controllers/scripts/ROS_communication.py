@@ -21,6 +21,7 @@ class Communication:
         self.VLC = LC.VLC()                                                                      # Getting the vehicle Longitudinal controller
         self.longitudinal_control_pub = None
         self.store_position = [self.ego_pos]
+        self.store_velocity = [self.ego_vel]
         self.save_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
         self.file_path = os.path.join(self.save_dir, 'ego_pos.csv')
         
@@ -44,10 +45,11 @@ class Communication:
         
     def velocity_callback(self, msg):
         
-        self.ego_pos += self.ego_vel * (rospy.Time.now() - self.cur_time).to_sec()               # Estimating the separation travelled in the time at which the data is given
-        self.ego_vel = msg.data * 5 / 18                                                         # For converting the data to m/s from km/hr
+        self.ego_pos += (msg.data * 5 / 18 + self.ego_vel) * (rospy.Time.now() - self.cur_time).to_sec() / 2.0              # Estimating the separation travelled in the time at which the data is given
+        self.ego_vel = msg.data * 5 / 18                                                                                    # For converting the data to m/s from km/hr
         self.cur_time = rospy.Time.now()
         self.store_position.append(self.ego_pos)
+        self.store_velocity.append(self.ego_vel)
         self.VLC.get_control_action([self.ego_pos, self.ego_vel], [self.obs_pos, self.obs_vel])
         rospy.loginfo(f'The control signal is : {self.VLC.throttle_pot} V')
         if self.obs_pos >= self.ego_pos + CP.Dd:
@@ -59,8 +61,8 @@ class Communication:
         
         with open(self.file_path, 'w', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow(['Sensor_Reading'])
-            writer.writerows([[item] for item in self.store_position])  # Save as column
+            writer.writerow(['Sensor_Reading', 'Velocity'])
+            writer.writerows([[pos, vel] for pos, vel in zip(self.store_position, self.store_velocity)])  # Save as column
         rospy.loginfo('The test is over, vehicle is shutting down')
         rospy.signal_shutdown('Shutting down .....')           
         
