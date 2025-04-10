@@ -190,15 +190,13 @@ void read_params() {
 
 // -------------------- Setup --------------------
 void setup() {
-  //pinMode(LED_BUILTIN, OUTPUT);
   pinMode(A0, OUTPUT);
-  //Serial.begin(115200);
   jrkSerial.begin(9600);
   
   nh.initNode();
+  
   // Wait for ROS connection first
   nh.getHardware()->setBaud(115200);
-  
   delay(1000);
 
   while (!nh.connected()) {
@@ -251,14 +249,13 @@ void loop() {
 //  nh.spinOnce();
 
   if (!nh.connected()) {
-    nh.loginfo(" ROS conection lost");
+    nh.loginfo(" ROS connection lost");
   }
   else{
     static unsigned long last_pub_time = 0;
     static bool topic_configured = false;
-
-
-    // Check if the publisher is ready
+    
+    // Checking if the publisher is ready. Enters loop only if the publisher is not configured
     if (!topic_configured) {
       if (nh.connected()) { // True when topic is registered with ROS
         topic_configured = true;
@@ -271,20 +268,9 @@ void loop() {
       }
     } 
 
-//   for (int i=0; i<50; i++ ){
-//      nh.spinOnce();
-//      if (nh.connected()){
-//        nh.loginfo(" Velocity feedback topic is ready ");
-//        break;
-//      }
-//      nh.loginfo("waiting for velocity feedback topic ");
-//      delay(100);
-//      //return;
-//    }
-
-    // Publish every 2 seconds
+    // Publishing every 2 seconds
     if (millis() - last_pub_time >= 2000) {
-
+      
       char speed_str[20];
       dtostrf(monitorindices_values[5], 6, 2, speed_str);
 
