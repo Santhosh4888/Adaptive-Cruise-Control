@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
 import re
+import os
 import pandas as pd 
 import matplotlib.pyplot as plt
 
-log_file_path = 'log.txt' #Actual file path will be added later
+script_dir = os.path.dirname(os.path.abspath(__file__)
+log_file_path = os.path.join(current_dir, 'Data_3') #Actual file path will be added later
 
 print("Opening  log file...")
 with open(log_file_path, 'r') as file:
@@ -48,7 +50,7 @@ df = pd.DataFrame({
     'Distance (m)': distances
 })
 
-csv_file_path = 'output.csv' #Actual file path will be added later
+csv_file_path = os.path.join(current_dir, 'log_data_3.csv' #Actual file path will be added later
 df.to_csv(csv_file_path, index=False)
 print(f"Data saved to {csv_file_path}.")
 
