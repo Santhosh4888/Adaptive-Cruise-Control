@@ -37,7 +37,7 @@ Dr_4 = 15.0                                                                     
 total_experiment_time = 150.0                                                      # Total experiment time in [s]
 H_total_experiment_time = 75.0                                                     # Total experiment time in [s] for Hardware
 
-Vp_1 = 18.0 * (5 / 18)                                                             # Preceeding Car Velocity in [km/hr * (5/18) = m/s]
+Vp_1 = 16.0 * (5 / 18)                                                             # Preceeding Car Velocity in [km/hr * (5/18) = m/s]
 Vp_2 = 12.0 * (5 / 18)                                                             # Preceeding Car Velocity in [km/hr * (5/18) = m/s]
 Vp_3 = 0.0 * (5 / 18)                                                              # Preceeding Car Velocity in [km/hr * (5/18) = m/s]
 Vp_4 = 12.0 * (5 / 18)                                                             # Preceeding Car Velocity in [km/hr * (5/18) = m/s]      # Minimum possible speed is 17 km/hr
