@@ -17,7 +17,7 @@ Tbl = 3.0                                                                       
 Vr = 0.0                                                                           # Desired Relative Velocity [m/s]
 a_max = 1.4                                                                        # Maximum acceleration [m/s^2]
 a_min = -3.5                                                                       # Minimum deceleration [m/s^2]
-acc_Jerk_limit = 3.0                                                               # Jerk limit for acceleration [m/s^3]
+acc_Jerk_limit = 1.5                                                               # Jerk limit for acceleration [m/s^3]
 dec_Jerk_limit = -3.0                                                              # Jerk limit for deceleration [m/s^3] 
 
 GVW = 680                                                                          # Gross vehicle weight of vehicle is 680 kg
