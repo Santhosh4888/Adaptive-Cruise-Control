@@ -15,7 +15,7 @@ class Communication:
         self.ego_vel = 0.0                                                                       # Velocity of ego vehicle in m/s
         self.ego_pos = 0.0                                                                       # Position of ego vehicle in meters, estimated for now, once LIDAR sensor is ready, this will be obtained directly from it
         self.obs_vel = 0.0                                                                       # Velocity of obstacle vehicle in m/s, given for now, once RADAR sensor is ready, this will be obtained directly from it 
-        self.obs_pos = 75.0                                                                      # Position of obstacle vehicle in meters, given for now, once LIDAT sensor is ready, this will be obtained directly from it
+        self.obs_pos = 100.0                                                                      # Position of obstacle vehicle in meters, given for now, once LIDAT sensor is ready, this will be obtained directly from it
         self.start_time = None
         self.cur_time = None
         self.VLC = LC.VLC()                                                                      # Getting the vehicle Longitudinal controller
@@ -23,7 +23,7 @@ class Communication:
         self.store_position = [self.ego_pos]
         self.store_velocity = [self.ego_vel]
         self.save_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
-        self.file_path = os.path.join(self.save_dir, 'ego_data.csv')
+        self.file_path = os.path.join(self.save_dir, 'data_april15_mpc_4.csv')
         
     def start_vehicle(self):
         
@@ -46,8 +46,8 @@ class Communication:
         
     def velocity_callback(self, msg):
         
-        self.ego_pos += (msg.data * 5 / 18 + self.ego_vel) * (rospy.Time.now() - self.cur_time).to_sec() / 2.0              # Estimating the separation travelled in the time at which the data is given
-        self.ego_vel = msg.data * 5 / 18                                                                                    # For converting the data to m/s from km/hr
+        self.ego_pos += self.ego_vel * (rospy.Time.now() - self.cur_time).to_sec()               # Estimating the separation travelled in the time at which the data is given
+        self.ego_vel = msg.data * 5 / 18                                                         # For converting the data to m/s from km/hr
         self.cur_time = rospy.Time.now()
         self.store_position.append(self.ego_pos)
         self.store_velocity.append(self.ego_vel)
@@ -59,15 +59,14 @@ class Communication:
             self.emergency_break()
         
     def vehicle_shutdown_callback(self, event):
+        rospy.loginfo(f'{self.store_position}')
         
         with open(self.file_path, 'w', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(["Ego_Position(m)","Ego_Velocity(m/s)"])
             writer.writerows([[pos, vel] for pos, vel in zip(self.store_position, self.store_velocity)])  # Save as column
         rospy.loginfo('The test is over, vehicle is shutting down')
-        rospy.signal_shutdown('Shutting down .....')    
-        
-        
+        rospy.signal_shutdown('Shutting down .....') 
     def emergency_break(self):
         
         rospy.logwarn('Emergency brake activated !!!!')
