@@ -30,7 +30,7 @@ class VLC:                                                                      
     def get_control_action(self, ego_values, preceeding_values):                                 # ego_values = [ego_pos, ego_vel], preceeding_values = [obs_pos, obs_vel]
         
         a = self.controller.get_acceleration(ego_values, preceeding_values)                      # Getting control action from the controller
-        req_vel = max(0.0, min(CP.ego_max_v, self.ego_values[1] + a / CP.A))                     # Calculating required velocity from the acceleration
+        req_vel = max(0.0, min(CP.ego_max_v, ego_values[1] + a / CP.A))                          # Calculating required velocity from the acceleration
         throttle_cmd = self.get_throttle_cmd(self.velocity_to_rpm(req_vel))                      # Calculating throttle command from required velocity
         if throttle_cmd <= CP.threshold_throttle_cmd:                                            # Restricting throttle command below 5 percent to zero
             throttle_cmd = 0.0

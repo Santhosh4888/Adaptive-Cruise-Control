@@ -1,12 +1,13 @@
+#!/usr/bin/env python3
+
 import os
 import pickle
 import numpy as np
 from scipy.interpolate import Rbf
 
-main_internal_CP_dir = os.path.dirname(os.path.abspath(__file__))
-main_root_dir = os.path.abspath(os.path.join(main_internal_CP_dir, '..'))
-main_internal_data_analysis_dir = os.path.abspath(os.path.join(main_root_dir, '2_Data_Analysis'))
-main_internal_sys_identification_dir = os.path.abspath(os.path.join(main_root_dir, '3_System_Identification'))
+main_internal_scripts_dir = os.path.dirname(os.path.abspath(__file__))
+main_internal_PDC_dir = os.path.abspath(os.path.join(main_internal_scripts_dir, '..'))
+main_internal_data_dir = os.path.abspath(os.path.join(main_internal_PDC_dir, 'data'))
 
 # The parameters for the PD Controller
 
@@ -57,13 +58,12 @@ tyre_radius = 0.265                                                             
 
 max_rpm = ego_max_v * 60 * gear_ratio / (2 * np.pi * tyre_radius)                  # Maximum rpm of ego vehicle in RPM
 
-internal_lsm_dir = os.path.abspath(os.path.join(main_internal_sys_identification_dir, 'Linear_System_Model'))
-linear_params_file_path = os.path.join(internal_lsm_dir, 'linear_params.pkl')
+linear_params_file_path = os.path.join(main_internal_data_dir, 'linear_params.pkl')
 A = None
 with open(linear_params_file_path, 'rb') as f:
     A = pickle.load(f)[0]                                                          # Constant for the Linear model
 
-slope_rpm_tcmd_file_path = os.path.join(main_internal_data_analysis_dir, 'slope_rpm_tcmd.pkl')
+slope_rpm_tcmd_file_path = os.path.join(main_internal_data_dir, 'slope_rpm_tcmd.pkl')
 slope_rpm_tcmd = None
 with open(slope_rpm_tcmd_file_path, 'rb') as f:
     slope_rpm_tcmd = pickle.load(f)[0]                                             # The slope of the line relating Motor rpm to throttle command 
@@ -75,7 +75,7 @@ i_safety_factor = 1.1
     
 threshold_throttle_cmd = 5.0                                                       # Below this throttle command, set throttle command as 0
 
-rbf_model_tcmd_to_requested_pot_file_path = os.path.join(main_internal_data_analysis_dir, 'rbf_model_tcmd_to_requested_pot.pkl')
+rbf_model_tcmd_to_requested_pot_file_path = os.path.join(main_internal_data_dir, 'rbf_model_tcmd_to_requested_pot.pkl')
 rbf_model_tcmd_to_requested_pot, rbf_model_tcmd_to_requested_pot_data = None, None
 with open(rbf_model_tcmd_to_requested_pot_file_path, 'rb') as f:
     rbf_model_tcmd_to_requested_pot_data = pickle.load(f)                          # This stores the rbf weights to convert tcmd to requested throttle pot
