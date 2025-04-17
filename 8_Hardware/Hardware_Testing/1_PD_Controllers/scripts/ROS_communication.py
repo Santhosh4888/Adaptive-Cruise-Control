@@ -15,7 +15,7 @@ class Communication:
         self.ego_vel = 0.0                                                                       # Velocity of ego vehicle in m/s
         self.ego_pos = 0.0                                                                       # Position of ego vehicle in meters, estimated for now, once LIDAR sensor is ready, this will be obtained directly from it
         self.obs_vel = 0.0                                                                       # Velocity of obstacle vehicle in m/s, given for now, once RADAR sensor is ready, this will be obtained directly from it 
-        self.obs_pos = 75.0                                                                      # Position of obstacle vehicle in meters, given for now, once LIDAT sensor is ready, this will be obtained directly from it
+        self.obs_pos = 100.0                                                                     # Position of obstacle vehicle in meters, given for now, once LIDAT sensor is ready, this will be obtained directly from it
         self.start_time = None
         self.cur_time = None
         self.VLC = LC.VLC()                                                                      # Getting the vehicle Longitudinal controller
