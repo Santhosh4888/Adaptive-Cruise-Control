@@ -22,8 +22,9 @@ class Communication:
         self.longitudinal_control_pub = None
         self.store_position = [self.ego_pos]
         self.store_velocity = [self.ego_vel]
+        self.store_time = []                                                                                                                                
         self.save_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
-        self.file_path = os.path.join(self.save_dir, 'ego_data.csv')
+        self.file_path = os.path.join(self.save_dir, 'data_april_17_pdc_1.csv')
         
     def start_vehicle(self):
         
@@ -32,6 +33,7 @@ class Communication:
         rospy.Timer(rospy.Duration(CP.H_total_experiment_time), self.vehicle_shutdown_callback, oneshot = True) # Sets the total experiment time
         self.start_time = rospy.Time.now()
         self.cur_time = rospy.Time.now()
+        self.store_time.append((self.cur_time - self.start_time).to_sec())
         self.create_publishers()
         self.start_subscribers()
         rospy.spin()
@@ -51,6 +53,7 @@ class Communication:
         self.cur_time = rospy.Time.now()
         self.store_position.append(self.ego_pos)
         self.store_velocity.append(self.ego_vel)
+        self.store_time.append((self.cur_time - self.start_time).to_sec())
         self.VLC.get_control_action([self.ego_pos, self.ego_vel], [self.obs_pos, self.obs_vel])
         rospy.loginfo(f'The control signal is : {self.VLC.throttle_pot} V')
         if self.obs_pos >= self.ego_pos + CP.Dd:
@@ -62,8 +65,8 @@ class Communication:
         
         with open(self.file_path, 'w', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow(["Ego_Position(m)","Ego_Velocity(m/s)"])
-            writer.writerows([[pos, vel] for pos, vel in zip(self.store_position, self.store_velocity)])  # Save as column
+            writer.writerow(["Ego_Position(m)","Ego_Velocity(m/s)", "Time(s)"])
+            writer.writerows([[pos, vel, time] for pos, vel, time in zip(self.store_position, self.store_velocity, self.store_time)])  # Saves as columns
         rospy.loginfo('The test is over, vehicle is shutting down')
         rospy.signal_shutdown('Shutting down .....')    
         
