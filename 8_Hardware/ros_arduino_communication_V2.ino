@@ -67,6 +67,22 @@ float const monitorindices_scaling[] = {1, 5.5/36044, 100.0/32767, 0.1, 1, 0.1, 
 int const monitorindices_length = sizeof(monitor_indices)/sizeof(monitor_indices[0]);
 float monitorindices_values[monitorindices_length] = {};
 
+const uint16_t FAST_PARAMS[] = {OD_VehSpeed, OD_MotorRPM, OD_ThrottlePot};
+float const fast_scaling[] = {0.1, 1,5.5/36044};
+const int FAST_PARAMS_LENGTH = sizeof(FAST_PARAMS)/sizeof(FAST_PARAMS[0]);
+float fast_values[FAST_PARAMS_LENGTH] = {};
+
+const uint16_t SLOW_PARAMS[] = {OD_ThrottleCmd, OD_CurrentRMS, OD_RegenState, OD_VehDist, OD_VehAccel, OD_MasterTime};
+float const slow_scalings[] = {100.0/32767,0.1, 1, 0.1, 10.0/10000, 0.1};
+const int SLOW_PARAMS_LENGTH = sizeof(SLOW_PARAMS)/sizeof(SLOW_PARAMS[0]);
+float slow_values[SLOW_PARAMS_LENGTH] = {};
+
+unsigned long last_fast_update = 0;
+const unsigned long FAST_INTERVAL = 100;
+uint8_t slow_params_index = 0;
+
+
+
 // -------------------- Global Variables --------------------
 float desired_voltage = 0;
 float max_rpm = 0;
@@ -207,13 +223,11 @@ void read_params() {
 void setup() {
   
   pinMode(A0, OUTPUT);
-  //Serial.begin(115200);
   jrkSerial.begin(9600);
   
   nh.initNode();
   // Wait for ROS connection first
   nh.getHardware()->setBaud(115200);
-  
   delay(1000);
 
   while (!nh.connected()) {
@@ -240,7 +254,7 @@ void setup() {
       delay(10);
     }
   }
-  nh.loginfo("CAN started.");
+  nh.loginfo("CAN started, Setting up parameters");
 
   // SDO setup
   if (sdo_download(OD_AccelRate, 1000) < 0 || sdo_download(OD_DecelRate, 100) < 0 || sdo_download(OD_BrakeRate, 100) < 0) {
@@ -252,17 +266,29 @@ void setup() {
   }
 
   read_params();
-  nh.loginfo("Setup completed.");
+  nh.loginfo("Setup completed, System ready");
   start_time = millis();
 }
 
 // -------------------- Loop --------------------
 void loop() {
-  static uint8_t monitor_index = 0;
+  
+  if (millis() - last_fast_update >= FAST_INTERVAL) {
+    for(int i=0; i<FAST_PARAMS_LENGTH; i++){
+      send_sdo_upload(FAST_PARAMS[i]);
+    }
+  receive_sdo_upload_array(FAST_PARAMS, monitorindices_scaling, monitorindices_values, FAST_PARAMS_LENGTH);
+  last_fast_update = millis();
 
-  send_sdo_upload(monitor_indices[monitor_index]);
-  monitor_index = (monitor_index + 1) % monitorindices_length;
-  receive_sdo_upload_array(monitor_indices, monitorindices_scaling, monitorindices_values, monitorindices_length);
+  send_sdo_upload(SLOW_PARAMS[slow_params_index]);
+  receive_sdo_upload_array(&SLOW_PARAMS[slow_params_index], slow_scalings, slow_values, 1);
+  slow_params_index = (slow_params_index + 1) % 6;
+  }
+
+//  send_sdo_upload(monitor_indices[monitor_index]);
+//  monitor_index = (monitor_index + 1) % monitorindices_length;
+//  receive_sdo_upload_array(monitor_indices, monitorindices_scaling, monitorindices_values, monitorindices_length);
+
 
   if (!nh.connected()) {
     nh.loginfo(" ROS connection lost....");
@@ -275,11 +301,12 @@ void loop() {
 
       char speed_str[20];
       dtostrf(monitorindices_values[5], 7, 3, speed_str);
+      
       char rpm_str[20];
       dtostrf(monitorindices_values[0], 9, 3, rpm_str);
 
-      char log_msg[50];
-      snprintf(log_msg, sizeof(log_msg), "Speed: %s km/h | RPM: %s", speed_str, rpm_str);
+      char log_msg[60];
+      snprintf(log_msg, sizeof(log_msg), "Speed: %s km/h | RPM: %s | Throttle: %.2f", speed_str, rpm_str, monitorindices_values[1]);
       nh.loginfo(log_msg);
 
       
@@ -291,8 +318,8 @@ void loop() {
  
 
   if (millis() - start_time < test_time) {
-    // Braking/jrk activation during testing with brake command from ros
-    if (desired_voltage < Brake_Voltage_Threshold || start_time < 10000 || brake_engaged ) {
+    // Braking/jrk activation during testing
+    if (desired_voltage < Brake_Voltage_Threshold && millis() - start_time < 10000 || brake_engaged ) {
       analogWrite(A0, 0);
       nh.loginfo("Braking activated");
       jrk.setTarget(Jrk_Brake_position);
@@ -320,5 +347,5 @@ void loop() {
     }
   }
 
-  delay(10);
+  delay(5);
 }
