@@ -61,7 +61,7 @@ class Communication:
         else:
             self.emergency_break()
         
-    def vehicle_shutdown_callback(self, event):
+    def vehicle_shutdown_callback(self):
         
         with open(self.file_path, 'w', newline='') as file:
             writer = csv.writer(file)
