@@ -285,24 +285,24 @@ void loop() {
     if (desired_voltage < Brake_Voltage_Threshold || start_time < 10000 ) {
       analogWrite(A0, 0);
       nh.loginfo("Braking activated");
-      jrk.setTarget(Jrk_Brake_Position);
+      jrk.setTarget(Jrk_Brake_position);
       delay(6000);
-      jrk.setTarget(Jrk_Normal_Position);
+      jrk.setTarget(Jrk_Normal_position);
     }
     else {
       float constrained_voltage = constrain(desired_voltage, 0.5, 4.5);
       int dc = (int)(255 * (desired_voltage - 0.5) / 4.0);
       analogWrite(A0, dc);
-      jrk.setTarget(Jrk_Normal_Position);
+      jrk.setTarget(Jrk_Normal_position);
     }
     
 
   } 
   else {
     analogWrite(A0,0);
-    jrk.setTarget(Jrk_Brake_Position);
+    jrk.setTarget(Jrk_Brake_position);
     delay(6000);
-    jrk.setTarget(Jrk_Normal_Position);
+    jrk.setTarget(Jrk_Normal_position);
     nh.loginfo("Testing Completed");
     while (true) {
       nh.spinOnce();
