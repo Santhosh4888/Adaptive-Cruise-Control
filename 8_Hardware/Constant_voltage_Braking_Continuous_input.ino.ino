@@ -282,16 +282,6 @@ void setup() {
     delay(1000); // Short delay before starting loop
     break;
 
-    // Serial.println();
-    // Serial.println("Enter desired throttle pot (between 0 and 5V)");
-    // while(Serial.available()<=0);
-    // desired_voltage = Serial.parseFloat();
-    // Serial.parseFloat();
-    // delay(1000);
-    // Serial.println("Starting test");
-    // delay(2000); //Chnaged from 5secsto 2secs  
-    // break;
-
     default:
     Serial.println("Invalid choice");
     while(true);
@@ -343,12 +333,7 @@ void loop() {
       Serial.println(desired_voltage);
 
     }
-    // if(desired_voltage < 0.5){
-    //   desired_voltage = 0.5;
-    // }
-    // else if(desired_voltage > 4.5){
-    //   desired_voltage = 4.5;
-    // }
+    
     int dc = (int) 255 * (desired_voltage - 0.5)/ (4.0); // Giving Voltage as input
 
     analogWrite(A0, dc);
@@ -363,23 +348,17 @@ void loop() {
       }
       else {
         analogWrite(A0, 0);
-        //static int count = 0;
-        //if (count >= 5) return; // Stop after 5 cycles
-        //delay(100);
         jrk.setTarget(690);
         delay(4000);
         jrk.setTarget(2600);
-        //count++;
         exit(0);
       }
     }
     else {
       analogWrite(A0, 0);
-      //delay(1000);
       jrk.setTarget(690);
       delay(4000);
       jrk.setTarget(2600);
-      //count++;
       exit(0);
     }
   }
