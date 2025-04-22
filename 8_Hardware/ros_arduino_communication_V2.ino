@@ -291,7 +291,7 @@ void loop() {
  
 
   if (millis() - start_time < test_time) {
-    // Braking/jrk activation during testing
+    // Braking/jrk activation during testing with brake command from ros
     if (desired_voltage < Brake_Voltage_Threshold || start_time < 10000 || brake_engaged ) {
       analogWrite(A0, 0);
       nh.loginfo("Braking activated");
