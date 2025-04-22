@@ -258,17 +258,23 @@ void setup() {
 
 // -------------------- Loop --------------------
 void loop() {
-  static uint8_t monitor_index = 0;
+  //static uint8_t monitor_index = 0;
 
-  send_sdo_upload(monitor_indices[monitor_index]);
-  monitor_index = (monitor_index + 1) % monitorindices_length;
+  //send_sdo_upload(monitor_indices[monitor_index]);
+  //monitor_index = (monitor_index + 1) % monitorindices_length;
+
+  for (int i = 0; i < monitorindices_length; i++){
+    send_sdo_upload(monitor_indices[i]);
+    delay(1);
+  }
+
   receive_sdo_upload_array(monitor_indices, monitorindices_scaling, monitorindices_values, monitorindices_length);
 
   if (!nh.connected()) {
     nh.loginfo(" ROS connection lost....");
   }
   else{
-    static unsigned long last_pub_time = 0;
+    static unsigned long last_pub_time = 0;                        //static ensures that last_pub_time is initialized to zero only the first time loop is called, and for the remaining time, the previous value of last_pub_time is used.
     static bool topic_configured = false;
     
     if (millis() - last_pub_time >= 100) {
