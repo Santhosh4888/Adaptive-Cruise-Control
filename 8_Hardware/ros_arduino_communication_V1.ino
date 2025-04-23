@@ -248,11 +248,18 @@ void setup() {
 
 // -------------------- Loop --------------------
 void loop() {
-  static uint8_t monitor_index = 0;
+  int rc = 0;
 
-  send_sdo_upload(monitor_indices[monitor_index]);
-  monitor_index = (monitor_index + 1) % monitorindices_length;
-  receive_sdo_upload_array(monitor_indices, monitorindices_scaling, monitorindices_values, monitorindices_length);
+  for(int i=0; i < monitorindices_length; i++) {
+    send_sdo_upload(monitor_indices[i]);
+    delay(5);
+    
+    while(!CAN.available());
+    while(CAN.available()) {
+      receive_sdo_upload_monitor();
+      delay(5);
+    }
+  }
 
   if (!nh.connected()) {
     nh.loginfo(" ROS connection lost....");
@@ -282,7 +289,7 @@ void loop() {
 
   if (millis() - start_time < test_time) {
     // Braking/jrk activation during testing
-    if (desired_voltage < Brake_Voltage_Threshold || start_time < 10000 ) {
+    if (desired_voltage < Brake_Voltage_Threshold && millis() - start_time > 10000 ) {
       analogWrite(A0, 0);
       nh.loginfo("Braking activated");
       jrk.setTarget(Jrk_Brake_position);
