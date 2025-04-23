@@ -2,7 +2,7 @@
 
 import numpy as np
 import rospy
-from std_msgs.msg import Float32
+from std_msgs.msg import Float32, Bool
 import H_Common_Params as CP
 import Longitudinal_Controller as LC
 import csv
@@ -45,6 +45,7 @@ class Communication:
     def create_publishers(self):
         
         self.longitudinal_control_pub = rospy.Publisher('/motor_command', Float32, queue_size = 10)
+        self.brake_command_pub = rospy.Publisher('/brake_command', Bool, queue_size = 10)
         
     def velocity_callback(self, msg):
         
