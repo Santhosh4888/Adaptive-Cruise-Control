@@ -77,20 +77,14 @@ float offset = 0;
 unsigned long start_time = 0xFFFFFFFF;
 unsigned long test_time = 50000;
 
-const float Brake_Voltage_Threshold = 0.5;
-const uint16_t Jrk_Brake_position = 690;
-const uint16_t Jrk_Neutral_position = 2048;
-const uint16_t Jrk_Normal_position = 2600; 
-
 // -------------------- ROS Setup --------------------
 ros::NodeHandle nh;
 
 // Subscriber Initialization
 void motorCommandCallback(const std_msgs::Float32 &msg) {
   desired_voltage = msg.data;
-  char control_msg[40];
-  snprintf(control_msg, sizeof(control_msg),"Received motor command:%.3f V", desired_voltage);
-  nh.loginfo(control_msg);
+  nh.loginfo("Received motor command from Python: ");
+  //nh.loginfo(desired_voltage);
 }
 
 ros::Subscriber<std_msgs::Float32>sub("motor_command", &motorCommandCallback);
@@ -196,15 +190,13 @@ void read_params() {
 
 // -------------------- Setup --------------------
 void setup() {
-  
   pinMode(A0, OUTPUT);
-  //Serial.begin(115200);
   jrkSerial.begin(9600);
   
   nh.initNode();
+  
   // Wait for ROS connection first
   nh.getHardware()->setBaud(115200);
-  
   delay(1000);
 
   while (!nh.connected()) {
@@ -212,7 +204,7 @@ void setup() {
     nh.spinOnce();
     delay(1000);
   }
-  nh.loginfo("ROS connected :)");
+  nh.loginfo("ROS connected.");
 
   nh.subscribe(sub);
   nh.advertise(chatter);
@@ -242,45 +234,49 @@ void setup() {
   }
 
   read_params();
-  nh.loginfo("Setup completed.");
   start_time = millis();
+  nh.loginfo("Setup complete.");
 }
 
 // -------------------- Loop --------------------
 void loop() {
-  int rc = 0;
+  static uint8_t monitor_index = 0;
 
-  for(int i=0; i < monitorindices_length; i++) {
-    send_sdo_upload(monitor_indices[i]);
-    delay(5);
-    
-    while(!CAN.available());
-    while(CAN.available()) {
-      receive_sdo_upload_monitor();
-      delay(5);
-    }
-  }
+  send_sdo_upload(monitor_indices[5]);
+  //monitor_index = (monitor_index + 1) % monitorindices_length;
+  receive_sdo_upload_array(monitor_indices, monitorindices_scaling, monitorindices_values, monitorindices_length);
+
+//  nh.spinOnce();
 
   if (!nh.connected()) {
-    nh.loginfo(" ROS connection lost....");
+    nh.loginfo(" ROS connection lost");
   }
   else{
     static unsigned long last_pub_time = 0;
     static bool topic_configured = false;
     
+    // Checking if the publisher is ready. Enters loop only if the publisher is not configured
+//    if (!topic_configured) {
+//      if (nh.connected()) { // True when topic is registered with ROS
+//        topic_configured = true;
+//        nh.loginfo("/velocity_feedback topic ready");
+//        delay(1000);
+//      } else {
+//        nh.loginfo("Waiting for topic configuration...");
+//        delay(100);
+//        return; // Skip publishing until ready
+//      }
+//    } 
+
+    // Publishing every 2 seconds
     if (millis() - last_pub_time >= 100) {
-
+      
       char speed_str[20];
-      dtostrf(monitorindices_values[5], 7, 3, speed_str);
-      char rpm_str[20];
-      dtostrf(monitorindices_values[0], 9, 3, rpm_str);
-      char Trt_pot[20];
-      dtostrf(monitorindices_values[1], 9, 3, Trt_pot);
+      dtostrf(monitorindices_values[5], 6, 2, speed_str);
 
-      char log_msg[60];
-      snprintf(log_msg, sizeof(log_msg), "Speed: %s km/h | RPM: %s | T_pot = %.2f", speed_str, rpm_str, Trt_pot);
-      nh.loginfo(log_msg);
-
+      char speed_msg[40];
+      snprintf(speed_msg, 40, "VehicleSpeed: %s", speed_str);
+      nh.loginfo(speed_msg);
       
       vel_msg.data = monitorindices_values[5]; // VehSpeed
       chatter.publish(&vel_msg);
@@ -289,30 +285,25 @@ void loop() {
   }
  
 
-  if (millis() - start_time < test_time) {
-    // Braking/jrk activation during testing
-    if (desired_voltage < Brake_Voltage_Threshold && millis() - start_time > 10000 ) {
+  if (millis() - start_time <= test_time) {
+    desired_voltage = constrain(desired_voltage, 0.5, 4.5);
+    if (desired_voltage <= 0.5 && millis() - start_time > 10000  ) {
       analogWrite(A0, 0);
       nh.loginfo("Braking activated");
-      jrk.setTarget(Jrk_Brake_position);
-      delay(6000);
-      jrk.setTarget(Jrk_Normal_position);
+      jrk.setTarget(690);
+
     }
     else {
-      float constrained_voltage = constrain(desired_voltage, 0.5, 4.5);
+      jrk.setTarget(2600);
       int dc = (int)(255 * (desired_voltage - 0.5) / 4.0);
       analogWrite(A0, dc);
-      jrk.setTarget(Jrk_Normal_position);
     }
     
-
-  } 
-  else {
-    analogWrite(A0,0);
-    jrk.setTarget(Jrk_Brake_position);
+  } else {
+    analogWrite(A0, 0);
+    jrk.setTarget(690);
     delay(6000);
-    jrk.setTarget(Jrk_Normal_position);
-    nh.loginfo("Testing Completed");
+    jrk.setTarget(2600);
     while (true) {
       nh.spinOnce();
       delay(100);
