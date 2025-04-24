@@ -319,7 +319,7 @@ void loop() {
 
   if (millis() - start_time < test_time) {
     // Braking/jrk activation during testing
-    if (desired_voltage < Brake_Voltage_Threshold && millis() - start_time < 10000 || brake_engaged ) {
+    if (desired_voltage < Brake_Voltage_Threshold && millis() - start_time > 10000 || brake_engaged ) {
       analogWrite(A0, 0);
       nh.loginfo("Braking activated");
       jrk.setTarget(Jrk_Brake_position);
