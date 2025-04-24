@@ -24,7 +24,7 @@ class Communication:
         self.store_velocity = [self.ego_vel]
         self.store_time = []
         self.save_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
-        self.file_path = os.path.join(self.save_dir, 'data_april_17_mpc_1.csv')
+        self.file_path = os.path.join(self.save_dir, 'data_april_21_mpc_1.csv')
         
     def start_vehicle(self):
         
@@ -56,12 +56,13 @@ class Communication:
         self.store_time.append((self.cur_time - self.start_time).to_sec())
         self.VLC.get_control_action([self.ego_pos, self.ego_vel], [self.obs_pos, self.obs_vel])
         rospy.loginfo(f'The control signal is : {self.VLC.throttle_pot} V')
+        rospy.loginfo(f"data :  {self.store_position[-1]},{self.store_velocity[-1]}, {self.store_time[-1]}")
         if self.obs_pos >= self.ego_pos + CP.Dd:
             self.longitudinal_control_pub.publish(self.VLC.throttle_pot)
         else:
             self.emergency_break()
         
-    def vehicle_shutdown_callback(self, event):
+    def vehicle_shutdown_callback(self):
         rospy.loginfo(f'{self.store_position}')
         
         with open(self.file_path, 'w', newline='') as file:
@@ -70,6 +71,7 @@ class Communication:
             writer.writerows([[pos, vel, time] for pos, vel, time in zip(self.store_position, self.store_velocity, self.store_time)])  # Saves as columns
         rospy.loginfo('The test is over, vehicle is shutting down')
         rospy.signal_shutdown('Shutting down .....') 
+        
     def emergency_break(self):
         
         rospy.logwarn('Emergency brake activated !!!!')
@@ -80,4 +82,3 @@ if __name__ == '__main__':
     
     VC = Communication()
     VC.start_vehicle()
-    

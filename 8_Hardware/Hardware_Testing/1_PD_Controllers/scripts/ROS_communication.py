@@ -2,11 +2,12 @@
 
 import numpy as np
 import rospy
-from std_msgs.msg import Float32, Bool
+from std_msgs.msg import Float32
 import H_Common_Params as CP
 import Longitudinal_Controller as LC
 import csv
 import os
+
 
 class Communication:
     
@@ -24,7 +25,7 @@ class Communication:
         self.store_velocity = [self.ego_vel]
         self.store_time = []                                                                                                                                
         self.save_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
-        self.file_path = os.path.join(self.save_dir, 'data_april_17_pdc_1.csv')
+        self.file_path = os.path.join(self.save_dir, 'data_april_24_pdc_1.csv')
         
     def start_vehicle(self):
         
@@ -45,7 +46,7 @@ class Communication:
     def create_publishers(self):
         
         self.longitudinal_control_pub = rospy.Publisher('/motor_command', Float32, queue_size = 10)
-        self.brake_command_pub = rospy.Publisher('/brake_command', Bool, queue_size = 10)
+        ##self.brake_command_pub = rospy.Publisher('/brake_command', Bool, queue_size = 10)
         
     def velocity_callback(self, msg):
         
@@ -57,17 +58,21 @@ class Communication:
         self.store_time.append((self.cur_time - self.start_time).to_sec())
         self.VLC.get_control_action([self.ego_pos, self.ego_vel], [self.obs_pos, self.obs_vel])
         rospy.loginfo(f'The control signal is : {self.VLC.throttle_pot} V')
+        rospy.loginfo(f"data :  {self.store_position[-1]},  {self.store_velocity[-1]},  {self.store_time[-1]}")
         if self.obs_pos >= self.ego_pos + CP.Dd:
             self.longitudinal_control_pub.publish(self.VLC.throttle_pot)
         else:
             self.emergency_break()
         
     def vehicle_shutdown_callback(self):
+
+        rospy.loginfo(f'{self.store_position}')
         
         with open(self.file_path, 'w', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(["Ego_Position(m)","Ego_Velocity(m/s)", "Time(s)"])
             writer.writerows([[pos, vel, time] for pos, vel, time in zip(self.store_position, self.store_velocity, self.store_time)])  # Saves as columns
+
         rospy.loginfo('The test is over, vehicle is shutting down')
         rospy.signal_shutdown('Shutting down .....')    
         
@@ -77,9 +82,9 @@ class Communication:
         rospy.logwarn('Emergency brake activated !!!!')
         self.VLC.throttle_pot = 0.0
         self.longitudinal_control_pub.publish(self.VLC.throttle_pot)
+
         
 if __name__ == '__main__':
     
     VC = Communication()
     VC.start_vehicle()
-    
