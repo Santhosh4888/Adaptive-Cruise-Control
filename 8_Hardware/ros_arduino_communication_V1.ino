@@ -274,9 +274,11 @@ void loop() {
       dtostrf(monitorindices_values[5], 7, 3, speed_str);
       char rpm_str[20];
       dtostrf(monitorindices_values[0], 9, 3, rpm_str);
+      char Trt_pot[20];
+      dtostrf(monitorindices_values[1], 9, 3, Trt_pot);
 
-      char log_msg[50];
-      snprintf(log_msg, sizeof(log_msg), "Speed: %s km/h | RPM: %s", speed_str, rpm_str);
+      char log_msg[60];
+      snprintf(log_msg, sizeof(log_msg), "Speed: %s km/h | RPM: %s | T_pot = %.2f", speed_str, rpm_str, Trt_pot);
       nh.loginfo(log_msg);
 
       
