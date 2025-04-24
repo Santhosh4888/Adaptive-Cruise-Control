@@ -1,11 +1,11 @@
 seq_length = 20
 batch_size = 32
-num_epochs = 400
+num_epochs = 300
 learning_rate = 0.0001
 hidden_size_1 = 32
 hidden_size_2 = 48
-hidden_size_3 = 32
-hidden_size_4 = 16
+hidden_size_3 = 24
+hidden_size_4 = 24
 num_layers_1 = 2
 num_layers_2 = 2
 
