@@ -1,65 +1,83 @@
-#!/usr/bin/env python3
+#! user/bin/env  python3
 
-import re
 import os
-import pandas as pd 
+import re
+import pandas as pd
 import matplotlib.pyplot as plt
 
-script_dir = os.path.dirname(os.path.abspath(__file__))
-log_file_path = os.path.join(script_dir, 'Data_3') #Actual file path will be added later
+# Define base directory and file names
+base_dir = "/home/asl-laptop2/Documents/Auto_drive_data"
+log_file_name = "April_25_data_4"
+csv_file_name = "loggeddata_April25_pd_1.csv"
 
-print("Opening  log file...")
-with open(log_file_path, 'r') as file:
-    contents = file.read()
+# Construct dynamic paths
+log_file_path = os.path.join(base_dir, log_file_name)
+csv_path = os.path.join(base_dir, csv_file_name)
 
-print("File read successfully, extracting data...")
+# Read log file
+with open(log_file_path, "r") as file:
+    lines = file.readlines()
 
-matches = re.findall(r"\[INFO] \[(\d+\.\d+)\]: The control signal is : ([\d.\-eE]+)", contents)
-timestamps = [float(m[0]) for m in matches]
-voltages = [float(m[1]) for m in matches]
+data = []
 
-print(f"Extracted {len(timestamps)} timestamps and {len(voltages)} voltage signals.")
+i = 0
+while i < len(lines) - 1:
+    line = lines[i]
+    if "The control signal is" in line:
+        match_signal = re.search(r"\[(\d+\.\d+)\]: The control signal is : ([\d\.\-eE]+)", line)
+        if match_signal:
+            timestamp = float(match_signal.group(1))
+            voltage = float(match_signal.group(2))
 
-print("Searching for the distance array logged at the end")
-array_matches = re.findall(r"\[s*((?:[\d\.\-eE]+\s*,\s*)*[\d\.\-eE]+)\s*\]", contents)
+            next_line = lines[i + 1]
+            match_data = re.search(r"data\s*:\s*([\d\.\-eE]+),([\d\.\-eE]+),\s*([\d\.\-eE]+)", next_line)
+            if match_data:
+                distance = float(match_data.group(1))
+                velocity = float(match_data.group(2))
+                time = float(match_data.group(3))
 
-all_arrays = []
+                data.append({
+                    "Log Timestamp": timestamp,
+                    "Distance (m)": distance,
+                    "Velocity (m/s)": velocity,
+                    "Time (s)": time,
+                    "Voltage (V)": voltage
+                })
+            i += 2
+        else:
+            i += 1
+    else:
+        i += 1
 
-for match in array_matches:
-    try:
-        values = [float(x.strip()) for x in match.split(',')]
-        all_arrays.append(values)
-    except:
-        continue
+# Create DataFrame
+df = pd.DataFrame(data)
 
-distances = max(all_arrays, key=len) if all_arrays else []
-print(f"Extracted distance array with {len(distances)} elements.")
+# Normalize time
+df["Time (s)"] -= df["Time (s)"].iloc[0]
 
-min_length = min(len(timestamps), len(voltages), len(distances))
-timestamps = timestamps[:min_length]        
-voltages = voltages[:min_length]
-distances = distances[:min_length]
-print(f"Truncated all arrays to the minimum length of {min_length}.")
+# Save to CSV
+df.to_csv(csv_path, index=False)
+print(f"CSV saved to: {csv_path}")
 
-start_time = timestamps[0]
-time_normalised = [t - start_time for t in timestamps]
-
-df = pd.DataFrame({
-    'Time (s)': time_normalised,
-    'Voltage (V)': voltages,
-    'Distance (m)': distances
-})
-
-csv_file_path = os.path.join(script_dir, 'log_data_3.csv') #Actual file path will be added later
-df.to_csv(csv_file_path, index=False)
-print(f"Data saved to {csv_file_path}.")
-
+# Plot Distance vs Time and Velocity vs Time
 plt.figure(figsize=(12, 6))
-plt.plot(df['Time (s)'], df['Distance (m)'], label='Distance (m)', color='orange')
-plt.xlabel('Time (s)')
-plt.ylabel('Distance (m)')  
-plt.title('Distance covered  vs Time')
+
+# Distance vs Time
+plt.subplot(2, 1, 1)
+plt.plot(df["Time (s)"], df["Distance (m)"], label="Distance", color="blue")
+plt.ylabel("Distance (m)")
+plt.title("Distance vs Time")
 plt.grid(True)
 plt.legend()
-plt.tight_layout()      
+
+# Velocity vs Time
+plt.subplot(2, 1, 2)
+plt.plot(df["Time (s)"], df["Velocity (m/s)"], label="Velocity", color="green")
+plt.xlabel("Time (s)")
+plt.ylabel("Velocity (m/s)")
+plt.title("Velocity vs Time")
+plt.grid(True)
+plt.legend()
+
+plt.tight_layout()
 plt.show()
