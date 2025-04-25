@@ -75,7 +75,7 @@ float voltage_max = 0;
 float offset = 0;
 
 unsigned long start_time = 0xFFFFFFFF;
-unsigned long test_time = 50000;
+unsigned long test_time = 60000;
 
 // -------------------- ROS Setup --------------------
 ros::NodeHandle nh;
@@ -254,19 +254,6 @@ void loop() {
   else{
     static unsigned long last_pub_time = 0;
     static bool topic_configured = false;
-    
-    // Checking if the publisher is ready. Enters loop only if the publisher is not configured
-//    if (!topic_configured) {
-//      if (nh.connected()) { // True when topic is registered with ROS
-//        topic_configured = true;
-//        nh.loginfo("/velocity_feedback topic ready");
-//        delay(1000);
-//      } else {
-//        nh.loginfo("Waiting for topic configuration...");
-//        delay(100);
-//        return; // Skip publishing until ready
-//      }
-//    } 
 
     // Publishing every 2 seconds
     if (millis() - last_pub_time >= 100) {
@@ -289,9 +276,8 @@ void loop() {
     desired_voltage = constrain(desired_voltage, 0.5, 4.5);
     if (desired_voltage <= 0.5 && millis() - start_time > 10000  ) {
       analogWrite(A0, 0);
-      nh.loginfo("Braking activated");
+      nh.loginfo("Manual Braking activated");
       jrk.setTarget(690);
-
     }
     else {
       jrk.setTarget(2600);
@@ -302,6 +288,7 @@ void loop() {
   } else {
     analogWrite(A0, 0);
     jrk.setTarget(690);
+    nh.loginfo("Vehicle is asked to stop");
     delay(6000);
     jrk.setTarget(2600);
     while (true) {
