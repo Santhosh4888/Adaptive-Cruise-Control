@@ -1,0 +1,96 @@
+Terminal 1 :
+roscore
+
+Terminal 2 :
+source ~/Autonomous_driving_ws/devel/setup.bash
+rosrun rosserial_python serial_node.py /dev/ttyACM0 _baud:=115200
+
+Terminal 3 :
+source ~/Autonomous_driving_ws/devel/setup.bash
+rosrun pd_controllers ROS_communication.py 
+or 
+rosrun mpc_controller ROS_communication.py 
+
+
+
+#!/usr/bin/env python3 - To be added to every .py file. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void loop() {
+  static uint8_t monitor_index = 0;
+
+  send_sdo_upload(monitor_indices[monitor_index]);
+  monitor_index = (monitor_index + 1) % monitorindices_length;
+  receive_sdo_upload_array(monitor_indices, monitorindices_scaling, monitorindices_values, monitorindices_length);
+
+  if (!nh.connected()) {
+    nh.loginfo(" ROS connection lost....");
+  }
+  else{
+    static unsigned long last_pub_time = 0;
+    static bool topic_configured = false;
+    
+    if (millis() - last_pub_time >= 100) {
+
+      char speed_str[20];
+      dtostrf(monitorindices_values[5], 7, 3, speed_str);
+      char rpm_str[20];
+      dtostrf(monitorindices_values[0], 9, 3, rpm_str);
+
+      char log_msg[50];
+      snprintf(log_msg, sizeof(log_msg), "Speed: %s km/h | RPM: %s", speed_str, rpm_str);
+      nh.loginfo(log_msg);
+
+      
+      vel_msg.data = monitorindices_values[5]; // VehSpeed
+      chatter.publish(&vel_msg);
+      last_pub_time = millis();
+    }
+  }
+ 
+
+  if (millis() - start_time <= 10000 || desired_voltage > 0.5 ) {
+    desired_voltage = constrain(desired_voltage, 0.5, 4.5);
+    int dc = (int)(255 * (desired_voltage - 0.5) / 4.0);
+    analogWrite(A0, dc);
+  } else {
+    analogWrite(A0, 0);
+    nh.loginfo("Braking activated");
+    jrk.setTarget(690);
+    delay(5000);
+    jrk.setTarget(2600);
+    while (true) {
+      nh.spinOnce();
+      delay(100);
+    }
+  }
+
+  delay(10);
+}
+
+
+
+
