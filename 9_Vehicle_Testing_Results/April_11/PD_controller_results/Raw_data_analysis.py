@@ -6,9 +6,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Define base directory and file names
-base_dir = "/home/asl-laptop2/Documents/Auto_drive_data/April_25"
-log_file_name = "April_25_data_5"
-csv_file_name = "logged_data_April25_mpc_1.csv"
+base_dir = "/home/asl-laptop2/Documents/Auto_drive_data/May_06"
+log_file_name = "Logged_MPC_4.1"
+csv_file_name = "logged_data_May06_Mpc_1.csv"
 
 # Construct dynamic paths
 log_file_path = os.path.join(base_dir, log_file_name)
@@ -32,7 +32,8 @@ while i < len(lines) - 1:
             voltage = float(match_signal.group(2))
 
             next_line = lines[i + 1]
-            match_data = re.search(r"data\s*:\s*([\d\.\-eE]+),([\d\.\-eE]+),\s*([\d\.\-eE]+)", next_line)
+            match_data = re.match(r".*data\s*:\s*(-?\d+\.?\d*e?-?\d*?),\s*(-?\d+\.?\d*e?-?\d*?),\s*(-?\d+\.?\d*e?-?\d*?)", next_line)
+
             if match_data:
                 distance = float(match_data.group(1))
                 velocity = float(match_data.group(2))
@@ -55,6 +56,8 @@ while i < len(lines) - 1:
 
 # Create DataFrame
 df = pd.DataFrame(data)
+
+print(df.columns)
 
 # Normalize time
 df["Time (s)"] -= df["Time (s)"].iloc[0]
@@ -85,3 +88,5 @@ plt.legend()
 
 plt.tight_layout()
 plt.show()
+
+
