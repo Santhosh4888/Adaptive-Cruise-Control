@@ -45,15 +45,26 @@ class kinematics_1:
         throttle_cmd = self.get_throttle_cmd(self.velocity_to_rpm(req_vel))
         if throttle_cmd <= CP.threshold_throttle_cmd:
             throttle_cmd = 0.0
+            count = 0
+            while count < 30:
+                self.sys_model.get_nn_input(throttle_cmd, cur_rpm)
+                prediction = self.sys_model(self.sys_model.input_seq)
+                fin_rpm = CP.scaler.inverse_transform([[0, 0, 0, 0, 0, 0, prediction.item()]])[0, -1]
+                self.cur_velocity = self.rpm_to_velocity(fin_rpm)
+                self.cur_velocity = max(min(CP.ego_max_v, self.cur_velocity), 0.0)
+                self.cur_position += self.cur_velocity * CP.sample_time
+                cur_rpm = self.velocity_to_rpm(self.cur_velocity)
+                count += 1
+        else:
         
-        self.sys_model.get_nn_input(throttle_cmd, cur_rpm)                                    # Converts the current motor rpm and throttle command into a form suitable for neural network
-        prediction = self.sys_model(self.sys_model.input_seq)                                 # Gets the prediction of neural network
-        fin_rpm = CP.scaler.inverse_transform([[0, 0, 0, 0, 0, 0, prediction.item()]])[0, -1] # Descales the prediction of the neural network and gets the final output rpm
-        
-        self.cur_velocity = self.rpm_to_velocity(fin_rpm)
-        self.cur_velocity = max(min(CP.ego_max_v, self.cur_velocity), 0.0)
-
-        self.cur_position += self.cur_velocity * CP.sample_time
+            self.sys_model.get_nn_input(throttle_cmd, cur_rpm)                                    # Converts the current motor rpm and throttle command into a form suitable for neural network
+            prediction = self.sys_model(self.sys_model.input_seq)                                 # Gets the prediction of neural network
+            fin_rpm = CP.scaler.inverse_transform([[0, 0, 0, 0, 0, 0, prediction.item()]])[0, -1] # Descales the prediction of the neural network and gets the final output rpm
+            
+            self.cur_velocity = self.rpm_to_velocity(fin_rpm)
+            self.cur_velocity = max(min(CP.ego_max_v, self.cur_velocity), 0.0)
+            self.cur_position += self.cur_velocity * CP.sample_time
+            
         self.cur_acceleration = a
     
         return [self.cur_position, self.cur_velocity]

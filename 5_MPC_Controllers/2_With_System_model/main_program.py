@@ -65,13 +65,17 @@ def main():
 
             print(f'Separation : {store_seperations[i][-1]}, Velocity : {store_velocities[i][-1]}, Acceleration : {store_acceleration[i][-1]}')
 
+            dt = CP.sample_time
+            if ego_values[1] + a / CP.A <= CP.threshold_velocity:
+                dt = 30 * CP.sample_time
+                
             ego_values = ego.control(a)
             preceeding_values = pre.control()
             
-            time += CP.sample_time
+            time += dt
             
             if detected == 'first':
-                detected_time += CP.sample_time
+                detected_time += dt
             else:
                 detected_time = 0
             

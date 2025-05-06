@@ -30,8 +30,11 @@ class MPC:
         u = cp.Variable((self.control_dim, self.Np))                      # Control action for Np steps
         z = cp.Variable((self.control_dim, self.Np), boolean = True)
         delta = cp.Variable((self.control_dim, self.Np))                  # Np relaxation terms for relaxing the CBF constraints
-        epsilon = 1e-3
+        
         M = 100000
+        dt1 = CP.sample_time
+        dt2 = 30 * CP.sample_time
+
         
         if obs_pos:                                                       # If obstacle is there then CBF constraint is an essential constraint
             x0 = np.array([ego_pos, ego_vel])                             # Define the current state (initial state)
@@ -48,15 +51,18 @@ class MPC:
                     cost += cp.quad_form(u[:, k], R)
                 cost += cp.quad_form(delta[:, k], P)
                 
-                expr = (u[0, k] / A + x[1, k])
+                expr = (u[0, k] / CP.A + x[1, k])
 
                 constraints += [expr <=  CP.threshold_velocity + M * (1 - z[0, k])]
-                constraints += [expr >= - CP.threshold_velocity - M * (1 - z[0, k])]
-                dt_k = CP.sample_time + 29 * CP.sample_time * z[0, k]
-
                 
-                constraints += [x[0, k + 1] == x[0, k] + (x[1, k] * dt_k + 0.5 * u[0, k] * dt_k ** 2)]
-                constraints += [x[1, k + 1] == x[1, k] + u[0, k] * dt_k]
+                x_k1, v_k1 = cp.Variable(), cp.Variable()
+                x_update1 = x[0, k] + x[1, k] * dt1 + 0.5 * u[0, k] * dt1 ** 2
+                x_update2 = x[0, k] + x[1, k] * dt2 + 0.5 * u[0, k] * dt2 ** 2
+                v_update1 = x[1, k] + u[0, k] * dt1
+                v_update2 = x[1, k] + u[0, k] * dt2
+                
+                constraints += [x_k1 - x_update1 <= M * z[0, k], x_k1 - x_update1 >= - M * z[0, k], x_k1 - x_update2 <= M * (1 - z[0, k]), x_k1 - x_update2 >= - M * (1 - z[0, k]), x[0, k + 1] == x_k1]
+                constraints += [v_k1 - v_update1 <= M * z[0, k], v_k1 - v_update1 >= - M * z[0, k], v_k1 - v_update2 <= M * (1 - z[0, k]), v_k1 - v_update2 >= - M * (1 - z[0, k]), x[1, k + 1] == v_k1]
                 
                 if k >= self.Nc:                                          # This is done to make all the control actions after Control horizon same as control action at the time instant of control horizon
                     constraints += [u[:, k] == u[:, k - 1]]
@@ -73,11 +79,11 @@ class MPC:
                 constraints += [delta[0, k] >= 0]
                 
                 if k == 0:
-                    constraints += [CP.dec_Jerk_limit <= (u[0, k] - self.a_curr) / dt_k, (u[0, k] - self.a_curr) / dt_k <= CP.acc_Jerk_limit]
+                    constraints += [CP.dec_Jerk_limit * (dt1 * (1 - z[0, k]) + dt2 * z[0, k]) <= (u[0, k] - self.a_curr), (u[0, k] - self.a_curr) <= CP.acc_Jerk_limit * (dt1 * (1 - z[0, k]) + dt2 * z[0, k])]
                 else:
-                    constraints += [CP.dec_Jerk_limit <= (u[0, k] - u[0, k - 1]) / dt_k, (u[0, k] - u[0, k - 1]) / dt_k <= CP.acc_Jerk_limit]
+                    constraints += [CP.dec_Jerk_limit * (dt1 * (1 - z[0, k]) + dt2 * z[0, k]) <= (u[0, k] - u[0, k - 1]), (u[0, k] - u[0, k - 1]) <= CP.acc_Jerk_limit * (dt1 * (1 - z[0, k]) + dt2 * z[0, k])]
                     
-                cur_obs_pos += obs_vel * dt_k                            # Updating the obstacles position assuming it is moving at a constant velocity
+                cur_obs_pos += obs_vel * (dt1 * (1 - z[0, k]) + dt2 * z[0, k]) # Updating the obstacles position assuming it is moving at a constant velocity
                     
             constraints += [x[:, 0] == x0]
             constraints += [0.0 <= x[1, self.Np], x[1, self.Np] <= CP.ego_max_v]
@@ -116,7 +122,7 @@ class MPC:
             constraints += [0.0 <= x[1, self.Np], x[1, self.Np] <= CP.ego_max_v]
         
         problem = cp.Problem(cp.Minimize(cost), constraints)             # Solving for the optimization problem
-        problem.solve(solver = cp.OSQP, verbose = False, max_iter = 50000)
+        problem.solve(solver = cp.GUROBI, warm_start = True, verbose = False)
         self.a_curr = u[0, 0].value
         return u[0, 0].value
                 
