@@ -74,6 +74,7 @@ safety_factor = 0.9
 i_safety_factor = 1.1
     
 threshold_throttle_cmd = 5.0                                                       # Below this throttle command, set throttle command as 0
+threshold_velocity = max(0, min(max_rpm, slope_rpm_tcmd * (threshold_throttle_cmd - 0))) / velocity_to_rpm_ratio
 
 rbf_model_tcmd_to_requested_pot_file_path = os.path.join(main_internal_data_dir, 'rbf_model_tcmd_to_requested_pot.pkl')
 rbf_model_tcmd_to_requested_pot, rbf_model_tcmd_to_requested_pot_data = None, None

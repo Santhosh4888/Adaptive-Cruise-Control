@@ -112,8 +112,8 @@ void motorCommandCallback(const std_msgs::Float32 &msg) {
 }
 
 void brakeCallback(const std_msgs::Bool &msg){
-  brake_engaged = msg.data;
-  nh.loginfo(brake_engaged ? "Brake Engaged" : "Brake Released");
+  obs_detected = msg.data;
+  nh.loginfo(obs_detected ? "Obstacle detected" : "Obstacle not detected");
 }
 
 ros::Subscriber<std_msgs::Float32>sub("motor_command", &motorCommandCallback);
@@ -319,7 +319,7 @@ void loop() {
 
   if (millis() - start_time < test_time) {
     // Braking/jrk activation during testing
-    if (desired_voltage < Brake_Voltage_Threshold && millis() - start_time > 10000 || brake_engaged ) {
+    if (desired_voltage < Brake_Voltage_Threshold && obs_detected ) {
       analogWrite(A0, 0);
       nh.loginfo("Braking activated");
       jrk.setTarget(Jrk_Brake_position);

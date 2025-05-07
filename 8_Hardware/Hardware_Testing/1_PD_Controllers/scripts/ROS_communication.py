@@ -2,12 +2,11 @@
 
 import numpy as np
 import rospy
-from std_msgs.msg import Float32
+from std_msgs.msg import Float32, Bool
 import H_Common_Params as CP
 import Longitudinal_Controller as LC
 import csv
 import os
-
 
 class Communication:
     
@@ -23,9 +22,9 @@ class Communication:
         self.longitudinal_control_pub = None
         self.store_position = [self.ego_pos]
         self.store_velocity = [self.ego_vel]
-        self.store_time = []                                                                                                                                
+        self.store_time = []
         self.save_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
-        self.file_path = os.path.join(self.save_dir, 'data_april_24_pdc_1.csv')
+        self.file_path = os.path.join(self.save_dir, 'data_may_7_pdc_1.csv')
         
     def start_vehicle(self):
         
@@ -46,43 +45,49 @@ class Communication:
     def create_publishers(self):
         
         self.longitudinal_control_pub = rospy.Publisher('/motor_command', Float32, queue_size = 10)
-        ##self.brake_command_pub = rospy.Publisher('/brake_command', Bool, queue_size = 10)
+        self.brake_control_pub = rospy.Publisher('/brake_command', Bool, queue_size = 10)
+        self.obs_msg = Bool()
+        self.obs_msg.data = False
         
     def velocity_callback(self, msg):
         
-        self.ego_pos += (msg.data * 5 / 18 + self.ego_vel) * (rospy.Time.now() - self.cur_time).to_sec() / 2.0              # Estimating the separation travelled in the time at which the data is given
-        self.ego_vel = msg.data * 5 / 18                                                                                    # For converting the data to m/s from km/hr
+        self.ego_pos += self.ego_vel * (rospy.Time.now() - self.cur_time).to_sec()               # Estimating the separation travelled in the time at which the data is given
+        self.obs_pos += self.obs_vel * (rospy.Time.now() - self.cur_time).to_sec()
+        self.ego_vel = msg.data * 5 / 18                                                         # For converting the data to m/s from km/hr
         self.cur_time = rospy.Time.now()
         self.store_position.append(self.ego_pos)
         self.store_velocity.append(self.ego_vel)
         self.store_time.append((self.cur_time - self.start_time).to_sec())
         self.VLC.get_control_action([self.ego_pos, self.ego_vel], [self.obs_pos, self.obs_vel])
         rospy.loginfo(f'The control signal is : {self.VLC.throttle_pot} V')
-        rospy.loginfo(f"data :  {self.store_position[-1]},  {self.store_velocity[-1]},  {self.store_time[-1]}")
+        rospy.loginfo(f"data :  {self.store_position[-1]},{self.store_velocity[-1]}, {self.store_time[-1]}")
         if self.obs_pos >= self.ego_pos + CP.Dd:
             self.longitudinal_control_pub.publish(self.VLC.throttle_pot)
         else:
             self.emergency_break()
+            
+        if self.ego_pos >= 10.0:                                             # For now it is assumed that, once the ego vehicle crosses 10 m, it detects the obstacle
+            self.obs_msg.data = True
+            self.brake_control_pub.publish(self.obs_msg.data)
+        else:
+            self.obs_msg.data = False
+            self.brake_control_pub.publish(self.obs_msg.data)
         
     def vehicle_shutdown_callback(self):
-
         rospy.loginfo(f'{self.store_position}')
         
         with open(self.file_path, 'w', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(["Ego_Position(m)","Ego_Velocity(m/s)", "Time(s)"])
             writer.writerows([[pos, vel, time] for pos, vel, time in zip(self.store_position, self.store_velocity, self.store_time)])  # Saves as columns
-
         rospy.loginfo('The test is over, vehicle is shutting down')
-        rospy.signal_shutdown('Shutting down .....')    
-        
+        rospy.signal_shutdown('Shutting down .....') 
         
     def emergency_break(self):
         
         rospy.logwarn('Emergency brake activated !!!!')
         self.VLC.throttle_pot = 0.0
         self.longitudinal_control_pub.publish(self.VLC.throttle_pot)
-
         
 if __name__ == '__main__':
     
