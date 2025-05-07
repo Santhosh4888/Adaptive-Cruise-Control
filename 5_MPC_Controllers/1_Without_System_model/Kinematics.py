@@ -38,7 +38,7 @@ class kinematics_2:
         self.cur_velocity = cur_V
         return [self.cur_position, self.cur_velocity]
     
-    def control(self):
+    def control(self, dt = CP.sample_time):
 
-        self.cur_position += self.cur_velocity * CP.sample_time
+        self.cur_position += self.cur_velocity * dt
         return [self.cur_position, self.cur_velocity]

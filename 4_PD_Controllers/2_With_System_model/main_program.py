@@ -69,7 +69,7 @@ def main(kp):
                 dt = 30 * CP.sample_time
 
             ego_values = ego.control(a)
-            preceeding_values = pre.control()
+            preceeding_values = pre.control(dt)
             
             time += dt
             

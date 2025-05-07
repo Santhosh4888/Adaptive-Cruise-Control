@@ -32,9 +32,10 @@ class MPC:
         Q = np.eye(2)                                                     # For defining a quadratic cost on the state variables
         R = np.eye(1)                                                     # For defining a quadratic cost on the control action
         P = np.eye(1) * 10000                                             # For defining a quadratic cost on the relaxation term
+        T = np.eye(1) * 100
         x = cp.Variable((self.state_dim, self.Np + 1))                    # Np + 1 for handling Np steps in prediction horizon and 1 for initial state
         u = cp.Variable((self.control_dim, self.Np))                      # Control action for Np steps
-        z = cp.Variable((self.control_dim, self.Np), boolean = True)
+        alpha = cp.Variable((self.control_dim, self.Np))
         delta = cp.Variable((self.control_dim, self.Np))                  # Np relaxation terms for relaxing the CBF constraints
         
         M = 100000
@@ -56,10 +57,12 @@ class MPC:
                 if k <= self.Nc: 
                     cost += cp.quad_form(u[:, k], R)
                 cost += cp.quad_form(delta[:, k], P)
+                cost += cp.quad_form(alpha[:, k], T)
                 
                 expr = (u[0, k] / CP.A + x[1, k])
 
-                constraints += [expr <=  CP.threshold_velocity + M * (1 - z[0, k])]
+                constraints += [alpha[0, k] >= 0.0, alpha[0, k] <= 1.0]
+                constraints += [expr <=  CP.threshold_velocity + M * (1 - alpha[0, k]), expr >= CP.threshold_velocity - M * alpha[0, k]]
                 
                 x_k1, v_k1 = cp.Variable(), cp.Variable()
                 x_update1 = x[0, k] + x[1, k] * dt1 + 0.5 * u[0, k] * dt1 ** 2
@@ -67,8 +70,10 @@ class MPC:
                 v_update1 = x[1, k] + u[0, k] * dt1
                 v_update2 = x[1, k] + u[0, k] * dt2
                 
-                constraints += [x_k1 - x_update1 <= M * z[0, k], x_k1 - x_update1 >= - M * z[0, k], x_k1 - x_update2 <= M * (1 - z[0, k]), x_k1 - x_update2 >= - M * (1 - z[0, k]), x[0, k + 1] == x_k1]
-                constraints += [v_k1 - v_update1 <= M * z[0, k], v_k1 - v_update1 >= - M * z[0, k], v_k1 - v_update2 <= M * (1 - z[0, k]), v_k1 - v_update2 >= - M * (1 - z[0, k]), x[1, k + 1] == v_k1]
+                
+                
+                #constraints += [x_k1 - x_update1 <= M * alpha[0, k], x_k1 - x_update1 >= - M * alpha[0, k], x_k1 - x_update2 <= M * (1 - alpha[0, k]), x_k1 - x_update2 >= - M * (1 - alpha[0, k]), x[0, k + 1] == x_k1]
+                #constraints += [v_k1 - v_update1 <= M * alpha[0, k], v_k1 - v_update1 >= - M * alpha[0, k], v_k1 - v_update2 <= M * (1 - alpha[0, k]), v_k1 - v_update2 >= - M * (1 - alpha[0, k]), x[1, k + 1] == v_k1]
                 
                 if k >= self.Nc:                                          # This is done to make all the control actions after Control horizon same as control action at the time instant of control horizon
                     constraints += [u[:, k] == u[:, k - 1]]
@@ -85,11 +90,11 @@ class MPC:
                 constraints += [delta[0, k] >= 0]
                 
                 if k == 0:
-                    constraints += [CP.dec_Jerk_limit * (dt1 * (1 - z[0, k]) + dt2 * z[0, k]) <= (u[0, k] - self.a_curr), (u[0, k] - self.a_curr) <= CP.acc_Jerk_limit * (dt1 * (1 - z[0, k]) + dt2 * z[0, k])]
+                    constraints += [CP.dec_Jerk_limit * (dt1 * (1 - alpha[0, k]) + dt2 * alpha[0, k]) <= (u[0, k] - self.a_curr), (u[0, k] - self.a_curr) <= CP.acc_Jerk_limit * (dt1 * (1 - alpha[0, k]) + dt2 * alpha[0, k])]
                 else:
-                    constraints += [CP.dec_Jerk_limit * (dt1 * (1 - z[0, k]) + dt2 * z[0, k]) <= (u[0, k] - u[0, k - 1]), (u[0, k] - u[0, k - 1]) <= CP.acc_Jerk_limit * (dt1 * (1 - z[0, k]) + dt2 * z[0, k])]
+                    constraints += [CP.dec_Jerk_limit * (dt1 * (1 - alpha[0, k]) + dt2 * alpha[0, k]) <= (u[0, k] - u[0, k - 1]), (u[0, k] - u[0, k - 1]) <= CP.acc_Jerk_limit * (dt1 * (1 - alpha[0, k]) + dt2 * alpha[0, k])]
                     
-                cur_obs_pos += obs_vel * (dt1 * (1 - z[0, k]) + dt2 * z[0, k]) # Updating the obstacles position assuming it is moving at a constant velocity
+                cur_obs_pos += obs_vel * (dt1 * (1 - alpha[0, k]) + dt2 * alpha[0, k]) # Updating the obstacles position assuming it is moving at a constant velocity
                     
             constraints += [x[:, 0] == x0]
             constraints += [0.0 <= x[1, self.Np], x[1, self.Np] <= CP.ego_max_v]
@@ -128,7 +133,7 @@ class MPC:
             constraints += [0.0 <= x[1, self.Np], x[1, self.Np] <= CP.ego_max_v]
         
         problem = cp.Problem(cp.Minimize(cost), constraints)             # Solving for the optimization problem
-        problem.solve(solver = cp.GUROBI, warm_start = True, verbose = False)
+        problem.solve(solver = cp.HIGHS, verbose = False)
         self.a_curr = u[0, 0].value
         return u[0, 0].value
                 
