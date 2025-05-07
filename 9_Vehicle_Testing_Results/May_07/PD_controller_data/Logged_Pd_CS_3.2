@@ -1,0 +1,655 @@
+rosrun rosserial_python serial_node.py /dev/ttyACM0 _baud:=115200
+[INFO] [1746605570.199555]: ROS Serial Python Node
+[INFO] [1746605570.206228]: Connecting to /dev/ttyACM0 at 115200 baud
+[INFO] [1746605572.312677]: Requesting topics...
+[INFO] [1746605572.756080]: Waiting for ROS...
+[INFO] [1746605573.756685]: ROS connected.
+[INFO] [1746605578.756438]: CAN started.
+[INFO] [1746605580.089684]: -------------------
+[INFO] [1746605580.094003]: Read Parameters:
+[INFO] [1746605580.097221]: OD_MaxSpeed (0x3840): 3500.00
+[INFO] [1746605580.100253]: OD_MaxSpCont (0x3559): 9375.00
+[INFO] [1746605580.103273]: OD_AccelRate (0x3843): 1.00
+[INFO] [1746605580.106303]: OD_DecelRate (0x3843): 0.10
+[INFO] [1746605580.109079]: OD_BrakeRate (0x3848): 0.10
+[INFO] [1746605580.111889]: OD_DriveCurrL (0x305B): 70.00
+[INFO] [1746605580.114675]: OD_RegenCurrL (0x305C): 50.00
+[INFO] [1746605580.117640]: OD_ForwardDB (0x3001): 0.50
+[INFO] [1746605580.120554]: OD_ForwardMap (0x3002): 40.00
+[INFO] [1746605580.123649]: OD_ForwardMax (0x3003): 4.50
+[INFO] [1746605580.126949]: OD_ForwardOff (0x3004): 10.00
+[INFO] [1746605580.130409]: OD_SpeedToRPM (0x304C): 119.70
+[INFO] [1746605580.133513]: -------------------
+[INFO] [1746605580.136932]: Setup complete.
+[INFO] [1746605580.194879]: VehicleSpeed:   0.00
+[ERROR] [1746605580.199288]: Tried to publish before configured, topic id 125
+[INFO] [1746605580.201463]: Requesting topics...
+[INFO] [1746605580.214698]: Note: publish buffer size is 512 bytes
+[INFO] [1746605580.216773]: Setup publisher on velocity_feedback [std_msgs/Float32]
+[INFO] [1746605580.222399]: Note: subscribe buffer size is 512 bytes
+[INFO] [1746605580.223758]: Setup subscriber on motor_command [std_msgs/Float32]
+[INFO] [1746605580.229124]: Setup subscriber on brake_command [std_msgs/Bool]
+[INFO] [1746605580.304327]: VehicleSpeed:   0.00
+[INFO] [1746605580.414854]: VehicleSpeed:   0.00
+[INFO] [1746605580.525107]: VehicleSpeed:   0.00
+[INFO] [1746605580.634404]: VehicleSpeed:   0.00
+[INFO] [1746605580.744737]: VehicleSpeed:   0.00
+[INFO] [1746605580.855284]: VehicleSpeed:   0.00
+[INFO] [1746605580.965528]: VehicleSpeed:   0.00
+[INFO] [1746605581.075320]: VehicleSpeed:   0.00
+[INFO] [1746605581.184319]: VehicleSpeed:   0.00
+[INFO] [1746605581.294078]: VehicleSpeed:   0.00
+[INFO] [1746605581.404017]: VehicleSpeed:   0.00
+[INFO] [1746605581.514963]: VehicleSpeed:   0.00
+[INFO] [1746605581.624572]: VehicleSpeed:   0.00
+[INFO] [1746605581.643401]: Received motor command:0.344 V
+[INFO] [1746605581.647350]: Obstacle not detected
+[INFO] [1746605581.734551]: VehicleSpeed:   0.00
+[INFO] [1746605581.755979]: Obstacle not detected
+[INFO] [1746605581.760421]: Received motor command:0.689 V
+[INFO] [1746605581.844251]: VehicleSpeed:   0.00
+[INFO] [1746605581.868797]: Obstacle not detected
+[INFO] [1746605581.873527]: Received motor command:1.030 V
+[INFO] [1746605581.955005]: VehicleSpeed:   0.00
+[INFO] [1746605581.971667]: Obstacle not detected
+[INFO] [1746605581.975282]: Received motor command:1.344 V
+[INFO] [1746605582.065309]: VehicleSpeed:   0.00
+[INFO] [1746605582.086781]: Received motor command:1.634 V
+[INFO] [1746605582.090884]: Obstacle not detected
+[INFO] [1746605582.174990]: VehicleSpeed:   0.00
+[INFO] [1746605582.197918]: Obstacle not detected
+[INFO] [1746605582.202072]: Received motor command:1.901 V
+[INFO] [1746605582.285044]: VehicleSpeed:   0.00
+[INFO] [1746605582.301093]: Received motor command:2.165 V
+[INFO] [1746605582.304589]: Obstacle not detected
+[INFO] [1746605582.394870]: VehicleSpeed:   0.20
+[INFO] [1746605582.414156]: Received motor command:2.463 V
+[INFO] [1746605582.418011]: Obstacle not detected
+[INFO] [1746605582.504311]: VehicleSpeed:   0.60
+[INFO] [1746605582.518296]: Obstacle not detected
+[INFO] [1746605582.521294]: Received motor command:2.689 V
+[INFO] [1746605582.614873]: VehicleSpeed:   0.30
+[INFO] [1746605582.630710]: Obstacle not detected
+[INFO] [1746605582.633723]: Received motor command:2.712 V
+[INFO] [1746605582.725227]: VehicleSpeed:   0.40
+[INFO] [1746605582.745466]: Obstacle not detected
+[INFO] [1746605582.749862]: Received motor command:2.723 V
+[INFO] [1746605582.835059]: VehicleSpeed:   0.60
+[INFO] [1746605582.858336]: Received motor command:2.745 V
+[INFO] [1746605582.861862]: Obstacle not detected
+[INFO] [1746605582.944390]: VehicleSpeed:   0.80
+[INFO] [1746605582.961232]: Received motor command:2.767 V
+[INFO] [1746605582.964884]: Obstacle not detected
+[INFO] [1746605583.055016]: VehicleSpeed:   0.90
+[INFO] [1746605583.075798]: Obstacle not detected
+[INFO] [1746605583.079875]: Received motor command:2.778 V
+[INFO] [1746605583.164343]: VehicleSpeed:   1.20
+[INFO] [1746605583.188555]: Received motor command:2.811 V
+[INFO] [1746605583.193262]: Obstacle not detected
+[INFO] [1746605583.274979]: VehicleSpeed:   1.50
+[INFO] [1746605583.291170]: Obstacle not detected
+[INFO] [1746605583.294762]: Received motor command:2.844 V
+[INFO] [1746605583.385624]: VehicleSpeed:   1.80
+[INFO] [1746605583.405294]: Received motor command:2.877 V
+[INFO] [1746605583.410012]: Obstacle not detected
+[INFO] [1746605583.495225]: VehicleSpeed:   2.00
+[INFO] [1746605583.519365]: Received motor command:2.899 V
+[INFO] [1746605583.524652]: Obstacle not detected
+[INFO] [1746605583.604706]: VehicleSpeed:   2.20
+[INFO] [1746605583.621095]: Received motor command:2.921 V
+[INFO] [1746605583.625210]: Obstacle not detected
+[INFO] [1746605583.714641]: VehicleSpeed:   2.40
+[INFO] [1746605583.735100]: Received motor command:2.943 V
+[INFO] [1746605583.739950]: Obstacle not detected
+[INFO] [1746605583.824268]: VehicleSpeed:   2.70
+[INFO] [1746605583.848248]: Obstacle not detected
+[INFO] [1746605583.853001]: Received motor command:2.976 V
+[INFO] [1746605583.934986]: VehicleSpeed:   3.00
+[INFO] [1746605583.950530]: Received motor command:3.010 V
+[INFO] [1746605583.953553]: Obstacle not detected
+[INFO] [1746605584.044431]: VehicleSpeed:   3.30
+[INFO] [1746605584.063941]: Obstacle not detected
+[INFO] [1746605584.068296]: Received motor command:3.044 V
+[INFO] [1746605584.154895]: VehicleSpeed:   3.60
+[INFO] [1746605584.178208]: Received motor command:3.079 V
+[INFO] [1746605584.182505]: Obstacle not detected
+[INFO] [1746605584.264345]: VehicleSpeed:   3.70
+[INFO] [1746605584.280858]: Obstacle not detected
+[INFO] [1746605584.285382]: Received motor command:3.090 V
+[INFO] [1746605584.375033]: VehicleSpeed:   3.90
+[INFO] [1746605584.393143]: Obstacle not detected
+[INFO] [1746605584.396930]: Received motor command:3.113 V
+[INFO] [1746605584.484343]: VehicleSpeed:   4.20
+[INFO] [1746605584.508065]: Obstacle not detected
+[INFO] [1746605584.512495]: Received motor command:3.148 V
+[INFO] [1746605584.595108]: VehicleSpeed:   4.70
+[INFO] [1746605584.621352]: Received motor command:3.205 V
+[INFO] [1746605584.625873]: Obstacle not detected
+[INFO] [1746605584.705384]: VehicleSpeed:   4.90
+[INFO] [1746605584.723433]: Received motor command:3.228 V
+[INFO] [1746605584.727230]: Obstacle not detected
+[INFO] [1746605584.815042]: VehicleSpeed:   4.90
+[INFO] [1746605584.837269]: Received motor command:3.228 V
+[INFO] [1746605584.841943]: Obstacle not detected
+[INFO] [1746605584.924361]: VehicleSpeed:   5.30
+[INFO] [1746605584.942678]: Obstacle not detected
+[INFO] [1746605584.946427]: Received motor command:3.274 V
+[INFO] [1746605585.035144]: VehicleSpeed:   5.80
+[INFO] [1746605585.056094]: Obstacle not detected
+[INFO] [1746605585.060898]: Received motor command:3.317 V
+[INFO] [1746605585.144754]: VehicleSpeed:   6.00
+[INFO] [1746605585.169292]: Received motor command:3.317 V
+[INFO] [1746605585.172696]: Obstacle not detected
+[INFO] [1746605585.254765]: VehicleSpeed:   5.80
+[INFO] [1746605585.272172]: Received motor command:3.317 V
+[INFO] [1746605585.274547]: Obstacle not detected
+[INFO] [1746605585.365137]: VehicleSpeed:   6.40
+[INFO] [1746605585.384593]: Received motor command:3.317 V
+[INFO] [1746605585.388777]: Obstacle not detected
+[INFO] [1746605585.474806]: VehicleSpeed:   6.80
+[INFO] [1746605585.497491]: Received motor command:3.317 V
+[INFO] [1746605585.501993]: Obstacle not detected
+[INFO] [1746605585.584556]: VehicleSpeed:   6.40
+[INFO] [1746605585.599790]: Received motor command:3.317 V
+[INFO] [1746605585.602858]: Obstacle not detected
+[INFO] [1746605585.694171]: VehicleSpeed:   7.30
+[INFO] [1746605585.712924]: Received motor command:3.317 V
+[INFO] [1746605585.717403]: Obstacle not detected
+[INFO] [1746605585.805418]: VehicleSpeed:   7.50
+[INFO] [1746605585.825404]: Received motor command:3.317 V
+[INFO] [1746605585.829614]: Obstacle not detected
+[INFO] [1746605585.914810]: VehicleSpeed:   7.40
+[INFO] [1746605585.937429]: Received motor command:3.317 V
+[INFO] [1746605585.942598]: Obstacle not detected
+[INFO] [1746605586.025295]: VehicleSpeed:   8.20
+[INFO] [1746605586.039839]: Received motor command:3.317 V
+[INFO] [1746605586.042964]: Obstacle not detected
+[INFO] [1746605586.134586]: VehicleSpeed:   7.80
+[INFO] [1746605586.153148]: Obstacle not detected
+[INFO] [1746605586.157253]: Received motor command:3.317 V
+[INFO] [1746605586.244461]: VehicleSpeed:   9.00
+[INFO] [1746605586.265881]: Received motor command:3.317 V
+[INFO] [1746605586.270735]: Obstacle not detected
+[INFO] [1746605586.354997]: VehicleSpeed:   8.70
+[INFO] [1746605586.368202]: Obstacle not detected
+[INFO] [1746605586.370993]: Received motor command:3.317 V
+[INFO] [1746605586.464432]: VehicleSpeed:   9.10
+[INFO] [1746605586.482234]: Received motor command:3.317 V
+[INFO] [1746605586.486088]: Obstacle not detected
+[INFO] [1746605586.575008]: VehicleSpeed:   9.00
+[INFO] [1746605586.594308]: Received motor command:3.317 V
+[INFO] [1746605586.598538]: Obstacle not detected
+[INFO] [1746605586.684824]: VehicleSpeed:   9.00
+[INFO] [1746605586.708406]: Obstacle not detected
+[INFO] [1746605586.712934]: Received motor command:3.317 V
+[INFO] [1746605586.795168]: VehicleSpeed:   9.00
+[INFO] [1746605586.810598]: Obstacle not detected
+[INFO] [1746605586.813958]: Received motor command:3.317 V
+[INFO] [1746605586.904366]: VehicleSpeed:   9.20
+[INFO] [1746605586.922565]: Obstacle not detected
+[INFO] [1746605586.926729]: Received motor command:3.317 V
+[INFO] [1746605587.015089]: VehicleSpeed:   9.40
+[INFO] [1746605587.034916]: Obstacle not detected
+[INFO] [1746605587.039017]: Received motor command:3.317 V
+[INFO] [1746605587.125705]: VehicleSpeed:  10.10
+[INFO] [1746605587.148363]: Obstacle not detected
+[INFO] [1746605587.152435]: Received motor command:3.317 V
+[INFO] [1746605587.234637]: VehicleSpeed:   9.90
+[INFO] [1746605587.249027]: Obstacle not detected
+[INFO] [1746605587.252166]: Received motor command:3.317 V
+[INFO] [1746605587.344444]: VehicleSpeed:  10.90
+[INFO] [1746605587.362764]: Obstacle not detected
+[INFO] [1746605587.367270]: Received motor command:3.317 V
+[INFO] [1746605587.454550]: VehicleSpeed:  10.10
+[INFO] [1746605587.475955]: Received motor command:3.317 V
+[INFO] [1746605587.479983]: Obstacle not detected
+[INFO] [1746605587.565557]: VehicleSpeed:  11.40
+[INFO] [1746605587.588650]: Received motor command:3.317 V
+[INFO] [1746605587.593742]: Obstacle not detected
+[INFO] [1746605587.675398]: VehicleSpeed:  10.60
+[INFO] [1746605587.691523]: Received motor command:3.317 V
+[INFO] [1746605587.695798]: Obstacle not detected
+[INFO] [1746605587.784477]: VehicleSpeed:  11.20
+[INFO] [1746605587.806714]: Received motor command:3.317 V
+[INFO] [1746605587.811767]: Obstacle not detected
+[INFO] [1746605587.895215]: VehicleSpeed:  11.90
+[INFO] [1746605587.918742]: Received motor command:3.317 V
+[INFO] [1746605587.923280]: Obstacle not detected
+[INFO] [1746605588.005747]: VehicleSpeed:  11.10
+[INFO] [1746605588.022346]: Received motor command:3.317 V
+[INFO] [1746605588.025394]: Obstacle not detected
+[INFO] [1746605588.114973]: VehicleSpeed:  12.60
+[INFO] [1746605588.136604]: Received motor command:3.317 V
+[INFO] [1746605588.140812]: Obstacle not detected
+[INFO] [1746605588.225847]: VehicleSpeed:  12.40
+[INFO] [1746605588.249792]: Received motor command:3.317 V
+[INFO] [1746605588.254729]: Obstacle not detected
+[INFO] [1746605588.335164]: VehicleSpeed:  11.60
+[INFO] [1746605588.352188]: Obstacle detected
+[INFO] [1746605588.356736]: Received motor command:3.317 V
+[INFO] [1746605588.445855]: VehicleSpeed:  13.20
+[INFO] [1746605588.465520]: Received motor command:3.317 V
+[INFO] [1746605588.470225]: Obstacle detected
+[INFO] [1746605588.555190]: VehicleSpeed:  13.00
+[INFO] [1746605588.579013]: Received motor command:3.317 V
+[INFO] [1746605588.583144]: Obstacle detected
+[INFO] [1746605588.665517]: VehicleSpeed:  11.90
+[INFO] [1746605588.680475]: Received motor command:3.317 V
+[INFO] [1746605588.683584]: Obstacle detected
+[INFO] [1746605588.775018]: VehicleSpeed:  13.50
+[INFO] [1746605588.794660]: Received motor command:3.317 V
+[INFO] [1746605588.798981]: Obstacle detected
+[INFO] [1746605588.885860]: VehicleSpeed:  14.20
+[INFO] [1746605588.907553]: Received motor command:3.317 V
+[INFO] [1746605588.911503]: Obstacle detected
+[INFO] [1746605588.995008]: VehicleSpeed:  12.80
+[INFO] [1746605589.010602]: Received motor command:3.317 V
+[INFO] [1746605589.013925]: Obstacle detected
+[INFO] [1746605589.105639]: VehicleSpeed:  12.80
+[INFO] [1746605589.123889]: Received motor command:3.317 V
+[INFO] [1746605589.127486]: Obstacle detected
+[INFO] [1746605589.215012]: VehicleSpeed:  14.70
+[INFO] [1746605589.237392]: Received motor command:3.317 V
+[INFO] [1746605589.242467]: Obstacle detected
+[INFO] [1746605589.325853]: VehicleSpeed:  14.50
+[INFO] [1746605589.350069]: Received motor command:3.317 V
+[INFO] [1746605589.355100]: Obstacle detected
+[INFO] [1746605589.435157]: VehicleSpeed:  13.20
+[INFO] [1746605589.453436]: Received motor command:3.317 V
+[INFO] [1746605589.457683]: Obstacle detected
+[INFO] [1746605589.545685]: VehicleSpeed:  13.60
+[INFO] [1746605589.566018]: Received motor command:3.317 V
+[INFO] [1746605589.570748]: Obstacle detected
+[INFO] [1746605589.655083]: VehicleSpeed:  15.50
+[INFO] [1746605589.668483]: Obstacle detected
+[INFO] [1746605589.679187]: Received motor command:3.317 V
+[INFO] [1746605589.764693]: VehicleSpeed:  15.00
+[INFO] [1746605589.782048]: Obstacle detected
+[INFO] [1746605589.785942]: Received motor command:3.317 V
+[INFO] [1746605589.874962]: VehicleSpeed:  13.90
+[INFO] [1746605589.894314]: Received motor command:3.317 V
+[INFO] [1746605589.898904]: Obstacle detected
+[INFO] [1746605589.985311]: VehicleSpeed:  13.90
+[INFO] [1746605590.007780]: Received motor command:3.317 V
+[INFO] [1746605590.012014]: Obstacle detected
+[INFO] [1746605590.095115]: VehicleSpeed:  15.50
+[INFO] [1746605590.109288]: Obstacle detected
+[INFO] [1746605590.112113]: Received motor command:3.317 V
+[INFO] [1746605590.205658]: VehicleSpeed:  15.80
+[INFO] [1746605590.222699]: Received motor command:3.317 V
+[INFO] [1746605590.226269]: Obstacle detected
+[INFO] [1746605590.314950]: VehicleSpeed:  15.30
+[INFO] [1746605590.334628]: Received motor command:3.317 V
+[INFO] [1746605590.338477]: Obstacle detected
+[INFO] [1746605590.425737]: VehicleSpeed:  14.30
+[INFO] [1746605590.449212]: Obstacle detected
+[INFO] [1746605590.453754]: Received motor command:3.317 V
+[INFO] [1746605590.534965]: VehicleSpeed:  14.60
+[INFO] [1746605590.550841]: Received motor command:3.317 V
+[INFO] [1746605590.554249]: Obstacle detected
+[INFO] [1746605590.645717]: VehicleSpeed:  15.70
+[INFO] [1746605590.665154]: Received motor command:3.317 V
+[INFO] [1746605590.669868]: Obstacle detected
+[INFO] [1746605590.755175]: VehicleSpeed:  16.20
+[INFO] [1746605590.777921]: Received motor command:3.317 V
+[INFO] [1746605590.782490]: Obstacle detected
+[INFO] [1746605590.865895]: VehicleSpeed:  15.80
+[INFO] [1746605590.880691]: Received motor command:3.317 V
+[INFO] [1746605590.883869]: Obstacle detected
+[INFO] [1746605590.974983]: VehicleSpeed:  15.20
+[INFO] [1746605590.993406]: Obstacle detected
+[INFO] [1746605590.997511]: Received motor command:3.317 V
+[INFO] [1746605591.085768]: VehicleSpeed:  15.30
+[INFO] [1746605591.109534]: Obstacle detected
+[INFO] [1746605591.114100]: Received motor command:3.317 V
+[INFO] [1746605591.195204]: VehicleSpeed:  15.80
+[INFO] [1746605591.211366]: Received motor command:3.317 V
+[INFO] [1746605591.214780]: Obstacle detected
+[INFO] [1746605591.305780]: VehicleSpeed:  15.70
+[INFO] [1746605591.325176]: Received motor command:3.317 V
+[INFO] [1746605591.328759]: Obstacle detected
+[INFO] [1746605591.414954]: VehicleSpeed:  16.10
+[INFO] [1746605591.438809]: Received motor command:3.317 V
+[INFO] [1746605591.443307]: Obstacle detected
+[INFO] [1746605591.525804]: VehicleSpeed:  16.40
+[INFO] [1746605591.540291]: Received motor command:3.317 V
+[INFO] [1746605591.543298]: Obstacle detected
+[INFO] [1746605591.634991]: VehicleSpeed:  16.30
+[INFO] [1746605591.654677]: Received motor command:3.317 V
+[INFO] [1746605591.659736]: Obstacle detected
+[INFO] [1746605591.744961]: VehicleSpeed:  16.30
+[INFO] [1746605591.767384]: Received motor command:3.317 V
+[INFO] [1746605591.772622]: Obstacle detected
+[INFO] [1746605591.855101]: VehicleSpeed:  16.00
+[INFO] [1746605591.870129]: Received motor command:3.317 V
+[INFO] [1746605591.873149]: Obstacle detected
+[INFO] [1746605591.965792]: VehicleSpeed:  16.40
+[INFO] [1746605591.982602]: Received motor command:3.317 V
+[INFO] [1746605591.986254]: Obstacle detected
+[INFO] [1746605592.075138]: VehicleSpeed:  15.80
+[INFO] [1746605592.094504]: Obstacle detected
+[INFO] [1746605592.099282]: Received motor command:3.317 V
+[INFO] [1746605592.185775]: VehicleSpeed:  16.30
+[INFO] [1746605592.208684]: Obstacle detected
+[INFO] [1746605592.212929]: Received motor command:3.317 V
+[INFO] [1746605592.294937]: VehicleSpeed:  16.40
+[INFO] [1746605592.311620]: Received motor command:3.317 V
+[INFO] [1746605592.315140]: Obstacle detected
+[INFO] [1746605592.405558]: VehicleSpeed:  16.70
+[INFO] [1746605592.423996]: Received motor command:3.317 V
+[INFO] [1746605592.428258]: Obstacle detected
+[INFO] [1746605592.514973]: VehicleSpeed:  16.60
+[INFO] [1746605592.538033]: Obstacle detected
+[INFO] [1746605592.543026]: Received motor command:3.317 V
+[INFO] [1746605592.625586]: VehicleSpeed:  16.80
+[INFO] [1746605592.652157]: Received motor command:3.317 V
+[INFO] [1746605592.656732]: Obstacle detected
+[INFO] [1746605592.735279]: VehicleSpeed:  16.80
+[INFO] [1746605592.755514]: Received motor command:3.317 V
+[INFO] [1746605592.760241]: Obstacle detected
+[INFO] [1746605592.845572]: VehicleSpeed:  16.60
+[INFO] [1746605592.869539]: Obstacle detected
+[INFO] [1746605592.874687]: Received motor command:3.317 V
+[INFO] [1746605592.955333]: VehicleSpeed:  16.90
+[INFO] [1746605592.971020]: Received motor command:3.317 V
+[INFO] [1746605592.974756]: Obstacle detected
+[INFO] [1746605593.065755]: VehicleSpeed:  16.40
+[INFO] [1746605593.084517]: Received motor command:3.317 V
+[INFO] [1746605593.088020]: Obstacle detected
+[INFO] [1746605593.174972]: VehicleSpeed:  17.00
+[INFO] [1746605593.198226]: Obstacle detected
+[INFO] [1746605593.201993]: Received motor command:3.317 V
+[INFO] [1746605593.285716]: VehicleSpeed:  16.40
+[INFO] [1746605593.301399]: Received motor command:3.317 V
+[INFO] [1746605593.304606]: Obstacle detected
+[INFO] [1746605593.396054]: VehicleSpeed:  17.10
+[INFO] [1746605593.413881]: Received motor command:3.317 V
+[INFO] [1746605593.417628]: Obstacle detected
+[INFO] [1746605593.505596]: VehicleSpeed:  16.60
+[INFO] [1746605593.527109]: Received motor command:3.317 V
+[INFO] [1746605593.531512]: Obstacle detected
+[INFO] [1746605593.615047]: VehicleSpeed:  17.20
+[INFO] [1746605593.630660]: Received motor command:3.317 V
+[INFO] [1746605593.633929]: Obstacle detected
+[INFO] [1746605593.725736]: VehicleSpeed:  17.00
+[INFO] [1746605593.742875]: Obstacle detected
+[INFO] [1746605593.746779]: Received motor command:3.317 V
+[INFO] [1746605593.835154]: VehicleSpeed:  17.30
+[INFO] [1746605593.855627]: Obstacle detected
+[INFO] [1746605593.860344]: Received motor command:3.317 V
+[INFO] [1746605593.945789]: VehicleSpeed:  17.40
+[INFO] [1746605593.969009]: Received motor command:3.317 V
+[INFO] [1746605593.974545]: Obstacle detected
+[INFO] [1746605594.055898]: VehicleSpeed:  17.00
+[INFO] [1746605594.071860]: Received motor command:3.317 V
+[INFO] [1746605594.075212]: Obstacle detected
+[INFO] [1746605594.165813]: VehicleSpeed:  17.60
+[INFO] [1746605594.185113]: Received motor command:3.317 V
+[INFO] [1746605594.189040]: Obstacle detected
+[INFO] [1746605594.274974]: VehicleSpeed:  16.80
+[INFO] [1746605594.289329]: Received motor command:3.317 V
+[INFO] [1746605594.292012]: Obstacle detected
+[INFO] [1746605594.385349]: VehicleSpeed:  17.50
+[INFO] [1746605594.401856]: Received motor command:3.317 V
+[INFO] [1746605594.405243]: Obstacle detected
+[INFO] [1746605594.495111]: VehicleSpeed:  16.70
+[INFO] [1746605594.514779]: Received motor command:3.317 V
+[INFO] [1746605594.519336]: Obstacle detected
+[INFO] [1746605594.605988]: VehicleSpeed:  17.50
+[INFO] [1746605594.628469]: Received motor command:3.317 V
+[INFO] [1746605594.632729]: Obstacle detected
+[INFO] [1746605594.714855]: VehicleSpeed:  16.90
+[INFO] [1746605594.731107]: Received motor command:3.317 V
+[INFO] [1746605594.734537]: Obstacle detected
+[INFO] [1746605594.825976]: VehicleSpeed:  17.50
+[INFO] [1746605594.843040]: Obstacle detected
+[INFO] [1746605594.847860]: Received motor command:3.317 V
+[INFO] [1746605594.934853]: VehicleSpeed:  17.10
+[INFO] [1746605594.955959]: Received motor command:3.317 V
+[INFO] [1746605594.961084]: Obstacle detected
+[INFO] [1746605595.045687]: VehicleSpeed:  17.60
+[INFO] [1746605595.069454]: Received motor command:3.317 V
+[INFO] [1746605595.073605]: Obstacle detected
+[INFO] [1746605595.154953]: VehicleSpeed:  17.30
+[INFO] [1746605595.171931]: Received motor command:3.317 V
+[INFO] [1746605595.175608]: Obstacle detected
+[INFO] [1746605595.264947]: VehicleSpeed:  17.60
+[INFO] [1746605595.284411]: Obstacle detected
+[INFO] [1746605595.288994]: Received motor command:3.317 V
+[INFO] [1746605595.375141]: VehicleSpeed:  17.40
+[INFO] [1746605595.398758]: Received motor command:3.317 V
+[INFO] [1746605595.403617]: Obstacle detected
+[INFO] [1746605595.485669]: VehicleSpeed:  17.80
+[INFO] [1746605595.501342]: Received motor command:3.317 V
+[INFO] [1746605595.504551]: Obstacle detected
+[INFO] [1746605595.594964]: VehicleSpeed:  17.60
+[INFO] [1746605595.614486]: Received motor command:3.317 V
+[INFO] [1746605595.618895]: Obstacle detected
+[INFO] [1746605595.705694]: VehicleSpeed:  17.80
+[INFO] [1746605595.726840]: Received motor command:3.317 V
+[INFO] [1746605595.731120]: Obstacle detected
+[INFO] [1746605595.814725]: VehicleSpeed:  17.80
+[INFO] [1746605595.830385]: Received motor command:3.317 V
+[INFO] [1746605595.833720]: Obstacle detected
+[INFO] [1746605595.925561]: VehicleSpeed:  17.70
+[INFO] [1746605595.943146]: Received motor command:3.317 V
+[INFO] [1746605595.947186]: Obstacle detected
+[INFO] [1746605596.034872]: VehicleSpeed:  18.10
+[INFO] [1746605596.056470]: Received motor command:3.317 V
+[INFO] [1746605596.060545]: Obstacle detected
+[INFO] [1746605596.144862]: VehicleSpeed:  17.90
+[INFO] [1746605596.168193]: Obstacle detected
+[INFO] [1746605596.172374]: Received motor command:3.317 V
+[INFO] [1746605596.254634]: VehicleSpeed:  18.40
+[INFO] [1746605596.271549]: Received motor command:3.317 V
+[INFO] [1746605596.274844]: Obstacle detected
+[INFO] [1746605596.365612]: VehicleSpeed:  17.80
+[INFO] [1746605596.383584]: Obstacle detected
+[INFO] [1746605596.386746]: Received motor command:3.317 V
+[INFO] [1746605596.475564]: VehicleSpeed:  18.20
+[INFO] [1746605596.497224]: Received motor command:3.317 V
+[INFO] [1746605596.501295]: Obstacle detected
+[INFO] [1746605596.585600]: VehicleSpeed:  17.70
+[INFO] [1746605596.600830]: Obstacle detected
+[INFO] [1746605596.603728]: Received motor command:3.317 V
+[INFO] [1746605596.694768]: VehicleSpeed:  18.40
+[INFO] [1746605596.714015]: Obstacle detected
+[INFO] [1746605596.719119]: Received motor command:3.317 V
+[INFO] [1746605596.805066]: VehicleSpeed:  17.70
+[INFO] [1746605596.826674]: Obstacle detected
+[INFO] [1746605596.831067]: Received motor command:3.317 V
+[INFO] [1746605596.914739]: VehicleSpeed:  18.20
+[INFO] [1746605596.928646]: Obstacle detected
+[INFO] [1746605596.932294]: Received motor command:3.317 V
+[INFO] [1746605597.025770]: VehicleSpeed:  17.60
+[INFO] [1746605597.041693]: Obstacle detected
+[INFO] [1746605597.045202]: Received motor command:3.317 V
+[INFO] [1746605597.135269]: VehicleSpeed:  18.10
+[INFO] [1746605597.156549]: Obstacle detected
+[INFO] [1746605597.161727]: Received motor command:3.317 V
+[INFO] [1746605597.245967]: VehicleSpeed:  17.40
+[INFO] [1746605597.269750]: Received motor command:3.317 V
+[INFO] [1746605597.274829]: Obstacle detected
+[INFO] [1746605597.355162]: VehicleSpeed:  17.90
+[INFO] [1746605597.372211]: Obstacle detected
+[INFO] [1746605597.376065]: Received motor command:3.317 V
+[INFO] [1746605597.464866]: VehicleSpeed:  17.40
+[INFO] [1746605597.485816]: Received motor command:3.317 V
+[INFO] [1746605597.490593]: Obstacle detected
+[INFO] [1746605597.574922]: VehicleSpeed:  17.90
+[INFO] [1746605597.598183]: Obstacle detected
+[INFO] [1746605597.602756]: Received motor command:3.317 V
+[INFO] [1746605597.685449]: VehicleSpeed:  17.40
+[INFO] [1746605597.701328]: Received motor command:3.317 V
+[INFO] [1746605597.705319]: Obstacle detected
+[INFO] [1746605597.795163]: VehicleSpeed:  17.70
+[INFO] [1746605597.814823]: Received motor command:3.317 V
+[INFO] [1746605597.819763]: Obstacle detected
+[INFO] [1746605597.905947]: VehicleSpeed:  17.40
+[INFO] [1746605597.928540]: Obstacle detected
+[INFO] [1746605597.932739]: Received motor command:3.317 V
+[INFO] [1746605598.015273]: VehicleSpeed:  17.50
+[INFO] [1746605598.029985]: Obstacle detected
+[INFO] [1746605598.033116]: Received motor command:3.317 V
+[INFO] [1746605598.124875]: VehicleSpeed:  17.60
+[INFO] [1746605598.142908]: Obstacle detected
+[INFO] [1746605598.147301]: Received motor command:3.317 V
+[INFO] [1746605598.236124]: VehicleSpeed:  17.70
+[INFO] [1746605598.256709]: Received motor command:3.317 V
+[INFO] [1746605598.260874]: Obstacle detected
+[INFO] [1746605598.345609]: VehicleSpeed:  17.60
+[INFO] [1746605598.368662]: Obstacle detected
+[INFO] [1746605598.373827]: Received motor command:3.317 V
+[INFO] [1746605598.454821]: VehicleSpeed:  17.70
+[INFO] [1746605598.471150]: Obstacle detected
+[INFO] [1746605598.474928]: Received motor command:3.317 V
+[INFO] [1746605598.565656]: VehicleSpeed:  17.90
+[INFO] [1746605598.583729]: Obstacle detected
+[INFO] [1746605598.587838]: Received motor command:3.317 V
+[INFO] [1746605598.675627]: VehicleSpeed:  17.80
+[INFO] [1746605598.697366]: Received motor command:3.317 V
+[INFO] [1746605598.701272]: Obstacle detected
+[INFO] [1746605598.786075]: VehicleSpeed:  18.20
+[INFO] [1746605598.810137]: Obstacle detected
+[INFO] [1746605598.814514]: Received motor command:3.317 V
+[INFO] [1746605598.895433]: VehicleSpeed:  17.80
+[INFO] [1746605598.913333]: Received motor command:3.317 V
+[INFO] [1746605598.917401]: Obstacle detected
+[INFO] [1746605599.005242]: VehicleSpeed:  18.20
+[INFO] [1746605599.026741]: Received motor command:3.317 V
+[INFO] [1746605599.031255]: Obstacle detected
+[INFO] [1746605599.114946]: VehicleSpeed:  18.10
+[INFO] [1746605599.130581]: Received motor command:3.317 V
+[INFO] [1746605599.133902]: Obstacle detected
+[INFO] [1746605599.225786]: VehicleSpeed:  18.20
+[INFO] [1746605599.243531]: Obstacle detected
+[INFO] [1746605599.247472]: Received motor command:3.317 V
+[INFO] [1746605599.334821]: VehicleSpeed:  18.00
+[INFO] [1746605599.356035]: Obstacle detected
+[INFO] [1746605599.360610]: Received motor command:3.317 V
+[INFO] [1746605599.445278]: VehicleSpeed:  18.30
+[INFO] [1746605599.469693]: Obstacle detected
+[INFO] [1746605599.473890]: Received motor command:3.317 V
+[INFO] [1746605599.555357]: VehicleSpeed:  18.20
+[INFO] [1746605599.572060]: Received motor command:3.317 V
+[INFO] [1746605599.574989]: Obstacle detected
+[INFO] [1746605599.665662]: VehicleSpeed:  18.30
+[INFO] [1746605599.684048]: Received motor command:3.317 V
+[INFO] [1746605599.688162]: Obstacle detected
+[INFO] [1746605599.774990]: VehicleSpeed:  18.10
+[INFO] [1746605599.798406]: Received motor command:3.317 V
+[INFO] [1746605599.802508]: Obstacle detected
+[INFO] [1746605599.885718]: VehicleSpeed:  18.60
+[INFO] [1746605599.911673]: Received motor command:3.317 V
+[INFO] [1746605599.915863]: Obstacle detected
+[INFO] [1746605599.996113]: VehicleSpeed:  18.30
+[INFO] [1746605600.014070]: Received motor command:3.317 V
+[INFO] [1746605600.018072]: Obstacle detected
+[INFO] [1746605600.105793]: VehicleSpeed:  18.50
+[INFO] [1746605600.126776]: Obstacle detected
+[INFO] [1746605600.130779]: Received motor command:3.317 V
+[INFO] [1746605600.216057]: VehicleSpeed:  18.30
+[INFO] [1746605600.240363]: Received motor command:3.317 V
+[INFO] [1746605600.244945]: Obstacle detected
+[INFO] [1746605600.325606]: VehicleSpeed:  18.60
+[INFO] [1746605600.342727]: Received motor command:3.317 V
+[INFO] [1746605600.346436]: Obstacle detected
+[INFO] [1746605600.434933]: VehicleSpeed:  18.40
+[INFO] [1746605600.457062]: Received motor command:3.317 V
+[INFO] [1746605600.462077]: Obstacle detected
+[INFO] [1746605600.545756]: VehicleSpeed:  18.70
+[INFO] [1746605600.569045]: Obstacle detected
+[INFO] [1746605600.573546]: Received motor command:3.317 V
+[INFO] [1746605600.655008]: VehicleSpeed:  18.20
+[INFO] [1746605600.670643]: Obstacle detected
+[INFO] [1746605600.673887]: Received motor command:3.317 V
+[INFO] [1746605600.765915]: VehicleSpeed:  18.70
+[INFO] [1746605600.784433]: Received motor command:3.317 V
+[INFO] [1746605600.788399]: Obstacle detected
+[INFO] [1746605600.875635]: VehicleSpeed:  18.30
+[INFO] [1746605600.897433]: Received motor command:3.317 V
+[INFO] [1746605600.902067]: Obstacle detected
+[INFO] [1746605600.986023]: VehicleSpeed:  18.60
+[INFO] [1746605601.010874]: Obstacle detected
+[INFO] [1746605601.015185]: Received motor command:3.133 V
+[INFO] [1746605601.095699]: VehicleSpeed:  18.40
+[INFO] [1746605601.112650]: Received motor command:3.033 V
+[INFO] [1746605601.115885]: Obstacle detected
+[INFO] [1746605601.205619]: VehicleSpeed:  18.50
+[INFO] [1746605601.225008]: Received motor command:2.823 V
+[INFO] [1746605601.229462]: Obstacle detected
+[INFO] [1746605601.316126]: VehicleSpeed:  17.60
+[INFO] [1746605601.339204]: Received motor command:2.892 V
+[INFO] [1746605601.344237]: Obstacle detected
+[INFO] [1746605601.425790]: VehicleSpeed:  16.80
+[INFO] [1746605601.441348]: Obstacle detected
+[INFO] [1746605601.444849]: Received motor command:2.973 V
+[INFO] [1746605601.534861]: VehicleSpeed:  16.90
+[INFO] [1746605601.553972]: Obstacle detected
+[INFO] [1746605601.558222]: Received motor command:2.947 V
+[INFO] [1746605601.644919]: VehicleSpeed:  16.60
+[INFO] [1746605601.667785]: Received motor command:2.907 V
+[INFO] [1746605601.670453]: Obstacle detected
+[INFO] [1746605601.755040]: VehicleSpeed:  17.70
+[INFO] [1746605601.770561]: Received motor command:2.690 V
+[INFO] [1746605601.773657]: Obstacle detected
+[INFO] [1746605601.865630]: VehicleSpeed:  17.30
+[INFO] [1746605601.883013]: Received motor command:2.213 V
+[INFO] [1746605601.886828]: Obstacle detected
+[INFO] [1746605601.975108]: VehicleSpeed:  17.10
+[INFO] [1746605601.996504]: Received motor command:2.085 V
+[INFO] [1746605602.001944]: Obstacle detected
+[INFO] [1746605602.084984]: VehicleSpeed:  17.10
+[INFO] [1746605602.099871]: Received motor command:1.835 V
+[INFO] [1746605602.102932]: Obstacle detected
+[INFO] [1746605602.196703]: VehicleSpeed:  16.80
+[INFO] [1746605602.213166]: Received motor command:1.761 V
+[INFO] [1746605602.216687]: Obstacle detected
+[INFO] [1746605602.305518]: VehicleSpeed:  17.10
+[INFO] [1746605602.326606]: Received motor command:1.308 V
+[INFO] [1746605602.330675]: Obstacle detected
+[INFO] [1746605602.415081]: VehicleSpeed:  16.70
+[INFO] [1746605602.430736]: Obstacle detected
+[INFO] [1746605602.434333]: Received motor command:1.300 V
+[INFO] [1746605602.525741]: VehicleSpeed:  16.70
+[INFO] [1746605602.542848]: Obstacle detected
+[INFO] [1746605602.546811]: Received motor command:1.010 V
+[INFO] [1746605602.634991]: VehicleSpeed:  16.30
+[INFO] [1746605602.656928]: Obstacle detected
+[INFO] [1746605602.662012]: Received motor command:1.010 V
+[INFO] [1746605602.745593]: VehicleSpeed:  16.40
+[INFO] [1746605602.770530]: Obstacle detected
+[INFO] [1746605602.775019]: Received motor command:0.622 V
+[INFO] [1746605602.855104]: VehicleSpeed:  16.20
+[INFO] [1746605602.872805]: Received motor command:0.470 V
+[INFO] [1746605602.876318]: Obstacle detected
+[INFO] [1746605602.965659]: VehicleSpeed:  16.20
+[INFO] [1746605602.971878]: Manual Braking activated
+[INFO] [1746605605.980220]: Received motor command:0.000 V
+[INFO] [1746605605.984600]: Obstacle detected
+[INFO] [1746605606.079271]: VehicleSpeed:   9.90
+[INFO] [1746605606.084173]: Manual Braking activated
+[INFO] [1746605609.093184]: Obstacle detected
+[INFO] [1746605609.096877]: Received motor command:0.000 V
+[INFO] [1746605609.193685]: VehicleSpeed:   1.90
+[INFO] [1746605609.199733]: Manual Braking activated
+[INFO] [1746605612.208267]: Received motor command:0.000 V
+[INFO] [1746605612.213080]: Obstacle detected
+[INFO] [1746605612.307831]: VehicleSpeed:   0.00
+[INFO] [1746605612.313802]: Manual Braking activated
+[INFO] [1746605615.321700]: Obstacle detected
+[INFO] [1746605615.326176]: Received motor command:0.000 V
+[INFO] [1746605615.421690]: VehicleSpeed:   0.00
+[INFO] [1746605615.427494]: Manual Braking activated
+[INFO] [1746605618.436379]: Received motor command:0.000 V
+[INFO] [1746605618.440941]: Obstacle detected
+[INFO] [1746605618.536313]: VehicleSpeed:   0.00
+[INFO] [1746605618.542392]: Manual Braking activated
+[INFO] [1746605621.550034]: Received motor command:0.000 V
+[INFO] [1746605621.554736]: Obstacle detected
+[INFO] [1746605621.649624]: VehicleSpeed:   0.00
+[INFO] [1746605621.653400]: Vehicle is asked to stop
+^C[INFO] [1746605629.744382]: Sending tx stop request
+[INFO] [1746605629.747323]: shutdown hook activated
+asl-laptop2@asllaptop2:~$ 
+
