@@ -23,7 +23,7 @@ class PID_Controller:
         self.set_derivative()
     
     def set_derivative(self):
-        self.kd = 2 * np.sqrt(self.kp)
+        self.kd = 2 * np.sqrt((self.kp * CP.Td) ** 2 + self.kp) - 2 * self.kp * CP.Td
     
     def set_integral(self, ki):
         self.ki = ki
