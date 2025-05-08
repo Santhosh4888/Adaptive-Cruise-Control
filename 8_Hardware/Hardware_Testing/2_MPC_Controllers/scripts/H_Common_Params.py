@@ -1,113 +1,83 @@
-#!/usr/bin/env python3  
+# !/usr/bin/env python3
 
+import os
+import pickle
 import numpy as np
-import cvxpy as cp 
-import H_Common_Params as CP 
+from scipy.interpolate import Rbf
 
-class MPC:
+main_internal_scripts_dir = os.path.dirname(os.path.abspath(__file__))
+main_internal_MPC_dir = os.path.abspath(os.path.join(main_internal_scripts_dir, '..'))
+main_internal_data_dir = os.path.abspath(os.path.join(main_internal_MPC_dir, 'data'))
+
+# The parameters for the PD Controller
+
+Dd = 1.0                                                                           # Desired Seperation in [m]
+Td = 2.0                                                                           # Time delay in [s]
+Tbl = 3.0                                                                          # Time for which the controller won't respond in [s]
+Vr = 0.0                                                                           # Desired Relative Velocity [m/s]
+a_max = 1.4                                                                        # Maximum acceleration [m/s^2]
+a_min = -3.5                                                                       # Minimum deceleration [m/s^2]
+acc_Jerk_limit = 1.5                                                               # Jerk limit for acceleration [m/s^3]
+dec_Jerk_limit = -3.0                                                              # Jerk limit for deceleration [m/s^3] 
+
+GVW = 680                                                                          # Gross vehicle weight of vehicle is 680 kg
+VW = 1.5 * 680                                                                     # Adding a factor of safety of 1.5 
+MAX_motor_torque = 16                                                              # Nm
+MAX_motor_power = 7500                                                             # Watts
+te = 0.9                                                                           # Transmission efficiency
+
+sample_time = 0.1                                                                  # Sample time of the Radar sensor
+periodic_step = 0.1                                                                # Periodic step in seconds same as sample time
+H_periodic_step = 0.5                                                              # Periodic step for hardware
+
+Dr_1 = 10.0                                                                        # Radar measured Distance (Initial Seperation) (Scenario 1 : cut-in scenario)
+Dr_2 = 100.0                                                                       # Radar measured Distance (Initial Seperation) (Scenario 2 : Vehicle in front moving at a low speed)
+Dr_3 = 100.0                                                                       # Radar measured Distance (Initial Seperation) (Scenario 3 : coming to a complete stop)
+Dr_4 = 15.0                                                                        # Radar measured Distance (Initial Seperation) (Scenario 4 : cut-in scenario)
+
+total_experiment_time = 150.0                                                      # Total experiment time in [s]
+H_total_experiment_time = 50.0                                                     # Total experiment time in [s] for Hardware
+
+Vp_1 = 16.0 * (5 / 18)                                                             # Preceeding Car Velocity in [km/hr * (5/18) = m/s]
+Vp_2 = 12.0 * (5 / 18)                                                             # Preceeding Car Velocity in [km/hr * (5/18) = m/s]
+Vp_3 = 0.0 * (5 / 18)                                                              # Preceeding Car Velocity in [km/hr * (5/18) = m/s]
+Vp_4 = 12.0 * (5 / 18)                                                             # Preceeding Car Velocity in [km/hr * (5/18) = m/s]      # Minimum possible speed is 17 km/hr
+
+Drs = [Dr_1, Dr_2, Dr_3, Dr_4]
+Vps = [Vp_1, Vp_2, Vp_3, Vp_4]
+ 
+start_ego_values = 0.0 * (5 / 18)                                                  # Velocities of ego vehicle in [km/hr * (5/18) = m/s]
+ego_max_v = 20.0 * (5 / 18)
+max_tcmd = 100.0
+
+
+gear_ratio = 12.0                                                                  # Gear ratio of the vehicle
+tyre_radius = 0.265                                                                # Tyre radius of the vehicle
+
+# Indirect variables
+
+max_rpm = ego_max_v * 60 * gear_ratio / (2 * np.pi * tyre_radius)                  # Maximum rpm of ego vehicle in RPM
+
+linear_params_file_path = os.path.join(main_internal_data_dir, 'linear_params.pkl')
+A = None
+with open(linear_params_file_path, 'rb') as f:
+    A = pickle.load(f)[0]                                                          # Constant for the Linear model
+
+slope_rpm_tcmd_file_path = os.path.join(main_internal_data_dir, 'slope_rpm_tcmd.pkl')
+slope_rpm_tcmd = None
+with open(slope_rpm_tcmd_file_path, 'rb') as f:
+    slope_rpm_tcmd = pickle.load(f)[0]                                             # The slope of the line relating Motor rpm to throttle command 
+
+velocity_to_rpm_ratio = 60 * gear_ratio / (2 * np.pi * tyre_radius)                # Velocity to RPM ratio
+
+safety_factor = 0.9
+i_safety_factor = 1.1
     
-    def __init__(self, Np = 6, Nc = 4):
-        
-        self.Np = Np                                         # Prediction horizon
-        self.Nc = Nc                                         # Control horizon
-        self.state_dim = 2                                   # State consists of seperation and velocity of ego vehicle
-        self.control_dim = 1                                 # Control just has the acceleration of the ego vehicle
-        self.desired_speed = CP.ego_max_v                    # Obstacle velocity of the vehicle
-        self.a_curr = 0.0                                    # Current acceleration of the vehicle
-            
-    def get_acceleration(self, ego_values, preceeding_values = None):
-        
-        ego_pos, ego_vel = ego_values
-        if preceeding_values:
-            obs_pos, obs_vel = preceeding_values
-        else:
-            obs_pos, obs_vel = None, None
-        
-        Q = np.eye(2)                                                     # For defining a quadratic cost on the state variables
-        R = np.eye(1)                                                     # For defining a quadratic cost on the control action
-        P = np.eye(1) * 10000                                             # For defining a quadratic cost on the relaxation term
-        x = cp.Variable((self.state_dim, self.Np + 1))                    # Np + 1 for handling Np steps in prediction horizon and 1 for initial state
-        u = cp.Variable((self.control_dim, self.Np))                      # Control action for Np steps
-        delta = cp.Variable((self.control_dim, self.Np))                  # Np relaxation terms for relaxing the CBF constraints
-        
-        if obs_pos:                                                       # If obstacle is there then CBF constraint is an essential constraint
-            x0 = np.array([ego_pos, ego_vel])                             # Define the current state (initial state)
-            cur_obs_pos = obs_pos
-            cost = 0
-            constraints = []
-            for k in range(self.Np):
-                x_ref = np.array([0, self.desired_speed])
-                S = np.array([[0, 0], [0, 1]])
-                
-                cost += cp.quad_form(x_ref - S @ x[:, k], Q)              # Defining the cost function only for the vehicle to reach the set speed
-                
-                if k <= self.Nc: 
-                    cost += cp.quad_form(u[:, k], R)
-                cost += cp.quad_form(delta[:, k], P)
-                
-                expr = (u[0, k] / CP.A + x[1, k])
-                
-                constraints += [x[0, k + 1] == x[0, k] + (x[1, k] * CP.sample_time + 0.5 * u[0, k] * CP.sample_time ** 2)]
-                constraints += [x[1, k + 1] == x[1, k] + u[0, k] * CP.sample_time]
-                
-                if k >= self.Nc:                                          # This is done to make all the control actions after Control horizon same as control action at the time instant of control horizon
-                    constraints += [u[:, k] == u[:, k - 1]]
-                
-                constraints += [CP.a_min <= u[0, k], u[0, k] <= CP.a_max] # Constraints on acceleration
-                
-                constraints += [0.0 <= u[0, k] / CP.A + x[1, k], u[0, k] / CP.A + x[1, k] <= CP.ego_max_v] # Constraints on the acceleration based on the system model
-                
-                constraints += [0.0 <= x[1, k], x[1, k] <= CP.ego_max_v]  # Constraints on state of the vehicle
-                constraints += [cur_obs_pos - 0.5 >= x[0, k]]             # Constraints on state of the vehicle
-                
-                # CBF constraint for obstacle collision avoidance
-                constraints += [obs_vel - CP.Td * u[0, k] - x[1, k] >= - 0.1 * (cur_obs_pos - CP.Dd - CP.Td * x[1, k] - x[0, k]) - delta[0, k]] 
-                constraints += [delta[0, k] >= 0]
-                
-                if k == 0:
-                    constraints += [CP.dec_Jerk_limit <= (u[0, k] - self.a_curr) / CP.sample_time, (u[0, k] - self.a_curr) / CP.sample_time <= CP.acc_Jerk_limit]
-                else:
-                    constraints += [CP.dec_Jerk_limit <= (u[0, k] - u[0, k - 1]) / CP.sample_time, (u[0, k] - u[0, k - 1]) / CP.sample_time <= CP.acc_Jerk_limit]
-                    
-                cur_obs_pos += obs_vel * CP.sample_time                   # Updating the obstacles position assuming it is moving at a constant velocity
-                    
-            constraints += [x[:, 0] == x0]
-            constraints += [0.0 <= x[1, self.Np], x[1, self.Np] <= CP.ego_max_v]
-            constraints += [cur_obs_pos - 0.5 >= x[0, self.Np]]
-            
-        else:
-            x0 = np.array([0, ego_vel])                                   # Define the current state (initial state)
-            cost = 0
-            constraints = []
-            for k in range(self.Np):
-                x_ref = np.array([0, self.desired_speed])
-                
-                cost += cp.quad_form(x_ref - x[:, k], Q)                  # Defining the cost function
-                
-                if k <= self.Nc: 
-                    cost += cp.quad_form(u[:, k], R)
-                
-                constraints += [x[0, k + 1] == 0]
-                constraints += [x[1, k + 1] == x[1, k] + u[0, k] * CP.sample_time]
-            
-                if k >= self.Nc:
-                    constraints += [u[:, k] == u[:, k - 1]]
-                
-                constraints += [CP.a_min <= u[0, k], u[0, k] <= CP.a_max] # Constraints on acceleration
-                
-                constraints += [0.0 <= u[0, k] / CP.A + x[1, k], u[0, k] / CP.A + x[1, k] <= CP.ego_max_v] # Constraints on the acceleration based on the system model
-                
-                constraints += [0.0 <= x[1, k], x[1, k] <= CP.ego_max_v]  # Constraints on state of the vehicle
+threshold_throttle_cmd = 5.0                                                       # Below this throttle command, set throttle command as 0
+threshold_velocity = max(0, min(max_rpm, slope_rpm_tcmd * (threshold_throttle_cmd - 0))) / velocity_to_rpm_ratio
 
-                if k == 0:
-                    constraints += [CP.dec_Jerk_limit <= (u[0, k] - self.a_curr) / CP.sample_time, (u[0, k] - self.a_curr) / CP.sample_time <= CP.acc_Jerk_limit]
-                else:
-                    constraints += [CP.dec_Jerk_limit <= (u[0, k] - u[0, k - 1]) / CP.sample_time, (u[0, k] - u[0, k - 1]) / CP.sample_time <= CP.acc_Jerk_limit]
-            
-            constraints += [x[:, 0] == x0]
-            constraints += [0.0 <= x[1, self.Np], x[1, self.Np] <= CP.ego_max_v]
-        
-        problem = cp.Problem(cp.Minimize(cost), constraints)             # Solving for the optimization problem
-        problem.solve(solver = cp.OSQP, verbose = False, max_iter = 50000)
-        self.a_curr = u[0, 0].value
-        return u[0, 0].value
+rbf_model_tcmd_to_requested_pot_file_path = os.path.join(main_internal_data_dir, 'rbf_model_tcmd_to_requested_pot.pkl')
+rbf_model_tcmd_to_requested_pot, rbf_model_tcmd_to_requested_pot_data = None, None
+with open(rbf_model_tcmd_to_requested_pot_file_path, 'rb') as f:
+    rbf_model_tcmd_to_requested_pot_data = pickle.load(f)                          # This stores the rbf weights to convert tcmd to requested throttle pot
+rbf_model_tcmd_to_requested_pot = Rbf(rbf_model_tcmd_to_requested_pot_data['x'], rbf_model_tcmd_to_requested_pot_data['y'], function = rbf_model_tcmd_to_requested_pot_data['function'])
