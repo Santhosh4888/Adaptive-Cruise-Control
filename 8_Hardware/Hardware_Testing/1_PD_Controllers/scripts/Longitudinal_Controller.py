@@ -8,7 +8,8 @@ class VLC:                                                                      
     
     def __init__(self):
         
-        self.controller = Controller.PID_Controller(kp = 0.27)                         # Defining the controller
+        #self.controller = Controller.PID_Controller(kp = 0.27)                         # Defining the controller
+        self.controller = Controller.PID_Controller(kp = 0.05)
         self.throttle_pot = 0.0                                                        # Storing the initial control action
         
     def rpm_to_velocity(self, rpm):                                                    # RPM should be in rpm
@@ -36,8 +37,3 @@ class VLC:                                                                      
             throttle_cmd = 0.0
         self.throttle_pot = CP.rbf_model_tcmd_to_requested_pot(np.array([throttle_cmd]))[0]      # Calculating the required throttle pot from throttle command               
         
-        
-        
-        
-        
-
