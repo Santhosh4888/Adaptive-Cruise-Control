@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 import os
 import pickle
 import numpy as np
@@ -9,6 +10,7 @@ main_internal_scripts_dir = os.path.dirname(os.path.abspath(__file__))
 main_internal_PDC_dir = os.path.abspath(os.path.join(main_internal_scripts_dir, '..'))
 main_internal_data_dir = os.path.abspath(os.path.join(main_internal_PDC_dir, 'data'))
 
+
 # The parameters for the PD Controller
 
 Dd = 1.0                                                                           # Desired Seperation in [m]
@@ -17,7 +19,7 @@ Tbl = 3.0                                                                       
 Vr = 0.0                                                                           # Desired Relative Velocity [m/s]
 a_max = 1.4                                                                        # Maximum acceleration [m/s^2]
 a_min = -3.5                                                                       # Minimum deceleration [m/s^2]
-acc_Jerk_limit = 3.0                                                               # Jerk limit for acceleration [m/s^3]
+acc_Jerk_limit = 1.5                                                               # Jerk limit for acceleration [m/s^3]
 dec_Jerk_limit = -3.0                                                              # Jerk limit for deceleration [m/s^3] 
 
 GVW = 680                                                                          # Gross vehicle weight of vehicle is 680 kg
@@ -36,9 +38,9 @@ Dr_3 = 100.0                                                                    
 Dr_4 = 15.0                                                                        # Radar measured Distance (Initial Seperation) (Scenario 4 : cut-in scenario)
 
 total_experiment_time = 150.0                                                      # Total experiment time in [s]
-H_total_experiment_time = 75.0                                                     # Total experiment time in [s] for Hardware
+H_total_experiment_time = 50.0                                                     # Total experiment time in [s] for Hardware
 
-Vp_1 = 16.0 * (5 / 18)                                                             # Preceeding Car Velocity in [km/hr * (5/18) = m/s]
+Vp_1 = 18.0 * (5 / 18)                                                             # Preceeding Car Velocity in [km/hr * (5/18) = m/s]
 Vp_2 = 12.0 * (5 / 18)                                                             # Preceeding Car Velocity in [km/hr * (5/18) = m/s]
 Vp_3 = 0.0 * (5 / 18)                                                              # Preceeding Car Velocity in [km/hr * (5/18) = m/s]
 Vp_4 = 12.0 * (5 / 18)                                                             # Preceeding Car Velocity in [km/hr * (5/18) = m/s]      # Minimum possible speed is 17 km/hr
