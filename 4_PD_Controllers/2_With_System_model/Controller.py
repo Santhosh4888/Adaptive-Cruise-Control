@@ -23,7 +23,7 @@ class PID_Controller:
         self.set_derivative()
     
     def set_derivative(self):
-        self.kd = 2 * np.sqrt((self.kp * CP.Td) ** 2 + self.kp) - 2 * self.kp * CP.Td
+        self.kd = 2 * np.sqrt(self.kp)
     
     def set_integral(self, ki):
         self.ki = ki
@@ -31,10 +31,10 @@ class PID_Controller:
     def get_acceleration(self, ego_values, preceeding_values):               # ego_values = [ego_position, ego_velocity]
                                                                              # preceeding_values = [preceeding_vehicle_position, preceeding_vehicle_velocity] 
         if preceeding_values is None:
-            a = self.kd * (self.desired_speed - ego_values[1])
+            a = self.kd * (self.desired_speed - ego_values[1] - CP.Td * self.a_cur)
         else:
             a = self.kp * ((preceeding_values[0] - (CP.Dd + CP.Td * ego_values[1])) - ego_values[0])
-            a += self.kd * (preceeding_values[1] - ego_values[1])
+            a += self.kd * (preceeding_values[1] - ego_values[1] - CP.Td * self.a_cur)
         a = max(self.a_cur + CP.dec_Jerk_limit * CP.sample_time, min(self.a_cur + CP.acc_Jerk_limit * CP.sample_time, a))
         self.a_cur = max(CP.a_min, min(a, CP.a_max))   
         return self.a_cur                        
