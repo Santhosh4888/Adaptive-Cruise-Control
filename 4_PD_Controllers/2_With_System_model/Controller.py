@@ -31,7 +31,7 @@ class PID_Controller:
     def get_acceleration(self, ego_values, preceeding_values):               # ego_values = [ego_position, ego_velocity]
                                                                              # preceeding_values = [preceeding_vehicle_position, preceeding_vehicle_velocity] 
         if preceeding_values is None:
-            a = self.kd * (self.desired_speed - ego_values[1] - CP.Td * self.a_cur)
+            a = self.kd * (self.desired_speed - ego_values[1])
         else:
             a = self.kp * ((preceeding_values[0] - (CP.Dd + CP.Td * ego_values[1])) - ego_values[0])
             a += self.kd * (preceeding_values[1] - ego_values[1] - CP.Td * self.a_cur)
