@@ -1,5 +1,5 @@
 clc;
-clear all;
+clear ;
 close all;
 
 %% MODEL PREDICTIVE CONTROLLER - Following Vehicle Scenario
@@ -24,7 +24,7 @@ time_delay = 3;               % Reaction delay (s)
 M =0.202;
 
 %% Initial Conditions
-x_lead = 150;                 % Lead vehicle/obstacle initial position (m)
+x_lead = 100;                 % Lead vehicle/obstacle initial position (m)
 x_ego = 0;                    % Ego vehicle initial position (m)
 v_ego = 0;                    % Ego vehicle initial speed (m/s)
 a_ego = 0;                    % Initial acceleration
@@ -49,8 +49,8 @@ A = [1, T; 0, 1];
 B = [0.5*T^2; T];
 
 %% MPC Weights
-w_pos = 150;                  % Position weight
-w_vel = 80;                   % Velocity weight
+w_pos = 100;                  % Position weight
+w_vel = 50;                   % Velocity weight
 w_acc = 80;                   % Acceleration effort weight
 
 %% Precomputing Jerk Constraints (Between a_1 to a_N)

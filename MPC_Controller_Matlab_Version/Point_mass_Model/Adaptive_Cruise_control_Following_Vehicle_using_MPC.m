@@ -20,7 +20,7 @@ a_max = 1.4;                  % Max acceleration (m/s²)
 a_min = -3.5;                 % Max deceleration (m/s²)
 jerk_limit = 3;               % Max jerk (m/s³)
 T_headway = 2;                % Time headway for safe distance (s)
-d_detection = 35;             % Detection distance (m)
+d_detection = 100;             % Detection distance (m)
 time_delay = 3;               % Reaction delay (s)
 
 %% Initial Conditions
