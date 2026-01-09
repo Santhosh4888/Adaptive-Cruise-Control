@@ -19,7 +19,7 @@ a_max = 1.4;                  % Max acceleration (m/s²)
 a_min = -3.5;                 % Max deceleration (m/s²)
 jerk_limit = 3;               % Max jerk (m/s³)
 T_headway = 2;                % Time headway for safe distance (s)
-d_detection = 100;             % Detection distance (m)
+d_detection = 100;            % Detection distance (m)
 time_delay = 3;               % Reaction delay (s)
 M =0.202;
 
@@ -49,8 +49,8 @@ A = [1, T; 0, 1];
 B = [0.5*T^2; T];
 
 %% MPC Weights
-w_pos = 100;                  % Position weight
-w_vel = 50;                   % Velocity weight
+w_pos = 150;                  % Position weight
+w_vel = 80;                   % Velocity weight
 w_acc = 80;                   % Acceleration effort weight
 
 %% Precomputing Jerk Constraints (Between a_1 to a_N)

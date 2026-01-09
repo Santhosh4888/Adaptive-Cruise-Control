@@ -1,5 +1,5 @@
 clc;
-clear all;
+clear;
 close all;
 
 %% MODEL PREDICTIVE CONTROLLER - Complete Stop Scenario
