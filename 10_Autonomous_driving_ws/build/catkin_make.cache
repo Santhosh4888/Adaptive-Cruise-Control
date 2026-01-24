@@ -1,0 +1,2 @@
+mpc_controller:pd_controllers
+-DCATKIN_DEVEL_PREFIX=/home/asl-laptop2/Autonomous_driving_ws/devel -DCMAKE_INSTALL_PREFIX=/home/asl-laptop2/Autonomous_driving_ws/install -G Unix Makefiles
