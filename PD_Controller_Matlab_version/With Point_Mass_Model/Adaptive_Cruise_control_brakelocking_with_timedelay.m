@@ -1,5 +1,5 @@
 clc;
-clear all;
+clear ;
 close all;
 
 % Simulation a scenario where the controller sees the obstacle at a distance of 30m

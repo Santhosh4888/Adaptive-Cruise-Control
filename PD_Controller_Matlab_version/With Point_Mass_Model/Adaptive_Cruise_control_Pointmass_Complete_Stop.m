@@ -4,7 +4,7 @@
 % The simulation is done on point mass model. 
 %% Here PD controller is used to test the algorithm on point mass model.
 clc;
-clear all;
+clear;
 close all;
 
 % Parameters
