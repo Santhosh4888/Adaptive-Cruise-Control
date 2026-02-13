@@ -22,3 +22,6 @@ float32 speed_kmph
 
 # speed in mps
 float32 speed_mps
+
+#RCS in dB
+int32 rad_rcs
