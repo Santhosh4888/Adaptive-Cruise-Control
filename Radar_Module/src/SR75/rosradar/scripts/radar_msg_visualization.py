@@ -75,7 +75,7 @@ class RadarMsgViz:
             # Format text with speed and distance
             # text_marker.text = f"Dist: {Range:.3f} m\nSpeed: ({long_speed:.3f} , {lat_speed:.3f}) km/h"
             # text_marker.text = f"Dist: {Range:.3f} m\nSpeed: {Speed:.3f} km/h"
-            text_marker.text = f"(X, Y): ({detection.position.x :.3f}, {detection.position.y :.3f}) m\nSpeed: {detection.speed_kmph:.3f} km/h"
+            text_marker.text = f"(X, Y): ({detection.position.x :.3f}, {detection.position.y :.3f}) m\nSpeed: {detection.speed_kmph:.3f} km/h UID : {detection.uid}"
 
             text_marker.scale.z = 0.3  # Adjust text size
             text_marker.color.r = 1.0

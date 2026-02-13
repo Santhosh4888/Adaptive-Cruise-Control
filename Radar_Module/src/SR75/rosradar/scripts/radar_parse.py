@@ -90,6 +90,7 @@ class RadarParse:
                             lat_speed  = (((int(raw_msgs[i]['data'][5], 16) & 0x3F) * 8) + (int(raw_msgs[i]['data'][6], 16) >> 5)) * 0.25 - 64
                             radar_detection.velocity_mps.x, radar_detection.velocity_mps.y, radar_detection.velocity_mps.z = long_speed, lat_speed, 0.
                             radar_detection.speed_mps = math.sqrt(long_speed*long_speed + lat_speed*lat_speed)
+                            radar_detection.rad_rcs = (((int(raw_msgs[i]['data'][7], 16) ))) #gives the object intensity value
 
                             # mps to KMPH
                             long_speed *= 3.6

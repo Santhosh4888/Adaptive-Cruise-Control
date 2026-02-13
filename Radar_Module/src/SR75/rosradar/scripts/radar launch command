@@ -22,6 +22,14 @@ asl-laptop2@asllaptop2:~/radar$ source ./devel/setup.bash
 asl-laptop2@asllaptop2:~/radar$ rostopic list
 asl-laptop2@asllaptop2:~/radar$ rostopic echo /radar_detections
 
+Step 6 :
+asl-laptop2@asllaptop2:~/radar$ rosrun rosradar radar_extractor.py
+
+expected output :
+[INFO] [1770460106.503451]: Radar extractor node started and waiting for data
+[INFO] [1770460106.505566]: Radar Lead Extractor running
+[INFO] [1770460106.556648]: Lead detected | d_lead = 0.70 m | v_rel = 0.00 m/s
+
 
 
 TODO:
