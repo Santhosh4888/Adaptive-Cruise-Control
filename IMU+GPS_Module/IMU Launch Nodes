@@ -1,0 +1,90 @@
+#### This is the launch node setup for Fix position old driver 
+
+asl-laptop2@asllaptop2:~/fp_public_ws$ source devel/setup.bash
+
+
+asl-laptop2@asllaptop2:~/fp_public_ws$ roslaunch fixposition_driver_ros1 tcp.launch    - For communication over wifi
+
+asl-laptop2@asllaptop2:~/fp_public_ws$ roslaunch fixposition_driver_ros1 serial.launch  - for serial comunication
+
+In new terminal Call for topics:
+
+asl-laptop2@asllaptop2:~/fp_public_ws$ rostopic echo /fixposition/gnss1
+
+asl-laptop2@asllaptop2:~/fp_public_ws$ rostopic echo /fixposition/gnss2
+
+asl-laptop2@asllaptop2:~/fp_public_ws$ rostopic echo /fixposition/rawimu
+
+asl-laptop2@asllaptop2:~/fp_public_ws$ rostopic echo /fixposition/imu_ypr
+
+
+We can find topic names in below link:cp
+https://docs.fixposition.com/fd/fixposition-ros-driver
+
+https://docs.fixposition.com/fd/installation-and-usage
+
+
+in /home/asl-laptop2/fp_public_ws/src/fixposition_driver-7.0.7/fixposition_driver_ros1/launch
+If you are using wifi connection set ip in tcp.yaml to : 10.0.1.1
+if you are using ethernet connection set ip in tcp.yaml to : 10.0.2.1
+
+
+
+#### This is the launch node setup for the Fix position new driver ####
+
+1. asl-laptop2@asllaptop2:~/fp_driver_new$ roslaunch fixposition_driver_ros1 node.launch
+
+2. 
+asl-laptop2@asllaptop2:~/fp_driver_new$ source devel/setup.bash
+asl-laptop2@asllaptop2:~/fp_driver_new$ rostopic echo /fixposition/odometry_smooth
+
+3. 
+asl-laptop2@asllaptop2:~/fp_driver_new$ rostopic list
+/fixposition/fpa/corrimu
+/fixposition/fpa/eoe
+/fixposition/fpa/gnssant
+/fixposition/fpa/gnsscorr
+/fixposition/fpa/imubias
+/fixposition/fpa/llh
+/fixposition/fpa/odomenu
+/fixposition/fpa/odometry
+/fixposition/fpa/odomsh
+/fixposition/fpa/odomstatus
+/fixposition/fpa/rawimu
+/fixposition/fpa/text
+/fixposition/fpa/tp
+/fixposition/fusion
+/fixposition/gnss1
+/fixposition/gnss2
+/fixposition/imu_ypr
+/fixposition/nmea
+/fixposition/nmea/gga
+/fixposition/nmea/gll
+/fixposition/nmea/gsa
+/fixposition/nmea/gst
+/fixposition/nmea/gsv
+/fixposition/nmea/hdt
+/fixposition/nmea/rmc
+/fixposition/nmea/vtg
+/fixposition/nmea/zda
+/fixposition/novb/inspvax
+/fixposition/odometry_ecef
+/fixposition/odometry_enu
+/fixposition/odometry_enu_smooth
+/fixposition/odometry_llh
+/fixposition/odometry_smooth
+/fixposition/poiimu
+/fixposition/speed
+/fixposition/ypr
+/rosout
+/rosout_agg
+/rtcm
+/tf
+/tf_static
+
+
+
+4. asl-laptop2@asllaptop2:~/fp_driver_new$ rqt_bag
+
+here select the topics to be recorded and record the ros bag and save the file in a location
+
