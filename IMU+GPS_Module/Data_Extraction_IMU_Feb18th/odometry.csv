@@ -1,0 +1,2 @@
+Topic:,/fixposition/fpa/odometry
+time,pos_x,pos_y,pos_z,qx,qy,qz,qw,vel_x,vel_y,vel_z,ang_vel_x,ang_vel_y,ang_vel_z,acc_x,acc_y,acc_z
