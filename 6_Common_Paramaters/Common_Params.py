@@ -34,7 +34,7 @@ Dr_2 = 100.0                                                                    
 Dr_3 = 100.0                                                                       # Radar measured Distance (Initial Seperation) (Scenario 3 : coming to a complete stop)
 Dr_4 = 15.0                                                                        # Radar measured Distance (Initial Seperation) (Scenario 4 : cut-in scenario)
 
-total_experiment_time = 150.0                                                      # Total experiment time in [s]
+total_experiment_time = 130.0                                                      # Total experiment time in [s]
 H_total_experiment_time = 75.0                                                     # Total experiment time in [s] for Hardware
 
 Vp_1 = 16.0 * (5 / 18)                                                             # Preceeding Car Velocity in [km/hr * (5/18) = m/s]

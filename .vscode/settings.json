@@ -1,5 +1,6 @@
 {
     "python.analysis.extraPaths": [
         "./6_Common_Paramaters"
-    ]
+    ],
+    "cmake.sourceDirectory": "C:/Users/home/Desktop/ACC/Auto-Cruise/Adaptive-Cruise-Control/Adaptive-Cruise-Control/10_Autonomous_driving_ws/src/mpc_controller"
 }
