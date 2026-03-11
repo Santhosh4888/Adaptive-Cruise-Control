@@ -10,7 +10,7 @@ sys.path.append(internal_CP_dir)
 import Common_Params as CP
 
 class MPC:
-    def __init__(self, Np=8, Nc=6):
+    def __init__(self, Np=6, Nc=4):
         self.Np = Np
         self.Nc = Nc
         self.state_dim = 2
@@ -26,9 +26,9 @@ class MPC:
             obs_pos, obs_vel = None, None
 
         # Weight matrices
-        q_sep = 30.0
-        q_vel = 20.0
-        r_ctrl = 5.0
+        q_sep = 10.0
+        q_vel = 28.0
+        r_ctrl = 30.0
         p_relax = 1000
 
         Q = np.diag([q_sep, q_vel])
@@ -51,7 +51,7 @@ class MPC:
                 # Both terms are CVXPY expressions – combine them into a vector
                 err1 = (cur_obs_pos - desired_sep) - x[0, k]          # separation error
                 #err2 = self.desired_speed - x[1, k]                   # velocity error
-                v_ref = cp.minimum(self.desired_speed, obs_vel + 0.5)
+                v_ref = cp.minimum(self.desired_speed, obs_vel + 0.1)
                 err2 = v_ref - x[1,k]
                 error_vec = cp.vstack([err1, err2])
 
