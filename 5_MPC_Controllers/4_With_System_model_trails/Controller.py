@@ -50,8 +50,10 @@ class MPC:
                 # State error: [ (obs_pos - desired_sep) - ego_pos , desired_speed - ego_vel ]
                 # Both terms are CVXPY expressions – combine them into a vector
                 err1 = (cur_obs_pos - desired_sep) - x[0, k]          # separation error
+
                 #err2 = self.desired_speed - x[1, k]                   # velocity error
                 v_ref = cp.minimum(self.desired_speed, obs_vel + 0.1)
+                
                 err2 = v_ref - x[1,k]
                 error_vec = cp.vstack([err1, err2])
 
