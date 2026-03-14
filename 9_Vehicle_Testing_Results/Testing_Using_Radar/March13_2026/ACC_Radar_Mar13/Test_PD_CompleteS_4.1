@@ -1,0 +1,1072 @@
+asl-laptop2@asllaptop2:~$ rosrun rosserial_python serial_node.py /dev/ttyACM0 _baud:=115200
+[INFO] [1773399794.417773]: ROS Serial Python Node
+[INFO] [1773399794.420676]: Connecting to /dev/ttyACM0 at 115200 baud
+[INFO] [1773399796.524770]: Requesting topics...
+[INFO] [1773399797.472082]: Waiting for ROS...
+[INFO] [1773399798.472070]: ROS connected.
+[INFO] [1773399803.471425]: CAN started.
+[INFO] [1773399804.803684]: -------------------
+[INFO] [1773399804.805893]: Read Parameters:
+[INFO] [1773399804.807799]: OD_MaxSpeed (0x3840): 3500.00
+[INFO] [1773399804.809799]: OD_MaxSpCont (0x3559): 9375.00
+[INFO] [1773399804.811678]: OD_AccelRate (0x3843): 1.00
+[INFO] [1773399804.813428]: OD_DecelRate (0x3843): 0.10
+[INFO] [1773399804.815179]: OD_BrakeRate (0x3848): 0.10
+[INFO] [1773399804.816808]: OD_DriveCurrL (0x305B): 70.00
+[INFO] [1773399804.818475]: OD_RegenCurrL (0x305C): 50.00
+[INFO] [1773399804.820162]: OD_ForwardDB (0x3001): 0.50
+[INFO] [1773399804.821744]: OD_ForwardMap (0x3002): 40.00
+[INFO] [1773399804.823296]: OD_ForwardMax (0x3003): 4.50
+[INFO] [1773399804.824839]: OD_ForwardOff (0x3004): 10.00
+[INFO] [1773399804.826347]: OD_SpeedToRPM (0x304C): 119.70
+[INFO] [1773399804.827857]: -------------------
+[INFO] [1773399804.829352]: Setup complete.
+[INFO] [1773399804.908157]: VehicleSpeed:   0.00
+[ERROR] [1773399804.910792]: Tried to publish before configured, topic id 125
+[INFO] [1773399804.911686]: Requesting topics...
+[INFO] [1773399804.920246]: Note: publish buffer size is 512 bytes
+[INFO] [1773399804.920915]: Setup publisher on velocity_feedback [std_msgs/Float32]
+[INFO] [1773399804.923481]: Note: subscribe buffer size is 512 bytes
+[INFO] [1773399804.924567]: Setup subscriber on motor_command [std_msgs/Float32]
+[INFO] [1773399804.927979]: Setup subscriber on brake_command [std_msgs/Bool]
+[INFO] [1773399805.017869]: VehicleSpeed:   0.00
+[INFO] [1773399805.028265]: Received motor command:0.344 V
+[INFO] [1773399805.128902]: VehicleSpeed:   0.00
+[INFO] [1773399805.140085]: Received motor command:0.689 V
+[INFO] [1773399805.238452]: VehicleSpeed:   0.00
+[INFO] [1773399805.251215]: Received motor command:1.030 V
+[INFO] [1773399805.348711]: VehicleSpeed:   0.00
+[INFO] [1773399805.363691]: Received motor command:1.111 V
+[INFO] [1773399805.459015]: VehicleSpeed:   0.00
+[INFO] [1773399805.474501]: Received motor command:1.111 V
+[INFO] [1773399805.567946]: VehicleSpeed:   0.00
+[INFO] [1773399805.578273]: Received motor command:1.111 V
+[INFO] [1773399805.678342]: VehicleSpeed:   0.00
+[INFO] [1773399805.688670]: Received motor command:1.111 V
+[INFO] [1773399805.788581]: VehicleSpeed:   0.10
+[INFO] [1773399805.797952]: Received motor command:1.111 V
+[INFO] [1773399805.897941]: VehicleSpeed:   0.10
+[INFO] [1773399805.910805]: Received motor command:1.111 V
+[INFO] [1773399806.008756]: VehicleSpeed:   0.30
+[INFO] [1773399806.021860]: Received motor command:1.111 V
+[INFO] [1773399806.118101]: VehicleSpeed:   0.30
+[INFO] [1773399806.132037]: Received motor command:1.111 V
+[INFO] [1773399806.228697]: VehicleSpeed:   0.40
+[INFO] [1773399806.243896]: Received motor command:1.111 V
+[INFO] [1773399806.338598]: VehicleSpeed:   0.60
+[INFO] [1773399806.355479]: Received motor command:1.111 V
+[INFO] [1773399806.448096]: VehicleSpeed:   0.80
+[INFO] [1773399806.466908]: Received motor command:1.111 V
+[INFO] [1773399806.557894]: VehicleSpeed:   1.00
+[INFO] [1773399806.569040]: Received motor command:1.111 V
+[INFO] [1773399806.668583]: VehicleSpeed:   1.10
+[INFO] [1773399806.679858]: Received motor command:1.111 V
+[INFO] [1773399806.778524]: VehicleSpeed:   1.30
+[INFO] [1773399806.791179]: Received motor command:1.111 V
+[INFO] [1773399806.888794]: VehicleSpeed:   1.60
+[INFO] [1773399806.903257]: Received motor command:1.111 V
+[INFO] [1773399806.998646]: VehicleSpeed:   1.80
+[INFO] [1773399807.014441]: Received motor command:1.111 V
+[INFO] [1773399807.108289]: VehicleSpeed:   2.00
+[INFO] [1773399807.118350]: Received motor command:1.111 V
+[INFO] [1773399807.218067]: VehicleSpeed:   2.20
+[INFO] [1773399807.228301]: Received motor command:1.111 V
+[INFO] [1773399807.328901]: VehicleSpeed:   2.40
+[INFO] [1773399807.338996]: Received motor command:1.111 V
+[INFO] [1773399807.438000]: VehicleSpeed:   2.50
+[INFO] [1773399807.450875]: Received motor command:1.111 V
+[INFO] [1773399807.547934]: VehicleSpeed:   2.70
+[INFO] [1773399807.561964]: Received motor command:1.111 V
+[INFO] [1773399807.658234]: VehicleSpeed:   2.80
+[INFO] [1773399807.673906]: Received motor command:1.111 V
+[INFO] [1773399807.767982]: VehicleSpeed:   3.10
+[INFO] [1773399807.786140]: Received motor command:1.111 V
+[INFO] [1773399807.877818]: VehicleSpeed:   3.30
+[INFO] [1773399807.888529]: Received motor command:1.111 V
+[INFO] [1773399807.988368]: VehicleSpeed:   3.40
+[INFO] [1773399807.999538]: Received motor command:1.111 V
+[INFO] [1773399808.098318]: VehicleSpeed:   3.50
+[INFO] [1773399808.110798]: Received motor command:1.111 V
+[INFO] [1773399808.208659]: VehicleSpeed:   3.60
+[INFO] [1773399808.221703]: Received motor command:1.111 V
+[INFO] [1773399808.318465]: VehicleSpeed:   3.80
+[INFO] [1773399808.333515]: Received motor command:1.111 V
+[INFO] [1773399808.428098]: VehicleSpeed:   4.00
+[INFO] [1773399808.443876]: Received motor command:1.111 V
+[INFO] [1773399808.538554]: VehicleSpeed:   4.10
+[INFO] [1773399808.548754]: Received motor command:1.111 V
+[INFO] [1773399808.647961]: VehicleSpeed:   4.00
+[INFO] [1773399808.657871]: Received motor command:1.111 V
+[INFO] [1773399808.758615]: VehicleSpeed:   4.10
+[INFO] [1773399808.768423]: Received motor command:1.111 V
+[INFO] [1773399808.868032]: VehicleSpeed:   4.40
+[INFO] [1773399808.878605]: Received motor command:1.111 V
+[INFO] [1773399808.978176]: VehicleSpeed:   4.50
+[INFO] [1773399808.989812]: Received motor command:1.111 V
+[INFO] [1773399809.087736]: VehicleSpeed:   4.40
+[INFO] [1773399809.100773]: Received motor command:1.111 V
+[INFO] [1773399809.198031]: VehicleSpeed:   4.50
+[INFO] [1773399809.212260]: Received motor command:1.111 V
+[INFO] [1773399809.307948]: VehicleSpeed:   4.70
+[INFO] [1773399809.322666]: Received motor command:1.111 V
+[INFO] [1773399809.417832]: VehicleSpeed:   4.80
+[INFO] [1773399809.428041]: Received motor command:1.111 V
+[INFO] [1773399809.528619]: VehicleSpeed:   4.70
+[INFO] [1773399809.537744]: Received motor command:1.111 V
+[INFO] [1773399809.638289]: VehicleSpeed:   4.70
+[INFO] [1773399809.648448]: Received motor command:1.111 V
+[INFO] [1773399809.748614]: VehicleSpeed:   5.00
+[INFO] [1773399809.759375]: Received motor command:1.111 V
+[INFO] [1773399809.857988]: VehicleSpeed:   5.10
+[INFO] [1773399809.869522]: Received motor command:1.111 V
+[INFO] [1773399809.967481]: VehicleSpeed:   4.90
+[INFO] [1773399809.982724]: Received motor command:1.073 V
+[INFO] [1773399810.077791]: VehicleSpeed:   5.00
+[INFO] [1773399810.094326]: Received motor command:1.111 V
+[INFO] [1773399810.188327]: VehicleSpeed:   5.20
+[INFO] [1773399810.197563]: Received motor command:1.111 V
+[INFO] [1773399810.298379]: VehicleSpeed:   5.10
+[INFO] [1773399810.307808]: Received motor command:1.035 V
+[INFO] [1773399810.408273]: VehicleSpeed:   5.00
+[INFO] [1773399810.419822]: Received motor command:1.073 V
+[INFO] [1773399810.517999]: VehicleSpeed:   5.20
+[INFO] [1773399810.531219]: Received motor command:1.111 V
+[INFO] [1773399810.627769]: VehicleSpeed:   5.20
+[INFO] [1773399810.642587]: Received motor command:1.035 V
+[INFO] [1773399810.738429]: VehicleSpeed:   5.10
+[INFO] [1773399810.754525]: Received motor command:1.035 V
+[INFO] [1773399810.847743]: VehicleSpeed:   5.20
+[INFO] [1773399810.857744]: Received motor command:1.073 V
+[INFO] [1773399810.958431]: VehicleSpeed:   5.30
+[INFO] [1773399810.967861]: Received motor command:1.035 V
+[INFO] [1773399811.067974]: VehicleSpeed:   5.20
+[INFO] [1773399811.078672]: Received motor command:0.998 V
+[INFO] [1773399811.178193]: VehicleSpeed:   5.00
+[INFO] [1773399811.189602]: Received motor command:1.035 V
+[INFO] [1773399811.287596]: VehicleSpeed:   5.20
+[INFO] [1773399811.301342]: Received motor command:1.111 V
+[INFO] [1773399811.398181]: VehicleSpeed:   5.20
+[INFO] [1773399811.413026]: Received motor command:1.035 V
+[INFO] [1773399811.507916]: VehicleSpeed:   5.10
+[INFO] [1773399811.525262]: Received motor command:1.035 V
+[INFO] [1773399811.618294]: VehicleSpeed:   5.10
+[INFO] [1773399811.628438]: Received motor command:1.073 V
+[INFO] [1773399811.728078]: VehicleSpeed:   5.30
+[INFO] [1773399811.737906]: Received motor command:1.073 V
+[INFO] [1773399811.837556]: VehicleSpeed:   5.20
+[INFO] [1773399811.848564]: Received motor command:0.998 V
+[INFO] [1773399811.948239]: VehicleSpeed:   4.90
+[INFO] [1773399811.960416]: Received motor command:1.035 V
+[INFO] [1773399812.058389]: VehicleSpeed:   5.00
+[INFO] [1773399812.071754]: Received motor command:1.111 V
+[INFO] [1773399812.168164]: VehicleSpeed:   5.10
+[INFO] [1773399812.183457]: Received motor command:1.111 V
+[INFO] [1773399812.278145]: VehicleSpeed:   5.00
+[INFO] [1773399812.294207]: Received motor command:1.073 V
+[INFO] [1773399812.387446]: VehicleSpeed:   4.90
+[INFO] [1773399812.397541]: Received motor command:1.111 V
+[INFO] [1773399812.498292]: VehicleSpeed:   5.20
+[INFO] [1773399812.516449]: Received motor command:1.111 V
+[INFO] [1773399812.608212]: VehicleSpeed:   5.10
+[INFO] [1773399812.626718]: Received motor command:1.035 V
+[INFO] [1773399812.718115]: VehicleSpeed:   4.90
+[INFO] [1773399812.728161]: Received motor command:1.073 V
+[INFO] [1773399812.828310]: VehicleSpeed:   4.90
+[INFO] [1773399812.839266]: Received motor command:1.111 V
+[INFO] [1773399812.937830]: VehicleSpeed:   5.10
+[INFO] [1773399812.950098]: Received motor command:1.111 V
+[INFO] [1773399813.047942]: VehicleSpeed:   5.00
+[INFO] [1773399813.061226]: Received motor command:1.073 V
+[INFO] [1773399813.157490]: VehicleSpeed:   4.80
+[INFO] [1773399813.172069]: Received motor command:1.111 V
+[INFO] [1773399813.268274]: VehicleSpeed:   4.90
+[INFO] [1773399813.283453]: Received motor command:1.111 V
+[INFO] [1773399813.377825]: VehicleSpeed:   5.00
+[INFO] [1773399813.387876]: Received motor command:1.111 V
+[INFO] [1773399813.487629]: VehicleSpeed:   4.80
+[INFO] [1773399813.506490]: Received motor command:1.111 V
+[INFO] [1773399813.598223]: VehicleSpeed:   4.80
+[INFO] [1773399813.608462]: Received motor command:1.111 V
+[INFO] [1773399813.708234]: VehicleSpeed:   5.00
+[INFO] [1773399813.718051]: Received motor command:1.111 V
+[INFO] [1773399813.817967]: VehicleSpeed:   5.00
+[INFO] [1773399813.829139]: Received motor command:1.111 V
+[INFO] [1773399813.927734]: VehicleSpeed:   4.80
+[INFO] [1773399813.940925]: Received motor command:1.111 V
+[INFO] [1773399814.038502]: VehicleSpeed:   4.90
+[INFO] [1773399814.051812]: Received motor command:1.111 V
+[INFO] [1773399814.148146]: VehicleSpeed:   5.00
+[INFO] [1773399814.164305]: Received motor command:1.111 V
+[INFO] [1773399814.257497]: VehicleSpeed:   5.00
+[INFO] [1773399814.274651]: Received motor command:1.111 V
+[INFO] [1773399814.368195]: VehicleSpeed:   4.70
+[INFO] [1773399814.387028]: Received motor command:1.111 V
+[INFO] [1773399814.478195]: VehicleSpeed:   4.80
+[INFO] [1773399814.488911]: Received motor command:1.111 V
+[INFO] [1773399814.587815]: VehicleSpeed:   5.00
+[INFO] [1773399814.599865]: Received motor command:1.111 V
+[INFO] [1773399814.697904]: VehicleSpeed:   4.90
+[INFO] [1773399814.712313]: Received motor command:1.111 V
+[INFO] [1773399814.808371]: VehicleSpeed:   4.80
+[INFO] [1773399814.823369]: Received motor command:1.111 V
+[INFO] [1773399814.918370]: VehicleSpeed:   4.90
+[INFO] [1773399814.934641]: Received motor command:1.111 V
+[INFO] [1773399815.028072]: VehicleSpeed:   5.10
+[INFO] [1773399815.038001]: Received motor command:1.111 V
+[INFO] [1773399815.138368]: VehicleSpeed:   4.90
+[INFO] [1773399815.147486]: Received motor command:1.073 V
+[INFO] [1773399815.248312]: VehicleSpeed:   4.80
+[INFO] [1773399815.258699]: Received motor command:1.111 V
+[INFO] [1773399815.358093]: VehicleSpeed:   5.00
+[INFO] [1773399815.370976]: Received motor command:1.111 V
+[INFO] [1773399815.467949]: VehicleSpeed:   5.00
+[INFO] [1773399815.482379]: Received motor command:1.111 V
+[INFO] [1773399815.578222]: VehicleSpeed:   4.80
+[INFO] [1773399815.593698]: Received motor command:1.111 V
+[INFO] [1773399815.687443]: VehicleSpeed:   4.80
+[INFO] [1773399815.697486]: Received motor command:1.111 V
+[INFO] [1773399815.797585]: VehicleSpeed:   5.00
+[INFO] [1773399815.808250]: Received motor command:1.111 V
+[INFO] [1773399815.907489]: VehicleSpeed:   4.90
+[INFO] [1773399815.917603]: Received motor command:1.111 V
+[INFO] [1773399816.017873]: VehicleSpeed:   4.70
+[INFO] [1773399816.028234]: Received motor command:1.111 V
+[INFO] [1773399816.127228]: VehicleSpeed:   4.80
+[INFO] [1773399816.138532]: Received motor command:1.111 V
+[INFO] [1773399816.237858]: VehicleSpeed:   5.00
+[INFO] [1773399816.251272]: Received motor command:1.111 V
+[INFO] [1773399816.347233]: VehicleSpeed:   4.90
+[INFO] [1773399816.362026]: Received motor command:1.111 V
+[INFO] [1773399816.457894]: VehicleSpeed:   4.80
+[INFO] [1773399816.473390]: Received motor command:1.111 V
+[INFO] [1773399816.568282]: VehicleSpeed:   5.00
+[INFO] [1773399816.577329]: Received motor command:1.111 V
+[INFO] [1773399816.677258]: VehicleSpeed:   5.10
+[INFO] [1773399816.687520]: Received motor command:1.111 V
+[INFO] [1773399816.788232]: VehicleSpeed:   4.90
+[INFO] [1773399816.798112]: Received motor command:1.073 V
+[INFO] [1773399816.898105]: VehicleSpeed:   4.80
+[INFO] [1773399816.910030]: Received motor command:1.111 V
+[INFO] [1773399817.008123]: VehicleSpeed:   5.00
+[INFO] [1773399817.021571]: Received motor command:1.111 V
+[INFO] [1773399817.117284]: VehicleSpeed:   4.90
+[INFO] [1773399817.133280]: Received motor command:1.111 V
+[INFO] [1773399817.227402]: VehicleSpeed:   4.70
+[INFO] [1773399817.243951]: Received motor command:1.111 V
+[INFO] [1773399817.337337]: VehicleSpeed:   4.80
+[INFO] [1773399817.347241]: Received motor command:1.111 V
+[INFO] [1773399817.448218]: VehicleSpeed:   5.00
+[INFO] [1773399817.457448]: Received motor command:1.111 V
+[INFO] [1773399817.557565]: VehicleSpeed:   4.90
+[INFO] [1773399817.568226]: Received motor command:1.111 V
+[INFO] [1773399817.667672]: VehicleSpeed:   4.70
+[INFO] [1773399817.680563]: Received motor command:1.111 V
+[INFO] [1773399817.777221]: VehicleSpeed:   4.90
+[INFO] [1773399817.792621]: Received motor command:1.111 V
+[INFO] [1773399817.887198]: VehicleSpeed:   5.10
+[INFO] [1773399817.897506]: Received motor command:1.111 V
+[INFO] [1773399817.997247]: VehicleSpeed:   4.90
+[INFO] [1773399818.007630]: Received motor command:1.073 V
+[INFO] [1773399818.107865]: VehicleSpeed:   4.90
+[INFO] [1773399818.118115]: Received motor command:1.111 V
+[INFO] [1773399818.217211]: VehicleSpeed:   5.00
+[INFO] [1773399818.228504]: Received motor command:1.111 V
+[INFO] [1773399818.327963]: VehicleSpeed:   5.00
+[INFO] [1773399818.339885]: Received motor command:1.111 V
+[INFO] [1773399818.437212]: VehicleSpeed:   4.80
+[INFO] [1773399818.450603]: Received motor command:1.111 V
+[INFO] [1773399818.547321]: VehicleSpeed:   4.70
+[INFO] [1773399818.562212]: Received motor command:1.111 V
+[INFO] [1773399818.657155]: VehicleSpeed:   4.90
+[INFO] [1773399818.668288]: Received motor command:1.111 V
+[INFO] [1773399818.767113]: VehicleSpeed:   4.90
+[INFO] [1773399818.777380]: Received motor command:1.111 V
+[INFO] [1773399818.877374]: VehicleSpeed:   4.70
+[INFO] [1773399818.887202]: Received motor command:1.111 V
+[INFO] [1773399818.987805]: VehicleSpeed:   4.80
+[INFO] [1773399818.998586]: Received motor command:1.111 V
+[INFO] [1773399819.097882]: VehicleSpeed:   5.00
+[INFO] [1773399819.110301]: Received motor command:1.111 V
+[INFO] [1773399819.207475]: VehicleSpeed:   4.90
+[INFO] [1773399819.222031]: Received motor command:1.111 V
+[INFO] [1773399819.317807]: VehicleSpeed:   4.80
+[INFO] [1773399819.332194]: Received motor command:1.111 V
+[INFO] [1773399819.427882]: VehicleSpeed:   4.80
+[INFO] [1773399819.444824]: Received motor command:1.111 V
+[INFO] [1773399819.537402]: VehicleSpeed:   5.10
+[INFO] [1773399819.547565]: Received motor command:1.111 V
+[INFO] [1773399819.648154]: VehicleSpeed:   4.90
+[INFO] [1773399819.657571]: Received motor command:1.073 V
+[INFO] [1773399819.757246]: VehicleSpeed:   4.80
+[INFO] [1773399819.768224]: Received motor command:1.111 V
+[INFO] [1773399819.868057]: VehicleSpeed:   4.90
+[INFO] [1773399819.880419]: Received motor command:1.111 V
+[INFO] [1773399819.976974]: VehicleSpeed:   5.00
+[INFO] [1773399819.991228]: Received motor command:1.111 V
+[INFO] [1773399820.087151]: VehicleSpeed:   4.70
+[INFO] [1773399820.097262]: Received motor command:1.111 V
+[INFO] [1773399820.197283]: VehicleSpeed:   4.60
+[INFO] [1773399820.207370]: Received motor command:1.111 V
+[INFO] [1773399820.308051]: VehicleSpeed:   4.80
+[INFO] [1773399820.317273]: Received motor command:1.111 V
+[INFO] [1773399820.417523]: VehicleSpeed:   4.90
+[INFO] [1773399820.427034]: Received motor command:1.111 V
+[INFO] [1773399820.527079]: VehicleSpeed:   4.60
+[INFO] [1773399820.539347]: Received motor command:1.111 V
+[INFO] [1773399820.637989]: VehicleSpeed:   4.70
+[INFO] [1773399820.651259]: Received motor command:1.111 V
+[INFO] [1773399820.747334]: VehicleSpeed:   4.80
+[INFO] [1773399820.762954]: Received motor command:1.111 V
+[INFO] [1773399820.857644]: VehicleSpeed:   4.80
+[INFO] [1773399820.874568]: Received motor command:1.111 V
+[INFO] [1773399820.967277]: VehicleSpeed:   4.60
+[INFO] [1773399820.985979]: Received motor command:1.111 V
+[INFO] [1773399821.077248]: VehicleSpeed:   4.60
+[INFO] [1773399821.087354]: Received motor command:1.111 V
+[INFO] [1773399821.187886]: VehicleSpeed:   4.80
+[INFO] [1773399821.197539]: Received motor command:1.111 V
+[INFO] [1773399821.297750]: VehicleSpeed:   4.80
+[INFO] [1773399821.308172]: Received motor command:1.111 V
+[INFO] [1773399821.407469]: VehicleSpeed:   4.60
+[INFO] [1773399821.420139]: Received motor command:1.111 V
+[INFO] [1773399821.517260]: VehicleSpeed:   4.60
+[INFO] [1773399821.531053]: Received motor command:1.111 V
+[INFO] [1773399821.626958]: VehicleSpeed:   4.80
+[INFO] [1773399821.642121]: Received motor command:1.111 V
+[INFO] [1773399821.738059]: VehicleSpeed:   4.70
+[INFO] [1773399821.754862]: Received motor command:1.111 V
+[INFO] [1773399821.847732]: VehicleSpeed:   4.50
+[INFO] [1773399821.866084]: Received motor command:1.111 V
+[INFO] [1773399821.957902]: VehicleSpeed:   4.50
+[INFO] [1773399821.967110]: Received motor command:1.111 V
+[INFO] [1773399822.067937]: VehicleSpeed:   4.70
+[INFO] [1773399822.088899]: Received motor command:1.111 V
+[INFO] [1773399822.177359]: VehicleSpeed:   4.70
+[INFO] [1773399822.199351]: Received motor command:1.111 V
+[INFO] [1773399822.287869]: VehicleSpeed:   4.50
+[INFO] [1773399822.300993]: Received motor command:1.111 V
+[INFO] [1773399822.397794]: VehicleSpeed:   4.60
+[INFO] [1773399822.412297]: Received motor command:1.111 V
+[INFO] [1773399822.507206]: VehicleSpeed:   4.80
+[INFO] [1773399822.523457]: Received motor command:1.111 V
+[INFO] [1773399822.617454]: VehicleSpeed:   4.60
+[INFO] [1773399822.634385]: Received motor command:1.111 V
+[INFO] [1773399822.727548]: VehicleSpeed:   4.50
+[INFO] [1773399822.745972]: Received motor command:1.111 V
+[INFO] [1773399822.837974]: VehicleSpeed:   4.50
+[INFO] [1773399822.856132]: Received motor command:1.111 V
+[INFO] [1773399822.947978]: VehicleSpeed:   4.70
+[INFO] [1773399822.968961]: Received motor command:1.111 V
+[INFO] [1773399823.057370]: VehicleSpeed:   4.70
+[INFO] [1773399823.069840]: Received motor command:1.111 V
+[INFO] [1773399823.166961]: VehicleSpeed:   4.50
+[INFO] [1773399823.180002]: Received motor command:1.111 V
+[INFO] [1773399823.277941]: VehicleSpeed:   4.60
+[INFO] [1773399823.291792]: Received motor command:1.111 V
+[INFO] [1773399823.387253]: VehicleSpeed:   4.80
+[INFO] [1773399823.402919]: Received motor command:1.111 V
+[INFO] [1773399823.497318]: VehicleSpeed:   4.70
+[INFO] [1773399823.507862]: Received motor command:1.111 V
+[INFO] [1773399823.607800]: VehicleSpeed:   4.50
+[INFO] [1773399823.617015]: Received motor command:1.111 V
+[INFO] [1773399823.717640]: VehicleSpeed:   4.60
+[INFO] [1773399823.737981]: Received motor command:1.111 V
+[INFO] [1773399823.827783]: VehicleSpeed:   4.80
+[INFO] [1773399823.839543]: Received motor command:1.111 V
+[INFO] [1773399823.937189]: VehicleSpeed:   4.70
+[INFO] [1773399823.951314]: Received motor command:1.111 V
+[INFO] [1773399824.047658]: VehicleSpeed:   4.60
+[INFO] [1773399824.063637]: Received motor command:1.111 V
+[INFO] [1773399824.157670]: VehicleSpeed:   4.70
+[INFO] [1773399824.174380]: Received motor command:1.111 V
+[INFO] [1773399824.266869]: VehicleSpeed:   4.80
+[INFO] [1773399824.277416]: Received motor command:1.111 V
+[INFO] [1773399824.377417]: VehicleSpeed:   4.70
+[INFO] [1773399824.387845]: Received motor command:1.111 V
+[INFO] [1773399824.487736]: VehicleSpeed:   4.60
+[INFO] [1773399824.499228]: Received motor command:1.111 V
+[INFO] [1773399824.597517]: VehicleSpeed:   4.70
+[INFO] [1773399824.611044]: Received motor command:1.111 V
+[INFO] [1773399824.707002]: VehicleSpeed:   4.90
+[INFO] [1773399824.723099]: Received motor command:1.111 V
+[INFO] [1773399824.817849]: VehicleSpeed:   4.70
+[INFO] [1773399824.834673]: Received motor command:1.111 V
+[INFO] [1773399824.927399]: VehicleSpeed:   4.70
+[INFO] [1773399824.945675]: Received motor command:1.111 V
+[INFO] [1773399825.037051]: VehicleSpeed:   4.80
+[INFO] [1773399825.056889]: Received motor command:1.111 V
+[INFO] [1773399825.147133]: VehicleSpeed:   4.90
+[INFO] [1773399825.158548]: Received motor command:1.111 V
+[INFO] [1773399825.256881]: VehicleSpeed:   4.70
+[INFO] [1773399825.269560]: Received motor command:1.111 V
+[INFO] [1773399825.366756]: VehicleSpeed:   4.60
+[INFO] [1773399825.380554]: Received motor command:1.111 V
+[INFO] [1773399825.476972]: VehicleSpeed:   4.80
+[INFO] [1773399825.491986]: Received motor command:1.111 V
+[INFO] [1773399825.586749]: VehicleSpeed:   4.90
+[INFO] [1773399825.602770]: Received motor command:1.111 V
+[INFO] [1773399825.697351]: VehicleSpeed:   4.70
+[INFO] [1773399825.714467]: Received motor command:1.111 V
+[INFO] [1773399825.807251]: VehicleSpeed:   4.70
+[INFO] [1773399825.825068]: Received motor command:1.111 V
+[INFO] [1773399825.917441]: VehicleSpeed:   4.90
+[INFO] [1773399825.927073]: Received motor command:1.111 V
+[INFO] [1773399826.027608]: VehicleSpeed:   4.90
+[INFO] [1773399826.038718]: Received motor command:1.111 V
+[INFO] [1773399826.136730]: VehicleSpeed:   4.60
+[INFO] [1773399826.148955]: Received motor command:1.111 V
+[INFO] [1773399826.246849]: VehicleSpeed:   4.60
+[INFO] [1773399826.260508]: Received motor command:1.111 V
+[INFO] [1773399826.357429]: VehicleSpeed:   4.90
+[INFO] [1773399826.372068]: Received motor command:1.111 V
+[INFO] [1773399826.467021]: VehicleSpeed:   4.80
+[INFO] [1773399826.483598]: Received motor command:1.111 V
+[INFO] [1773399826.577703]: VehicleSpeed:   4.70
+[INFO] [1773399826.593777]: Received motor command:1.111 V
+[INFO] [1773399826.687680]: VehicleSpeed:   4.80
+[INFO] [1773399826.696676]: Received motor command:1.111 V
+[INFO] [1773399826.797577]: VehicleSpeed:   4.90
+[INFO] [1773399826.807252]: Received motor command:1.111 V
+[INFO] [1773399826.907731]: VehicleSpeed:   4.80
+[INFO] [1773399826.917907]: Received motor command:1.111 V
+[INFO] [1773399827.016712]: VehicleSpeed:   4.70
+[INFO] [1773399827.029089]: Received motor command:1.111 V
+[INFO] [1773399827.127323]: VehicleSpeed:   4.80
+[INFO] [1773399827.139820]: Received motor command:1.111 V
+[INFO] [1773399827.237088]: VehicleSpeed:   4.90
+[INFO] [1773399827.251692]: Received motor command:1.111 V
+[INFO] [1773399827.347740]: VehicleSpeed:   4.80
+[INFO] [1773399827.362828]: Received motor command:1.111 V
+[INFO] [1773399827.456873]: VehicleSpeed:   4.70
+[INFO] [1773399827.473863]: Received motor command:1.111 V
+[INFO] [1773399827.567001]: VehicleSpeed:   4.90
+[INFO] [1773399827.577286]: Received motor command:1.111 V
+[INFO] [1773399827.677303]: VehicleSpeed:   4.90
+[INFO] [1773399827.686681]: Received motor command:1.111 V
+[INFO] [1773399827.786878]: VehicleSpeed:   4.70
+[INFO] [1773399827.797575]: Received motor command:1.111 V
+[INFO] [1773399827.897487]: VehicleSpeed:   4.60
+[INFO] [1773399827.907800]: Received motor command:1.111 V
+[INFO] [1773399828.007370]: VehicleSpeed:   4.80
+[INFO] [1773399828.019185]: Received motor command:1.111 V
+[INFO] [1773399828.117530]: VehicleSpeed:   4.90
+[INFO] [1773399828.131334]: Received motor command:1.111 V
+[INFO] [1773399828.227511]: VehicleSpeed:   4.70
+[INFO] [1773399828.242487]: Received motor command:1.111 V
+[INFO] [1773399828.336604]: VehicleSpeed:   4.70
+[INFO] [1773399828.353648]: Received motor command:1.111 V
+[INFO] [1773399828.447148]: VehicleSpeed:   4.90
+[INFO] [1773399828.463937]: Received motor command:1.111 V
+[INFO] [1773399828.557343]: VehicleSpeed:   4.90
+[INFO] [1773399828.575298]: Received motor command:1.111 V
+[INFO] [1773399828.667697]: VehicleSpeed:   4.70
+[INFO] [1773399828.676918]: Received motor command:1.111 V
+[INFO] [1773399828.776977]: VehicleSpeed:   4.70
+[INFO] [1773399828.787391]: Received motor command:1.111 V
+[INFO] [1773399828.887720]: VehicleSpeed:   4.80
+[INFO] [1773399828.897871]: Received motor command:1.111 V
+[INFO] [1773399828.996994]: VehicleSpeed:   4.80
+[INFO] [1773399829.009670]: Received motor command:1.111 V
+[INFO] [1773399829.107276]: VehicleSpeed:   4.60
+[INFO] [1773399829.121539]: Received motor command:1.111 V
+[INFO] [1773399829.217548]: VehicleSpeed:   4.70
+[INFO] [1773399829.232692]: Received motor command:1.111 V
+[INFO] [1773399829.326864]: VehicleSpeed:   4.80
+[INFO] [1773399829.343061]: Received motor command:1.111 V
+[INFO] [1773399829.436895]: VehicleSpeed:   4.70
+[INFO] [1773399829.447020]: Received motor command:1.111 V
+[INFO] [1773399829.547086]: VehicleSpeed:   4.60
+[INFO] [1773399829.556593]: Received motor command:1.111 V
+[INFO] [1773399829.656544]: VehicleSpeed:   4.60
+[INFO] [1773399829.666656]: Received motor command:1.111 V
+[INFO] [1773399829.767225]: VehicleSpeed:   4.90
+[INFO] [1773399829.777360]: Received motor command:1.111 V
+[INFO] [1773399829.877324]: VehicleSpeed:   4.70
+[INFO] [1773399829.889105]: Received motor command:1.111 V
+[INFO] [1773399829.987145]: VehicleSpeed:   4.60
+[INFO] [1773399829.999663]: Received motor command:1.111 V
+[INFO] [1773399830.097082]: VehicleSpeed:   4.70
+[INFO] [1773399830.112349]: Received motor command:1.111 V
+[INFO] [1773399830.207148]: VehicleSpeed:   4.80
+[INFO] [1773399830.223345]: Received motor command:1.111 V
+[INFO] [1773399830.317089]: VehicleSpeed:   4.70
+[INFO] [1773399830.333925]: Received motor command:1.111 V
+[INFO] [1773399830.427468]: VehicleSpeed:   4.50
+[INFO] [1773399830.437394]: Received motor command:1.111 V
+[INFO] [1773399830.536840]: VehicleSpeed:   4.80
+[INFO] [1773399830.546984]: Received motor command:1.111 V
+[INFO] [1773399830.646686]: VehicleSpeed:   4.90
+[INFO] [1773399830.658994]: Received motor command:1.111 V
+[INFO] [1773399830.757091]: VehicleSpeed:   4.70
+[INFO] [1773399830.769953]: Received motor command:1.111 V
+[INFO] [1773399830.867369]: VehicleSpeed:   4.70
+[INFO] [1773399830.882140]: Received motor command:1.111 V
+[INFO] [1773399830.977314]: VehicleSpeed:   4.90
+[INFO] [1773399831.087375]: VehicleSpeed:   4.90
+[INFO] [1773399831.103361]: Received motor command:1.111 V
+[INFO] [1773399831.197010]: VehicleSpeed:   4.80
+[INFO] [1773399831.207131]: Received motor command:1.111 V
+[INFO] [1773399831.307367]: VehicleSpeed:   4.70
+[INFO] [1773399831.317179]: Received motor command:1.111 V
+[INFO] [1773399831.416455]: VehicleSpeed:   4.90
+[INFO] [1773399831.427705]: Received motor command:1.111 V
+[INFO] [1773399831.527060]: VehicleSpeed:   4.90
+[INFO] [1773399831.538778]: Received motor command:1.111 V
+[INFO] [1773399831.636800]: VehicleSpeed:   4.70
+[INFO] [1773399831.650260]: Received motor command:1.111 V
+[INFO] [1773399831.746764]: VehicleSpeed:   4.80
+[INFO] [1773399831.761507]: Received motor command:1.111 V
+[INFO] [1773399831.857152]: VehicleSpeed:   5.00
+[INFO] [1773399831.872452]: Received motor command:1.111 V
+[INFO] [1773399831.966936]: VehicleSpeed:   4.80
+[INFO] [1773399831.984284]: Received motor command:1.111 V
+[INFO] [1773399832.076566]: VehicleSpeed:   4.70
+[INFO] [1773399832.095184]: Received motor command:1.111 V
+[INFO] [1773399832.187113]: VehicleSpeed:   4.70
+[INFO] [1773399832.197046]: Received motor command:1.111 V
+[INFO] [1773399832.296952]: VehicleSpeed:   4.90
+[INFO] [1773399832.308161]: Received motor command:1.111 V
+[INFO] [1773399832.407430]: VehicleSpeed:   4.80
+[INFO] [1773399832.419509]: Received motor command:1.111 V
+[INFO] [1773399832.516586]: VehicleSpeed:   4.70
+[INFO] [1773399832.531088]: Received motor command:1.111 V
+[INFO] [1773399832.626566]: VehicleSpeed:   4.90
+[INFO] [1773399832.641758]: Received motor command:1.111 V
+[INFO] [1773399832.736912]: VehicleSpeed:   5.00
+[INFO] [1773399832.752568]: Received motor command:1.111 V
+[INFO] [1773399832.847166]: VehicleSpeed:   4.80
+[INFO] [1773399832.863815]: Received motor command:1.111 V
+[INFO] [1773399832.957161]: VehicleSpeed:   4.80
+[INFO] [1773399832.966972]: Received motor command:1.111 V
+[INFO] [1773399833.066711]: VehicleSpeed:   4.90
+[INFO] [1773399833.076496]: Received motor command:1.111 V
+[INFO] [1773399833.176632]: VehicleSpeed:   5.00
+[INFO] [1773399833.188125]: Received motor command:1.111 V
+[INFO] [1773399833.286978]: VehicleSpeed:   4.80
+[INFO] [1773399833.299290]: Received motor command:1.111 V
+[INFO] [1773399833.396849]: VehicleSpeed:   4.80
+[INFO] [1773399833.410201]: Received motor command:1.111 V
+[INFO] [1773399833.506571]: VehicleSpeed:   4.90
+[INFO] [1773399833.521653]: Received motor command:1.111 V
+[INFO] [1773399833.617042]: VehicleSpeed:   4.90
+[INFO] [1773399833.632843]: Received motor command:1.111 V
+[INFO] [1773399833.726914]: VehicleSpeed:   4.70
+[INFO] [1773399833.736923]: Received motor command:1.111 V
+[INFO] [1773399833.837109]: VehicleSpeed:   4.80
+[INFO] [1773399833.846465]: Received motor command:1.111 V
+[INFO] [1773399833.946583]: VehicleSpeed:   5.00
+[INFO] [1773399833.956395]: Received motor command:1.111 V
+[INFO] [1773399834.057314]: VehicleSpeed:   4.90
+[INFO] [1773399834.068071]: Received motor command:1.111 V
+[INFO] [1773399834.166548]: VehicleSpeed:   4.80
+[INFO] [1773399834.179466]: Received motor command:1.111 V
+[INFO] [1773399834.276889]: VehicleSpeed:   4.80
+[INFO] [1773399834.290609]: Received motor command:1.111 V
+[INFO] [1773399834.386568]: VehicleSpeed:   5.00
+[INFO] [1773399834.401313]: Received motor command:1.111 V
+[INFO] [1773399834.496596]: VehicleSpeed:   4.80
+[INFO] [1773399834.513099]: Received motor command:1.111 V
+[INFO] [1773399834.607108]: VehicleSpeed:   4.70
+[INFO] [1773399834.624207]: Received motor command:1.111 V
+[INFO] [1773399834.716845]: VehicleSpeed:   4.90
+[INFO] [1773399834.727430]: Received motor command:1.111 V
+[INFO] [1773399834.827122]: VehicleSpeed:   5.00
+[INFO] [1773399834.836742]: Received motor command:1.111 V
+[INFO] [1773399834.936933]: VehicleSpeed:   4.70
+[INFO] [1773399834.948240]: Received motor command:1.111 V
+[INFO] [1773399835.047211]: VehicleSpeed:   4.70
+[INFO] [1773399835.058577]: Received motor command:1.111 V
+[INFO] [1773399835.156880]: VehicleSpeed:   4.80
+[INFO] [1773399835.170855]: Received motor command:1.111 V
+[INFO] [1773399835.266603]: VehicleSpeed:   4.90
+[INFO] [1773399835.281333]: Received motor command:1.111 V
+[INFO] [1773399835.376317]: VehicleSpeed:   4.60
+[INFO] [1773399835.392446]: Received motor command:1.111 V
+[INFO] [1773399835.486953]: VehicleSpeed:   4.60
+[INFO] [1773399835.505216]: Received motor command:1.111 V
+[INFO] [1773399835.597002]: VehicleSpeed:   4.90
+[INFO] [1773399835.606292]: Received motor command:1.111 V
+[INFO] [1773399835.706115]: VehicleSpeed:   4.80
+[INFO] [1773399835.727172]: Received motor command:1.000 V
+[INFO] [1773399835.816890]: VehicleSpeed:   4.70
+[INFO] [1773399835.827656]: Received motor command:0.895 V
+[INFO] [1773399835.927097]: VehicleSpeed:   4.70
+[INFO] [1773399836.036253]: VehicleSpeed:   4.80
+[INFO] [1773399836.050870]: Received motor command:0.618 V
+[INFO] [1773399836.146898]: VehicleSpeed:   4.70
+[INFO] [1773399836.162123]: Received motor command:0.522 V
+[INFO] [1773399836.256788]: VehicleSpeed:   4.40
+[INFO] [1773399836.272814]: Received motor command:0.445 V
+[INFO] [1773399836.366496]: VehicleSpeed:   4.10
+[INFO] [1773399836.376968]: Received motor command:0.722 V
+[INFO] [1773399836.476469]: VehicleSpeed:   3.70
+[INFO] [1773399836.487039]: Received motor command:0.000 V
+[INFO] [1773399836.586977]: VehicleSpeed:   4.40
+[INFO] [1773399836.596223]: Received motor command:0.544 V
+[INFO] [1773399836.696278]: VehicleSpeed:   4.10
+[INFO] [1773399836.707497]: Received motor command:0.343 V
+[INFO] [1773399836.806663]: VehicleSpeed:   3.90
+[INFO] [1773399836.818474]: Received motor command:0.367 V
+[INFO] [1773399836.917081]: VehicleSpeed:   3.80
+[INFO] [1773399836.929907]: Received motor command:0.354 V
+[INFO] [1773399837.026500]: VehicleSpeed:   3.60
+[INFO] [1773399837.042328]: Received motor command:0.465 V
+[INFO] [1773399837.136072]: VehicleSpeed:   3.40
+[INFO] [1773399837.152526]: Received motor command:0.629 V
+[INFO] [1773399837.246101]: VehicleSpeed:   3.10
+[INFO] [1773399837.263354]: Received motor command:0.928 V
+[INFO] [1773399837.356921]: VehicleSpeed:   2.80
+[INFO] [1773399837.374604]: Received motor command:0.969 V
+[INFO] [1773399837.467056]: VehicleSpeed:   2.70
+[INFO] [1773399837.476451]: Received motor command:1.042 V
+[INFO] [1773399837.576554]: VehicleSpeed:   2.90
+[INFO] [1773399837.587935]: Received motor command:0.996 V
+[INFO] [1773399837.687010]: VehicleSpeed:   2.80
+[INFO] [1773399837.699312]: Received motor command:0.945 V
+[INFO] [1773399837.796916]: VehicleSpeed:   2.90
+[INFO] [1773399837.810394]: Received motor command:1.101 V
+[INFO] [1773399837.906360]: VehicleSpeed:   3.00
+[INFO] [1773399837.921529]: Received motor command:1.111 V
+[INFO] [1773399838.016475]: VehicleSpeed:   2.30
+[INFO] [1773399838.032268]: Received motor command:1.111 V
+[INFO] [1773399838.127343]: VehicleSpeed:   2.70
+[INFO] [1773399838.143385]: Received motor command:1.111 V
+[INFO] [1773399838.237149]: VehicleSpeed:   2.60
+[INFO] [1773399838.255099]: Received motor command:1.111 V
+[INFO] [1773399838.346560]: VehicleSpeed:   2.60
+[INFO] [1773399838.356789]: Received motor command:1.010 V
+[INFO] [1773399838.456546]: VehicleSpeed:   2.70
+[INFO] [1773399838.468156]: Received motor command:0.733 V
+[INFO] [1773399838.566475]: VehicleSpeed:   2.80
+[INFO] [1773399838.579643]: Received motor command:0.592 V
+[INFO] [1773399838.676157]: VehicleSpeed:   2.80
+[INFO] [1773399838.691208]: Received motor command:0.449 V
+[INFO] [1773399838.786950]: VehicleSpeed:   2.60
+[INFO] [1773399838.802125]: Received motor command:0.379 V
+[INFO] [1773399838.896070]: VehicleSpeed:   2.60
+[INFO] [1773399838.906715]: Received motor command:0.000 V
+[INFO] [1773399839.006523]: VehicleSpeed:   2.20
+[INFO] [1773399839.026501]: Received motor command:0.000 V
+[INFO] [1773399839.116220]: VehicleSpeed:   2.10
+[INFO] [1773399839.127090]: Received motor command:0.000 V
+[INFO] [1773399839.226425]: VehicleSpeed:   2.40
+[INFO] [1773399839.238437]: Received motor command:0.000 V
+[INFO] [1773399839.336148]: VehicleSpeed:   2.50
+[INFO] [1773399839.349454]: Received motor command:0.000 V
+[INFO] [1773399839.447120]: VehicleSpeed:   2.30
+[INFO] [1773399839.460147]: Received motor command:0.412 V
+[INFO] [1773399839.556007]: VehicleSpeed:   2.00
+[INFO] [1773399839.572262]: Received motor command:0.625 V
+[INFO] [1773399839.666788]: VehicleSpeed:   1.80
+[INFO] [1773399839.683251]: Received motor command:0.768 V
+[INFO] [1773399839.777005]: VehicleSpeed:   1.60
+[INFO] [1773399839.795987]: Received motor command:0.858 V
+[INFO] [1773399839.886897]: VehicleSpeed:   1.50
+[INFO] [1773399839.896112]: Received motor command:1.002 V
+[INFO] [1773399839.996812]: VehicleSpeed:   1.60
+[INFO] [1773399840.008771]: Received motor command:1.006 V
+[INFO] [1773399840.106893]: VehicleSpeed:   1.70
+[INFO] [1773399840.119432]: Received motor command:0.986 V
+[INFO] [1773399840.216640]: VehicleSpeed:   1.90
+[INFO] [1773399840.231503]: Received motor command:1.111 V
+[INFO] [1773399840.326203]: VehicleSpeed:   1.30
+[INFO] [1773399840.341944]: Received motor command:1.016 V
+[INFO] [1773399840.436085]: VehicleSpeed:   1.50
+[INFO] [1773399840.453904]: Received motor command:1.111 V
+[INFO] [1773399840.547029]: VehicleSpeed:   1.50
+[INFO] [1773399840.564141]: Received motor command:1.078 V
+[INFO] [1773399840.656492]: VehicleSpeed:   1.50
+[INFO] [1773399840.666462]: Received motor command:0.943 V
+[INFO] [1773399840.766199]: VehicleSpeed:   1.60
+[INFO] [1773399840.776663]: Received motor command:0.830 V
+[INFO] [1773399840.876247]: VehicleSpeed:   1.70
+[INFO] [1773399840.887798]: Received motor command:0.736 V
+[INFO] [1773399840.986558]: VehicleSpeed:   1.80
+[INFO] [1773399840.998037]: Received motor command:0.531 V
+[INFO] [1773399841.096386]: VehicleSpeed:   1.90
+[INFO] [1773399841.109161]: Received motor command:0.000 V
+[INFO] [1773399841.206576]: VehicleSpeed:   2.00
+[INFO] [1773399841.220610]: Received motor command:0.000 V
+[INFO] [1773399841.316653]: VehicleSpeed:   1.80
+[INFO] [1773399841.332137]: Received motor command:0.000 V
+[INFO] [1773399841.426242]: VehicleSpeed:   1.70
+[INFO] [1773399841.443018]: Received motor command:0.365 V
+[INFO] [1773399841.536531]: VehicleSpeed:   1.10
+[INFO] [1773399841.546403]: Received motor command:0.000 V
+[INFO] [1773399841.646761]: VehicleSpeed:   1.80
+[INFO] [1773399841.656201]: Received motor command:0.000 V
+[INFO] [1773399841.756439]: VehicleSpeed:   1.60
+[INFO] [1773399841.766001]: Received motor command:0.000 V
+[INFO] [1773399841.866577]: VehicleSpeed:   1.50
+[INFO] [1773399841.876995]: Received motor command:0.405 V
+[INFO] [1773399841.975954]: VehicleSpeed:   1.40
+[INFO] [1773399841.989273]: Received motor command:0.727 V
+[INFO] [1773399842.086783]: VehicleSpeed:   1.30
+[INFO] [1773399842.101862]: Received motor command:0.474 V
+[INFO] [1773399842.196040]: VehicleSpeed:   1.10
+[INFO] [1773399842.212327]: Received motor command:0.614 V
+[INFO] [1773399842.306287]: VehicleSpeed:   1.20
+[INFO] [1773399842.316538]: Received motor command:0.913 V
+[INFO] [1773399842.416625]: VehicleSpeed:   0.90
+[INFO] [1773399842.426624]: Received motor command:0.666 V
+[INFO] [1773399842.525930]: VehicleSpeed:   0.90
+[INFO] [1773399842.535857]: Received motor command:0.672 V
+[INFO] [1773399842.636806]: VehicleSpeed:   1.00
+[INFO] [1773399842.647629]: Received motor command:1.014 V
+[INFO] [1773399842.746562]: VehicleSpeed:   0.70
+[INFO] [1773399842.760076]: Received motor command:0.848 V
+[INFO] [1773399842.856320]: VehicleSpeed:   0.50
+[INFO] [1773399842.870619]: Received motor command:1.050 V
+[INFO] [1773399842.966501]: VehicleSpeed:   0.80
+[INFO] [1773399842.981176]: Received motor command:1.111 V
+[INFO] [1773399843.076718]: VehicleSpeed:   1.00
+[INFO] [1773399843.092015]: Received motor command:1.111 V
+[INFO] [1773399843.185801]: VehicleSpeed:   0.90
+[INFO] [1773399843.196779]: Received motor command:0.830 V
+[INFO] [1773399843.296706]: VehicleSpeed:   0.70
+[INFO] [1773399843.306061]: Received motor command:0.877 V
+[INFO] [1773399843.406202]: VehicleSpeed:   0.80
+[INFO] [1773399843.416544]: Received motor command:0.833 V
+[INFO] [1773399843.516189]: VehicleSpeed:   0.80
+[INFO] [1773399843.527430]: Received motor command:0.808 V
+[INFO] [1773399843.626526]: VehicleSpeed:   0.90
+[INFO] [1773399843.638552]: Received motor command:0.771 V
+[INFO] [1773399843.735792]: VehicleSpeed:   1.00
+[INFO] [1773399843.749230]: Received motor command:0.572 V
+[INFO] [1773399843.846121]: VehicleSpeed:   1.00
+[INFO] [1773399843.860454]: Received motor command:0.492 V
+[INFO] [1773399843.955726]: VehicleSpeed:   1.20
+[INFO] [1773399843.971283]: Received motor command:0.442 V
+[INFO] [1773399844.066411]: VehicleSpeed:   1.00
+[INFO] [1773399844.081897]: Received motor command:0.000 V
+[INFO] [1773399844.176242]: VehicleSpeed:   1.00
+[INFO] [1773399844.186452]: Received motor command:0.534 V
+[INFO] [1773399844.285739]: VehicleSpeed:   0.60
+[INFO] [1773399844.296491]: Received motor command:0.457 V
+[INFO] [1773399844.395678]: VehicleSpeed:   0.40
+[INFO] [1773399844.405959]: Received motor command:0.000 V
+[INFO] [1773399844.506569]: VehicleSpeed:   1.00
+[INFO] [1773399844.516895]: Received motor command:0.000 V
+[INFO] [1773399844.616106]: VehicleSpeed:   0.90
+[INFO] [1773399844.628227]: Received motor command:0.000 V
+[INFO] [1773399844.726388]: VehicleSpeed:   0.80
+[INFO] [1773399844.739607]: Received motor command:0.000 V
+[INFO] [1773399844.836493]: VehicleSpeed:   0.80
+[INFO] [1773399844.851215]: Received motor command:0.000 V
+[INFO] [1773399844.946709]: VehicleSpeed:   0.70
+[INFO] [1773399844.962848]: Received motor command:0.324 V
+[INFO] [1773399845.056167]: VehicleSpeed:   0.60
+[INFO] [1773399845.073616]: Received motor command:0.419 V
+[INFO] [1773399845.165986]: VehicleSpeed:   0.60
+[INFO] [1773399845.184422]: Received motor command:0.562 V
+[INFO] [1773399845.275781]: VehicleSpeed:   0.50
+[INFO] [1773399845.285928]: Received motor command:0.642 V
+[INFO] [1773399845.386189]: VehicleSpeed:   0.40
+[INFO] [1773399845.396313]: Received motor command:0.472 V
+[INFO] [1773399845.496533]: VehicleSpeed:   0.40
+[INFO] [1773399845.506744]: Received motor command:0.000 V
+[INFO] [1773399845.605997]: VehicleSpeed:   0.30
+[INFO] [1773399845.618440]: Received motor command:0.000 V
+[INFO] [1773399845.716681]: VehicleSpeed:   0.30
+[INFO] [1773399845.729926]: Received motor command:0.489 V
+[INFO] [1773399845.826512]: VehicleSpeed:   0.30
+[INFO] [1773399845.840883]: Received motor command:0.514 V
+[INFO] [1773399845.935674]: VehicleSpeed:   0.20
+[INFO] [1773399845.952114]: Received motor command:0.858 V
+[INFO] [1773399846.045630]: VehicleSpeed:   0.20
+[INFO] [1773399846.063359]: Received motor command:1.111 V
+[INFO] [1773399846.155646]: VehicleSpeed:   0.10
+[INFO] [1773399846.166176]: Received motor command:1.111 V
+[INFO] [1773399846.266330]: VehicleSpeed:   0.20
+[INFO] [1773399846.276084]: Received motor command:1.111 V
+[INFO] [1773399846.376270]: VehicleSpeed:   0.40
+[INFO] [1773399846.486235]: VehicleSpeed:   0.60
+[INFO] [1773399846.497321]: Received motor command:1.111 V
+[INFO] [1773399846.595493]: VehicleSpeed:   0.10
+[INFO] [1773399846.607768]: Received motor command:1.111 V
+[INFO] [1773399846.706454]: VehicleSpeed:   0.20
+[INFO] [1773399846.719702]: Received motor command:1.111 V
+[INFO] [1773399846.816075]: VehicleSpeed:   0.30
+[INFO] [1773399846.830639]: Received motor command:1.091 V
+[INFO] [1773399846.926267]: VehicleSpeed:   0.50
+[INFO] [1773399846.942111]: Received motor command:0.626 V
+[INFO] [1773399847.036386]: VehicleSpeed:   0.60
+[INFO] [1773399847.053419]: Received motor command:0.000 V
+[INFO] [1773399847.145561]: VehicleSpeed:   0.80
+[INFO] [1773399847.156355]: Received motor command:0.000 V
+[INFO] [1773399847.256281]: VehicleSpeed:   0.80
+[INFO] [1773399847.266248]: Received motor command:0.000 V
+[INFO] [1773399847.365847]: VehicleSpeed:   0.70
+[INFO] [1773399847.376143]: Received motor command:0.000 V
+[INFO] [1773399847.475797]: VehicleSpeed:   0.70
+[INFO] [1773399847.488330]: Received motor command:0.000 V
+[INFO] [1773399847.585476]: VehicleSpeed:   0.40
+[INFO] [1773399847.598842]: Received motor command:0.000 V
+[INFO] [1773399847.695538]: VehicleSpeed:   0.40
+[INFO] [1773399847.710302]: Received motor command:0.000 V
+[INFO] [1773399847.806376]: VehicleSpeed:   0.80
+[INFO] [1773399847.820573]: Received motor command:0.000 V
+[INFO] [1773399847.915792]: VehicleSpeed:   0.70
+[INFO] [1773399847.931492]: Received motor command:0.000 V
+[INFO] [1773399848.026190]: VehicleSpeed:   0.70
+[INFO] [1773399848.035966]: Received motor command:0.000 V
+[INFO] [1773399848.136144]: VehicleSpeed:   0.60
+[INFO] [1773399848.153809]: Received motor command:0.000 V
+[INFO] [1773399848.245959]: VehicleSpeed:   0.50
+[INFO] [1773399848.255860]: Received motor command:0.000 V
+[INFO] [1773399848.356367]: VehicleSpeed:   0.50
+[INFO] [1773399848.365566]: Received motor command:0.000 V
+[INFO] [1773399848.466268]: VehicleSpeed:   0.50
+[INFO] [1773399848.478310]: Received motor command:0.631 V
+[INFO] [1773399848.576420]: VehicleSpeed:   0.40
+[INFO] [1773399848.588619]: Received motor command:0.975 V
+[INFO] [1773399848.685807]: VehicleSpeed:   0.40
+[INFO] [1773399848.700449]: Received motor command:1.111 V
+[INFO] [1773399848.796503]: VehicleSpeed:   0.30
+[INFO] [1773399848.811549]: Received motor command:0.609 V
+[INFO] [1773399848.905914]: VehicleSpeed:   0.40
+[INFO] [1773399848.923221]: Received motor command:0.000 V
+[INFO] [1773399849.015846]: VehicleSpeed:   0.60
+[INFO] [1773399849.025858]: Received motor command:0.000 V
+[INFO] [1773399849.126480]: VehicleSpeed:   0.50
+[INFO] [1773399849.135741]: Received motor command:0.695 V
+[INFO] [1773399849.235382]: VehicleSpeed:   0.20
+[INFO] [1773399849.247282]: Received motor command:0.000 V
+[INFO] [1773399849.346288]: VehicleSpeed:   0.00
+[INFO] [1773399849.358393]: Received motor command:0.574 V
+[INFO] [1773399849.456108]: VehicleSpeed:   0.00
+[INFO] [1773399849.468469]: Received motor command:0.873 V
+[INFO] [1773399849.565732]: VehicleSpeed:   0.00
+[INFO] [1773399849.580032]: Received motor command:1.111 V
+[INFO] [1773399849.675926]: VehicleSpeed:   0.00
+[INFO] [1773399849.691276]: Received motor command:1.111 V
+[INFO] [1773399849.785779]: VehicleSpeed:   0.00
+[INFO] [1773399849.801983]: Received motor command:1.111 V
+[INFO] [1773399849.896441]: VehicleSpeed:   0.20
+[INFO] [1773399849.913281]: Received motor command:1.111 V
+[INFO] [1773399850.006459]: VehicleSpeed:   0.70
+[INFO] [1773399850.024885]: Received motor command:1.111 V
+[INFO] [1773399850.116827]: VehicleSpeed:   0.20
+[INFO] [1773399850.135572]: Received motor command:1.111 V
+[INFO] [1773399850.225593]: VehicleSpeed:   0.20
+[INFO] [1773399850.237753]: Received motor command:1.111 V
+[INFO] [1773399850.336301]: VehicleSpeed:   0.30
+[INFO] [1773399850.348787]: Received motor command:0.447 V
+[INFO] [1773399850.446308]: VehicleSpeed:   0.40
+[INFO] [1773399850.460401]: Received motor command:0.000 V
+[INFO] [1773399850.556075]: VehicleSpeed:   0.50
+[INFO] [1773399850.572564]: Received motor command:0.000 V
+[INFO] [1773399850.665397]: VehicleSpeed:   0.50
+[INFO] [1773399850.675850]: Received motor command:0.000 V
+[INFO] [1773399850.776280]: VehicleSpeed:   0.50
+[INFO] [1773399850.785327]: Received motor command:0.000 V
+[INFO] [1773399850.885788]: VehicleSpeed:   0.40
+[INFO] [1773399850.895435]: Received motor command:0.000 V
+[INFO] [1773399850.995516]: VehicleSpeed:   0.20
+[INFO] [1773399851.006923]: Received motor command:0.000 V
+[INFO] [1773399851.106287]: VehicleSpeed:   0.30
+[INFO] [1773399851.117861]: Received motor command:0.000 V
+[INFO] [1773399851.215793]: VehicleSpeed:   0.50
+[INFO] [1773399851.230228]: Received motor command:0.000 V
+[INFO] [1773399851.325859]: VehicleSpeed:   0.50
+[INFO] [1773399851.341296]: Received motor command:0.000 V
+[INFO] [1773399851.435561]: VehicleSpeed:   0.50
+[INFO] [1773399851.452369]: Received motor command:0.000 V
+[INFO] [1773399851.546213]: VehicleSpeed:   0.40
+[INFO] [1773399851.556161]: Received motor command:0.000 V
+[INFO] [1773399851.655386]: VehicleSpeed:   0.30
+[INFO] [1773399851.666083]: Received motor command:0.000 V
+[INFO] [1773399851.766076]: VehicleSpeed:   0.30
+[INFO] [1773399851.775369]: Received motor command:0.000 V
+[INFO] [1773399851.875372]: VehicleSpeed:   0.30
+[INFO] [1773399851.886492]: Received motor command:0.000 V
+[INFO] [1773399851.985919]: VehicleSpeed:   0.20
+[INFO] [1773399851.997198]: Received motor command:0.000 V
+[INFO] [1773399852.096201]: VehicleSpeed:   0.20
+[INFO] [1773399852.110256]: Received motor command:0.000 V
+[INFO] [1773399852.206041]: VehicleSpeed:   0.20
+[INFO] [1773399852.220630]: Received motor command:0.000 V
+[INFO] [1773399852.315850]: VehicleSpeed:   0.10
+[INFO] [1773399852.332298]: Received motor command:0.440 V
+[INFO] [1773399852.425585]: VehicleSpeed:   0.10
+[INFO] [1773399852.435600]: Received motor command:0.000 V
+[INFO] [1773399852.535704]: VehicleSpeed:   0.10
+[INFO] [1773399852.545599]: Received motor command:0.000 V
+[INFO] [1773399852.645993]: VehicleSpeed:   0.10
+[INFO] [1773399852.655749]: Received motor command:0.000 V
+[INFO] [1773399852.755850]: VehicleSpeed:   0.00
+[INFO] [1773399852.767290]: Received motor command:0.000 V
+[INFO] [1773399852.865252]: VehicleSpeed:   0.00
+[INFO] [1773399852.878810]: Received motor command:0.000 V
+[INFO] [1773399852.975547]: VehicleSpeed:   0.00
+[INFO] [1773399852.989935]: Received motor command:0.000 V
+[INFO] [1773399853.085975]: VehicleSpeed:   0.00
+[INFO] [1773399853.102307]: Received motor command:0.000 V
+[INFO] [1773399853.196024]: VehicleSpeed:   0.00
+[INFO] [1773399853.212577]: Received motor command:0.459 V
+[INFO] [1773399853.306164]: VehicleSpeed:   0.00
+[INFO] [1773399853.324502]: Received motor command:0.000 V
+[INFO] [1773399853.415418]: VehicleSpeed:   0.00
+[INFO] [1773399853.426342]: Received motor command:0.000 V
+[INFO] [1773399853.525336]: VehicleSpeed:   0.00
+[INFO] [1773399853.537587]: Received motor command:0.000 V
+[INFO] [1773399853.635082]: VehicleSpeed:   0.00
+[INFO] [1773399853.648566]: Received motor command:0.000 V
+[INFO] [1773399853.745407]: VehicleSpeed:   0.00
+[INFO] [1773399853.760295]: Received motor command:0.000 V
+[INFO] [1773399853.855186]: VehicleSpeed:   0.00
+[INFO] [1773399853.871827]: Received motor command:0.000 V
+[INFO] [1773399853.965422]: VehicleSpeed:   0.00
+[INFO] [1773399853.975573]: Received motor command:0.000 V
+[INFO] [1773399854.075191]: VehicleSpeed:   0.00
+[INFO] [1773399854.085279]: Received motor command:0.000 V
+[INFO] [1773399854.185391]: VehicleSpeed:   0.00
+[INFO] [1773399854.195133]: Received motor command:0.000 V
+[INFO] [1773399854.296006]: VehicleSpeed:   0.00
+[INFO] [1773399854.307524]: Received motor command:0.459 V
+[INFO] [1773399854.405878]: VehicleSpeed:   0.00
+[INFO] [1773399854.418864]: Received motor command:0.000 V
+[INFO] [1773399854.515594]: VehicleSpeed:   0.00
+[INFO] [1773399854.531066]: Received motor command:0.000 V
+[INFO] [1773399854.625670]: VehicleSpeed:   0.00
+[INFO] [1773399854.641645]: Received motor command:0.000 V
+[INFO] [1773399854.735737]: VehicleSpeed:   0.00
+[INFO] [1773399854.745854]: Received motor command:0.000 V
+[INFO] [1773399854.845400]: VehicleSpeed:   0.00
+[INFO] [1773399854.855529]: Received motor command:0.000 V
+[INFO] [1773399854.955403]: VehicleSpeed:   0.00
+[INFO] [1773399854.966983]: Received motor command:0.000 V
+[INFO] [1773399855.065265]: VehicleSpeed:   0.00
+[INFO] [1773399855.078225]: Received motor command:0.000 V
+[INFO] [1773399855.175158]: VehicleSpeed:   0.00
+[INFO] [1773399855.189835]: Received motor command:0.000 V
+[INFO] [1773399855.286050]: VehicleSpeed:   0.00
+[INFO] [1773399855.300662]: Received motor command:0.459 V
+[INFO] [1773399855.395545]: VehicleSpeed:   0.00
+[INFO] [1773399855.412947]: Received motor command:0.000 V
+[INFO] [1773399855.505253]: VehicleSpeed:   0.00
+[INFO] [1773399855.523491]: Received motor command:0.000 V
+[INFO] [1773399855.615280]: VehicleSpeed:   0.00
+[INFO] [1773399855.625418]: Received motor command:0.000 V
+[INFO] [1773399855.725471]: VehicleSpeed:   0.00
+[INFO] [1773399855.736281]: Received motor command:0.459 V
+[INFO] [1773399855.835135]: VehicleSpeed:   0.00
+[INFO] [1773399855.847487]: Received motor command:0.000 V
+[INFO] [1773399855.945719]: VehicleSpeed:   0.00
+[INFO] [1773399855.959210]: Received motor command:0.000 V
+[INFO] [1773399856.055877]: VehicleSpeed:   0.00
+[INFO] [1773399856.070395]: Received motor command:0.000 V
+[INFO] [1773399856.165663]: VehicleSpeed:   0.00
+[INFO] [1773399856.175669]: Received motor command:0.000 V
+[INFO] [1773399856.275875]: VehicleSpeed:   0.00
+[INFO] [1773399856.286006]: Received motor command:0.000 V
+[INFO] [1773399856.385163]: VehicleSpeed:   0.00
+[INFO] [1773399856.395273]: Received motor command:0.000 V
+[INFO] [1773399856.495449]: VehicleSpeed:   0.00
+[INFO] [1773399856.506111]: Received motor command:0.000 V
+[INFO] [1773399856.605477]: VehicleSpeed:   0.00
+[INFO] [1773399856.618849]: Received motor command:0.000 V
+[INFO] [1773399856.715631]: VehicleSpeed:   0.00
+[INFO] [1773399856.729090]: Received motor command:0.000 V
+[INFO] [1773399856.826082]: VehicleSpeed:   0.00
+[INFO] [1773399856.841894]: Received motor command:0.000 V
+[INFO] [1773399856.934961]: VehicleSpeed:   0.00
+[INFO] [1773399856.946049]: Received motor command:0.000 V
+[INFO] [1773399857.045967]: VehicleSpeed:   0.00
+[INFO] [1773399857.063523]: Received motor command:0.459 V
+[INFO] [1773399857.155670]: VehicleSpeed:   0.00
+[INFO] [1773399857.176230]: Received motor command:0.000 V
+[INFO] [1773399857.264949]: VehicleSpeed:   0.00
+[INFO] [1773399857.277668]: Received motor command:0.000 V
+[INFO] [1773399857.375566]: VehicleSpeed:   0.00
+[INFO] [1773399857.388034]: Received motor command:0.000 V
+[INFO] [1773399857.486028]: VehicleSpeed:   0.00
+[INFO] [1773399857.500581]: Received motor command:0.000 V
+[INFO] [1773399857.594907]: VehicleSpeed:   0.00
+[INFO] [1773399857.612917]: Received motor command:0.000 V
+[INFO] [1773399857.705605]: VehicleSpeed:   0.00
+[INFO] [1773399857.715863]: Received motor command:0.000 V
+[INFO] [1773399857.815423]: VehicleSpeed:   0.00
+[INFO] [1773399857.825532]: Received motor command:0.000 V
+[INFO] [1773399857.926127]: VehicleSpeed:   0.00
+[INFO] [1773399857.936636]: Received motor command:0.000 V
+[INFO] [1773399858.035456]: VehicleSpeed:   0.00
+[INFO] [1773399858.048751]: Received motor command:0.000 V
+[INFO] [1773399858.145526]: VehicleSpeed:   0.00
+[INFO] [1773399858.159213]: Received motor command:0.000 V
+[INFO] [1773399858.255075]: VehicleSpeed:   0.00
+[INFO] [1773399858.272067]: Received motor command:0.000 V
+[INFO] [1773399858.365970]: VehicleSpeed:   0.00
+[INFO] [1773399858.383412]: Received motor command:0.459 V
+[INFO] [1773399858.475837]: VehicleSpeed:   0.00
+[INFO] [1773399858.485417]: Received motor command:0.000 V
+[INFO] [1773399858.585806]: VehicleSpeed:   0.00
+[INFO] [1773399858.595718]: Received motor command:0.000 V
+[INFO] [1773399858.695870]: VehicleSpeed:   0.00
+[INFO] [1773399858.705936]: Received motor command:0.000 V
+[INFO] [1773399858.805211]: VehicleSpeed:   0.00
+[INFO] [1773399858.818663]: Received motor command:0.000 V
+[INFO] [1773399858.915590]: VehicleSpeed:   0.00
+[INFO] [1773399858.929334]: Received motor command:0.000 V
+[INFO] [1773399859.025077]: VehicleSpeed:   0.00
+[INFO] [1773399859.035943]: Received motor command:0.000 V
+[INFO] [1773399859.135541]: VehicleSpeed:   0.00
+[INFO] [1773399859.153922]: Received motor command:0.000 V
+[INFO] [1773399859.244874]: VehicleSpeed:   0.00
+[INFO] [1773399859.254808]: Received motor command:0.000 V
+[INFO] [1773399859.354886]: VehicleSpeed:   0.00
+[INFO] [1773399859.367154]: Received motor command:0.000 V
+[INFO] [1773399859.465082]: VehicleSpeed:   0.00
+[INFO] [1773399859.478397]: Received motor command:0.000 V
+[INFO] [1773399859.575463]: VehicleSpeed:   0.00
+[INFO] [1773399859.685408]: VehicleSpeed:   0.00
+[INFO] [1773399859.794959]: VehicleSpeed:   0.00
+[INFO] [1773399859.906027]: VehicleSpeed:   0.00
+[INFO] [1773399860.015444]: VehicleSpeed:   0.00
+[INFO] [1773399860.125110]: VehicleSpeed:   0.00
+[INFO] [1773399860.235396]: VehicleSpeed:   0.00
+[INFO] [1773399860.345589]: VehicleSpeed:   0.00
+[INFO] [1773399860.455564]: VehicleSpeed:   0.00
+[INFO] [1773399860.565041]: VehicleSpeed:   0.00
+[INFO] [1773399860.675494]: VehicleSpeed:   0.00
+[INFO] [1773399860.785727]: VehicleSpeed:   0.00
+[INFO] [1773399860.895066]: VehicleSpeed:   0.00
+[INFO] [1773399861.005845]: VehicleSpeed:   0.00
+[INFO] [1773399861.115586]: VehicleSpeed:   0.00
+[INFO] [1773399861.225078]: VehicleSpeed:   0.00
+[INFO] [1773399861.335116]: VehicleSpeed:   0.00
+[INFO] [1773399861.444967]: VehicleSpeed:   0.00
+[INFO] [1773399861.555063]: VehicleSpeed:   0.00
+[INFO] [1773399861.665154]: VehicleSpeed:   0.00
+[INFO] [1773399861.775023]: VehicleSpeed:   0.00
+[INFO] [1773399861.885755]: VehicleSpeed:   0.00
+[INFO] [1773399861.994740]: VehicleSpeed:   0.00
+[INFO] [1773399862.105502]: VehicleSpeed:   0.00
+[INFO] [1773399862.215235]: VehicleSpeed:   0.00
+[INFO] [1773399862.326022]: VehicleSpeed:   0.00
+[INFO] [1773399862.435527]: VehicleSpeed:   0.00
+[INFO] [1773399862.544958]: VehicleSpeed:   0.00
+[INFO] [1773399862.654862]: VehicleSpeed:   0.00
+[INFO] [1773399862.764783]: VehicleSpeed:   0.00
+[INFO] [1773399862.875826]: VehicleSpeed:   0.00
+[INFO] [1773399862.985615]: VehicleSpeed:   0.00
+[INFO] [1773399863.095431]: VehicleSpeed:   0.00
+[INFO] [1773399863.205525]: VehicleSpeed:   0.00
+[INFO] [1773399863.314698]: VehicleSpeed:   0.00
+[INFO] [1773399863.425095]: VehicleSpeed:   0.00
+[INFO] [1773399863.534784]: VehicleSpeed:   0.00
+[INFO] [1773399863.645661]: VehicleSpeed:   0.00
+[INFO] [1773399863.754987]: VehicleSpeed:   0.00
+[INFO] [1773399863.865790]: VehicleSpeed:   0.00
+[INFO] [1773399863.975167]: VehicleSpeed:   0.00
+[INFO] [1773399864.084856]: VehicleSpeed:   0.00
+[INFO] [1773399864.195145]: VehicleSpeed:   0.00
+[INFO] [1773399864.305270]: VehicleSpeed:   0.00
+[INFO] [1773399864.415590]: VehicleSpeed:   0.00
+[INFO] [1773399864.524645]: VehicleSpeed:   0.00
+[INFO] [1773399864.635113]: VehicleSpeed:   0.00
+[INFO] [1773399864.745050]: VehicleSpeed:   0.00
+[INFO] [1773399864.855474]: VehicleSpeed:   0.00
+[INFO] [1773399864.859193]: Vehicle is asked to stop
+
+
