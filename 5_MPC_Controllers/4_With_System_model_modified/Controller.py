@@ -27,9 +27,9 @@ class MPC:
 
         # Weight matrices
         q_sep = 10.0
-        q_vel = 20.0
+        q_vel = 28.0
         r_ctrl = 30.0
-        p_relax = 10000
+        p_relax = 1000
 
         Q = np.diag([q_sep, q_vel])
         R = np.eye(1) * r_ctrl
