@@ -27,15 +27,41 @@ class VLC:                                                                      
         
         return max(0, min(CP.max_tcmd, 1 / CP.slope_rpm_tcmd * (motor_rpm - 0)))
     
-    def get_control_action(self, ego_values, preceeding_values):                                 # ego_values = [ego_pos, ego_vel], preceeding_values = [obs_pos, obs_vel]
+    # def get_control_action(self, ego_values, preceeding_values):                                 # ego_values = [ego_pos, ego_vel], preceeding_values = [obs_pos, obs_vel]
         
-        a = self.controller.get_acceleration(ego_values, preceeding_values)                      # Getting control action from the controller
-        req_vel = max(0.0, min(CP.ego_max_v, ego_values[1] + a / CP.A))                          # Calculating required velocity from the acceleration
-        throttle_cmd = self.get_throttle_cmd(self.velocity_to_rpm(req_vel))                      # Calculating throttle command from required velocity
-        if throttle_cmd <= CP.threshold_throttle_cmd:                                            # Restricting throttle command below 5 percent to zero
+    #     a = self.controller.get_acceleration(ego_values, preceeding_values)                      # Getting control action from the controller
+    #     req_vel = max(0.0, min(CP.ego_max_v, ego_values[1] + a / CP.A))                          # Calculating required velocity from the acceleration
+    #     throttle_cmd = self.get_throttle_cmd(self.velocity_to_rpm(req_vel))                      # Calculating throttle command from required velocity
+    #     if throttle_cmd <= CP.threshold_throttle_cmd:                                            # Restricting throttle command below 5 percent to zero
+    #         throttle_cmd = 0.0
+    #     self.throttle_pot = CP.rbf_model_tcmd_to_requested_pot(np.array([throttle_cmd]))[0]      # Calculating the required throttle pot from throttle command               
+
+    def get_control_action(self, ego_values, preceeding_values):
+        
+        a = self.controller.get_acceleration(ego_values, preceeding_values)
+        
+        # Correct physics
+        req_vel = ego_values[1] + a * CP.sample_time
+        req_vel = np.clip(req_vel, 0, CP.ego_max_v)
+        
+        # Handle braking
+        if a < 0:
             throttle_cmd = 0.0
-        self.throttle_pot = CP.rbf_model_tcmd_to_requested_pot(np.array([throttle_cmd]))[0]      # Calculating the required throttle pot from throttle command               
+        else:
+            rpm = self.velocity_to_rpm(req_vel)
+            throttle_cmd = self.get_throttle_cmd(rpm)
         
+        # Smooth actuator
+        alpha = 0.3
+        throttle_cmd = alpha * throttle_cmd + (1 - alpha) * self.throttle_pot
+        
+        # Dead-zone smoothing
+        if throttle_cmd < CP.threshold_throttle_cmd:
+            throttle_cmd *= 0.3
+        
+        self.throttle_pot = CP.rbf_model_tcmd_to_requested_pot(np.array([throttle_cmd]))[0]
+        
+        return self.throttle_pot   
         
         
         
