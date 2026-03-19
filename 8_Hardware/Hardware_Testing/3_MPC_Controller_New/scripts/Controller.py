@@ -24,7 +24,8 @@ class MPC:
         else:
             obs_pos, obs_vel = None, None
         
-        Q = 1.0
+        w_d = 50
+        w_v = 1
         R = 0.1
         P = 1e6
         
@@ -45,9 +46,9 @@ class MPC:
                 d = cur_obs_pos - x[0, k]
                 d_safe = CP.Dd + CP.Td * x[1, k]
                 
-                cost += 50 * cp.square(d - d_safe)   # distance tracking
+                cost += w_d * cp.square(d - d_safe)   # distance tracking
             
-            cost += 1 * cp.square(self.desired_speed - x[1, k])
+            cost += w_v * cp.square(self.desired_speed - x[1, k])
             
             if k < self.Nc:
                 cost += R * cp.square(u[0, k])
