@@ -1,0 +1,1252 @@
+asl-laptop2@asllaptop2:~$ rosrun mpc_controller ROS_communication.py
+Node Started
+[INFO] [1774001285.854718]: The Throttle command is : 0.34426393459081206 V
+[INFO] [1774001285.856468]: Absolute Ego states (p,v,t):  0.0,0.0, 7.291999101
+[INFO] [1774001285.858003]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001285.959413]: The Throttle command is : 0.6885287849110089 V
+[INFO] [1774001285.961316]: Absolute Ego states (p,v,t):  0.0,0.0, 7.396703481
+[INFO] [1774001285.963205]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001286.092333]: The Throttle command is : 1.0299051618415076 V
+[INFO] [1774001286.094437]: Absolute Ego states (p,v,t):  0.0,0.0, 7.529620647
+[INFO] [1774001286.096232]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001286.197566]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001286.199560]: Absolute Ego states (p,v,t):  0.0,0.0, 7.634728193
+[INFO] [1774001286.201274]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001286.263292]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001286.264826]: Absolute Ego states (p,v,t):  0.0,0.0, 7.7006242270000005
+[INFO] [1774001286.266052]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001286.392556]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001286.394834]: Absolute Ego states (p,v,t):  0.0,0.0, 7.8297932150000005
+[INFO] [1774001286.396717]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001286.530627]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001286.532951]: Absolute Ego states (p,v,t):  0.0,0.0, 7.967820883
+[INFO] [1774001286.534705]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001286.671804]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001286.673806]: Absolute Ego states (p,v,t):  0.0,0.0, 8.109021425
+[INFO] [1774001286.675362]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001286.782475]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001286.784669]: Absolute Ego states (p,v,t):  0.0,0.05555555638339785, 8.219722032
+[INFO] [1774001286.786313]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001286.879180]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001286.880999]: Absolute Ego states (p,v,t):  0.0003189908380866672,0.05555555638339785, 8.316507101
+[INFO] [1774001286.882249]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001286.941340]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001286.944591]: Absolute Ego states (p,v,t):  0.0005670653417832654,0.05555555638339785, 8.378609419
+[INFO] [1774001286.945881]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001287.070235]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001287.072204]: Absolute Ego states (p,v,t):  0.0012854205191542582,0.0833333366447025, 8.507504224
+[INFO] [1774001287.073843]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001287.182332]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001287.184611]: Absolute Ego states (p,v,t):  0.0017379390371357278,0.1111111127667957, 8.619527816
+[INFO] [1774001287.186416]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001287.325395]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001287.327963]: Absolute Ego states (p,v,t):  0.0024347836030750762,0.1388888888888889, 8.762604952
+[INFO] [1774001287.329659]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001287.434180]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001287.436237]: Absolute Ego states (p,v,t):  0.003309614158630632,0.1944444411330753, 8.871264457
+[INFO] [1774001287.437938]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001287.543810]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001287.546143]: Absolute Ego states (p,v,t):  0.004450930500305241,0.2500000099341075, 8.981056213
+[INFO] [1774001287.547872]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001287.687364]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001287.689709]: Absolute Ego states (p,v,t):  0.006053461063984082,0.33333334657881, 9.124551058
+[INFO] [1774001287.691488]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001287.804045]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001287.806032]: Absolute Ego states (p,v,t):  0.008133901479986688,0.361111130979326, 9.241327762
+[INFO] [1774001287.807747]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001287.914863]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001287.916909]: Absolute Ego states (p,v,t):  0.010146902840741358,0.4444444510671828, 9.352143287
+[INFO] [1774001287.918559]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001288.027002]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001288.029135]: Absolute Ego states (p,v,t):  0.012579408210321845,0.500000019868215, 9.464275598
+[INFO] [1774001288.030863]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001288.166928]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001288.169042]: Absolute Ego states (p,v,t):  0.01544925282435922,0.5555555555555556, 9.604190349
+[INFO] [1774001288.170830]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001288.282114]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001288.284600]: Absolute Ego states (p,v,t):  0.01886804282435922,0.6111111243565878, 9.719336748
+[INFO] [1774001288.286863]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001288.398866]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001288.400851]: Absolute Ego states (p,v,t):  0.023013505969765268,0.6388888756434122, 9.836140632
+[INFO] [1774001288.402465]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001288.514610]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001288.517018]: Absolute Ego states (p,v,t):  0.02654024028553772,0.6944444444444444, 9.951860428
+[INFO] [1774001288.518599]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001288.579692]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001288.581527]: Absolute Ego states (p,v,t):  0.030349804868871056,0.7500000132454766, 10.017004966
+[INFO] [1774001288.583039]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001288.644429]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001288.646538]: Absolute Ego states (p,v,t):  0.033952906182504114,0.8055555820465088, 10.081583023
+[INFO] [1774001288.647961]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001288.712522]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001288.714989]: Absolute Ego states (p,v,t):  0.03810715148578447,0.861111150847541, 10.149763107
+[INFO] [1774001288.716809]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001288.829279]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001288.831373]: Absolute Ego states (p,v,t):  0.04356908307116152,0.8888889021343656, 10.266556501
+[INFO] [1774001288.833062]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001288.975165]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001288.977276]: Absolute Ego states (p,v,t):  0.048661704480380825,0.91666665342119, 10.412419557
+[INFO] [1774001288.979133]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001289.089810]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001289.091794]: Absolute Ego states (p,v,t):  0.05425397148290807,0.9444444709353976, 10.527068376
+[INFO] [1774001289.093515]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001289.207952]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001289.210365]: Absolute Ego states (p,v,t):  0.05965182107875812,1.0277777910232544, 10.645201444
+[INFO] [1774001289.212082]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001289.323730]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001289.325817]: Absolute Ego states (p,v,t):  0.0658457311308043,1.0833333598242865, 10.76100111
+[INFO] [1774001289.327476]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001289.441486]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001289.443614]: Absolute Ego states (p,v,t):  0.07208645603340992,1.0833333598242865, 10.878768205
+[INFO] [1774001289.445182]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001289.554199]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001289.556206]: Absolute Ego states (p,v,t):  0.07809704843038806,1.1111111111111112, 10.991460085
+[INFO] [1774001289.557787]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001289.670635]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001289.673057]: Absolute Ego states (p,v,t):  0.08431394509705473,1.1388888623979356, 11.107889175
+[INFO] [1774001289.674888]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001289.787212]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001289.789374]: Absolute Ego states (p,v,t):  0.09134690271124345,1.1944444974263508, 11.224484443
+[INFO] [1774001289.791156]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001289.898708]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001289.900444]: Absolute Ego states (p,v,t):  0.09836809830045999,1.2222222487131755, 11.336033344
+[INFO] [1774001289.901859]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001290.076201]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001290.078693]: Absolute Ego states (p,v,t):  0.1048808989971767,1.2222222487131755, 11.513409376
+[INFO] [1774001290.080682]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001290.217370]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001290.219573]: Absolute Ego states (p,v,t):  0.11311908273129008,1.2222222487131755, 11.654627561
+[INFO] [1774001290.221328]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001290.326423]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001290.328543]: Absolute Ego states (p,v,t):  0.12009346299356681,1.2777777512868245, 11.763694048
+[INFO] [1774001290.330289]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001290.438532]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001290.440653]: Absolute Ego states (p,v,t):  0.12746254400745732,1.3611111376020644, 11.875796795
+[INFO] [1774001290.442478]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001290.556402]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001290.558592]: Absolute Ego states (p,v,t):  0.1356957923065878,1.33333338631524, 11.993660688
+[INFO] [1774001290.560408]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001290.674291]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001290.676420]: Absolute Ego states (p,v,t):  0.14376896329405345,1.33333338631524, 12.111538171
+[INFO] [1774001290.678228]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001290.792039]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001290.794302]: Absolute Ego states (p,v,t):  0.15155444360342063,1.3888888888888888, 12.229254961
+[INFO] [1774001290.795963]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001290.925878]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001290.927805]: Absolute Ego states (p,v,t):  0.1598702852700873,1.4166666401757135, 12.363149881
+[INFO] [1774001290.929407]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001291.045602]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001291.047924]: Absolute Ego states (p,v,t):  0.16737665637972193,1.3611111376020644, 12.482767105
+[INFO] [1774001291.049641]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001291.194739]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001291.197040]: Absolute Ego states (p,v,t):  0.17592890285172763,1.3888888888888888, 12.63198471
+[INFO] [1774001291.198880]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001291.328492]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001291.330588]: Absolute Ego states (p,v,t):  0.1844172667406165,1.4722222752041287, 12.765744686
+[INFO] [1774001291.332091]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001291.442228]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001291.444193]: Absolute Ego states (p,v,t):  0.19235805533194286,1.4722222752041287, 12.879498005
+[INFO] [1774001291.445865]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001291.553020]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001291.555020]: Absolute Ego states (p,v,t):  0.20058561515581166,1.444444523917304, 12.990299225
+[INFO] [1774001291.556687]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001291.672172]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001291.674465]: Absolute Ego states (p,v,t):  0.2085460139271235,1.5000000264909532, 13.109409094
+[INFO] [1774001291.676324]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001291.767963]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001291.770193]: Absolute Ego states (p,v,t):  0.21770629358889984,1.5000000264909532, 13.205221891
+[INFO] [1774001291.772308]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001291.882564]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001291.884582]: Absolute Ego states (p,v,t):  0.2278200107675145,1.444444523917304, 13.319843054
+[INFO] [1774001291.886278]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001291.994673]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001292.000193]: Absolute Ego states (p,v,t):  0.23579762876199598,1.4722222752041287, 13.431930303
+[INFO] [1774001292.002136]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001292.109944]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001292.112009]: Absolute Ego states (p,v,t):  0.24981431696086892,1.5277777777777777, 13.547224521
+[INFO] [1774001292.113884]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001292.252414]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001292.254718]: Absolute Ego states (p,v,t):  0.2591908559886467,1.5277777777777777, 13.689689874
+[INFO] [1774001292.256303]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001292.363746]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001292.365818]: Absolute Ego states (p,v,t):  0.26785674307198004,1.5000000264909532, 13.801018238
+[INFO] [1774001292.367549]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001292.474787]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001292.476755]: Absolute Ego states (p,v,t):  0.27643516222348036,1.5277777777777777, 13.911892891
+[INFO] [1774001292.478383]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001292.586320]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001292.588428]: Absolute Ego states (p,v,t):  0.2854583781957026,1.5555555290646024, 14.023596048
+[INFO] [1774001292.590158]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001292.698330]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001292.700318]: Absolute Ego states (p,v,t):  0.29439345804353906,1.5000000264909532, 14.135607004
+[INFO] [1774001292.702024]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001292.783808]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001292.785345]: Absolute Ego states (p,v,t):  0.30295971819482465,1.5277777777777777, 14.221139908
+[INFO] [1774001292.786588]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001292.851058]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001292.853760]: Absolute Ego states (p,v,t):  0.30919787319482467,1.583333412806193, 14.288373947
+[INFO] [1774001292.855428]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001292.935956]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001292.937739]: Absolute Ego states (p,v,t):  0.3189368952669925,1.5277777777777777, 14.373278141
+[INFO] [1774001292.939126]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001292.997593]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001292.999482]: Absolute Ego states (p,v,t):  0.32602848985032584,1.5277777777777777, 14.434916734
+[INFO] [1774001293.000830]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001293.087850]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001293.089510]: Absolute Ego states (p,v,t):  0.3336387787392147,1.583333412806193, 14.52518177
+[INFO] [1774001293.091094]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001293.152189]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001293.153985]: Absolute Ego states (p,v,t):  0.3418255371501358,1.5277777777777777, 14.589508056
+[INFO] [1774001293.155685]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001293.215631]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001293.217809]: Absolute Ego states (p,v,t):  0.34938956645569136,1.4722222752041287, 14.652949333
+[INFO] [1774001293.219536]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001293.288316]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001293.290180]: Absolute Ego states (p,v,t):  0.35765222700304555,1.5277777777777777, 14.725642681
+[INFO] [1774001293.291581]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001293.351857]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001293.353634]: Absolute Ego states (p,v,t):  0.36486366047526775,1.5555555290646024, 14.789170503
+[INFO] [1774001293.354931]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001293.414288]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001293.416455]: Absolute Ego states (p,v,t):  0.3719035790220453,1.5000000264909532, 14.851566791
+[INFO] [1774001293.417933]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001293.506525]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001293.508354]: Absolute Ego states (p,v,t):  0.42022053587535346,1.5277777777777777, 14.943853378
+[INFO] [1774001293.509900]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001293.608384]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001293.610187]: Absolute Ego states (p,v,t):  0.4954641475420201,1.5277777777777777, 15.045716285
+[INFO] [1774001293.611582]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001293.748657]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001293.750408]: Absolute Ego states (p,v,t):  0.5836769028197979,1.4722222752041287, 15.185991049
+[INFO] [1774001293.751692]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001293.833049]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001293.834744]: Absolute Ego states (p,v,t):  0.6224629711322863,1.4722222752041287, 15.270382642
+[INFO] [1774001293.836040]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001293.941111]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001293.943232]: Absolute Ego states (p,v,t):  0.6985012155631729,1.5277777777777777, 15.378436565
+[INFO] [1774001293.945003]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001294.091852]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001294.093733]: Absolute Ego states (p,v,t):  0.7807613880631729,1.5000000264909532, 15.529151201
+[INFO] [1774001294.095223]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001294.200677]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001294.202729]: Absolute Ego states (p,v,t):  0.7998047148994901,1.444444523917304, 15.637959718
+[INFO] [1774001294.204317]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001294.313076]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001294.315096]: Absolute Ego states (p,v,t):  0.8209039919492542,1.4722222752041287, 15.750357628
+[INFO] [1774001294.316844]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001294.422905]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001294.424813]: Absolute Ego states (p,v,t):  0.8380748118449705,1.5000000264909532, 15.860198974
+[INFO] [1774001294.426324]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001294.533778]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001294.535746]: Absolute Ego states (p,v,t):  0.85634423166762,1.444444523917304, 15.971060753
+[INFO] [1774001294.537360]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001294.651069]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001294.653752]: Absolute Ego states (p,v,t):  0.872015352640951,1.444444523917304, 16.088328123
+[INFO] [1774001294.655465]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001294.794673]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001294.796709]: Absolute Ego states (p,v,t):  0.8811173796972971,1.5000000264909532, 16.231954813
+[INFO] [1774001294.798329]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001294.905843]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001294.908023]: Absolute Ego states (p,v,t):  0.8893574828428226,1.4722222752041287, 16.343106031
+[INFO] [1774001294.909676]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001295.016645]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001295.018625]: Absolute Ego states (p,v,t):  0.898453430031276,1.4166666401757135, 16.453924894
+[INFO] [1774001295.020149]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001295.128666]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001295.130815]: Absolute Ego states (p,v,t):  0.9058547567262082,1.444444523917304, 16.565935373
+[INFO] [1774001295.132553]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001295.239584]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001295.241565]: Absolute Ego states (p,v,t):  0.9145149412026887,1.4722222752041287, 16.676867723
+[INFO] [1774001295.243222]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001295.357975]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001295.360067]: Absolute Ego states (p,v,t):  0.9225631387145471,1.4166666401757135, 16.795218706
+[INFO] [1774001295.361768]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001295.477158]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001295.479336]: Absolute Ego states (p,v,t):  0.9308108911436516,1.4166666401757135, 16.914427042
+[INFO] [1774001295.481188]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001295.591467]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001295.593504]: Absolute Ego states (p,v,t):  0.9392113106532346,1.4722222752041287, 17.028730869
+[INFO] [1774001295.595283]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001295.701445]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001295.703471]: Absolute Ego states (p,v,t):  0.9478569182977036,1.444444523917304, 17.138768434
+[INFO] [1774001295.705209]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001295.847085]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001295.849046]: Absolute Ego states (p,v,t):  0.9561327721974827,1.3888888888888888, 17.284370422
+[INFO] [1774001295.850705]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001295.975967]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001295.977498]: Absolute Ego states (p,v,t):  0.9637363374752604,1.4166666401757135, 17.413295746
+[INFO] [1774001295.978783]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001296.040210]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001296.042296]: Absolute Ego states (p,v,t):  0.9707394448443059,1.444444523917304, 17.477518081
+[INFO] [1774001296.043736]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001296.103406]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001296.105232]: Absolute Ego states (p,v,t):  0.9779487469076259,1.3888888888888888, 17.540726185
+[INFO] [1774001296.106635]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001296.204639]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001296.206559]: Absolute Ego states (p,v,t):  0.9843910149631815,1.3888888888888888, 17.641910791
+[INFO] [1774001296.208307]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001296.299935]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001296.302610]: Absolute Ego states (p,v,t):  0.992332671907626,1.444444523917304, 17.737263918
+[INFO] [1774001296.304342]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001296.384566]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001296.386483]: Absolute Ego states (p,v,t):  1.0012339240640367,1.4166666401757135, 17.821806431
+[INFO] [1774001296.387966]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001296.471015]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001296.472772]: Absolute Ego states (p,v,t):  1.0423619028782976,1.3611111376020644, 17.908341407
+[INFO] [1774001296.474118]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001296.586930]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001296.588785]: Absolute Ego states (p,v,t):  1.1129515261132763,1.3888888888888888, 18.0242064
+[INFO] [1774001296.590240]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001296.782638]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001296.784652]: Absolute Ego states (p,v,t):  1.1767082955577208,1.4166666401757135, 18.219919443
+[INFO] [1774001296.786288]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001296.895014]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001296.897105]: Absolute Ego states (p,v,t):  1.18445346141289,1.3611111376020644, 18.332254886
+[INFO] [1774001296.898799]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001297.005411]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001297.010918]: Absolute Ego states (p,v,t):  1.1922658160371622,1.33333338631524, 18.442686081
+[INFO] [1774001297.013127]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001297.121367]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001297.123389]: Absolute Ego states (p,v,t):  1.2054077658927096,1.3888888888888888, 18.558628082
+[INFO] [1774001297.125025]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001297.248178]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001297.250254]: Absolute Ego states (p,v,t):  1.2130888172815986,1.4166666401757135, 18.685450315
+[INFO] [1774001297.251807]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001297.360241]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001297.362227]: Absolute Ego states (p,v,t):  1.2211041910483817,1.3611111376020644, 18.797521829
+[INFO] [1774001297.364005]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001297.470732]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001297.472761]: Absolute Ego states (p,v,t):  1.2287426065581573,1.3611111376020644, 18.90798521
+[INFO] [1774001297.474386]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001297.579427]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001297.581444]: Absolute Ego states (p,v,t):  1.2362077308423378,1.444444523917304, 19.016681671
+[INFO] [1774001297.583081]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001297.689945]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001297.692159]: Absolute Ego states (p,v,t):  1.2441729511694706,1.3888888888888888, 19.127197742
+[INFO] [1774001297.693803]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001297.846724]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001297.848718]: Absolute Ego states (p,v,t):  1.2522503747805818,1.33333338631524, 19.283994436
+[INFO] [1774001297.850423]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001297.958399]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001297.960310]: Absolute Ego states (p,v,t):  1.2598734124168274,1.3611111376020644, 19.395672559
+[INFO] [1774001297.961933]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001298.066864]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001298.068847]: Absolute Ego states (p,v,t):  1.2671042377520034,1.4166666401757135, 19.504139661
+[INFO] [1774001298.070611]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001298.178200]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001298.180185]: Absolute Ego states (p,v,t):  1.2750713131030231,1.3888888888888888, 19.615400314
+[INFO] [1774001298.181763]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001298.305364]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001298.307437]: Absolute Ego states (p,v,t):  1.2826136186585786,1.3611111376020644, 19.742600202
+[INFO] [1774001298.309249]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001298.416816]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001298.418726]: Absolute Ego states (p,v,t):  1.2910737042954572,1.4166666401757135, 19.854104519
+[INFO] [1774001298.420309]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001298.531123]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001298.533338]: Absolute Ego states (p,v,t):  1.2985483250723522,1.444444523917304, 19.96837306
+[INFO] [1774001298.535032]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001298.647866]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001298.649909]: Absolute Ego states (p,v,t):  1.3069836283142375,1.3611111376020644, 20.085140943
+[INFO] [1774001298.651688]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001298.796169]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001298.798236]: Absolute Ego states (p,v,t):  1.3148044204664515,1.3611111376020644, 20.233441353
+[INFO] [1774001298.799777]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001298.916420]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001298.918433]: Absolute Ego states (p,v,t):  1.322338340751971,1.4166666401757135, 20.353701114
+[INFO] [1774001298.920020]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001299.018692]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001299.020613]: Absolute Ego states (p,v,t):  1.3298700432777988,1.4166666401757135, 20.455979347
+[INFO] [1774001299.022200]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001299.133698]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001299.135784]: Absolute Ego states (p,v,t):  1.3376098059664026,1.33333338631524, 20.570956945
+[INFO] [1774001299.137354]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001299.244515]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001299.246510]: Absolute Ego states (p,v,t):  1.344886659588892,1.3888888888888888, 20.681797504
+[INFO] [1774001299.248110]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001299.373199]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001299.375143]: Absolute Ego states (p,v,t):  1.3525246637555586,1.4166666401757135, 20.810472965
+[INFO] [1774001299.376700]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001299.488164]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001299.490519]: Absolute Ego states (p,v,t):  1.3599864495326937,1.3888888888888888, 20.925390005
+[INFO] [1774001299.492159]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001299.616129]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001299.618159]: Absolute Ego states (p,v,t):  1.3679665175882492,1.3611111376020644, 21.053409338
+[INFO] [1774001299.619693]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001299.724433]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001299.726613]: Absolute Ego states (p,v,t):  1.3750873324768398,1.4166666401757135, 21.161709308
+[INFO] [1774001299.728184]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001299.867687]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001299.869819]: Absolute Ego states (p,v,t):  1.3828601955814912,1.444444523917304, 21.304936409
+[INFO] [1774001299.871436]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001299.981954]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001299.983912]: Absolute Ego states (p,v,t):  1.391015514919083,1.3888888888888888, 21.419212103
+[INFO] [1774001299.985520]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001300.115563]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001300.117715]: Absolute Ego states (p,v,t):  1.3983766885301943,1.3888888888888888, 21.552802801
+[INFO] [1774001300.119471]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001300.244377]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001300.246436]: Absolute Ego states (p,v,t):  1.4064143746413054,1.4166666401757135, 21.681653976
+[INFO] [1774001300.247997]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001300.356621]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001300.358533]: Absolute Ego states (p,v,t):  1.4141152951639686,1.3888888888888888, 21.79390788
+[INFO] [1774001300.360067]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001300.487916]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001300.489789]: Absolute Ego states (p,v,t):  1.4212115604417463,1.3611111376020644, 21.925198316
+[INFO] [1774001300.491398]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001300.596591]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001300.598516]: Absolute Ego states (p,v,t):  1.4282759096347935,1.3888888888888888, 22.033875227
+[INFO] [1774001300.600203]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001300.725013]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001300.727091]: Absolute Ego states (p,v,t):  1.4360112679681267,1.4722222752041287, 22.162288427
+[INFO] [1774001300.728934]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001300.835739]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001300.837948]: Absolute Ego states (p,v,t):  1.4446842545302476,1.4166666401757135, 22.273001671
+[INFO] [1774001300.839684]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001300.974324]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001300.976243]: Absolute Ego states (p,v,t):  1.4527583987125985,1.3888888888888888, 22.411607742
+[INFO] [1774001300.977778]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001301.108850]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001301.110996]: Absolute Ego states (p,v,t):  1.4599665876014873,1.444444523917304, 22.546126127
+[INFO] [1774001301.112780]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001301.222171]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001301.224100]: Absolute Ego states (p,v,t):  1.4684983176264559,1.4166666401757135, 22.659439563
+[INFO] [1774001301.225691]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001301.339448]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001301.341486]: Absolute Ego states (p,v,t):  1.4760931822344356,1.3611111376020644, 22.776698351
+[INFO] [1774001301.343127]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001301.451204]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001301.453268]: Absolute Ego states (p,v,t):  1.4835443524072336,1.3611111376020644, 22.888479948
+[INFO] [1774001301.455100]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001301.561128]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001301.563273]: Absolute Ego states (p,v,t):  1.4913706611428883,1.444444523917304, 22.998405933
+[INFO] [1774001301.565341]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001301.672364]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001301.674322]: Absolute Ego states (p,v,t):  1.5001431150699902,1.444444523917304, 23.109655618
+[INFO] [1774001301.675894]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001301.786559]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001301.788558]: Absolute Ego states (p,v,t):  1.5076778577067715,1.4166666401757135, 23.223813057
+[INFO] [1774001301.790234]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001301.902761]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001301.904843]: Absolute Ego states (p,v,t):  1.5155101655603114,1.444444523917304, 23.340011358
+[INFO] [1774001301.906836]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001302.053107]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001302.055321]: Absolute Ego states (p,v,t):  1.5241731045924989,1.444444523917304, 23.490384102
+[INFO] [1774001302.057116]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001302.167003]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001302.169107]: Absolute Ego states (p,v,t):  1.5328787471825915,1.3611111376020644, 23.604277372
+[INFO] [1774001302.170832]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001302.252900]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001302.254916]: Absolute Ego states (p,v,t):  1.5409198841724274,1.3611111376020644, 23.690221786
+[INFO] [1774001302.256341]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001302.336672]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001302.338561]: Absolute Ego states (p,v,t):  1.5475049262450349,1.4166666401757135, 23.773998022
+[INFO] [1774001302.339828]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001302.398090]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001302.399922]: Absolute Ego states (p,v,t):  1.5541787181202384,1.4166666401757135, 23.835348367
+[INFO] [1774001302.401432]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001302.462202]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001302.464069]: Absolute Ego states (p,v,t):  1.5613804294022366,1.3888888888888888, 23.899329185
+[INFO] [1774001302.465454]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001302.533621]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001302.535463]: Absolute Ego states (p,v,t):  1.568350861346681,1.3888888888888888, 23.970943212
+[INFO] [1774001302.537084]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001302.608103]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001302.609843]: Absolute Ego states (p,v,t):  1.5753169891244587,1.444444523917304, 24.04535079
+[INFO] [1774001302.611658]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001302.675464]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001302.677263]: Absolute Ego states (p,v,t):  1.5831523770000036,1.3888888888888888, 24.112790823
+[INFO] [1774001302.678814]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001302.774779]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001302.776639]: Absolute Ego states (p,v,t):  1.5900261172777814,1.33333338631524, 24.212099313
+[INFO] [1774001302.778387]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001302.883671]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001302.885605]: Absolute Ego states (p,v,t):  1.597427584238556,1.3611111376020644, 24.320955276
+[INFO] [1774001302.887333]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001302.991577]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001302.993592]: Absolute Ego states (p,v,t):  1.604802818020987,1.3888888888888888, 24.428864717
+[INFO] [1774001302.995287]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001303.119952]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001303.122061]: Absolute Ego states (p,v,t):  1.6125176457987649,1.3611111376020644, 24.557212352
+[INFO] [1774001303.123520]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001303.182295]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001303.184041]: Absolute Ego states (p,v,t):  1.6193275760979715,1.33333338631524, 24.619622707
+[INFO] [1774001303.185402]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001303.275680]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001303.277724]: Absolute Ego states (p,v,t):  1.625638993682098,1.3888888888888888, 24.71294856
+[INFO] [1774001303.279462]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001303.404616]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001303.406948]: Absolute Ego states (p,v,t):  1.6334193867376536,1.3888888888888888, 24.84188509
+[INFO] [1774001303.408904]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001303.534119]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001303.536167]: Absolute Ego states (p,v,t):  1.6423057770154315,1.33333338631524, 24.971360922
+[INFO] [1774001303.537903]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001303.681406]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001303.683924]: Absolute Ego states (p,v,t):  1.6497037466427338,1.33333338631524, 25.118676662
+[INFO] [1774001303.685672]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001303.797781]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001303.799872]: Absolute Ego states (p,v,t):  1.6582276883147782,1.3888888888888888, 25.235054731
+[INFO] [1774001303.801441]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001303.928632]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001303.930850]: Absolute Ego states (p,v,t):  1.6658425133147783,1.3611111376020644, 25.36588192
+[INFO] [1774001303.932355]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001304.043759]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001304.045952]: Absolute Ego states (p,v,t):  1.6732349460975442,1.33333338631524, 25.481032371
+[INFO] [1774001304.048035]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001304.159876]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001304.161951]: Absolute Ego states (p,v,t):  1.6815671997619714,1.33333338631524, 25.597152948
+[INFO] [1774001304.163745]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001304.273470]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001304.275210]: Absolute Ego states (p,v,t):  1.6890894653942128,1.3611111376020644, 25.710757971
+[INFO] [1774001304.276815]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001304.338147]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001304.340024]: Absolute Ego states (p,v,t):  1.6955729331870655,1.33333338631524, 25.775452137
+[INFO] [1774001304.341438]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001304.413327]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001304.415234]: Absolute Ego states (p,v,t):  1.7023274907888009,1.2777777512868245, 25.85059762
+[INFO] [1774001304.416859]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001304.493956]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001304.496043]: Absolute Ego states (p,v,t):  1.7088597091533746,1.3055556350284152, 25.931236744
+[INFO] [1774001304.497774]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001304.596170]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001304.597918]: Absolute Ego states (p,v,t):  1.7162507846866235,1.3611111376020644, 26.033509016
+[INFO] [1774001304.599351]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001304.660215]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001304.661909]: Absolute Ego states (p,v,t):  1.7225891947822085,1.33333338631524, 26.097519636
+[INFO] [1774001304.663349]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001304.727027]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001304.729230]: Absolute Ego states (p,v,t):  1.7288020656957526,1.3055556350284152, 26.16423583
+[INFO] [1774001304.730675]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001304.811423]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001304.813390]: Absolute Ego states (p,v,t):  1.7360571166929435,1.33333338631524, 26.248646736
+[INFO] [1774001304.814889]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001304.875284]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001304.876841]: Absolute Ego states (p,v,t):  1.742839966295803,1.3611111376020644, 26.312592268
+[INFO] [1774001304.878204]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001304.936620]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001304.938470]: Absolute Ego states (p,v,t):  1.7488476971627298,1.3055556350284152, 26.373951196
+[INFO] [1774001304.939784]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001305.091839]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001305.093917]: Absolute Ego states (p,v,t):  1.8147532462023646,1.2777777512868245, 26.52912569
+[INFO] [1774001305.096457]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001305.203516]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001305.206178]: Absolute Ego states (p,v,t):  1.8230402252527806,1.33333338631524, 26.64075613
+[INFO] [1774001305.208120]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001305.314623]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001305.316437]: Absolute Ego states (p,v,t):  1.8318690242702722,1.33333338631524, 26.75189805
+[INFO] [1774001305.318043]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001305.455183]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001305.457287]: Absolute Ego states (p,v,t):  1.8389176312170252,1.3055556350284152, 26.892452955
+[INFO] [1774001305.459123]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001305.568342]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001305.570326]: Absolute Ego states (p,v,t):  1.8468646332285594,1.3055556350284152, 27.005611181
+[INFO] [1774001305.571987]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001305.736987]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001305.738954]: Absolute Ego states (p,v,t):  1.8541041206970252,1.33333338631524, 27.174268245
+[INFO] [1774001305.740615]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001305.844952]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001305.847020]: Absolute Ego states (p,v,t):  1.8614601289893267,1.33333338631524, 27.282229423
+[INFO] [1774001305.848619]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001305.956075]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001305.958054]: Absolute Ego states (p,v,t):  1.8687681359463875,1.2777777512868245, 27.39335823
+[INFO] [1774001305.959590]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001306.067309]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001306.069322]: Absolute Ego states (p,v,t):  1.8753896160313328,1.2777777512868245, 27.504599809
+[INFO] [1774001306.070938]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001306.163403]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001306.165223]: Absolute Ego states (p,v,t):  1.8826426275476296,1.3055556350284152, 27.600724697
+[INFO] [1774001306.166496]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001306.272759]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001306.274827]: Absolute Ego states (p,v,t):  1.8895113946601954,1.3055556350284152, 27.710036039
+[INFO] [1774001306.276390]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001306.415046]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001306.416887]: Absolute Ego states (p,v,t):  1.8966655954012472,1.2777777512868245, 27.852322578
+[INFO] [1774001306.418454]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001306.523693]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001306.525552]: Absolute Ego states (p,v,t):  1.90327031998654,1.2777777512868245, 27.960953951
+[INFO] [1774001306.527265]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001306.633406]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001306.635665]: Absolute Ego states (p,v,t):  1.9100931701784216,1.33333338631524, 28.070684433
+[INFO] [1774001306.637305]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001306.745192]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001306.747139]: Absolute Ego states (p,v,t):  1.9178325544859571,1.3055556350284152, 28.182465791
+[INFO] [1774001306.748852]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001306.855745]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001306.857666]: Absolute Ego states (p,v,t):  1.92492699211226,1.2777777512868245, 28.293020248
+[INFO] [1774001306.859613]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001306.969693]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001306.971882]: Absolute Ego states (p,v,t):  1.9323515184583344,1.2777777512868245, 28.406959772
+[INFO] [1774001306.974026]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001307.085168]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001307.087427]: Absolute Ego states (p,v,t):  1.9402802341828447,1.33333338631524, 28.522450924
+[INFO] [1774001307.089158]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001307.158621]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001307.160436]: Absolute Ego states (p,v,t):  1.9484920051758179,1.33333338631524, 28.595944643
+[INFO] [1774001307.162029]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001307.221529]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001307.223800]: Absolute Ego states (p,v,t):  1.9551178161057705,1.3055556350284152, 28.658834696
+[INFO] [1774001307.225452]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001307.337751]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001307.339853]: Absolute Ego states (p,v,t):  1.9628086432961551,1.33333338631524, 28.775032282
+[INFO] [1774001307.341498]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001307.450470]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001307.452949]: Absolute Ego states (p,v,t):  1.9705899902720247,1.3611111376020644, 28.887742758
+[INFO] [1774001307.454734]: Absolute Lead pos: 40.80410488363648, Absolute lead vel : -0.4809840387768216
+[INFO] [1774001307.456311]: Separation from lead vehicle : 38.83351489336445
+[INFO] [1774001307.627803]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001307.629838]: Absolute Ego states (p,v,t):  1.9810471349199938,1.33333338631524, 29.065073967
+[INFO] [1774001307.631562]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001307.719776]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001307.721998]: Absolute Ego states (p,v,t):  1.9883748498778377,1.3055556350284152, 29.157039404
+[INFO] [1774001307.723764]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001307.830102]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001307.832214]: Absolute Ego states (p,v,t):  1.9957948734961821,1.33333338631524, 29.267370462
+[INFO] [1774001307.833962]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001307.944891]: The Throttle command is : 1.1108245868892799 V
+[INFO] [1774001307.947478]: Absolute Ego states (p,v,t):  2.0034353951331223,1.3611111376020644, 29.382126569
+[INFO] [1774001307.949228]: Absolute Lead pos: 37.93104789785945, Absolute lead vel : -0.6213095453050401
+[INFO] [1774001307.950888]: Separation from lead vehicle : 35.927612502726326
+[INFO] [1774001308.100434]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001308.102638]: Absolute Ego states (p,v,t):  2.0143916442630276,1.33333338631524, 29.537707805
+[INFO] [1774001308.105805]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001308.261841]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001308.263892]: Absolute Ego states (p,v,t):  2.0239646273100904,1.3055556350284152, 29.699105739
+[INFO] [1774001308.265398]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001308.435417]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001308.437698]: Absolute Ego states (p,v,t):  2.0308112939768663,1.3611111376020644, 29.872671842
+[INFO] [1774001308.439542]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001308.553425]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001308.555640]: Absolute Ego states (p,v,t):  2.039516711729631,1.3888888888888888, 29.990678072
+[INFO] [1774001308.557324]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001308.686996]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001308.688957]: Absolute Ego states (p,v,t):  2.0478371881185202,1.3055556350284152, 30.124291897
+[INFO] [1774001308.690467]: Absolute Lead pos: 36.580810531037415, Absolute lead vel : -0.6929966873592801
+[INFO] [1774001308.692091]: Separation from lead vehicle : 34.53297334291889
+[INFO] [1774001308.828317]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001308.830128]: Absolute Ego states (p,v,t):  2.05646026428232,1.3055556350284152, 30.265633106
+[INFO] [1774001308.831894]: Absolute Lead pos: 35.70646179016123, Absolute lead vel : -0.769273943371243
+[INFO] [1774001308.833538]: Separation from lead vehicle : 33.650001525878906
+[INFO] [1774001308.929370]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001308.931662]: Absolute Ego states (p,v,t):  2.065694984122241,1.3611111376020644, 30.366646766
+[INFO] [1774001308.933594]: Absolute Lead pos: 35.365694221182785, Absolute lead vel : -0.7726108498043485
+[INFO] [1774001308.935369]: Separation from lead vehicle : 33.29999923706055
+[INFO] [1774001309.097274]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001309.099228]: Absolute Ego states (p,v,t):  2.076108645352697,1.3888888888888888, 30.534592151
+[INFO] [1774001309.100628]: Absolute Lead pos: 35.126107882413244, Absolute lead vel : -0.6771905687120225
+[INFO] [1774001309.101893]: Separation from lead vehicle : 33.04999923706055
+[INFO] [1774001309.206930]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001309.208963]: Absolute Ego states (p,v,t):  2.0845635647971417,1.3611111376020644, 30.644200325
+[INFO] [1774001309.210557]: Absolute Lead pos: 34.93456203891824, Absolute lead vel : -0.7129222816891141
+[INFO] [1774001309.212085]: Separation from lead vehicle : 32.849998474121094
+[WARN] [1774001309.213585]: Lead vehicle lost — switching to cruise mode
+[INFO] [1774001309.272530]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001309.274372]: Absolute Ego states (p,v,t):  2.0937729530041596,1.3611111376020644, 30.709854603
+[INFO] [1774001309.276399]: Absolute Lead pos: 34.93456203891824, Absolute lead vel : -0.7129222816891141
+[INFO] [1774001309.278412]: Separation from lead vehicle : 32.840789085914075
+[INFO] [1774001309.391167]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001309.392942]: Absolute Ego states (p,v,t):  2.1045630485752755,1.4166666401757135, 30.828496694000002
+[INFO] [1774001309.394423]: Absolute Lead pos: 34.50456457445418, Absolute lead vel : -0.7105601098802354
+[INFO] [1774001309.395802]: Separation from lead vehicle : 32.400001525878906
+[INFO] [1774001309.500301]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001309.502229]: Absolute Ego states (p,v,t):  2.1131813244974516,1.3888888888888888, 30.937604904
+[INFO] [1774001309.504194]: Absolute Lead pos: 34.31318208743691, Absolute lead vel : -0.6934522257910833
+[INFO] [1774001309.507305]: Separation from lead vehicle : 32.20000076293945
+[WARN] [1774001309.509003]: Lead vehicle lost — switching to cruise mode
+[INFO] [1774001309.609254]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001309.611085]: Absolute Ego states (p,v,t):  2.125328420330785,1.3611111376020644, 31.046531915
+[INFO] [1774001309.612481]: Absolute Lead pos: 34.31318208743691, Absolute lead vel : -0.6934522257910833
+[INFO] [1774001309.613789]: Separation from lead vehicle : 32.187853667106125
+[INFO] [1774001309.743942]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001309.745843]: Absolute Ego states (p,v,t):  2.1333666377372307,1.3888888888888888, 31.181264877
+[INFO] [1774001309.747333]: Absolute Lead pos: 33.783366256267506, Absolute lead vel : -0.6573965814378526
+[INFO] [1774001309.749034]: Separation from lead vehicle : 31.649999618530273
+[INFO] [1774001309.887512]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001309.889417]: Absolute Ego states (p,v,t):  2.1432490877372308,1.4166666401757135, 31.32482934
+[INFO] [1774001309.890880]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001309.952984]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001309.955563]: Absolute Ego states (p,v,t):  2.150022519443904,1.3888888888888888, 31.39027524
+[INFO] [1774001309.958414]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001310.092850]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001310.094871]: Absolute Ego states (p,v,t):  2.16052849999946,1.3888888888888888, 31.530117035
+[INFO] [1774001310.096454]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001310.223118]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001310.225170]: Absolute Ego states (p,v,t):  2.1680403402772375,1.444444523917304, 31.660394907
+[INFO] [1774001310.226933]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001310.334677]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001310.336852]: Absolute Ego states (p,v,t):  2.176317570732648,1.444444523917304, 31.771955728000002
+[INFO] [1774001310.338605]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001310.447234]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001310.449207]: Absolute Ego states (p,v,t):  2.1846967399714448,1.3888888888888888, 31.884519577
+[INFO] [1774001310.451145]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001310.576416]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001310.578491]: Absolute Ego states (p,v,t):  2.1927271413603338,1.4166666401757135, 32.013722658
+[INFO] [1774001310.579827]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001310.643458]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001310.645638]: Absolute Ego states (p,v,t):  2.199377629069306,1.4722222752041287, 32.08074212
+[INFO] [1774001310.647507]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001310.740273]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001310.742255]: Absolute Ego states (p,v,t):  2.2084037266719125,1.4166666401757135, 32.177596569
+[INFO] [1774001310.743817]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001310.804718]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001310.806975]: Absolute Ego states (p,v,t):  2.2157091294519717,1.3888888888888888, 32.241885662
+[INFO] [1774001310.808388]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001310.876286]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001310.878047]: Absolute Ego states (p,v,t):  2.222851753063083,1.444444523917304, 32.31357646
+[INFO] [1774001310.879420]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001310.938543]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001310.940570]: Absolute Ego states (p,v,t):  2.229517273763151,1.444444523917304, 32.375842333
+[INFO] [1774001310.942062]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001311.031195]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001311.032875]: Absolute Ego states (p,v,t):  2.2373058255250076,1.4166666401757135, 32.468523502
+[INFO] [1774001311.034350]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001311.142542]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001311.144464]: Absolute Ego states (p,v,t):  2.244165723480064,1.4166666401757135, 32.579818487
+[INFO] [1774001311.146176]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001311.253557]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001311.255646]: Absolute Ego states (p,v,t):  2.2519463541679037,1.4722222752041287, 32.690828085
+[INFO] [1774001311.257557]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001311.365862]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001311.367845]: Absolute Ego states (p,v,t):  2.260615127229873,1.444444523917304, 32.803075075
+[INFO] [1774001311.369657]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001311.465186]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001311.467045]: Absolute Ego states (p,v,t):  2.268960890800165,1.3888888888888888, 32.902514219
+[INFO] [1774001311.468607]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001311.592572]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001311.594547]: Absolute Ego states (p,v,t):  2.276112454689054,1.444444523917304, 33.029799223
+[INFO] [1774001311.595931]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001311.704176]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001311.706485]: Absolute Ego states (p,v,t):  2.2832428915258127,1.4722222752041287, 33.141411066
+[INFO] [1774001311.708188]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001311.816556]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001311.818641]: Absolute Ego states (p,v,t):  2.291823562390167,1.4166666401757135, 33.253834486
+[INFO] [1774001311.820563]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001311.931931]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001311.933939]: Absolute Ego states (p,v,t):  2.300307070814863,1.4166666401757135, 33.369201421
+[INFO] [1774001311.935610]: Absolute Lead pos: 33.593249850676685, Absolute lead vel : -0.6726798481411405
+[INFO] [1774001311.937349]: Separation from lead vehicle : 31.29294277986182
+[INFO] [1774001312.097626]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001312.099795]: Absolute Ego states (p,v,t):  2.3108775969505326,1.4722222752041287, 33.53490138
+[INFO] [1774001312.101556]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001312.209738]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001312.211743]: Absolute Ego states (p,v,t):  2.3196007774589043,1.4722222752041287, 33.646988868
+[INFO] [1774001312.213431]: Absolute Lead pos: 5.360877549266817, Absolute lead vel : -2.4980910884009466
+[INFO] [1774001312.215133]: Separation from lead vehicle : 3.041276771807913
+[INFO] [1774001312.325175]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001312.327050]: Absolute Ego states (p,v,t):  2.330604087243777,1.4166666401757135, 33.762486696
+[INFO] [1774001312.328488]: Absolute Lead pos: 7.580604087243778, Absolute lead vel : -3.4090395503573947
+[INFO] [1774001312.329930]: Separation from lead vehicle : 5.25
+[INFO] [1774001312.486446]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001312.488503]: Absolute Ego states (p,v,t):  2.3398701849871726,1.444444523917304, 33.92373681
+[INFO] [1774001312.489740]: Absolute Lead pos: 6.489870280354604, Absolute lead vel : -3.780151711569892
+[INFO] [1774001312.491230]: Separation from lead vehicle : 4.150000095367432
+[INFO] [1774001312.578745]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001312.580947]: Absolute Ego states (p,v,t):  2.3490758711603332,1.4722222752041287, 34.01606059
+[INFO] [1774001312.582672]: Absolute Lead pos: 5.699075775792902, Absolute lead vel : -3.9515639675988092
+[INFO] [1774001312.584013]: Separation from lead vehicle : 3.3499999046325684
+[INFO] [1774001312.671384]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001312.673506]: Absolute Ego states (p,v,t):  2.35893244787616,1.4166666401757135, 34.108697653
+[INFO] [1774001312.675357]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001312.735893]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001312.737715]: Absolute Ego states (p,v,t):  2.3668363611450274,1.444444523917304, 34.173213005
+[INFO] [1774001312.739077]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001312.822953]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001312.824761]: Absolute Ego states (p,v,t):  2.3735962430725093,1.4722222752041287, 34.260280847
+[INFO] [1774001312.826442]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001312.910333]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001312.912223]: Absolute Ego states (p,v,t):  2.3815191309131913,1.4722222752041287, 34.347613573
+[INFO] [1774001312.913777]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001312.994057]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001312.995786]: Absolute Ego states (p,v,t):  2.3891784144110537,1.3888888888888888, 34.431391239
+[INFO] [1774001312.997164]: Absolute Lead pos: 5.208932352508729, Absolute lead vel : -3.84932189517551
+[INFO] [1774001312.998515]: Separation from lead vehicle : 2.819753938097675
+[INFO] [1774001313.126185]: The Throttle command is : 0.4330050025341168 V
+[INFO] [1774001313.127981]: Absolute Ego states (p,v,t):  2.397506507466609,1.444444523917304, 34.563439607
+[INFO] [1774001313.129197]: Absolute Lead pos: 26.697505744527156, Absolute lead vel : -2.366167730755276
+[INFO] [1774001313.130494]: Separation from lead vehicle : 24.299999237060547
+[INFO] [1774001313.218958]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001313.220879]: Absolute Ego states (p,v,t):  2.4061109031622423,1.4722222752041287, 34.656273842
+[INFO] [1774001313.222126]: Absolute Lead pos: 26.45611014022279, Absolute lead vel : -1.5430332554711237
+[INFO] [1774001313.223404]: Separation from lead vehicle : 24.049999237060547
+[INFO] [1774001313.314342]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001313.316209]: Absolute Ego states (p,v,t):  2.414755808556686,1.4166666401757135, 34.75166583
+[INFO] [1774001313.317672]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001313.384845]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001313.386903]: Absolute Ego states (p,v,t):  2.4221331553354,1.4166666401757135, 34.822166443
+[INFO] [1774001313.388408]: Absolute Lead pos: 26.164755808556684, Absolute lead vel : -1.1391418510013156
+[INFO] [1774001313.389894]: Separation from lead vehicle : 23.742622653221282
+[INFO] [1774001313.497428]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001313.499706]: Absolute Ego states (p,v,t):  2.431961284401619,1.4722222752041287, 34.934741735
+[INFO] [1774001313.501775]: Absolute Lead pos: 25.881962047341073, Absolute lead vel : -0.9572812186347113
+[INFO] [1774001313.504290]: Separation from lead vehicle : 23.450000762939453
+[WARN] [1774001313.505964]: Lead vehicle lost — switching to cruise mode
+[INFO] [1774001313.578988]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001313.580916]: Absolute Ego states (p,v,t):  2.4446097554679196,1.444444523917304, 35.016314268
+[INFO] [1774001313.582401]: Absolute Lead pos: 25.881962047341073, Absolute lead vel : -0.9572812186347113
+[INFO] [1774001313.583786]: Separation from lead vehicle : 23.437352291873154
+[INFO] [1774001313.716983]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001313.719171]: Absolute Ego states (p,v,t):  2.453876740977786,1.3611111376020644, 35.154250622
+[INFO] [1774001313.721079]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001313.827357]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001313.829607]: Absolute Ego states (p,v,t):  2.4622073441121444,1.3611111376020644, 35.264630079
+[INFO] [1774001313.831387]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001313.938363]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001313.940602]: Absolute Ego states (p,v,t):  2.4703954865492856,1.444444523917304, 35.375624418
+[INFO] [1774001313.942365]: Absolute Lead pos: 25.453876740977787, Absolute lead vel : -0.782815350426568
+[INFO] [1774001313.944214]: Separation from lead vehicle : 22.9834812544285
+[INFO] [1774001314.119384]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001314.122171]: Absolute Ego states (p,v,t):  2.4817146478387286,1.4722222752041287, 35.556601762
+[INFO] [1774001314.125003]: Absolute Lead pos: 24.781713884899276, Absolute lead vel : -0.6260248555077448
+[INFO] [1774001314.127299]: Separation from lead vehicle : 22.299999237060547
+[INFO] [1774001314.348168]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001314.350502]: Absolute Ego states (p,v,t):  2.4971167546152375,1.3611111376020644, 35.785400152
+[INFO] [1774001314.352355]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001314.467921]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001314.469972]: Absolute Ego states (p,v,t):  2.5059441891759326,1.4166666401757135, 35.905183792
+[INFO] [1774001314.471836]: Absolute Lead pos: 24.297115991675785, Absolute lead vel : -0.6229224734836154
+[INFO] [1774001314.473508]: Separation from lead vehicle : 21.791171802499854
+[INFO] [1774001314.683606]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001314.685792]: Absolute Ego states (p,v,t):  2.5165028932284903,1.444444523917304, 36.120853662
+[INFO] [1774001314.687589]: Absolute Lead pos: 23.616503274698218, Absolute lead vel : -0.7297500239478216
+[INFO] [1774001314.689214]: Separation from lead vehicle : 21.100000381469727
+[INFO] [1774001314.858459]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001314.860563]: Absolute Ego states (p,v,t):  2.527346806269563,1.3611111376020644, 36.295720577
+[INFO] [1774001314.862275]: Absolute Lead pos: 23.177346424799836, Absolute lead vel : -0.702460183037652
+[INFO] [1774001314.864093]: Separation from lead vehicle : 20.649999618530273
+[INFO] [1774001315.039412]: The Throttle command is : 0.5827557137167757 V
+[INFO] [1774001315.041512]: Absolute Ego states (p,v,t):  2.537594964552354,1.3888888888888888, 36.476671695
+[INFO] [1774001315.043292]: Absolute Lead pos: 22.737595727491808, Absolute lead vel : -0.7366357114579942
+[INFO] [1774001315.045112]: Separation from lead vehicle : 20.200000762939453
+[INFO] [1774001315.220144]: The Throttle command is : 0.5835692630066525 V
+[INFO] [1774001315.222521]: Absolute Ego states (p,v,t):  2.5482837339967985,1.4166666401757135, 36.657397508
+[INFO] [1774001315.224499]: Absolute Lead pos: 22.49828449693625, Absolute lead vel : -0.6971382564968533
+[INFO] [1774001315.226434]: Separation from lead vehicle : 19.950000762939453
+[INFO] [1774001315.403140]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001315.406133]: Absolute Ego states (p,v,t):  2.56009518927593,1.3611111376020644, 36.840383053
+[INFO] [1774001315.408179]: Absolute Lead pos: 22.06009518927593, Absolute lead vel : -0.6822134123908148
+[INFO] [1774001315.410019]: Separation from lead vehicle : 19.5
+[WARN] [1774001315.411904]: Lead vehicle lost — switching to cruise mode
+[INFO] [1774001315.527708]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001315.530211]: Absolute Ego states (p,v,t):  2.5721852889001253,1.33333338631524, 36.964975595
+[INFO] [1774001315.531972]: Absolute Lead pos: 22.06009518927593, Absolute lead vel : -0.6822134123908148
+[INFO] [1774001315.533705]: Separation from lead vehicle : 19.487909900375804
+[INFO] [1774001315.691978]: The Throttle command is : 0.47235524369949905 V
+[INFO] [1774001315.694011]: Absolute Ego states (p,v,t):  2.583017439997223,1.3611111376020644, 37.129288435
+[INFO] [1774001315.695485]: Absolute Lead pos: 21.483017058527498, Absolute lead vel : -0.7166300879584417
+[INFO] [1774001315.696969]: Separation from lead vehicle : 18.899999618530273
+[INFO] [1774001315.872562]: The Throttle command is : 0.4832250729303228 V
+[INFO] [1774001315.874898]: Absolute Ego states (p,v,t):  2.5922914061221642,1.4166666401757135, 37.309724331
+[INFO] [1774001315.876764]: Absolute Lead pos: 21.19229178759189, Absolute lead vel : -0.6633708741929796
+[INFO] [1774001315.878492]: Separation from lead vehicle : 18.600000381469727
+[INFO] [1774001316.051504]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001316.053784]: Absolute Ego states (p,v,t):  2.603532046745303,1.3611111376020644, 37.488759756
+[INFO] [1774001316.055708]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001316.170765]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001316.173093]: Absolute Ego states (p,v,t):  2.6120998697731674,1.3611111376020644, 37.608017683
+[INFO] [1774001316.175120]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001316.288817]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001316.291026]: Absolute Ego states (p,v,t):  2.620852666443521,1.4166666401757135, 37.726039648
+[INFO] [1774001316.292714]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001316.412172]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001316.414256]: Absolute Ego states (p,v,t):  2.629186209371021,1.3611111376020644, 37.849414587
+[INFO] [1774001316.416100]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001316.531968]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001316.534064]: Absolute Ego states (p,v,t):  2.6374064781143436,1.25, 37.969237089
+[INFO] [1774001316.536034]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001316.621477]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001316.623485]: Absolute Ego states (p,v,t):  2.6450814706143437,1.1111111111111112, 38.058794737
+[INFO] [1774001316.625018]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001316.727826]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001316.730169]: Absolute Ego states (p,v,t):  2.650777555058788,1.3888888888888888, 38.165094137
+[INFO] [1774001316.732002]: Absolute Lead pos: 20.853532046745304, Absolute lead vel : -0.5917307005988226
+[INFO] [1774001316.733752]: Separation from lead vehicle : 18.202754491686516
+[INFO] [1774001316.876070]: The Throttle command is : 0.6573129005507611 V
+[INFO] [1774001316.877884]: Absolute Ego states (p,v,t):  2.661780571725455,1.4166666401757135, 38.313360691
+[INFO] [1774001316.879206]: Absolute Lead pos: 19.411780571725455, Absolute lead vel : -0.3818656868404813
+[INFO] [1774001316.880464]: Separation from lead vehicle : 16.75
+[INFO] [1774001317.018229]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001317.020735]: Absolute Ego states (p,v,t):  2.670117154819565,1.444444523917304, 38.455459118
+[INFO] [1774001317.022571]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001317.088118]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001317.089946]: Absolute Ego states (p,v,t):  2.6789206021928167,1.2222222487131755, 38.525403022
+[INFO] [1774001317.091367]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001317.153788]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001317.155778]: Absolute Ego states (p,v,t):  2.6846632317617294,1.1666667461395264, 38.591081619
+[INFO] [1774001317.157303]: Absolute Lead pos: 19.120117917759018, Absolute lead vel : -0.34045218096839047
+[INFO] [1774001317.159070]: Separation from lead vehicle : 16.43545468599729
+[INFO] [1774001317.293482]: The Throttle command is : 0.3881445880853843 V
+[INFO] [1774001317.295248]: Absolute Ego states (p,v,t):  2.692506090629315,1.1944444974263508, 38.730798483
+[INFO] [1774001317.296721]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001317.359300]: The Throttle command is : 0.7548401441417709 V
+[INFO] [1774001317.361471]: Absolute Ego states (p,v,t):  2.698299038941828,1.1944444974263508, 38.796621322
+[INFO] [1774001317.363185]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001317.449042]: The Throttle command is : 1.0903707232488762 V
+[INFO] [1774001317.450904]: Absolute Ego states (p,v,t):  2.7050422920742716,1.3055556350284152, 38.886363983
+[INFO] [1774001317.452485]: Absolute Lead pos: 18.642505899894452, Absolute lead vel : -0.5850424766540527
+[INFO] [1774001317.453884]: Separation from lead vehicle : 15.937463607820181
+[INFO] [1774001317.564709]: The Throttle command is : 0.5002978804206937 V
+[INFO] [1774001317.567141]: Absolute Ego states (p,v,t):  2.713181969291979,1.33333338631524, 39.001960993
+[INFO] [1774001317.568799]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001317.633029]: The Throttle command is : 0.8669934364770805 V
+[INFO] [1774001317.634944]: Absolute Ego states (p,v,t):  2.720940745600285,1.25, 39.070334673
+[INFO] [1774001317.636464]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001317.698258]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001317.700417]: Absolute Ego states (p,v,t):  2.7269986631002854,1.1666667461395264, 39.135467291
+[INFO] [1774001317.702432]: Absolute Lead pos: 18.21318196929198, Absolute lead vel : -0.44503063625759554
+[INFO] [1774001317.705101]: Separation from lead vehicle : 15.486183306191695
+[WARN] [1774001317.707254]: Lead vehicle lost — switching to cruise mode
+[INFO] [1774001317.807032]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001317.809078]: Absolute Ego states (p,v,t):  2.737642265325323,1.1666667461395264, 39.244292259
+[INFO] [1774001317.810713]: Absolute Lead pos: 18.21318196929198, Absolute lead vel : -0.44503063625759554
+[INFO] [1774001317.812296]: Separation from lead vehicle : 15.475539703966657
+[INFO] [1774001317.924094]: The Throttle command is : 0.4330054510913529 V
+[INFO] [1774001317.926035]: Absolute Ego states (p,v,t):  2.746111807402265,1.1944444974263508, 39.361402273
+[INFO] [1774001317.927904]: Absolute Lead pos: 17.59611218887199, Absolute lead vel : -0.5833815336227417
+[INFO] [1774001317.929528]: Separation from lead vehicle : 14.850000381469727
+[INFO] [1774001318.064123]: The Throttle command is : 0.0 V
+[INFO] [1774001318.065935]: Absolute Ego states (p,v,t):  2.754707538839101,1.2222222487131755, 39.501405954
+[INFO] [1774001318.067556]: Absolute Lead pos: 17.454707348104236, Absolute lead vel : -0.5555893580118816
+[INFO] [1774001318.069234]: Separation from lead vehicle : 14.699999809265135
+[INFO] [1774001318.192961]: The Throttle command is : 0.0 V
+[INFO] [1774001318.194793]: Absolute Ego states (p,v,t):  2.763308516025522,1.0833333598242865, 39.630284309
+[INFO] [1774001318.196332]: Absolute Lead pos: 17.26330851602552, Absolute lead vel : -0.5278013547261555
+[INFO] [1774001318.197682]: Separation from lead vehicle : 14.5
+[INFO] [1774001318.288191]: The Throttle command is : 0.0 V
+[INFO] [1774001318.290514]: Absolute Ego states (p,v,t):  2.7703796343651,1.0833333598242865, 39.725512743
+[INFO] [1774001318.291934]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001318.354342]: The Throttle command is : 0.4999425417791739 V
+[INFO] [1774001318.356112]: Absolute Ego states (p,v,t):  2.776036890003438,1.1666667461395264, 39.791635751
+[INFO] [1774001318.357379]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001318.417077]: The Throttle command is : 0.911499591053792 V
+[INFO] [1774001318.419145]: Absolute Ego states (p,v,t):  2.781532121377771,1.1944444974263508, 39.854391098
+[INFO] [1774001318.420804]: Absolute Lead pos: 17.170379252895373, Absolute lead vel : -0.6666782034768
+[INFO] [1774001318.422395]: Separation from lead vehicle : 14.388847131517602
+[INFO] [1774001318.518192]: The Throttle command is : 0.0 V
+[INFO] [1774001318.520118]: Absolute Ego states (p,v,t):  2.790056089394757,1.0555555423100789, 39.955467701
+[INFO] [1774001318.521627]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001318.586056]: The Throttle command is : 0.4775115921186245 V
+[INFO] [1774001318.587947]: Absolute Ego states (p,v,t):  2.795780691156256,1.1111111111111112, 40.023231268
+[INFO] [1774001318.589353]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001318.709893]: The Throttle command is : 0.8666378947841267 V
+[INFO] [1774001318.711650]: Absolute Ego states (p,v,t):  2.8015437978229225,1.00000003973643, 40.147138834
+[INFO] [1774001318.712857]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001318.772423]: The Throttle command is : 1.1105001492451914 V
+[INFO] [1774001318.774746]: Absolute Ego states (p,v,t):  2.8059285539971572,1.00000003973643, 40.209751606
+[INFO] [1774001318.776118]: Absolute Lead pos: 16.84005628012962, Absolute lead vel : -0.5555582443873088
+[INFO] [1774001318.777400]: Separation from lead vehicle : 14.034127726132462
+[INFO] [1774001318.876303]: The Throttle command is : 0.4326497850878754 V
+[INFO] [1774001318.878443]: Absolute Ego states (p,v,t):  2.8130556002803604,1.0833333598242865, 40.313612461
+[INFO] [1774001318.880521]: Absolute Lead pos: 16.413055981750087, Absolute lead vel : -0.5052679379781086
+[INFO] [1774001318.883034]: Separation from lead vehicle : 13.600000381469727
+[INFO] [1774001318.977389]: The Throttle command is : 0.4769041820534305 V
+[INFO] [1774001318.979739]: Absolute Ego states (p,v,t):  2.8225708855130396,1.0833333598242865, 40.414697408
+[INFO] [1774001318.981134]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001319.054202]: The Throttle command is : 0.8211690449796927 V
+[INFO] [1774001319.056057]: Absolute Ego states (p,v,t):  2.8283177674869027,0.91666665342119, 40.491502523
+[INFO] [1774001319.057818]: Absolute Lead pos: 16.272570694778175, Absolute lead vel : -0.29174794091118716
+[INFO] [1774001319.059456]: Separation from lead vehicle : 13.444252927291272
+[WARN] [1774001319.062102]: Lead vehicle lost — switching to cruise mode
+[INFO] [1774001319.133199]: The Throttle command is : 1.0281307647732898 V
+[INFO] [1774001319.135458]: Absolute Ego states (p,v,t):  2.835568831715461,0.8055555820465088, 40.570445537
+[INFO] [1774001319.137019]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001319.195060]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001319.197088]: Absolute Ego states (p,v,t):  2.8401095004203376,0.8888889021343656, 40.632341861
+[INFO] [1774001319.198523]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001319.257787]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001319.259584]: Absolute Ego states (p,v,t):  2.8446252551542943,0.91666665342119, 40.695104599
+[INFO] [1774001319.260935]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001319.359287]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001319.361428]: Absolute Ego states (p,v,t):  2.849170446838618,0.91666665342119, 40.796606779
+[INFO] [1774001319.363952]: Absolute Lead pos: 16.272570694778175, Absolute lead vel : -0.29174794091118716
+[INFO] [1774001319.365583]: Separation from lead vehicle : 13.423400247939556
+[INFO] [1774001319.525616]: The Throttle command is : 0.6184340342768173 V
+[INFO] [1774001319.527953]: Absolute Ego states (p,v,t):  2.8565917608147164,0.8055555820465088, 40.962869644
+[INFO] [1774001319.529611]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001319.636235]: The Throttle command is : 0.8729760712035899 V
+[INFO] [1774001319.638287]: Absolute Ego states (p,v,t):  2.8613594439437255,0.7500000132454766, 41.073514938
+[INFO] [1774001319.640033]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001319.747984]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001319.750171]: Absolute Ego states (p,v,t):  2.8656854897701263,0.7777777645323012, 41.18525362
+[INFO] [1774001319.752351]: Absolute Lead pos: 15.956592142284443, Absolute lead vel : -0.21613428327772355
+[INFO] [1774001319.754037]: Separation from lead vehicle : 13.090906652514317
+[INFO] [1774001319.847512]: The Throttle command is : 0.6381972150908704 V
+[INFO] [1774001319.849414]: Absolute Ego states (p,v,t):  2.871911896330758,0.66666669315762, 41.284831285
+[INFO] [1774001319.851152]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001319.959498]: The Throttle command is : 0.8927392520176425 V
+[INFO] [1774001319.962555]: Absolute Ego states (p,v,t):  2.875388198468894,0.6388888756434122, 41.396707773
+[INFO] [1774001319.965526]: Absolute Lead pos: 15.671912087065621, Absolute lead vel : -0.23784616258409286
+[INFO] [1774001319.967456]: Separation from lead vehicle : 12.796523888596727
+[INFO] [1774001320.068525]: The Throttle command is : 0.5613630236845697 V
+[INFO] [1774001320.070301]: Absolute Ego states (p,v,t):  2.881739762059435,0.66666669315762, 41.505833387
+[INFO] [1774001320.071567]: Absolute Lead pos: 15.581739571324572, Absolute lead vel : -0.3637370665868124
+[INFO] [1774001320.072822]: Separation from lead vehicle : 12.699999809265137
+[INFO] [1774001320.186490]: The Throttle command is : 0.5732170516603813 V
+[INFO] [1774001320.188476]: Absolute Ego states (p,v,t):  2.8854557542070953,0.6944444444444444, 41.623779058
+[INFO] [1774001320.189908]: Absolute Lead pos: 15.535455372737369, Absolute lead vel : -0.3346200519137912
+[INFO] [1774001320.195079]: Separation from lead vehicle : 12.649999618530273
+[INFO] [1774001320.290292]: The Throttle command is : 0.6703516445221602 V
+[INFO] [1774001320.292520]: Absolute Ego states (p,v,t):  2.8928444125404287,0.722222261958652, 41.727509975
+[INFO] [1774001320.293970]: Absolute Lead pos: 15.492844794010155, Absolute lead vel : -0.23118606540891862
+[INFO] [1774001320.295250]: Separation from lead vehicle : 12.600000381469727
+[INFO] [1774001320.389001]: The Throttle command is : 0.7834543587148537 V
+[INFO] [1774001320.391072]: Absolute Ego states (p,v,t):  2.8975650341890447,0.5833333730697632, 41.826272487
+[INFO] [1774001320.392724]: Absolute Lead pos: 15.447565224923908, Absolute lead vel : -0.11383665270275545
+[INFO] [1774001320.393960]: Separation from lead vehicle : 12.550000190734863
+[INFO] [1774001320.486886]: The Throttle command is : 0.7478069609479687 V
+[INFO] [1774001320.488660]: Absolute Ego states (p,v,t):  2.9014907756231314,0.5277777711550394, 41.924209594
+[INFO] [1774001320.489962]: Absolute Lead pos: 15.401490775623131, Absolute lead vel : -0.20883548259735107
+[INFO] [1774001320.491230]: Separation from lead vehicle : 12.5
+[INFO] [1774001320.578782]: The Throttle command is : 0.7346386949643853 V
+[INFO] [1774001320.580828]: Absolute Ego states (p,v,t):  2.9044917437799187,0.500000019868215, 42.016072035
+[INFO] [1774001320.582200]: Absolute Lead pos: 15.354491553045055, Absolute lead vel : -0.2428849538167318
+[INFO] [1774001320.583582]: Separation from lead vehicle : 12.449999809265137
+[INFO] [1774001320.700615]: The Throttle command is : 0.7249388851980757 V
+[INFO] [1774001320.702790]: Absolute Ego states (p,v,t):  2.907702049907485,0.6111111243565878, 42.137881756
+[INFO] [1774001320.704831]: Absolute Lead pos: 15.307701668437758, Absolute lead vel : -0.26012472311655677
+[INFO] [1774001320.706491]: Separation from lead vehicle : 12.399999618530273
+[WARN] [1774001320.707920]: Lead vehicle lost — switching to cruise mode
+[INFO] [1774001320.784059]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001320.786016]: Absolute Ego states (p,v,t):  2.9122395921725,0.4444444510671828, 42.221377372
+[INFO] [1774001320.787689]: Absolute Lead pos: 15.307701668437758, Absolute lead vel : -0.26012472311655677
+[INFO] [1774001320.789227]: Separation from lead vehicle : 12.395462076265257
+[INFO] [1774001320.910872]: The Throttle command is : 0.695920252494818 V
+[INFO] [1774001320.912705]: Absolute Ego states (p,v,t):  2.9153221855517675,0.4166666666666667, 42.348175049
+[INFO] [1774001320.913975]: Absolute Lead pos: 15.265322567021494, Absolute lead vel : -0.30798652436998153
+[INFO] [1774001320.915408]: Separation from lead vehicle : 12.350000381469727
+[INFO] [1774001321.006652]: The Throttle command is : 0.6702225802965821 V
+[INFO] [1774001321.008297]: Absolute Ego states (p,v,t):  2.917877833885101,0.4722222354676988, 42.443980455
+[INFO] [1774001321.009543]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001321.066618]: The Throttle command is : 1.0541183703626058 V
+[INFO] [1774001321.068369]: Absolute Ego states (p,v,t):  2.9199717187493883,0.4444444510671828, 42.503947496
+[INFO] [1774001321.069838]: Absolute Lead pos: 15.1678778338851, Absolute lead vel : -0.33416714270909625
+[INFO] [1774001321.071286]: Separation from lead vehicle : 12.247906115135713
+[INFO] [1774001321.172384]: The Throttle command is : 0.6811683561323563 V
+[INFO] [1774001321.174293]: Absolute Ego states (p,v,t):  2.9229357387935555,0.4166666666666667, 42.609705925
+[INFO] [1774001321.176054]: Absolute Lead pos: 15.122935548058692, Absolute lead vel : -0.30584153201844955
+[INFO] [1774001321.177735]: Separation from lead vehicle : 12.199999809265137
+[INFO] [1774001321.292556]: The Throttle command is : 0.6595434969797236 V
+[INFO] [1774001321.294415]: Absolute Ego states (p,v,t):  2.925808185876889,0.4444444510671828, 42.729882717
+[INFO] [1774001321.295940]: Absolute Lead pos: 15.075807804407162, Absolute lead vel : -0.33347346385320026
+[INFO] [1774001321.297374]: Separation from lead vehicle : 12.149999618530273
+[INFO] [1774001321.421507]: The Throttle command is : 0.8162525933463296 V
+[INFO] [1774001321.423686]: Absolute Ego states (p,v,t):  2.928719859698054,0.4722222354676988, 42.858776331
+[INFO] [1774001321.425468]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001321.532201]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001321.534279]: Absolute Ego states (p,v,t):  2.931545669666205,0.5277777711550394, 42.969483614
+[INFO] [1774001321.535963]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001321.628481]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001321.630319]: Absolute Ego states (p,v,t):  2.934589797905784,0.3888888822661506, 43.065809965
+[INFO] [1774001321.631723]: Absolute Lead pos: 15.02872024116778, Absolute lead vel : -0.17812421586778426
+[INFO] [1774001321.633107]: Separation from lead vehicle : 12.094130443261996
+[INFO] [1774001321.728517]: The Throttle command is : 0.8959969907579596 V
+[INFO] [1774001321.730731]: Absolute Ego states (p,v,t):  2.937021150642156,0.4444444510671828, 43.165756702
+[INFO] [1774001321.732123]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001321.789076]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001321.791224]: Absolute Ego states (p,v,t):  2.9392730937868237,0.3888888822661506, 43.226405382
+[INFO] [1774001321.792695]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001321.850481]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001321.852438]: Absolute Ego states (p,v,t):  2.9413175331964516,0.3888888822661506, 43.28780818
+[INFO] [1774001321.854000]: Absolute Lead pos: 14.887020959907293, Absolute lead vel : -0.12120516432656181
+[INFO] [1774001321.856503]: Separation from lead vehicle : 11.94570342671084
+[INFO] [1774001322.026031]: The Throttle command is : 0.7581287463389144 V
+[INFO] [1774001322.027869]: Absolute Ego states (p,v,t):  2.944608384807075,0.3055555621782939, 43.463317156
+[INFO] [1774001322.029567]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001322.136545]: The Throttle command is : 1.0320079267722089 V
+[INFO] [1774001322.138630]: Absolute Ego states (p,v,t):  2.94620788200841,0.166666673289405, 43.57382679
+[INFO] [1774001322.140518]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001322.248389]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001322.250231]: Absolute Ego states (p,v,t):  2.9471905242141236,0.4166666666666667, 43.685670852
+[INFO] [1774001322.251908]: Absolute Lead pos: 14.744608575541939, Absolute lead vel : -0.22632337941063774
+[INFO] [1774001322.253415]: Separation from lead vehicle : 11.797418051327815
+[INFO] [1774001322.391136]: The Throttle command is : 0.7797987548481314 V
+[INFO] [1774001322.392888]: Absolute Ego states (p,v,t):  2.9500578058807903,0.4166666666666667, 43.828461647
+[INFO] [1774001322.394165]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001322.455528]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001322.457662]: Absolute Ego states (p,v,t):  2.9519643596307903,0.4444444510671828, 43.892853737
+[INFO] [1774001322.459502]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001322.556704]: The Throttle command is : 0.6564421566721679 V
+[INFO] [1774001322.559106]: Absolute Ego states (p,v,t):  2.95451374277989,0.33333334657881, 43.994025945
+[INFO] [1774001322.560602]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001322.671429]: The Throttle command is : 0.5612214562779426 V
+[INFO] [1774001322.673186]: Absolute Ego states (p,v,t):  2.9562688215162973,0.361111130979326, 44.10877037
+[INFO] [1774001322.674685]: Absolute Lead pos: 14.456268821516296, Absolute lead vel : -0.3955160644319322
+[INFO] [1774001322.675816]: Separation from lead vehicle : 11.5
+[INFO] [1774001322.797405]: The Throttle command is : 0.5534230044203182 V
+[INFO] [1774001322.799274]: Absolute Ego states (p,v,t):  2.9584425631914515,0.361111130979326, 44.234740257
+[INFO] [1774001322.800951]: Absolute Lead pos: 14.358442181721724, Absolute lead vel : -0.37852505180570817
+[INFO] [1774001322.802628]: Separation from lead vehicle : 11.399999618530273
+[INFO] [1774001322.965156]: The Throttle command is : 0.534134296890437 V
+[INFO] [1774001322.967168]: Absolute Ego states (p,v,t):  2.960825689378126,0.3055555621782939, 44.402443647
+[INFO] [1774001322.968824]: Absolute Lead pos: 14.26082588011299, Absolute lead vel : -0.38533410761091447
+[INFO] [1774001322.970501]: Separation from lead vehicle : 11.300000190734863
+[INFO] [1774001323.132668]: The Throttle command is : 0.4936068655796556 V
+[INFO] [1774001323.134573]: Absolute Ego states (p,v,t):  2.9630324654259566,0.3888888822661506, 44.569954872
+[INFO] [1774001323.136173]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001323.242360]: The Throttle command is : 0.9051638613752825 V
+[INFO] [1774001323.244202]: Absolute Ego states (p,v,t):  2.9651427347789077,0.4166666666666667, 44.679646253
+[INFO] [1774001323.245764]: Absolute Lead pos: 14.213032465425957, Absolute lead vel : -0.4432251652081807
+[INFO] [1774001323.247400]: Separation from lead vehicle : 11.24788973064705
+[INFO] [1774001323.408631]: The Throttle command is : 0.533711962422443 V
+[INFO] [1774001323.410726]: Absolute Ego states (p,v,t):  2.9679974001955745,0.4166666666666667, 44.845906734
+[INFO] [1774001323.412379]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001323.521028]: The Throttle command is : 0.8779768253487051 V
+[INFO] [1774001323.523464]: Absolute Ego states (p,v,t):  2.970468310612241,0.4166666666666667, 44.958298921
+[INFO] [1774001323.525165]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001323.654053]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001323.655908]: Absolute Ego states (p,v,t):  2.9729575001955744,0.4166666666666667, 45.091394186
+[INFO] [1774001323.657470]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001323.717682]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001323.719969]: Absolute Ego states (p,v,t):  2.9751038635289078,0.3055555621782939, 45.155014038
+[INFO] [1774001323.721421]: Absolute Lead pos: 14.017997590930438, Absolute lead vel : -0.3331284125645955
+[INFO] [1774001323.722584]: Separation from lead vehicle : 11.04289372740153
+[INFO] [1774001323.815737]: The Throttle command is : 0.721584901956168 V
+[INFO] [1774001323.818739]: Absolute Ego states (p,v,t):  2.9769989136255375,0.2777777777777778, 45.252844095
+[INFO] [1774001323.820535]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001323.929439]: The Throttle command is : 1.039592454676781 V
+[INFO] [1774001323.931664]: Absolute Ego states (p,v,t):  2.9789281836255377,0.3888888822661506, 45.366716146
+[INFO] [1774001323.933225]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001324.025806]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001324.027798]: Absolute Ego states (p,v,t):  2.981101779644077,0.361111130979326, 45.46313262
+[INFO] [1774001324.029315]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001324.088137]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001324.090262]: Absolute Ego states (p,v,t):  2.982931569466974,0.361111130979326, 45.525459289
+[INFO] [1774001324.091802]: Absolute Lead pos: 13.826999295095264, Absolute lead vel : -0.20452704032262164
+[INFO] [1774001324.093060]: Separation from lead vehicle : 10.84406772562829
+[INFO] [1774001324.180137]: The Throttle command is : 0.7585778321138561 V
+[INFO] [1774001324.181916]: Absolute Ego states (p,v,t):  2.985203976814223,0.361111130979326, 45.617464304
+[INFO] [1774001324.183159]: Absolute Lead pos: 13.785204167549086, Absolute lead vel : -0.13971922132703996
+[INFO] [1774001324.184385]: Separation from lead vehicle : 10.800000190734863
+[INFO] [1774001324.421635]: The Throttle command is : 0.7533278067030884 V
+[INFO] [1774001324.423656]: Absolute Ego states (p,v,t):  2.9872240378975885,0.2777777777777778, 45.858912706
+[INFO] [1774001324.425193]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001324.531170]: The Throttle command is : 1.02763007729248 V
+[INFO] [1774001324.533240]: Absolute Ego states (p,v,t):  2.988718789842033,0.33333334657881, 45.968454122
+[INFO] [1774001324.535145]: Absolute Lead pos: 13.737224037897589, Absolute lead vel : -0.1392957303259108
+[INFO] [1774001324.536794]: Separation from lead vehicle : 10.748505248055555
+[INFO] [1774001324.695419]: The Throttle command is : 0.6545338253971373 V
+[INFO] [1774001324.697788]: Absolute Ego states (p,v,t):  2.9913997276152307,0.361111130979326, 46.1326375
+[INFO] [1774001324.699652]: Absolute Lead pos: 13.541399918350095, Absolute lead vel : -0.21920016076829696
+[INFO] [1774001324.701333]: Separation from lead vehicle : 10.550000190734863
+[INFO] [1774001324.884561]: The Throttle command is : 0.5107040366530793 V
+[INFO] [1774001324.887104]: Absolute Ego states (p,v,t):  2.994316560886825,0.4166666666666667, 46.321835518
+[INFO] [1774001324.889791]: Absolute Lead pos: 13.394316179417098, Absolute lead vel : -0.31575218174192643
+[INFO] [1774001324.891802]: Separation from lead vehicle : 10.399999618530273
+[INFO] [1774001325.056575]: The Throttle command is : 0.4761992148983046 V
+[INFO] [1774001325.058784]: Absolute Ego states (p,v,t):  2.998098375886825,0.2500000099341075, 46.493845224
+[INFO] [1774001325.060605]: Absolute Lead pos: 13.298098566621688, Absolute lead vel : -0.3082474668820699
+[INFO] [1774001325.063128]: Separation from lead vehicle : 10.300000190734863
+[INFO] [1774001325.181349]: The Throttle command is : 0.34078208105378205 V
+[INFO] [1774001325.183376]: Absolute Ego states (p,v,t):  3.0002208974711664,0.33333334657881, 46.618662119
+[INFO] [1774001325.184831]: Absolute Lead pos: 13.15022051600144, Absolute lead vel : -0.4939768811066945
+[INFO] [1774001325.186291]: Separation from lead vehicle : 10.149999618530273
+[INFO] [1774001325.317167]: The Throttle command is : 0.37968425685131935 V
+[INFO] [1774001325.318990]: Absolute Ego states (p,v,t):  3.002316596887775,0.33333334657881, 46.754483223
+[INFO] [1774001325.320349]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001325.387686]: The Throttle command is : 0.7239491197775816 V
+[INFO] [1774001325.389744]: Absolute Ego states (p,v,t):  3.003880066283235,0.2500000099341075, 46.824964046
+[INFO] [1774001325.391473]: Absolute Lead pos: 13.102316978357502, Absolute lead vel : -0.41371532943513656
+[INFO] [1774001325.393124]: Separation from lead vehicle : 10.098436912074266
+[INFO] [1774001325.528296]: The Throttle command is : 0.0 V
+[INFO] [1774001325.530400]: Absolute Ego states (p,v,t):  3.005730611856769,0.361111130979326, 46.965539455
+[INFO] [1774001325.532237]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001325.591366]: The Throttle command is : 0.7514585393920572 V
+[INFO] [1774001325.593135]: Absolute Ego states (p,v,t):  3.007811370304585,0.3888888822661506, 47.028672695
+[INFO] [1774001325.594507]: Absolute Lead pos: 13.00573061185677, Absolute lead vel : -0.4992913504441579
+[INFO] [1774001325.595795]: Separation from lead vehicle : 9.997919241552184
+[INFO] [1774001325.685853]: The Throttle command is : 0.5319611131110515 V
+[INFO] [1774001325.687771]: Absolute Ego states (p,v,t):  3.0101125467653964,0.3888888822661506, 47.123040437
+[INFO] [1774001325.689086]: Absolute Lead pos: 12.91011216529567, Absolute lead vel : -0.23344100846184623
+[INFO] [1774001325.690428]: Separation from lead vehicle : 9.899999618530273
+[INFO] [1774001325.814246]: The Throttle command is : 0.5978155151301076 V
+[INFO] [1774001325.815917]: Absolute Ego states (p,v,t):  3.0124905867248986,0.4444444510671828, 47.251538992
+[INFO] [1774001325.817160]: Absolute Lead pos: 12.862490968194624, Absolute lead vel : -0.1710527671708001
+[INFO] [1774001325.818373]: Separation from lead vehicle : 9.850000381469727
+[INFO] [1774001325.973565]: The Throttle command is : 0.6636425429827238 V
+[INFO] [1774001325.975747]: Absolute Ego states (p,v,t):  3.01492786009455,0.4166666666666667, 47.410821914
+[INFO] [1774001325.977459]: Absolute Lead pos: 12.76492786009455, Absolute lead vel : -0.07611551549699569
+[INFO] [1774001325.979081]: Separation from lead vehicle : 9.75
+[INFO] [1774001326.117896]: The Throttle command is : 0.6573497206930901 V
+[INFO] [1774001326.119891]: Absolute Ego states (p,v,t):  3.0181026021778834,0.3888888822661506, 47.555184602
+[INFO] [1774001326.121551]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001326.179284]: The Throttle command is : 0.9791838637497321 V
+[INFO] [1774001326.181182]: Absolute Ego states (p,v,t):  3.0202543165856843,0.361111130979326, 47.61661005
+[INFO] [1774001326.182623]: Absolute Lead pos: 12.71810241144302, Absolute lead vel : -0.09038539727528888
+[INFO] [1774001326.184069]: Separation from lead vehicle : 9.697848094857335
+[INFO] [1774001326.320260]: The Throttle command is : 0.6199155816228505 V
+[INFO] [1774001326.321997]: Absolute Ego states (p,v,t):  3.0225656390739637,0.1944444411330753, 47.757523536
+[INFO] [1774001326.323541]: Absolute Lead pos: 12.62256602054369, Absolute lead vel : -0.1405820581648085
+[INFO] [1774001326.325006]: Separation from lead vehicle : 9.600000381469727
+[INFO] [1774001326.475219]: The Throttle command is : 0.8295961387011397 V
+[INFO] [1774001326.477099]: Absolute Ego states (p,v,t):  3.0238462184688224,0.4166666666666667, 47.912512541
+[INFO] [1774001326.478801]: Absolute Lead pos: 15.423845836999096, Absolute lead vel : -0.30596212214893764
+[INFO] [1774001326.480298]: Separation from lead vehicle : 12.399999618530273
+[INFO] [1774001326.630921]: The Throttle command is : 0.6422651440693177 V
+[INFO] [1774001326.632857]: Absolute Ego states (p,v,t):  3.026621112635489,0.33333334657881, 48.068209409
+[INFO] [1774001326.634409]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001326.740689]: The Throttle command is : 0.9192378741262148 V
+[INFO] [1774001326.742857]: Absolute Ego states (p,v,t):  3.0283312097034423,0.4166666666666667, 48.177967548
+[INFO] [1774001326.744632]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001326.870101]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001326.872003]: Absolute Ego states (p,v,t):  3.030755131786776,0.4166666666666667, 48.307376623
+[INFO] [1774001326.873382]: Absolute Lead pos: 12.526621112635489, Absolute lead vel : -0.08353253205617267
+[INFO] [1774001326.874785]: Separation from lead vehicle : 9.495865980848713
+[INFO] [1774001326.973852]: The Throttle command is : 0.8194616058234316 V
+[INFO] [1774001326.975796]: Absolute Ego states (p,v,t):  3.033382802620109,0.4722222354676988, 48.41116929
+[INFO] [1774001326.977308]: Absolute Lead pos: 12.433382421150382, Absolute lead vel : 0.08090517918268841
+[INFO] [1774001326.978985]: Separation from lead vehicle : 9.399999618530273
+[INFO] [1774001327.065440]: The Throttle command is : 0.9017846653734032 V
+[INFO] [1774001327.067320]: Absolute Ego states (p,v,t):  3.03649379420737,0.2222222255335914, 48.502767563
+[INFO] [1774001327.068708]: Absolute Lead pos: 12.436493412737644, Absolute lead vel : 0.1801991131570604
+[INFO] [1774001327.069983]: Separation from lead vehicle : 9.399999618530273
+[INFO] [1774001327.215811]: The Throttle command is : 0.7818843334525003 V
+[INFO] [1774001327.217857]: Absolute Ego states (p,v,t):  3.0378316402273056,0.1388888888888889, 48.653104543
+[INFO] [1774001327.219515]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001327.296186]: The Throttle command is : 1.0536698835585994 V
+[INFO] [1774001327.298002]: Absolute Ego states (p,v,t):  3.038595374532861,0.2500000099341075, 48.733515262
+[INFO] [1774001327.299761]: Absolute Lead pos: 12.43783125875758, Absolute lead vel : -0.048369093073738934
+[INFO] [1774001327.301293]: Separation from lead vehicle : 9.39923588422472
+[INFO] [1774001327.389633]: The Throttle command is : 0.8101297245812267 V
+[INFO] [1774001327.391324]: Absolute Ego states (p,v,t):  3.0402328930979303,0.2222222255335914, 48.826961755
+[INFO] [1774001327.392542]: Absolute Lead pos: 12.390233274567656, Absolute lead vel : -0.00494395693143207
+[INFO] [1774001327.393721]: Separation from lead vehicle : 9.350000381469727
+[INFO] [1774001327.551677]: The Throttle command is : 0.7691124598442798 V
+[INFO] [1774001327.553671]: Absolute Ego states (p,v,t):  3.0414570931161724,0.2222222255335914, 48.988966465
+[INFO] [1774001327.555022]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001327.612279]: The Throttle command is : 1.10338519679194 V
+[INFO] [1774001327.614284]: Absolute Ego states (p,v,t):  3.042514506020818,0.2777777777777778, 49.049603462
+[INFO] [1774001327.616125]: Absolute Lead pos: 14.691456711646445, Absolute lead vel : -0.28447358144654167
+[INFO] [1774001327.617832]: Separation from lead vehicle : 11.648942205625627
+[INFO] [1774001327.713967]: The Throttle command is : 0.60630161754199 V
+[INFO] [1774001327.715750]: Absolute Ego states (p,v,t):  3.0445477529652623,0.1944444411330753, 49.151299715
+[INFO] [1774001327.717041]: Absolute Lead pos: 12.294547752965261, Absolute lead vel : -0.15880487693680656
+[INFO] [1774001327.718304]: Separation from lead vehicle : 9.25
+[INFO] [1774001327.828111]: The Throttle command is : 0.5152854095898456 V
+[INFO] [1774001327.830149]: Absolute Ego states (p,v,t):  3.045646928724321,0.1944444411330753, 49.265396118
+[INFO] [1774001327.831750]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001327.895022]: The Throttle command is : 0.8595502725161075 V
+[INFO] [1774001327.897533]: Absolute Ego states (p,v,t):  3.0466888509010217,0.2500000099341075, 49.332238912
+[INFO] [1774001327.899615]: Absolute Lead pos: 12.245646737989457, Absolute lead vel : -0.27448106474346584
+[INFO] [1774001327.901306]: Separation from lead vehicle : 9.198957887088435
+[INFO] [1774001328.011312]: The Throttle command is : 0.5182297970920876 V
+[INFO] [1774001328.013469]: Absolute Ego states (p,v,t):  3.0487763249839706,0.2222222255335914, 49.448627233
+[INFO] [1774001328.015306]: Absolute Lead pos: 12.198775943514244, Absolute lead vel : -0.2393414278825124
+[INFO] [1774001328.016719]: Separation from lead vehicle : 9.149999618530273
+[INFO] [1774001328.145631]: The Throttle command is : 0.48840165007757164 V
+[INFO] [1774001328.147524]: Absolute Ego states (p,v,t):  3.050283395450872,0.1388888888888889, 49.582968473
+[INFO] [1774001328.148842]: Absolute Lead pos: 12.150283776920599, Absolute lead vel : -0.27412189377678764
+[INFO] [1774001328.150201]: Separation from lead vehicle : 9.100000381469727
+[INFO] [1774001328.313190]: The Throttle command is : 0.4266221869096305 V
+[INFO] [1774001328.315275]: Absolute Ego states (p,v,t):  3.051135377673094,0.166666673289405, 49.750471115
+[INFO] [1774001328.317069]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001328.424654]: The Throttle command is : 0.793317769705513 V
+[INFO] [1774001328.426760]: Absolute Ego states (p,v,t):  3.0520873433775884,0.1944444411330753, 49.861933469
+[INFO] [1774001328.428466]: Absolute Lead pos: None, Absolute lead vel : None
+[INFO] [1774001328.547824]: The Throttle command is : 1.11082458688928 V
+[INFO] [1774001328.550300]: Absolute Ego states (p,v,t):  3.053208354469609,0.1944444411330753, 49.985030412
+[INFO] [1774001328.552471]: Absolute Lead pos: 12.051135377673095, Absolute lead vel : -0.3593197233147091
+[INFO] [1774001328.554382]: Separation from lead vehicle : 8.997927023203486
+[INFO] [1774001328.614906]: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0003189908380866672, 0.0005670653417832654, 0.0012854205191542582, 0.0017379390371357278, 0.0024347836030750762, 0.003309614158630632, 0.004450930500305241, 0.006053461063984082, 0.008133901479986688, 0.010146902840741358, 0.012579408210321845, 0.01544925282435922, 0.01886804282435922, 0.023013505969765268, 0.02654024028553772, 0.030349804868871056, 0.033952906182504114, 0.03810715148578447, 0.04356908307116152, 0.048661704480380825, 0.05425397148290807, 0.05965182107875812, 0.0658457311308043, 0.07208645603340992, 0.07809704843038806, 0.08431394509705473, 0.09134690271124345, 0.09836809830045999, 0.1048808989971767, 0.11311908273129008, 0.12009346299356681, 0.12746254400745732, 0.1356957923065878, 0.14376896329405345, 0.15155444360342063, 0.1598702852700873, 0.16737665637972193, 0.17592890285172763, 0.1844172667406165, 0.19235805533194286, 0.20058561515581166, 0.2085460139271235, 0.21770629358889984, 0.2278200107675145, 0.23579762876199598, 0.24981431696086892, 0.2591908559886467, 0.26785674307198004, 0.27643516222348036, 0.2854583781957026, 0.29439345804353906, 0.30295971819482465, 0.30919787319482467, 0.3189368952669925, 0.32602848985032584, 0.3336387787392147, 0.3418255371501358, 0.34938956645569136, 0.35765222700304555, 0.36486366047526775, 0.3719035790220453, 0.42022053587535346, 0.4954641475420201, 0.5836769028197979, 0.6224629711322863, 0.6985012155631729, 0.7807613880631729, 0.7998047148994901, 0.8209039919492542, 0.8380748118449705, 0.85634423166762, 0.872015352640951, 0.8811173796972971, 0.8893574828428226, 0.898453430031276, 0.9058547567262082, 0.9145149412026887, 0.9225631387145471, 0.9308108911436516, 0.9392113106532346, 0.9478569182977036, 0.9561327721974827, 0.9637363374752604, 0.9707394448443059, 0.9779487469076259, 0.9843910149631815, 0.992332671907626, 1.0012339240640367, 1.0423619028782976, 1.1129515261132763, 1.1767082955577208, 1.18445346141289, 1.1922658160371622, 1.2054077658927096, 1.2130888172815986, 1.2211041910483817, 1.2287426065581573, 1.2362077308423378, 1.2441729511694706, 1.2522503747805818, 1.2598734124168274, 1.2671042377520034, 1.2750713131030231, 1.2826136186585786, 1.2910737042954572, 1.2985483250723522, 1.3069836283142375, 1.3148044204664515, 1.322338340751971, 1.3298700432777988, 1.3376098059664026, 1.344886659588892, 1.3525246637555586, 1.3599864495326937, 1.3679665175882492, 1.3750873324768398, 1.3828601955814912, 1.391015514919083, 1.3983766885301943, 1.4064143746413054, 1.4141152951639686, 1.4212115604417463, 1.4282759096347935, 1.4360112679681267, 1.4446842545302476, 1.4527583987125985, 1.4599665876014873, 1.4684983176264559, 1.4760931822344356, 1.4835443524072336, 1.4913706611428883, 1.5001431150699902, 1.5076778577067715, 1.5155101655603114, 1.5241731045924989, 1.5328787471825915, 1.5409198841724274, 1.5475049262450349, 1.5541787181202384, 1.5613804294022366, 1.568350861346681, 1.5753169891244587, 1.5831523770000036, 1.5900261172777814, 1.597427584238556, 1.604802818020987, 1.6125176457987649, 1.6193275760979715, 1.625638993682098, 1.6334193867376536, 1.6423057770154315, 1.6497037466427338, 1.6582276883147782, 1.6658425133147783, 1.6732349460975442, 1.6815671997619714, 1.6890894653942128, 1.6955729331870655, 1.7023274907888009, 1.7088597091533746, 1.7162507846866235, 1.7225891947822085, 1.7288020656957526, 1.7360571166929435, 1.742839966295803, 1.7488476971627298, 1.8147532462023646, 1.8230402252527806, 1.8318690242702722, 1.8389176312170252, 1.8468646332285594, 1.8541041206970252, 1.8614601289893267, 1.8687681359463875, 1.8753896160313328, 1.8826426275476296, 1.8895113946601954, 1.8966655954012472, 1.90327031998654, 1.9100931701784216, 1.9178325544859571, 1.92492699211226, 1.9323515184583344, 1.9402802341828447, 1.9484920051758179, 1.9551178161057705, 1.9628086432961551, 1.9705899902720247, 1.9810471349199938, 1.9883748498778377, 1.9957948734961821, 2.0034353951331223, 2.0143916442630276, 2.0239646273100904, 2.0308112939768663, 2.039516711729631, 2.0478371881185202, 2.05646026428232, 2.065694984122241, 2.076108645352697, 2.0845635647971417, 2.0937729530041596, 2.1045630485752755, 2.1131813244974516, 2.125328420330785, 2.1333666377372307, 2.1432490877372308, 2.150022519443904, 2.16052849999946, 2.1680403402772375, 2.176317570732648, 2.1846967399714448, 2.1927271413603338, 2.199377629069306, 2.2084037266719125, 2.2157091294519717, 2.222851753063083, 2.229517273763151, 2.2373058255250076, 2.244165723480064, 2.2519463541679037, 2.260615127229873, 2.268960890800165, 2.276112454689054, 2.2832428915258127, 2.291823562390167, 2.300307070814863, 2.3108775969505326, 2.3196007774589043, 2.330604087243777, 2.3398701849871726, 2.3490758711603332, 2.35893244787616, 2.3668363611450274, 2.3735962430725093, 2.3815191309131913, 2.3891784144110537, 2.397506507466609, 2.4061109031622423, 2.414755808556686, 2.4221331553354, 2.431961284401619, 2.4446097554679196, 2.453876740977786, 2.4622073441121444, 2.4703954865492856, 2.4817146478387286, 2.4971167546152375, 2.5059441891759326, 2.5165028932284903, 2.527346806269563, 2.537594964552354, 2.5482837339967985, 2.56009518927593, 2.5721852889001253, 2.583017439997223, 2.5922914061221642, 2.603532046745303, 2.6120998697731674, 2.620852666443521, 2.629186209371021, 2.6374064781143436, 2.6450814706143437, 2.650777555058788, 2.661780571725455, 2.670117154819565, 2.6789206021928167, 2.6846632317617294, 2.692506090629315, 2.698299038941828, 2.7050422920742716, 2.713181969291979, 2.720940745600285, 2.7269986631002854, 2.737642265325323, 2.746111807402265, 2.754707538839101, 2.763308516025522, 2.7703796343651, 2.776036890003438, 2.781532121377771, 2.790056089394757, 2.795780691156256, 2.8015437978229225, 2.8059285539971572, 2.8130556002803604, 2.8225708855130396, 2.8283177674869027, 2.835568831715461, 2.8401095004203376, 2.8446252551542943, 2.849170446838618, 2.8565917608147164, 2.8613594439437255, 2.8656854897701263, 2.871911896330758, 2.875388198468894, 2.881739762059435, 2.8854557542070953, 2.8928444125404287, 2.8975650341890447, 2.9014907756231314, 2.9044917437799187, 2.907702049907485, 2.9122395921725, 2.9153221855517675, 2.917877833885101, 2.9199717187493883, 2.9229357387935555, 2.925808185876889, 2.928719859698054, 2.931545669666205, 2.934589797905784, 2.937021150642156, 2.9392730937868237, 2.9413175331964516, 2.944608384807075, 2.94620788200841, 2.9471905242141236, 2.9500578058807903, 2.9519643596307903, 2.95451374277989, 2.9562688215162973, 2.9584425631914515, 2.960825689378126, 2.9630324654259566, 2.9651427347789077, 2.9679974001955745, 2.970468310612241, 2.9729575001955744, 2.9751038635289078, 2.9769989136255375, 2.9789281836255377, 2.981101779644077, 2.982931569466974, 2.985203976814223, 2.9872240378975885, 2.988718789842033, 2.9913997276152307, 2.994316560886825, 2.998098375886825, 3.0002208974711664, 3.002316596887775, 3.003880066283235, 3.005730611856769, 3.007811370304585, 3.0101125467653964, 3.0124905867248986, 3.01492786009455, 3.0181026021778834, 3.0202543165856843, 3.0225656390739637, 3.0238462184688224, 3.026621112635489, 3.0283312097034423, 3.030755131786776, 3.033382802620109, 3.03649379420737, 3.0378316402273056, 3.038595374532861, 3.0402328930979303, 3.0414570931161724, 3.042514506020818, 3.0445477529652623, 3.045646928724321, 3.0466888509010217, 3.0487763249839706, 3.050283395450872, 3.051135377673094, 3.0520873433775884, 3.053208354469609]
+[INFO] [1774001328.651613]: The test is over, vehicle is shutting down
+[INFO] [1774001328.745415]: The Throttle command is : 0.4395819914919926 V
+[INFO] [1774001328.747485]: Absolute Ego states (p,v,t):  3.0548556348860005,0.1944444411330753, 50.18269968
+[INFO] [1774001328.749154]: Absolute Lead pos: None, Absolute lead vel : None
+asl-laptop2@asllaptop2:~$ 
+
