@@ -19,8 +19,7 @@ class Communication:
         self.lead_valid = False                         #newly added line
         self.prev_lead_valid = False                    #newly added line
         self.obs_vel = None                                                                       # Velocity of obstacle vehicle in m/s, given for now, once RADAR sensor is ready, this will be obtained directly from it 
-        self.obs_pos = None 
-        self.Threshold = 20.0                                                                   # Position of obstacle vehicle in meters, given for now, once LIDAR sensor is ready, this will be obtained directly from it
+        self.obs_pos = None                                                                    # Position of obstacle vehicle in meters, given for now, once LIDAR sensor is ready, this will be obtained directly from it
         self.start_time = None
         self.cur_time = None
         self.VLC = LC.VLC()                                                                      # Getting the vehicle Longitudinal controller
@@ -32,6 +31,7 @@ class Communication:
         self.store_lead_distance = []
         self.store_lead_rel_vel = []
         self.store_time = []
+
         self.save_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
         self.file_path = os.path.join(self.save_dir, 'Data_Mar20_MPC_CS5.csv')
         
@@ -50,7 +50,6 @@ class Communication:
     def start_subscribers(self):     
         
         rospy.Subscriber('/velocity_feedback', Float32, self.velocity_callback, queue_size = 10)
-
         # Subscribers for radar data
         rospy.Subscriber('/lead_distance', Float32, self.lead_distance_callback, queue_size= 10) #newly added line
         rospy.Subscriber('/lead_relative_velocity', Float32, self.lead_relative_velocity_callback, queue_size= 10)#newly added line

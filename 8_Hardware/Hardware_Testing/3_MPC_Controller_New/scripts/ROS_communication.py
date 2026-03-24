@@ -16,30 +16,26 @@ class Communication:
         # Ego states
         self.ego_vel = 0.0
         self.ego_pos = 0.0
-        
         # Radar states
         self.lead_distance = None
         self.lead_relative_velocity = 0.0
         self.lead_valid = False
-        self.prev_lead_valid = False
-        
+        #self.prev_lead_valid = False
+        #self.obs_vel = None                                                                       # Velocity of obstacle vehicle in m/s, given for now, once RADAR sensor is ready, this will be obtained directly from it 
+        #self.obs_pos = None 
         # Last known obstacle (for dropout handling)
         self.last_obs_pos = None
         self.last_obs_vel = None
         self.last_seen_time = None
         self.obs_confidence = 0
-
         # Time
         self.start_time = None
         self.cur_time = None
-        
         # Controller
         self.VLC = LC.VLC()
-        
         # ROS publishers
         self.longitudinal_control_pub = None
         self.brake_control_pub = None
-        
         # Data logging
         self.store_position = []
         self.store_velocity = []
@@ -68,7 +64,6 @@ class Communication:
         self.last_seen_time = rospy.Time.now()
         self.create_publishers()
         self.start_subscribers()
-
         rospy.spin()
 
 
@@ -90,13 +85,13 @@ class Communication:
 
     # ---------------------- RADAR CALLBACKS ----------------------
     def lead_distance_callback(self, msg):
-        self.lead_distance = msg.data
+        self.lead_distance = msg.data  # In Meters
 
     def lead_relative_velocity_callback(self, msg):
-        self.lead_relative_velocity = msg.data
+        self.lead_relative_velocity = msg.data # In m/s
 
     def lead_valid_callback(self, msg):
-        self.lead_valid = msg.data
+        self.lead_valid = msg.data # True if lead is detected, False otherwise
 
 
     # ---------------------- MAIN CONTROL CALLBACK ----------------------
@@ -117,7 +112,6 @@ class Communication:
 
         # --- RADAR PROCESSING ---
         obs_pos, obs_vel = None, None
-
         if self.lead_valid and self.lead_distance is not None:
 
             # Clamp noisy radar values
@@ -140,8 +134,7 @@ class Communication:
             if self.last_obs_pos is not None and time_since_seen < 2:
                 obs_pos = self.last_obs_pos 
                 obs_vel = self.last_obs_vel
-
-                self.last_obs_pos = obs_pos
+                self.last_obs_pos = obs_pos # FIX: Predict forward instead of holding stale position
 
             else:
                 # Switch to cruise
@@ -149,26 +142,28 @@ class Communication:
                 obs_vel = None
                 self.obs_confidence = 0
 
-
-        # --- CONTROL ---
-        throttle = self.VLC.get_control_action(
-            [self.ego_pos, self.ego_vel],
-            [obs_pos, obs_vel] if obs_pos is not None else None
-        )
-
-
         # --- SAFETY SUPERVISOR ---
         if obs_pos is not None:
             separation = obs_pos - self.ego_pos
             safe_dist = CP.Dd + CP.Td * self.ego_vel
-
             if separation < safe_dist:
                 rospy.logwarn("Too close! Overriding throttle to zero")
-                throttle = 0.0
-
+                self.VLC.throttle_pot = 0.0
+       
+        # --- CONTROL ACTION ---
+        if obs_pos is not None:
+            self.VLC.get_control_action(
+                [self.ego_pos, self.ego_vel],
+                [obs_pos, obs_vel]  
+            )
+        else:
+            self.VLC.get_control_action(
+                [self.ego_pos, self.ego_vel],
+                None  
+            )
 
         # --- PUBLISH ---
-        self.longitudinal_control_pub.publish(throttle)
+        self.longitudinal_control_pub.publish(self.VLC.throttle_pot)
 
 
         # --- LOGGING ---
@@ -182,7 +177,7 @@ class Communication:
 
 
         # --- DEBUG PRINTS ---
-        rospy.loginfo(f"Throttle: {throttle:.2f} V")
+        rospy.loginfo(f"Throttle: {self.VLC.throttle_pot} V")
         rospy.loginfo(f"Ego (pos, vel): {self.ego_pos:.2f}, {self.ego_vel:.2f}")
         
         if obs_pos is not None:
