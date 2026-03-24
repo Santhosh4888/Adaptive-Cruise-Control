@@ -1,113 +1,181 @@
-#!/usr/bin/env python3  
-
+#!/usr/bin/env python3
+#This file is under development
 import numpy as np
-import cvxpy as cp 
-import H_Common_Params as CP 
+import rospy
+from std_msgs.msg import Float32, Bool
+import H_Common_Params as CP
+import Longitudinal_Controller as LC
+import csv
+import os
 
-class MPC:
+class Communication:
     
-    def __init__(self, Np = 6, Nc = 4):
+    def __init__(self):
         
-        self.Np = Np                                         # Prediction horizon
-        self.Nc = Nc                                         # Control horizon
-        self.state_dim = 2                                   # State consists of seperation and velocity of ego vehicle
-        self.control_dim = 1                                 # Control just has the acceleration of the ego vehicle
-        self.desired_speed = CP.ego_max_v                    # Obstacle velocity of the vehicle
-        self.a_curr = 0.0                                    # Current acceleration of the vehicle
+        self.ego_vel = 0.0                                                                       # Velocity of ego vehicle in m/s
+        self.ego_pos = 0.0                                                                       # Position of ego vehicle in meters, estimated for now, once LIDAR sensor is ready, this will be obtained directly from it
+        self.lead_distance = None                       #newly added line
+        self.lead_relative_velocity = 0.0               #newly added line
+        self.lead_valid = False                         #newly added line
+        self.prev_lead_valid = False                    #newly added line
+        self.obs_vel = None                                                                       # Velocity of obstacle vehicle in m/s, given for now, once RADAR sensor is ready, this will be obtained directly from it 
+        self.obs_pos = None 
+        self.Threshold = 20.0                                                                   # Position of obstacle vehicle in meters, given for now, once LIDAR sensor is ready, this will be obtained directly from it
+        self.start_time = None
+        self.cur_time = None
+        self.VLC = LC.VLC()                                                                      # Getting the vehicle Longitudinal controller
+        self.longitudinal_control_pub = None
+        self.store_position = [self.ego_pos]
+        self.store_velocity = [self.ego_vel]
+        self.store_obs_pos = []
+        self.store_obs_vel = []
+        self.store_lead_distance = []
+        self.store_lead_rel_vel = []
+        self.store_time = []
+        self.save_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
+        self.file_path = os.path.join(self.save_dir, 'Data_Mar20_MPC_CS5.csv')
+        
+    def start_vehicle(self):
+        
+        rospy.init_node('control_node', anonymous = True)
+        print("Node Started")
+        rospy.Timer(rospy.Duration(CP.H_total_experiment_time), self.vehicle_shutdown_callback, oneshot = True) # Sets the total experiment time
+        self.start_time = rospy.Time.now()
+        self.cur_time = rospy.Time.now()
+        self.store_time.append((self.cur_time - self.start_time).to_sec())  #need to check
+        self.create_publishers()
+        self.start_subscribers()
+        rospy.spin()
             
-    def get_acceleration(self, ego_values, preceeding_values = None):
+    def start_subscribers(self):     
         
-        ego_pos, ego_vel = ego_values
-        if preceeding_values:
-            obs_pos, obs_vel = preceeding_values
-        else:
-            obs_pos, obs_vel = None, None
-        
-        Q = np.eye(2)                                                     # For defining a quadratic cost on the state variables
-        R = np.eye(1)                                                     # For defining a quadratic cost on the control action
-        P = np.eye(1) * 10000                                             # For defining a quadratic cost on the relaxation term
-        x = cp.Variable((self.state_dim, self.Np + 1))                    # Np + 1 for handling Np steps in prediction horizon and 1 for initial state
-        u = cp.Variable((self.control_dim, self.Np))                      # Control action for Np steps
-        delta = cp.Variable((self.control_dim, self.Np))                  # Np relaxation terms for relaxing the CBF constraints
-        
-        if obs_pos:                                                       # If obstacle is there then CBF constraint is an essential constraint
-            x0 = np.array([ego_pos, ego_vel])                             # Define the current state (initial state)
-            cur_obs_pos = obs_pos
-            cost = 0
-            constraints = []
-            for k in range(self.Np):
-                x_ref = np.array([0, self.desired_speed])
-                S = np.array([[0, 0], [0, 1]])
-                
-                cost += cp.quad_form(x_ref - S @ x[:, k], Q)              # Defining the cost function only for the vehicle to reach the set speed
-                
-                if k <= self.Nc: 
-                    cost += cp.quad_form(u[:, k], R)
-                cost += cp.quad_form(delta[:, k], P)
-                
-                expr = (u[0, k] / CP.A + x[1, k])
-                
-                constraints += [x[0, k + 1] == x[0, k] + (x[1, k] * CP.sample_time + 0.5 * u[0, k] * CP.sample_time ** 2)]
-                constraints += [x[1, k + 1] == x[1, k] + u[0, k] * CP.sample_time]
-                
-                if k >= self.Nc:                                          # This is done to make all the control actions after Control horizon same as control action at the time instant of control horizon
-                    constraints += [u[:, k] == u[:, k - 1]]
-                
-                constraints += [CP.a_min <= u[0, k], u[0, k] <= CP.a_max] # Constraints on acceleration
-                
-                constraints += [0.0 <= u[0, k] / CP.A + x[1, k], u[0, k] / CP.A + x[1, k] <= CP.ego_max_v] # Constraints on the acceleration based on the system model
-                
-                constraints += [0.0 <= x[1, k], x[1, k] <= CP.ego_max_v]  # Constraints on state of the vehicle
-                constraints += [cur_obs_pos - 0.5 >= x[0, k]]             # Constraints on state of the vehicle
-                
-                # CBF constraint for obstacle collision avoidance
-                constraints += [obs_vel - CP.Td * u[0, k] - x[1, k] >= - 0.1 * (cur_obs_pos - CP.Dd - CP.Td * x[1, k] - x[0, k]) - delta[0, k]] 
-                constraints += [delta[0, k] >= 0]
-                
-                if k == 0:
-                    constraints += [CP.dec_Jerk_limit <= (u[0, k] - self.a_curr) / CP.sample_time, (u[0, k] - self.a_curr) / CP.sample_time <= CP.acc_Jerk_limit]
-                else:
-                    constraints += [CP.dec_Jerk_limit <= (u[0, k] - u[0, k - 1]) / CP.sample_time, (u[0, k] - u[0, k - 1]) / CP.sample_time <= CP.acc_Jerk_limit]
-                    
-                cur_obs_pos += obs_vel * CP.sample_time                   # Updating the obstacles position assuming it is moving at a constant velocity
-                    
-            constraints += [x[:, 0] == x0]
-            constraints += [0.0 <= x[1, self.Np], x[1, self.Np] <= CP.ego_max_v]
-            constraints += [cur_obs_pos - 0.5 >= x[0, self.Np]]
-            
-        else:
-            x0 = np.array([0, ego_vel])                                   # Define the current state (initial state)
-            cost = 0
-            constraints = []
-            for k in range(self.Np):
-                x_ref = np.array([0, self.desired_speed])
-                
-                cost += cp.quad_form(x_ref - x[:, k], Q)                  # Defining the cost function
-                
-                if k <= self.Nc: 
-                    cost += cp.quad_form(u[:, k], R)
-                
-                constraints += [x[0, k + 1] == 0]
-                constraints += [x[1, k + 1] == x[1, k] + u[0, k] * CP.sample_time]
-            
-                if k >= self.Nc:
-                    constraints += [u[:, k] == u[:, k - 1]]
-                
-                constraints += [CP.a_min <= u[0, k], u[0, k] <= CP.a_max] # Constraints on acceleration
-                
-                constraints += [0.0 <= u[0, k] / CP.A + x[1, k], u[0, k] / CP.A + x[1, k] <= CP.ego_max_v] # Constraints on the acceleration based on the system model
-                
-                constraints += [0.0 <= x[1, k], x[1, k] <= CP.ego_max_v]  # Constraints on state of the vehicle
+        rospy.Subscriber('/velocity_feedback', Float32, self.velocity_callback, queue_size = 10)
 
-                if k == 0:
-                    constraints += [CP.dec_Jerk_limit <= (u[0, k] - self.a_curr) / CP.sample_time, (u[0, k] - self.a_curr) / CP.sample_time <= CP.acc_Jerk_limit]
-                else:
-                    constraints += [CP.dec_Jerk_limit <= (u[0, k] - u[0, k - 1]) / CP.sample_time, (u[0, k] - u[0, k - 1]) / CP.sample_time <= CP.acc_Jerk_limit]
-            
-            constraints += [x[:, 0] == x0]
-            constraints += [0.0 <= x[1, self.Np], x[1, self.Np] <= CP.ego_max_v]
+        # Subscribers for radar data
+        rospy.Subscriber('/lead_distance', Float32, self.lead_distance_callback, queue_size= 10) #newly added line
+        rospy.Subscriber('/lead_relative_velocity', Float32, self.lead_relative_velocity_callback, queue_size= 10)#newly added line
+        rospy.Subscriber('/lead_valid', Bool, self.lead_valid_callback, queue_size=10)#newly added line
+    
+    def create_publishers(self):
         
-        problem = cp.Problem(cp.Minimize(cost), constraints)             # Solving for the optimization problem
-        problem.solve(solver = cp.OSQP, verbose = False, max_iter = 50000)
-        self.a_curr = u[0, 0].value
-        return u[0, 0].value
+        self.longitudinal_control_pub = rospy.Publisher('/motor_command', Float32, queue_size = 10)
+        self.brake_control_pub = rospy.Publisher('/brake_command', Bool, queue_size = 10)
+        self.obs_msg = Bool()
+        self.obs_msg.data = False
+    
+    #   Radar Call Backs :
+    def lead_distance_callback(self,msg):                      #newly added line
+        self.lead_distance = msg.data # meters
+
+    def lead_relative_velocity_callback(self, msg):            #newly added line
+        self.lead_relative_velocity = msg.data  # m/s
+
+    def lead_valid_callback(self, msg):                        #newly added line
+        self.lead_valid = msg.data    
+    
+    # Control Callback
+    def velocity_callback(self, msg):
+        
+        #   Computing ego states.
+        self.ego_pos += self.ego_vel * (rospy.Time.now() - self.cur_time).to_sec()               # Estimating the separation travelled in the time at which the data is given       
+        
+        # Compute Lead Vehicle States Properly using RADAR DATA
+        if self.lead_valid and self.lead_distance is not None:          #newly added line
+
+            self.obs_pos = self.ego_pos + self.lead_distance
+            self.obs_vel = self.ego_vel + self.lead_relative_velocity        # need to confirm on this sign
+
+            self.VLC.get_control_action(
+                [self.ego_pos, self.ego_vel],
+                [self.obs_pos, self.obs_vel]
+            )
+
+        else:                                                   #newly added line
+            if self.prev_lead_valid and not self.lead_valid:    #Safety Improvement
+                rospy.logwarn("Lead vehicle lost — switching to cruise mode")
+            
+            self.VLC.get_control_action(
+                [self.ego_pos, self.ego_vel],
+                None
+            )
+        self.prev_lead_valid = self.lead_valid
+
+        
+        self.ego_vel = msg.data * 5 / 18                                                         # For converting the data to m/s from km/hr
+        self.cur_time = rospy.Time.now()
+
+        # Storing Ego vehicle states
+        self.store_position.append(self.ego_pos)
+        self.store_velocity.append(self.ego_vel)
+
+        # Storing Lead Vehicle States Properly using RADAR DATA
+        if self.lead_valid and self.lead_distance is not None:
+            self.store_obs_pos.append(self.obs_pos)
+            self.store_obs_vel.append(self.obs_vel)
+            self.store_lead_distance.append(self.lead_distance)
+            self.store_lead_rel_vel.append(self.lead_relative_velocity)
+        else:
+            self.store_obs_pos.append(None)
+            self.store_obs_vel.append(None)
+            self.store_lead_distance.append(None)
+            self.store_lead_rel_vel.append(None)
+        
+        # Storing time
+        self.store_time.append((self.cur_time - self.start_time).to_sec())
+
+
+        rospy.loginfo(f'The Throttle command is : {self.VLC.throttle_pot} V')
+        rospy.loginfo(f"Absolute Ego states (p,v,t):  {self.store_position[-1]},{self.store_velocity[-1]}, {self.store_time[-1]}")
+        rospy.loginfo(f"Absolute Lead pos: {self.store_obs_pos[-1]}, Absolute lead vel : {self.store_obs_vel[-1]}")
+        if self.store_obs_pos[-1] is not None:
+            separation = self.store_obs_pos[-1] - self.store_position[-1]
+            rospy.loginfo(f"Separation from lead vehicle : {separation}")
+        
+        # Safety supervisor
+        if self.lead_valid and self.lead_distance is not None:
+            if self.lead_distance >= CP.Dd:
+                self.longitudinal_control_pub.publish(self.VLC.throttle_pot)
+            else:
+                self.emergency_brake()
+        else:
+            self.longitudinal_control_pub.publish(self.VLC.throttle_pot)
+            
+        # if self.ego_pos >= 10.0:                                             # For now it is assumed that, once the ego vehicle crosses 10 m, it detects the obstacle
+        #     self.obs_msg.data = True
+        #     self.brake_control_pub.publish(self.obs_msg.data)
+        # else:
+        #     self.obs_msg.data = False
+        #     self.brake_control_pub.publish(self.obs_msg.data)
+
+
+    def emergency_brake(self):
+        
+        rospy.logwarn('Emergency brake activated !!!!')
+        self.VLC.throttle_pot = 0.0
+        self.longitudinal_control_pub.publish(self.VLC.throttle_pot)
+
+        
+    def vehicle_shutdown_callback(self, event):
+        rospy.loginfo(f'{self.store_position}')
+        
+        with open(self.file_path, 'w', newline='') as file:
+            writer = csv.writer(file)
+
+            writer.writerow(["Ego_Position(m)","Ego_Velocity(m/s)", "Obs_Position(m)", "Obs_Velocity(m)","Separation(m)", "Relative velocity(m/s)","Time(s)"])
+            writer.writerows([[pos, vel, obs_pos, obs_vel,dis,rel_vel, time] for pos, vel, obs_pos, obs_vel,dis, rel_vel, time in zip(self.store_position, self.store_velocity, self.store_obs_pos, self.store_obs_vel,self.store_lead_distance, self.store_lead_rel_vel,  self.store_time)])  # Saves as columns
+        rospy.loginfo('The test is over, vehicle is shutting down')
+        rospy.signal_shutdown('Shutting down .....') 
+        
+        
+       
+if __name__ == '__main__':
+    
+    VC = Communication()
+    VC.start_vehicle()
+
+
+# Here Obstacle position is	Absolute world coordinate
+# Separation is	Relative distance
+
+# And mathematically:
+## separation=obstacle_position−ego_position
