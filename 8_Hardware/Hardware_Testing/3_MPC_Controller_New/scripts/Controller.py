@@ -1,6 +1,14 @@
+#!/usr/bin/env python3
+
+# A structured optimal MPC with adaptive velocity reference and softened safety constraints, resulting in smoother, more realistic and stable behavior.
+# This controller is designed to provide a more balanced and realistic driving behavior by using an adaptive velocity reference and softened safety constraints.
+
+# Tested on real vehicle and it works well. 
+# The controller is able to maintain a safe distance from the preceding vehicle while also providing a smoother acceleration profile.
+# But the separation tracking is not good. Getting a separation error of around 3m in now, which is not ideal.
+
 import numpy as np
 import cvxpy as cp
-import sys
 import H_Common_Params as CP 
 
 class MPC:

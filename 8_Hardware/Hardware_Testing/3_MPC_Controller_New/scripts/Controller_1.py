@@ -1,4 +1,11 @@
 #!/usr/bin/env python3  
+# A tracking-based MPC with hard safety constraints, which can lead to aggressive braking and infeasibility under tight conditions.
+# This controller is designed to prioritize safety by enforcing hard constraints on the distance to the preceding vehicle. 
+# However, this can lead to aggressive braking and infeasibility in scenarios where the preceding vehicle decelerates rapidly or is very close. 
+# The controller may struggle to find a feasible solution that satisfies all constraints, 
+# especially when the desired speed is high and the safety distance is not maintained.
+
+# Need to Test to check its behaviour in realtime.
 
 import numpy as np
 import cvxpy as cp 
