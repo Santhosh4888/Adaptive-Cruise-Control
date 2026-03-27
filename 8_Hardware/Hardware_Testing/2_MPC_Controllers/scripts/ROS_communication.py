@@ -14,13 +14,12 @@ class Communication:
         
         self.ego_vel = 0.0                                                                       # Velocity of ego vehicle in m/s
         self.ego_pos = 0.0                                                                       # Position of ego vehicle in meters, estimated for now, once LIDAR sensor is ready, this will be obtained directly from it
-        self.lead_distance = None                       #newly added line
-        self.lead_relative_velocity = 0.0               #newly added line
-        self.lead_valid = False                         #newly added line
-        self.prev_lead_valid = False                    #newly added line
-        self.obs_vel = None                                                                       # Velocity of obstacle vehicle in m/s, given for now, once RADAR sensor is ready, this will be obtained directly from it 
-        self.obs_pos = None                                                                    # Position of obstacle vehicle in meters, given for now, once LIDAR sensor is ready, this will be obtained directly from it
-        self.start_time = None
+        self.lead_distance = None                       
+        self.lead_relative_velocity = 0.0               
+        self.lead_valid = False                         
+        self.prev_lead_valid = False                    
+        self.obs_vel = None                                                                    # Velocity of obstacle vehicle in m/s,  RADAR sensor will publish this data, for now it is estimated using the relative velocity and ego velocity
+        self.obs_pos = None                                                                    # Position of obstacle vehicle in meters, RADAR sensor will publish the relative distance, and the position will be estimated using the ego position and the relative distance
         self.cur_time = None
         self.VLC = LC.VLC()                                                                      # Getting the vehicle Longitudinal controller
         self.longitudinal_control_pub = None
@@ -51,9 +50,9 @@ class Communication:
         
         rospy.Subscriber('/velocity_feedback', Float32, self.velocity_callback, queue_size = 10)
         # Subscribers for radar data
-        rospy.Subscriber('/lead_distance', Float32, self.lead_distance_callback, queue_size= 10) #newly added line
-        rospy.Subscriber('/lead_relative_velocity', Float32, self.lead_relative_velocity_callback, queue_size= 10)#newly added line
-        rospy.Subscriber('/lead_valid', Bool, self.lead_valid_callback, queue_size=10)#newly added line
+        rospy.Subscriber('/lead_distance', Float32, self.lead_distance_callback, queue_size= 10) 
+        rospy.Subscriber('/lead_relative_velocity', Float32, self.lead_relative_velocity_callback, queue_size= 10)
+        rospy.Subscriber('/lead_valid', Bool, self.lead_valid_callback, queue_size=10)
     
     def create_publishers(self):
         
@@ -63,13 +62,13 @@ class Communication:
         self.obs_msg.data = False
     
     #   Radar Call Backs :
-    def lead_distance_callback(self,msg):                      #newly added line
+    def lead_distance_callback(self,msg):                      
         self.lead_distance = msg.data # meters
 
-    def lead_relative_velocity_callback(self, msg):            #newly added line
+    def lead_relative_velocity_callback(self, msg):            
         self.lead_relative_velocity = msg.data  # m/s
 
-    def lead_valid_callback(self, msg):                        #newly added line
+    def lead_valid_callback(self, msg):                        
         self.lead_valid = msg.data    
     
     # Control Callback
@@ -79,7 +78,7 @@ class Communication:
         self.ego_pos += self.ego_vel * (rospy.Time.now() - self.cur_time).to_sec()               # Estimating the separation travelled in the time at which the data is given       
         
         # Compute Lead Vehicle States Properly using RADAR DATA
-        if self.lead_valid and self.lead_distance is not None:          #newly added line
+        if self.lead_valid and self.lead_distance is not None:          
 
             self.obs_pos = self.ego_pos + self.lead_distance
             self.obs_vel = self.ego_vel + self.lead_relative_velocity        # need to confirm on this sign
@@ -89,7 +88,7 @@ class Communication:
                 [self.obs_pos, self.obs_vel]
             )
 
-        else:                                                   #newly added line
+        else:                                                   
             if self.prev_lead_valid and not self.lead_valid:    #Safety Improvement
                 rospy.logwarn("Lead vehicle lost — switching to cruise mode")
             
@@ -139,7 +138,8 @@ class Communication:
         else:
             self.longitudinal_control_pub.publish(self.VLC.throttle_pot)
             
-        # if self.ego_pos >= 10.0:                                             # For now it is assumed that, once the ego vehicle crosses 10 m, it detects the obstacle
+        # Activating the mechanical brake if the lead vehicle is too close, this is a safety measure, the threshold can be tuned based on the testing results.
+        # if self.lead_distance <= 3.0:                                             
         #     self.obs_msg.data = True
         #     self.brake_control_pub.publish(self.obs_msg.data)
         # else:
@@ -173,8 +173,9 @@ if __name__ == '__main__':
     VC.start_vehicle()
 
 
-# Here Obstacle position is	Absolute world coordinate
-# Separation is	Relative distance
-
-# And mathematically:
-## separation=obstacle_position−ego_position
+""" 
+Here Obstacle position is	Absolute world coordinate
+separation is Relative distance
+And mathematically:
+separation=obstacle_position − ego_position 
+"""
