@@ -1,4 +1,4 @@
-Ego_Position(m),Ego_Velocity(m/s),Obs_Position(m),Obs_Velocity(m),Separation(m),Relative velocity(m/s),Time(s)
+Ego_Position(m),Ego_Velocity(m/s),Obs_Position(m),Obs_Velocity(m/s),Separation(m),Relative velocity(m/s),Time(s)
 0.0,0.0,,,,,6.438e-06
 0.0,0.0,,,,,7.713315726
 0.0,0.0,,,,,7.823781252
