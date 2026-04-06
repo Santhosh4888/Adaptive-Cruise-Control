@@ -21,7 +21,7 @@ class Communication:
         self.lead_relative_velocity = 0.0
         self.lead_valid = False
         #self.prev_lead_valid = False
-        #self.obs_vel = None                                                                       # Velocity of obstacle vehicle in m/s, given for now, once RADAR sensor is ready, this will be obtained directly from it 
+        #self.obs_vel = None              # Velocity of obstacle vehicle in m/s, given for now, once RADAR sensor is ready, this will be obtained directly from it 
         #self.obs_pos = None 
         # Last known obstacle (for dropout handling)
         self.last_obs_pos = None

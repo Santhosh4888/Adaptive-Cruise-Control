@@ -99,7 +99,7 @@ class Communication:
         self.prev_lead_valid = self.lead_valid
 
         
-        self.ego_vel = msg.data * 5 / 18                                                         # For converting the data to m/s from km/hr
+        self.ego_vel = msg.data * 5 / 18       # For converting the data to m/s from km/hr
         self.cur_time = rospy.Time.now()
 
         # Storing Ego vehicle states
@@ -138,7 +138,8 @@ class Communication:
         else:
             self.longitudinal_control_pub.publish(self.VLC.throttle_pot)
             
-        # Activating the mechanical brake if the lead vehicle is too close, this is a safety measure, the threshold can be tuned based on the testing results.
+        # Activating the mechanical brake if the lead vehicle is too close, this is a safety measure.
+        # The threshold can be tuned based on the testing results.
         # if self.lead_distance <= 3.0:                                             
         #     self.obs_msg.data = True
         #     self.brake_control_pub.publish(self.obs_msg.data)
@@ -160,7 +161,7 @@ class Communication:
         with open(self.file_path, 'w', newline='') as file:
             writer = csv.writer(file)
 
-            writer.writerow(["Ego_Position(m)","Ego_Velocity(m/s)", "Obs_Position(m)", "Obs_Velocity(m)","Separation(m)", "Relative velocity(m/s)","Time(s)"])
+            writer.writerow(["Ego_Position(m)","Ego_Velocity(m/s)", "Obs_Position(m)", "Obs_Velocity(m/s)","Separation(m)", "Relative velocity(m/s)","Time(s)"])
             writer.writerows([[pos, vel, obs_pos, obs_vel,dis,rel_vel, time] for pos, vel, obs_pos, obs_vel,dis, rel_vel, time in zip(self.store_position, self.store_velocity, self.store_obs_pos, self.store_obs_vel,self.store_lead_distance, self.store_lead_rel_vel,  self.store_time)])  # Saves as columns
         rospy.loginfo('The test is over, vehicle is shutting down')
         rospy.signal_shutdown('Shutting down .....') 
