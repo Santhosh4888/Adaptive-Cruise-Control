@@ -1,5 +1,5 @@
 Ego_Position(m),Ego_Velocity(m/s),Obs_Position(m),Obs_Velocity(m/s),Separation(m),Relative velocity(m/s),Time(s),Time,Time_1s,Ego_Acceleration(m/s^2),Obs_Acceleration(m/s^2),Ego_Velocity_kmph,Obs_Velocity_kmph,Ego_Velocity_clean,Obs_Velocity_clean,Separation_clean,Ego_Acceleration_clean,Obs_Acceleration_clean,Ego_Position_clean,Obs_Position_clean
-0.0,0.0,,0.0,,,7.153e-06,0.0,0,,,0.0,0.0,0.0,0.0,,,,0.0,
+0.0,0.0,,0.0,,,7.153e-06,0.0,0,0.0,0.0,0.0,0.0,0.0,0.0,,,,0.0,
 0.0,0.0,,0.0,,,6.88680315,6.886795997,6,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,
 0.0,0.0,,0.0,,,6.999757528,6.999750375,6,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,
 0.0,0.0,,0.0,,,7.122318745,7.122311592,7,0.018518518794465935,0.0,0.0,0.0,0.0,0.0,,0.06666666766007737,0.0,0.0,
