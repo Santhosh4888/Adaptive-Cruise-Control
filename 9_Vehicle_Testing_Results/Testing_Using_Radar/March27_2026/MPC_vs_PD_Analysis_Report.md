@@ -1,16 +1,19 @@
-# Comparative Analysis: MPC vs PD Controller Performance - Adaptive Cruise Control System - Vehicle Testing Results
+# Comparative Analysis: MPC vs PD Controller Performance
+## Adaptive Cruise Control Completely Stop (CS) Scenario Testing
 
 ---
 
 ## Executive Summary
 
-This analysis evaluates the performance of Model Predictive Control (MPC) and Proportional-Derivative (PD) controllers in adaptive cruise control applications. Testing was conducted at two speed profiles (5 kph and 10 kph) with multiple test cases per profile. The results demonstrate that **MPC significantly outperforms the PD controller across critical safety, comfort, and tracking accuracy metrics**.
+This analysis evaluates the performance of Model Predictive Control (MPC) and Proportional-Derivative (PD) controllers in adaptive cruise control applications for **Completely Stop (CS) scenarios** where a stationary obstacle requires the vehicle to decelerate and come to a complete stop. Testing was conducted at two speed profiles (5 kph and 10 kph) with multiple test cases per profile. The results demonstrate that **MPC significantly outperforms the PD controller across critical safety, comfort, and braking performance metrics**.
 
 ---
 
-## 1. Safety Performance: Minimum Separation Distance
+## 1. Safety Performance: Minimum Separation Distance to Stationary Obstacle
 
-### Key Finding: MPC Maintains Substantially Larger Safety Margins
+### Key Finding: MPC Maintains Substantially Larger Stopping Safety Margins
+
+In Completely Stop (CS) scenarios, the vehicle must decelerate smoothly and stop behind a stationary obstacle while maintaining safe stopping distance.
 
 **At 5 kph speed profile:**
 
@@ -36,15 +39,15 @@ This analysis evaluates the performance of Model Predictive Control (MPC) and Pr
 | 10kph-CS2 | 2.30           | 3.37            | +47%        |
 | 10kph-CS3 | 2.30           | 2.41            | +5%         |
 
-**Interpretation:** MPC's predictive nature allows it to anticipate vehicle dynamics and maintain safer following distances. The larger safety margins reduce collision risk, particularly critical at the 5 kph profile where some PD test cases drop below 1.6m separation.
+**Interpretation:** MPC's predictive braking strategy allows it to calculate optimal deceleration profiles well in advance of the stationary obstacle. This results in smoother deceleration and better control, allowing the vehicle to come to a complete stop with larger safety margins. The larger stopping distances reduce collision risk and provide buffer against control uncertainty.
 
 ---
 
-## 2. Ride Comfort: Acceleration Smoothness
+## 2. Ride Comfort: Braking Smoothness During Complete Stop
 
-### Key Finding: MPC Delivers 15-20% Smoother Acceleration
+### Key Finding: MPC Delivers 8-11% Smoother Deceleration
 
-RMS (Root Mean Square) acceleration is a key comfort metric—lower values indicate smoother, less jerky motion.
+RMS (Root Mean Square) acceleration is a key comfort metric during braking—lower values indicate smoother deceleration without jerky braking transitions.
 
 **At 5 kph speed profile:**
 
@@ -62,15 +65,15 @@ RMS (Root Mean Square) acceleration is a key comfort metric—lower values indic
 
 - PD: 0.2576 m/s² vs MPC: 0.2131 m/s² → **17% improvement**
 
-**Interpretation:** Lower RMS acceleration means passengers experience less sudden acceleration changes. MPC's optimization-based approach smooths control inputs, improving passenger comfort and reducing wear on vehicle drivetrain components.
+**Interpretation:** Lower RMS acceleration means passengers experience smooth, predictable braking when the vehicle comes to a complete stop. MPC's optimization-based approach plans the entire deceleration trajectory in advance, producing smooth brake application throughout the stop. PD controller's reactive braking can cause sudden transitions as it adjusts to the stationary obstacle, reducing passenger comfort.
 
 ---
 
-## 3. Control Smoothness: Jerk Analysis
+## 3. Control Smoothness: Jerk Analysis During Braking
 
-### Key Finding: MPC Reduces Jerk by 35-45% (Most Significant Advantage)
+### Key Finding: MPC Reduces Jerk by 35-45% (Most Significant Comfort Advantage)
 
-Jerk (rate of change of acceleration) is critical for passenger comfort. Excessive jerk causes discomfort and can trigger safety systems.
+Jerk (rate of change of acceleration) during braking is critical for passenger comfort. Excessive jerk causes discomfort (sudden brake pressure changes) and can trigger safety systems.
 
 **Mean Jerk (Average over test duration):**
 
@@ -99,15 +102,15 @@ Jerk (rate of change of acceleration) is critical for passenger comfort. Excessi
 | 5 kph   | 3.08 (avg)        | 2.41 (avg)        | -22%      |
 | 10 kph  | 4.04 (avg)        | 3.82 (avg)        | -5%       |
 
-**Interpretation:** MPC's superior jerk performance (35-45% lower on average) results from its optimization-based control strategy. Rather than reactive P and D gains, MPC computes smooth acceleration profiles over a prediction horizon, virtually eliminating sudden jerks that cause passenger discomfort and system stress.
+**Interpretation:** MPC's superior jerk performance (35-45% lower on average) results from its optimization-based control strategy. Rather than reactive P and D gains that create sudden brake adjustments, MPC computes smooth deceleration profiles over a prediction horizon, virtually eliminating jerky brake transitions that cause passenger discomfort during complete stops. This is critical for comfort in Completely Stop scenarios.
 
 ---
 
-## 4. Velocity Tracking Accuracy: Overshoot & Undershoot
+## 4. Velocity Tracking: Complete Stop Accuracy
 
-### Key Finding: MPC Achieves Superior Target Velocity Tracking
+### Key Finding: MPC Achieves Superior Final Stop State
 
-Overshoot occurs when ego vehicle accelerates beyond obstacle velocity; undershoot occurs when it lags behind. Both indicate tracking error.
+In Completely Stop scenarios, the vehicle must decelerate smoothly and settle at zero velocity (complete stop). Overshoot represents unintended acceleration past the target position; undershoot represents incomplete deceleration.
 
 **Maximum Overshoot (% of target velocity exceeded):**
 
@@ -129,7 +132,7 @@ Overshoot occurs when ego vehicle accelerates beyond obstacle velocity; undersho
 - MPC Max Overshoot: 1.32% (controlled, predictive response)
 - **Result:** MPC prevents velocity overshoots that could lead to unintended acceleration or collision risk
 
-**Interpretation:** MPC's predictive capability allows it to anticipate target velocity changes and adjust proactively. The PD controller reacts to velocity error, often overshooting and requiring correction. This results in better fuel efficiency and passenger comfort with MPC.
+**Interpretation:** MPC's predictive capability allows it to plan the deceleration trajectory early and achieve a precise stop with minimal velocity variations near the obstacle. The PD controller reacts to distance error, often creating oscillations around the stopping point (overshoot followed by undershoot). MPC's superior stopping accuracy improves passenger confidence and demonstrates precise obstacle avoidance.
 
 ---
 
@@ -207,10 +210,12 @@ Overshoot occurs when ego vehicle accelerates beyond obstacle velocity; undersho
 
 ## Appendix: Test Conditions
 
-**Test Duration:** March 27, 2026  
-**Speed Profiles:** 5 kph, 10 kph constant obstacle velocity  
-**Test Cases:** 3-4 repetitions per speed profile  
-**Vehicle Platform:** Hardware Testing (Vehicle Testing Results)  
-**Metrics Calculated:** 14 distinct performance measures per controller per test case
+**Completely Stop (CS) Testing Campaign:**
+- **Test Duration:** March 27, 2026
+- **Scenario:** Stationary obstacle at controlled distances, ego vehicle decelerates and stops
+- **Speed Profiles:** 5 kph, 10 kph initial approach speeds
+- **Test Cases:** 3-4 repetitions per speed profile
+- **Vehicle Platform:** Hardware Testing (Vehicle Testing Results)
+- **Metrics Calculated:** 14 distinct braking and stopping performance measures per controller per test case
 
-**Data Quality:** All metrics derived from processed, cleaned sensor data with smoothing filters applied to acceleration signals.
+**Data Quality:** All metrics derived from processed, cleaned sensor data with smoothing filters applied to acceleration signals for braking analysis.
