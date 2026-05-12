@@ -4,7 +4,7 @@
 
 ## Executive Summary
 
-This analysis presents comparative performance data from **Field Vehicle (FV) testing** conducted across multiple dates (March 30, April 7, April 9, 2026) at two speed profiles (5 kph and 10 kph). FV testing represents real-world operating conditions with natural traffic patterns, weather variations, and complex driving scenarios. The results demonstrate that **MPC continues to outperform PD across all measured metrics in field conditions**, validating laboratory findings and confirming production readiness.
+This analysis presents comparative performance data from **Following Vehicle (FV) testing** conducted across multiple dates (March 30, April 7, April 9, 2026) at two speed profiles (5 kph and 10 kph). FV testing represents real-world operating conditions with natural traffic patterns, weather variations, and complex driving scenarios. The results demonstrate that **MPC continues to outperform PD across all measured metrics in following vehicle scenarios**, validating laboratory findings and confirming production readiness.
 
 ---
 
@@ -47,9 +47,9 @@ MPC maintains safe separation distances across all FV scenarios:
 
 ### Key Finding
 
-In real-world FV testing, MPC's safety advantage remains consistent (28-33% larger margins) despite increased environmental variability. This demonstrates that the controller's predictive nature generalizes well beyond controlled laboratory conditions.
+In following vehicle testing, MPC's safety advantage remains consistent (28-33% larger margins) despite increased environmental variability. This demonstrates that the controller's predictive nature generalizes well beyond controlled laboratory conditions.
 
-**Significance:** The maintained safety margin in field conditions is critical for:
+**Significance:** The maintained safety margin in following vehicle scenarios is critical for:
 
 - Collision avoidance under unpredictable lead vehicle behavior
 - Emergency response capability in sudden braking scenarios
@@ -104,7 +104,7 @@ The smoothness advantage remains across field testing, indicating MPC's superior
 
 **Interpretation:**
 
-In real-world FV scenarios with unpredictable lead vehicle behavior:
+In lead vehicle scenarios with unpredictable lead vehicle behavior:
 
 - MPC's optimization-based approach produces 24-42% lower jerk
 - PD's reactive control generates sudden acceleration changes in response to obstacles
@@ -200,7 +200,7 @@ MPC maintains **26-32% more consistent separation** across FV scenarios, indicat
 - **Conclusion:** Field testing confirms, though with slightly lower margins (expected due to real-world variability)
 
 **Reliability Finding:**
-The consistency of performance advantages across lab and field conditions demonstrates that **MPC's superiority is fundamental**, not an artifact of controlled testing conditions.
+The consistency of performance advantages across lab and following vehicle scenarios demonstrates that **MPC's superiority is fundamental**, not an artifact of controlled testing conditions.
 
 ---
 
