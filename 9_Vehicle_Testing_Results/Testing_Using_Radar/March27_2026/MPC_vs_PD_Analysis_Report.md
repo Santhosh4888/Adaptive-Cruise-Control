@@ -1,5 +1,4 @@
-# Comparative Analysis: MPC vs PD Controller Performance
-## Adaptive Cruise Control Completely Stop (CS) Scenario Testing
+# Comparative Analysis: MPC vs PD Controller Performance - Adaptive Cruise Control Completely Stop (CS) Scenario Testing
 
 ---
 
