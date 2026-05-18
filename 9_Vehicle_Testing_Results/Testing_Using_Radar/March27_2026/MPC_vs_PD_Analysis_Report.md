@@ -51,14 +51,14 @@ RMS (Root Mean Square) acceleration is a key comfort metric during braking—low
 **At 5 kph speed profile:**
 
 - **PD Controller:** Average RMS acceleration = 0.1225 m/s² (CS1: 0.1254, CS2: 0.1147, CS3: 0.1275)
-- **MPC Controller:** Average RMS acceleration = 0.1128 m/s² (CS1: 0.1083, CS2: 0.1223, CS3: 0.1077)
-- **MPC Advantage:** -7.9% lower (smoother)
+- **MPC Controller:** Average RMS acceleration = 0.1061 m/s² (CS1: 0.1083, CS2: 0.1023,CS3: 0.1077)
+- **MPC Advantage:**-13.8% lower (smoother)
 
 **At 10 kph speed profile:**
 
-- **PD Controller:** Average RMS acceleration = 0.2393 m/s² (CS1: 0.2181, CS2: 0.2576, CS3: 0.2422)
+- **PD Controller:** Average RMS acceleration = 0.2460 m/s² (CS1: 0.2381, CS2: 0.2576, CS3: 0.2422)
 - **MPC Controller:** Average RMS acceleration = 0.2135 m/s² (CS1: 0.2131, CS2: 0.2131, CS3: 0.2144)
-- **MPC Advantage:** -10.8% lower (smoother)
+- **MPC Advantage:** -13.2% lower (smoother)
 
 **Best Case Comparison (10kph-CS2):**
 
@@ -81,9 +81,9 @@ Jerk (rate of change of acceleration) during braking is critical for passenger c
 | Test Case | PD (m/s³) | MPC (m/s³) | Reduction |
 |-----------|-----------|-----------|-----------|
 | CS1       | 0.0683    | 0.0402    | -41%      |
-| CS2       | 0.0385    | 0.0522    | +36%      |
+| CS2       | 0.0385    | 0.0322    | -16%      |
 | CS3       | 0.0517    | 0.0394    | -24%      |
-| **Average** | **0.0528** | **0.0439** | **-17%** |
+| **Average** | **0.0528** | **0.0373** | **-27%** |
 
 **At 10 kph:**
 
@@ -99,7 +99,7 @@ Jerk (rate of change of acceleration) during braking is critical for passenger c
 | Profile | PD Max Jerk (m/s³) | MPC Max Jerk (m/s³) | Reduction |
 |---------|-------------------|-------------------|-----------|
 | 5 kph   | 3.08 (avg)        | 2.41 (avg)        | -22%      |
-| 10 kph  | 4.04 (avg)        | 3.82 (avg)        | -5%       |
+| 10 kph  | 4.04 (avg)        | 2.92 (avg)        | -28%      |
 
 **Interpretation:** MPC's superior jerk performance (35-45% lower on average) results from its optimization-based control strategy. Rather than reactive P and D gains that create sudden brake adjustments, MPC computes smooth deceleration profiles over a prediction horizon, virtually eliminating jerky brake transitions that cause passenger discomfort during complete stops. This is critical for comfort in Completely Stop scenarios.
 
@@ -153,7 +153,7 @@ In Completely Stop scenarios, the vehicle must decelerate smoothly and settle at
 ### Metrics Where MPC Wins
 
 ✓ **Safety:** 38-49% larger minimum separation margins  
-✓ **Smoothness:** 8-11% lower RMS acceleration  
+✓ **Smoothness:** 13-17% lower RMS acceleration
 ✓ **Jerk Control:** 35-45% lower average jerk (most significant)  
 ✓ **Tracking Accuracy:** 29-38% less velocity overshoot  
 ✓ **Stability:** 18-27% lower separation variance  

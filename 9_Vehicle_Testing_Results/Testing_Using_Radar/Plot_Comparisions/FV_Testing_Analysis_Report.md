@@ -1,4 +1,4 @@
-# Field Vehicle Testing Analysis: MPC vs PD Controller Performance - Adaptive Cruise Control Real-World Validation Campaign
+# Following Vehicle Testing Analysis: MPC vs PD Controller Performance - Adaptive Cruise Control Real-World Validation Campaign
 
 ---
 
@@ -27,7 +27,7 @@ This analysis presents comparative performance data from **Following Vehicle (FV
 
 ---
 
-## 2. Safety Performance: Field Vehicle Results
+## 2. Safety Performance: Following Vehicle Results
 
 ### Minimum Separation in Real-World Conditions
 
@@ -37,13 +37,13 @@ MPC maintains safe separation distances across all FV scenarios:
 
 - **PD Average:** ~2.5m minimum separation
 - **MPC Average:** ~3.2m minimum separation  
-- **Field Safety Margin:** +28% improvement
+- **Following Safety Margin:** +28% improvement
 
 **10 kph Profile (Urban/Residential Conditions):**
 
 - **PD Average:** ~2.1m minimum separation
 - **MPC Average:** ~2.8m minimum separation
-- **Field Safety Margin:** +33% improvement
+- **Following Safety Margin:** +33% improvement
 
 ### Key Finding
 
@@ -59,7 +59,7 @@ In following vehicle testing, MPC's safety advantage remains consistent (28-33% 
 
 ## 3. Ride Comfort: Real-World Smoothness
 
-### RMS Acceleration in Field Conditions
+### RMS Acceleration in Following Vehicle Conditions
 
 **5 kph Profile:**
 
@@ -75,27 +75,27 @@ In following vehicle testing, MPC's safety advantage remains consistent (28-33% 
 
 ### RMS Acceleration Consistency
 
-The smoothness advantage remains across field testing, indicating MPC's superior performance is **not dependent on controlled laboratory conditions**. Field variability (unpredictable lead vehicles, acceleration transients) does not degrade MPC's smoothness performance.
+The smoothness advantage remains across following vehicle testing, indicating MPC's superior performance is **not dependent on controlled laboratory conditions**. Field variability (unpredictable lead vehicles, acceleration transients) does not degrade MPC's smoothness performance.
 
 ---
 
-## 4. Control Smoothness: Jerk Performance in Field
+## 4. Control Smoothness: Jerk Performance in Following Vehicle
 
 ### Mean Jerk Reduction (Most Significant Comfort Metric)
 
-**5 kph Field Testing:**
+**5 kph Following Vehicle Testing:**
 
 - **PD:** 0.0521 m/s³ average
 - **MPC:** 0.0398 m/s³ average
 - **Reduction:** -23.6% lower jerk
 
-**10 kph Field Testing:**
+**10 kph Following Vehicle Testing:**
 
 - **PD:** 0.0742 m/s³ average
 - **MPC:** 0.0431 m/s³ average
 - **Reduction:** -41.9% lower jerk
 
-### Field Jerk Analysis
+### Jerk Analysis
 
 | Speed | Test Scenario | PD Peak Jerk | MPC Peak Jerk | Reduction |
 |-------|---------------|-------------|---------------|-----------|
@@ -161,7 +161,7 @@ MPC maintains **26-32% more consistent separation** across FV scenarios, indicat
 
 ---
 
-## 7. Field Performance Summary
+## 7. Following Vehicle Performance Summary
 
 ### Overall FV Metrics Comparison
 
@@ -181,30 +181,8 @@ MPC maintains **26-32% more consistent separation** across FV scenarios, indicat
 ✓ Tracking (37% less overshoot)  
 ✓ Stability (26% more consistent)  
 
----
 
-## 8. Field Validation of Laboratory Findings
-
-### Laboratory vs. Field Performance Correlation
-
-**Consistency Check:**
-
-- Lab (March27): MPC jerk advantage 35-45%
-- Field (Mar30-Apr9): MPC jerk advantage 24-42%
-- **Correlation:** High consistency between controlled and real-world scenarios
-
-**Safety Margin Validation:**
-
-- Lab (March27): MPC safety 38-49% better
-- Field (Apr9): MPC safety 28-33% better
-- **Conclusion:** Field testing confirms, though with slightly lower margins (expected due to real-world variability)
-
-**Reliability Finding:**
-The consistency of performance advantages across lab and following vehicle scenarios demonstrates that **MPC's superiority is fundamental**, not an artifact of controlled testing conditions.
-
----
-
-## 9. Real-World Implementation Insights
+## 8. Real-World Implementation Insights
 
 ### Operational Observations
 
@@ -236,12 +214,12 @@ The consistency of performance advantages across lab and following vehicle scena
 
 ## 10. Conclusions & Recommendations
 
-### Key Findings from Field Vehicle Testing
+### Key Findings from Following Vehicle Testing
 
 1. **MPC is production-ready** for deployment in adaptive cruise control systems
 2. **Real-world advantages match laboratory predictions**, confirming simulation validity
 3. **Passenger comfort significantly improved** with 34% jerk reduction
-4. **Safety margins remain substantial** in all field scenarios tested
+4. **Safety margins remain substantial** in all Following Vehicle scenarios tested
 5. **System reliability demonstrated** across multiple test dates and conditions
 
 ### Regulatory & Safety Implications
@@ -269,7 +247,7 @@ The consistency of performance advantages across lab and following vehicle scena
 
 ---
 
-## Appendix: Field Testing Data Summary
+## Appendix: Following Vehicle Testing Data Summary
 
 **Test Campaign Details:**
 
